@@ -1,0 +1,641 @@
+%!TEX root = ../thesis.tex
+
+\chapter{Many-body physics}
+
+Superconductivity results from the interaction of a huge number of particles and
+quasiparticles, conventionally electrons and phonons, and depends strongly on
+temperature. A prominent approach to such problems is the \name{Green}-function
+method of statistical physics, which emerged in the middle of the 20th century
+as a side product of quantum electrodynamics.%
+%
+\footnote{In 1949 \name{Dyson} publishes an attempt to unify \q'The Radiation
+Theories of Tomonaga, Schwinger, and Feynman' \cite{Dyson49} together with an
+early \name{Feynman} diagram. Six years later \name{Matsubara} applies the new
+methods to the calculation of the grand-canonical partition function
+\cite{Matsubara55}.}
+%
+Since the equations which make up \name{Eliashberg} theory, namely
+Eqs.~\ref{Eliashberg equations} on page~\pageref{Eliashberg equations}, are only
+meaningful within this framework, a review of the relevant aspects is given in
+this chapter.%
+%
+\footnote{Physical concepts that are very well established nowadays will be
+stated without reference to their specific origins. They are covered in most
+textbooks such as the one by \name{Mahan} \cite{Mahan}.}
+
+Initially, the possible ways of handling time dependence in quantum mechanics
+are presented, focussing on the interaction picture. On this basis \name{Green}
+functions are introduced, including their imaginary-axis formulation. Next, not
+only to exemplify what was stated so far but also because it will provide the
+fundamental building block for what follows, the special case of non-interacting
+particles is discussed. Finally, a variety of the \name{Wick} theorem, which
+prepares the ground for \name{Feynman}'s diagrammatical perturbation theory, is
+derived.
+
+Throughout this work units are chosen in which the \name{Boltzmann} and the
+reduced \name{Planck} constant are unity, i.e. $k \sub B = \hbar = 1$.
+Consequently, no distinction between frequency and both temperature and energy
+is made. Moreover, in some places where no ambiguity arises different quantities
+are represented by the same symbol and only distinguished by the name of their
+formal argument. An example are continuous functions and their \name{Fourier}
+transforms.
+
+\section{Dynamical pictures}
+
+It is convenient to present time dependence in quantum mechanics on the basis of
+expectation values. Let the \textsc{Hamilton} operator of the system be $\op H =
+\op H_0 + \op V$ with $\op H_0$ diagonal and $\op V$ an interaction. At time
+$t$, the expectation value of the observable $\op X$ in the state $\ket \psi$
+reads
+%
+\begin{equation*}
+    \bra \psi \, \E^{\I \op H t} \, \op X \, \E^{-\I \op H t} \, \ket \psi =
+    \bra \psi \, \E^{\I \op H t} \, \E^{-\I \op H_0 t} \,
+    \E^{\I \op H_0 t} \, \op X \, \E^{-\I \op H_0 t} \,
+    \E^{\I \op H_0 t} \, \E^{-\I \op H t} \, \ket \psi.
+\end{equation*}
+%
+So far, both observables and states are assumed to be independent of time. In
+practice however, they are usually associated with the adjacent exponential
+functions, which can be done in different ways, each of which corresponds to a
+so-called \emph{dynamical picture}.
+
+In the \emph{\name{Schrödinger} picture} the full time dependency is ascribed to
+the states. Differentiation with respect to time yields the \textsc{Schrödinger}
+equation. Formally,
+%
+\begin{equation*}
+    \ket{\psi(t)} = \E^{-\I \op H t} \, \ket \psi
+    \quad \Rightarrow \quad
+    \I \frac \D {\D t} \ket{\psi(t)} = \op H \ket{\psi(t)}.
+\end{equation*}
+
+As opposed to this, in the \emph{\textsc{Heisenberg} picture} only the
+observables depend on time. In this case differentiation using the product rule
+yields \textsc{Heisenberg}'s equation of motion. Thus
+%
+\begin{equation*}
+    \op X(t) = \E^{\I \op H t} \, \op X \, \E^{-\I \op H t}
+    \quad \Rightarrow \quad
+    \I \frac \D {\D t} \op X(t) = [\op X(t), \op H].
+\end{equation*}
+
+A useful compromise is provided by the the \emph{\textsc{Dirac} picture}, also
+known as the \emph{interaction picture}, where the time dependence is shared
+among observables and states. The former evolve according to the unperturbed
+part of the \textsc{Hamilton} operator while the latter are governed by the
+interaction.
+
+To be able to distinguish between the different pictures, time arguments will be
+enclosed in square brackets $[\dots]$. Formally, both a \name{Heisenberg}- and a
+\name{Schrödinger}-like equation of motion emerge for observables and states,
+respectively:
+%
+\begin{subequations}
+    \begin{align}
+        \label{Dirac operator}
+        \op X[t] = \E^{\I \op H_0 t} \, \op X \, \E^{-\I \op H_0 t}
+        \quad &\Rightarrow \quad
+        \I \frac \D {\D t} \op X[t] = [\op X[t], \op H_0],
+        \\
+        \label{Dirac state}
+        \ket{\psi[t]} = \E^{\I \op H_0 t} \, \E^{-\I \op H t} \, \ket \psi
+        \quad &\Rightarrow \quad
+        \I \frac \D {\D t} \ket{\psi[t]} = \op V[t] \ket{\psi[t]}.
+    \end{align}
+\end{subequations}
+
+\subsection{\name{Dyson} series}
+
+According to Eq.~\ref{Dirac state}, the unitary time-evolution operator $\op
+S(t, t_0)$ for arbitrary initial times $t_0$,%
+%
+\footnote{\name{Dirac} establishes this operator together with the distributed
+time dependence in §\,44 \q'The perturbation considered as causing transitions'
+of his textbook on quantum mechanics \cite{Dirac}.}
+%
+precisely the one defined by $\ket{\psi[t]} = \op S(t, t_0) \ket{\psi[t_0]}$,
+has to satisfy the differential equation
+%
+\begin{equation*}
+    \frac \D {\D t} \op S(t, t_0) = -\I \op V[t] \, \op S(t, t_0)
+    \quad \text{with} \quad
+    \op S(t_0, t_0) = 1.
+\end{equation*}
+%
+Integration followed by a fixed-point iteration, which is expected to converge,
+yields
+%
+\begin{equation*}
+    \op S(t, t_0) = 1 - \I \int \from{t_0} \till t \D t' \,
+    \op V[t] \, \op S(t, t_0) =
+    \sum_{n = 0}^\infty (-\I)^n
+    \int \from{t_0} \till t \D t_1
+    \int \from{t_0} \till{t_1} \D t_2 \dots
+    \int \from{t_0} \till{t_{n - 1}} \D t_n \,
+    \op V[t_1] \dots \op V[t_n].
+\end{equation*}
+
+With $S_n$ being the group of all $n!$ permutations of $1 \dots n$ one can just
+as well write
+%
+\begin{equation*}
+    \op S(t, t_0) = \sum_{n = 0}^\infty \frac{(-\I)^n}{n!} \sum_{P \in S_n}
+    \int \from{t_0} \till t \D t_{P(1)}
+    \int \from{t_0} \till{t_{P(1)}} \D t_{P(2)} \dots
+    \int \from{t_0} \till{t_{P(n - 1)}} \D t_{P(n)} \,
+    \op V[t_{P(1)}] \dots \op V[t_{P(n)}]
+\end{equation*}
+%
+since a permutation of the dummy variables does not alter the value of the
+integral. For $t > t_0$, which will be assumed from now on, the domain of
+integration is always an $n$-simplex defined by $t_0 < t_{P(n)} < \dots <
+t_{P(1)} < t$. Noting that the $n$-simplices for all permutations add up to the
+$n$-dimensional hypercube defined by $t_0 < t_i < t$ for all $i \in \{ 0 \dots n
+\}$,%
+%
+\footnote{The idea of speaking of \q'simplices' and \q'hypercubes' in this
+context is taken from lecture notes by V. \name{Kaplunovsky}.}
+%
+one finds most beneficial formulation of the \emph{\name{Dyson} series}%
+%
+\footnote{See Eq.~32 in Ref.~\barecite{Dyson49} for an analogous formula.}
+%
+\begin{equation} \label{Dyson series}
+    \op S(t, t_0) = \sum_{n = 0}^\infty \frac{(-\I)^n}{n!}
+    \int \from{t_0} \till t \D t_1 \dots
+    \int \from{t_0} \till t \D t_n \,
+    \op T \, \op V[t_1] \dots \op V[t_n],
+\end{equation}
+%
+where $\op T$ is a \emph{time-ordering operator}, which sorts the factors of a
+product of operators chronologically with the result that their actual time
+arguments ascend from right to left.
+
+If the time dependence of the perturbation operator does not involve any non-commuting quantities, the time-ordering operator is no longer needed and Eq.~\ref{Dyson series} can be written as
+%
+\begin{equation*}
+    \op S(t, t_0) = \exp \left[
+        -\I \int \from{t_0} \till t \D t' \, \op V[t'] \right].
+\end{equation*}
+%
+But even if the operators do not commute it is common practice to write a
+symbolic exponential function with the time-ordering operator placed in front.
+
+\section{\name{Green} functions}
+
+Gathering complete information about an interacting many-body system is a hard,
+if not impossible task. However, much can be learned by studying the behavior of
+single test particles within this system.
+
+To that end \emph{correlation functions} like $\av{\op A(t) \, \op B(t')}$ are
+considered, where $\op A$ and $\op B$ are either fermion or boson operators.
+They describe how the presence or absence of a certain particle at one time
+correlates with an analogous occurrence at another time.
+
+To take an equilibrium temperature $\beta^{-1}$ into account, $\av \dots$ shall
+denote an ensemble average. For brevity, a canonical ensemble with the partition
+function $Z = \Tr \E^{-\beta \op H}$ is assumed; associating the \name{Hamilton}
+operator $\op H$ with $\op H - \mu \op N$, where $\mu$ is the chemical potential
+and $\op N$ the particle-number operator, yields the grand canonical ensemble.
+%
+\begin{equation} \label{C(t)}
+    \begin{split}
+        \av{\op A(t) \, \op B(t')} &= \frac 1 Z \Tr
+        \big[
+            \E^{-\beta \op H} \,
+            \E^{\I \op H t} \, \op A \, \E^{-\I \op H t} \,
+            \E^{\I \op H t'} \, \op B \, \E^{-\I \op H t'}
+        \big]
+        \\
+        &= \frac 1 Z \Tr
+        \big[
+            \E^{-\beta \op H} \,
+            \E^{\I \op H (t - t')} \, \op A \, \E^{-\I \op H (t - t')} \, \op B
+        \big]
+        = \av{\op A(t - t') \, \op B} \equiv C(t - t')
+    \end{split}
+\end{equation}
+%
+depends on time differences only, since the trace of a product is invariant
+under cyclic permutations of the factors. With the energy eigenstates $\ket n$
+and -values $E_n$,
+%
+\begin{equation} \label{C(t) in energy basis}
+    C(t) = \frac 1 Z \sum_{n m} \bra n
+    \E^{-\beta \op H} \, \E^{\I \op H t} \, \op A \, \E^{-\I \op H t}
+    \ket m \bra m \op B \ket n =
+    \frac 1 Z \sum_{n m} \E^{-\beta E_n}
+    \underbrace{\bra n \op A \ket m}_{A_{n m}}
+    \underbrace{\bra m \op B \ket n}_{B_{m n}}
+    \E^{\I (E_n - E_m) t}.
+\end{equation}
+%
+A \name{Fourier} transform using Eq.~\ref{int dt exp(i omega t)} reveals a
+weighted excitation spectrum
+%
+\begin{equation} \label{C(omega)}
+    C(\omega) = \frac 1 {2 \pi} \int \from{-\infty} \till \infty \D t \,
+    C(t) \, \E^{\I \omega t} =
+    \frac 1 Z \sum_{n m} \E^{-\beta E_n} \, A_{n m} B_{m n} \,
+    \delta[\omega - (E_m - E_n)].
+\end{equation}
+
+At temperature $\beta^{-1}$, the probability that a many-particle state $\ket n$
+with energy $E_n$ is realized reads $\E^{-\beta E_n} / Z$ and the average
+occupation number of a single-particle state with energy $\epsilon$ is given by
+$f(\epsilon) = [\E^{\beta \epsilon} \pm 1]^{-1}$ as derived in Section~\ref{free
+particles}. From now on upper and lower signs hold for fermions and bosons,
+respectively. One can easily verify that
+%
+\begin{equation*}
+    \E^{-\beta E_n} =
+    \big[ 1 \mp f(E_m - E_n) \big]
+    \big[ \E^{-\beta E_n} \pm \E^{-\beta E_m} \big]
+\end{equation*}
+%
+and write Eq.~\ref{C(omega)} as $C(\omega) = [1 \mp f(\omega)] \, A(\omega)$ with the \emph{spectral function}
+%
+\begin{equation} \label{A(omega)}
+    A(\omega) = \frac 1 Z \sum_{n m} \big[
+        \E^{-\beta E_n} \pm \E^{-\beta E_m}
+    \big] \, A_{n m} B_{m n} \, \delta[\omega - (E_m - E_n)].
+\end{equation}
+%
+It is straightforward to reverse the steps that led from Eq.~\ref{C(t)} to
+Eq.~\ref{C(omega)} and apply them to Eq.~\ref{A(omega)}. The \name{Fourier}
+transform of the spectral function turns out to be the expectation value of the
+(anti-) commutator of the respective operators:
+%
+\begin{equation} \label{A(t)}
+    A(t) = \int \from{-\infty} \till \infty \D \omega \,
+    A(\omega) \, \E^{-\I \omega t} =
+    \av{[\op A(t), \op B]_\pm}.
+\end{equation}
+
+Causality forbids the present to affect the past. This may be implemented into
+the theory by nullifying the correlation for negative time differences. Together
+with a factor $-\I$, which is solely introduced for convenience, this yields the
+\emph{retarded \name{Green} function}
+%
+\begin{equation} \label{G_ret(t)}
+    G \sub{ret.} (t) = -\I \Theta(t) \, A(t) =
+    -\I \Theta(t) \, \av{[\op A(t), \op B]_\pm}.
+\end{equation}
+%
+With the help of Eqs.~\ref{A(t)} and \ref{int+ dt exp(i omega t)} another
+\name{Fourier} transform to the energy domain, by convention without a factor of
+$(2 \pi)^{-1}$, yields
+%
+\begin{equation} \label{G_ret(omega)}
+    G \sub{ret.} (\omega) = \int \from{-\infty} \till \infty \D t \,
+    G \sub{ret.} (t) \, \E^{\I \omega t} = -\I
+    \int \from{-\infty} \till \infty \D \omega' \, A(\omega')
+    \int \from 0 \till \infty \D t \, \E^{\I (\omega - \omega') t} =
+    \int \from{-\infty} \till \infty \D \omega' \,
+    \frac{A(\omega')}{\omega - \omega' + \I 0^+}.
+\end{equation}
+
+For completeness one also defines the \emph{advanced \name{Green} function}. Using Eq.~\ref{int- dt exp(i omega t)},
+%
+\begin{equation} \label{G_adv}
+    G \sub{adv.} (t) = \I \Theta(-t) \, A(t)
+    \quad \text{and} \quad
+    G \sub{adv.} (\omega) = \frac{A(\omega')}{\omega - \omega' - \I 0^+}.
+\end{equation}
+
+\subsection{Imaginary-time formalism}
+
+The retarded \name{Green} function as defined in Eq.~\ref{G_ret(t)} contains two
+different types of exponential functions: the ensemble weight which decays with
+increasing energy, and the ones oscillating with time. It would be convenient to
+be able to treat both in one go which can be accomplished by assuming the time
+to be purely imaginary. Introducing a real parameter $\tau = \I t$ and writing
+%
+\begin{equation*}
+    \op A(\tau) = \E^{\op H \tau} \, \op X \, \E^{-\op H \tau},
+\end{equation*}
+%
+the theory as been formally freed from all periodic terms.
+
+The \emph{\name{Matsubara-Green} function} is preliminary defined as
+%
+\begin{equation*}
+    G(\tau) = -\av{\op T \, \op A(\tau) \, \op B},
+\end{equation*}
+%
+where $\op T$ acts as in Eq.~\ref{Dyson series}, except that is sorts with
+respect to the parameter $\tau$ and induces a change of sign each time two
+fermion operator are transposed.
+
+Using the cyclic property of the trace and introducing unity, one finds the
+property
+%
+\begin{align*}
+    \av{\op A(\tau) \, \op B} &= \frac 1 Z \Tr \big[ \E^{-\beta \op H} \,
+    \E^{\op H \tau} \, \op A \, \E^{-\op H \tau} \,
+    \E^{\beta \op H} \, \E^{-\beta \op H} \, \op B \big]
+    \\
+    &= \frac 1 Z \Tr \big[ \E^{-\beta \op H} \, \op B \,
+    \E^{\op H (\tau - \beta)} \, \op A \, \E^{-\op H (\tau - \beta)} \big]
+    = \av{\op B \, \op A(\tau - \beta)}
+\end{align*}
+%
+and as a consequence for $0 < \tau < \beta$
+%
+\begin{equation} \label{(anti-) periodicity}
+    G(\tau)
+    = -\av{\op B \, \op A(\tau - \beta)}
+    = \pm \av{\op T \, \op A(\tau - \beta) \, \op B}
+    = \mp G(\tau - \beta).
+\end{equation}
+
+Being only interested in the interval $(-\beta, \beta)$ one can just as well
+consider a modified \textsc{Green} function which continues periodically beyond
+this domain, namely
+%
+\begin{equation*}
+    \widetilde G(\tau) = \frac 1 \beta \sum_{n \in \mathds Z}
+        \E^{-\I \pi n \tau / \beta} G_n
+    \quad \text{with} \quad
+    G_n = \frac 1 2 \int \from{-\beta} \till \beta \D \tau \,
+        \E^{\I \pi n \tau / \beta} G(\tau).
+\end{equation*}
+%
+Because of the (anti-) periodicity found in Eq.~\ref{(anti-) periodicity} one has
+%
+\begin{equation*}
+    \int \from{-\beta} \till 0 \D \tau \, \E^{\I \pi n \tau / \beta} \, G(\tau)
+    = \mp \int \from{-\beta} \till 0 \D \tau \,
+        \E^{\I \pi n \tau / \beta} G(\tau + \beta)
+    = \mp \E^{-\I \pi n} \int \from 0 \till \beta \D \tau \,
+        \E^{\I \pi n \tau / \beta} G(\tau),
+\end{equation*}
+%
+which causes every other series coefficient to vanish, thus
+%
+\begin{equation*}
+    G_n =
+    \begin{cases}
+        \int_0^\beta \D \tau \, \E^{\I \pi n \tau / \beta} \, G(\tau)
+        & \text{for fermions (bosons) if $n$ is odd (even),} \\ 0
+        & \text{otherwise.}
+    \end{cases}
+\end{equation*}
+
+So one redefines the \emph{\name{Matsubara}-Green function} and its
+imaginary-axis representation
+%
+\begin{equation} \label{Matsubara-Green function}
+    G(\tau) = \frac 1 \beta \sum_{n \in \mathds Z}
+        \E^{-\I \omega_n \tau} G(\I \omega_n)
+    \quad \text{and} \quad
+    G(\I \omega_n) = \int \from 0 \till \beta \D \tau \,
+        \E^{\I \omega_n \tau} G(\tau)
+    = -\int \from 0 \till \beta \D \tau \,
+        \E^{\I \omega_n \tau} \av{\op A(\tau) \op B},
+\end{equation}
+%
+with the \emph{\name{Matsubara} frequencies}
+%
+\begin{equation*}
+    \omega_n =
+    \begin{cases}
+        \frac{(2 n + 1) \pi} \beta & \text{for fermions}, \\
+        \frac{2 n \pi} \beta & \text{for bosons.}
+    \end{cases}
+\end{equation*}
+
+With the help of Eq.~\ref{C(t) in energy basis} and comparing with
+Eqs.~\ref{G_ret(omega)} and \ref{G_adv} one finds that both $G \sub{ret.}
+(\omega)$ and $G \sub{adv.} (\omega)$ can be obtained from $G(\I \omega)$
+through analytic continuation $\I \omega \rightarrow \omega \pm \I 0^+$, since
+%
+\begin{align*}
+    G(\I \omega_n) &= -\frac 1 Z \sum_{n m}
+    \E^{-\beta E_n} A_{n m} B_{m n}
+    \int \from 0 \till \beta \D \tau \,
+    \E^{\I \omega_n \tau} \E^{(E_n - E_m) \tau} \\
+    &=
+    \frac 1 Z \sum_{n m} A_{n m} B_{m n}
+    \frac{\E^{-\beta E_n} \pm \E^{-E_m \beta}}{\I \omega_n - (E_m - E_n)}
+    = \int \from{-\infty} \till \infty \D \omega
+    \frac{A(\omega)}{\I \omega_n - \omega}.
+\end{align*}
+
+\section{Free particles}
+\label{free particles}
+
+The theory presented in the preceding sections will now be exemplified by means
+of the special case of free particles, which will turn out to be fundamental in
+the following section. In this context \q'free' shall not be understood as
+\q'free from any forces' but rather as \q'non-interacting' since independent
+\name{Bloch} electrons in a fixed lattice are very well considered free, just as
+every quasi-particle which diagonalizes the full \name{Hamilton} operator. The
+latter may then be written as
+%
+\begin{equation} \label{H_0}
+    \op H_0 = \sum_k \epsilon_k \op n_k
+    \quad \text{with} \quad
+    \op n_k = \op a_k^+ \op a_k.
+\end{equation}
+%
+where $\op a_k^{(+)}$ annihilates (creates) a fermion or boson with quantum
+number $k$ and energy $\epsilon_k$ and the operator $\op n_k$ gives the
+corresponding occupation number.
+
+First, the time-dependence of the creation and annihilation operators is
+presented. Using Eq.~\ref{Dirac operator} as well as the canonical (anti-)
+commutation relations one finds
+%
+\begin{equation} \label{time-dependent ladder operator}
+    \begin{aligned}
+        \op a_k[t] &= \E^{-\I \epsilon_k t} \, \op a_k
+        & \text{and} &&
+        \op a_k^+[t] &= \E^{\I \epsilon_k t} \, \op a_k^+ \\
+        \text{or} \quad
+        \op a_k[\tau] &= \E^{-\epsilon_k \tau} \, \op a_k
+        & \text{and} &&
+        \op a_k^+[\tau] &= \E^{\epsilon_k \tau} \, \op a_k^+.
+    \end{aligned}
+\end{equation}
+%
+The \name{Dirac} picture is used to allow for a perturbation $\op V$ to be added
+without having to update these equations. If $\op H_0$ is already the full
+\name{Hamilton} operator, they are equally valid in the \name{Heisenberg}
+picture.
+
+Next, the \emph{\name{Fermi-Dirac}} and the \emph{\name{Bose-Einstein}
+distribution} $f_\pm$ are derived, which give the average number of fermions and
+bosons, respectively, with the same quantum number as a function of their
+energy. Each eigenstate $\ket n$ of the \name{Hamilton} operator in
+Eq.~\ref{H_0} is a \name{Fock} state, thus an (anti-) symmetric product of the
+occupied single-particle states, and the corresponding energy $E_n = \sum_k
+\epsilon_k n_k$, where $n_k$ are occupation numbers, is a sum of single-particle
+energies.
+%
+\begin{equation*}
+    f(\epsilon_k) = \av{\op n_k}_0 = \frac{\sum_n \bra n \op n_k \ket n \E^{-\beta E_n}}{\sum_n \E^{-\beta E_n}} = \frac{\sum_{n_k = 0}^N n_k \E^{-\beta \epsilon_k n_k}}{\sum_{n_k = 0}^N \E^{-\beta \epsilon_k n_k}},
+\end{equation*}
+%
+where $N$ is the maximum number of particles allowed to occupy the same state
+and $\av \dots_0$ denotes an average with respect to a diagonal \name{Hamilton}
+operator. In the last step the fraction has been reduced through division by the
+partial sum of the denominator for which $\bra n \op n_k \ket n = 0$.
+
+For fermions $N = 1$ and thus
+%
+\begin{equation} \label{Fermi function}
+    f_+(\epsilon_k) = \frac{\E^{-\beta \epsilon_k}}{1 + \E^{-\beta \epsilon_k}}
+    = \frac 1 {\E^{\beta \epsilon_k} + 1}.
+\end{equation}
+
+For bosons $N = \infty$ and, recognizing that
+%
+\begin{equation*}
+    n_k = \underbrace{
+        0 + (n_k - 1) + 1 = 1 + (n_k - 2) + 1 = \dots = (n_k - 1) + 0 + 1
+    } \sub{$n_k$ partitions}
+\end{equation*}
+%
+as well as a geometric series, one finds
+%
+\begin{equation} \label{Bose function}
+    f_-(\epsilon_k)
+    = \frac {\sum_{n, m} \E^{-\beta \epsilon_k (n + m + 1)}}
+        {\sum_n \E^{-\beta \epsilon_k n}}
+    = \sum_m \E^{-\beta \epsilon_k (m + 1)}
+    = \frac{\E^{-\beta \epsilon_k}}{1 - \E^{-\beta \epsilon_k}}
+    = \frac 1 {\E^{\beta \epsilon_k} - 1}.
+\end{equation}
+
+Finally, the free \name{Matsubara-Green} function on the imaginary-axis
+according to Eq.~\ref{Matsubara-Green function} can be calculated. The operators
+$\op A$ and $\op B$ are simply $\op a_k$ and $\op a_k^+$. With the help of
+Eq.~\ref{Fermi function} and \ref{Bose function} one can formulate correlation
+functions $\av{\op a_k(\tau) \, \op a_k^+} = \E^{-\epsilon_k \tau} [1 \mp f_\pm(\epsilon_k)]$ and therewith
+%
+\begin{equation*}
+    G_0(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
+    \E^{\I \omega_n \tau} \av{\op a_k(\tau) \, \op a_k^+}_0
+    = \frac{1 \pm \E^{-\beta \epsilon_k}}{\I \omega_n - \epsilon_k}
+        [1 \mp f_\pm(\epsilon_k)]
+    = \frac 1 {\I \omega_n - \epsilon_k},
+\end{equation*}
+%
+which corresponds to a spectral function $A(\omega) = \delta(\omega -
+\epsilon_k)$.
+
+Although the above formula formally holds for all kinds of particles, in the
+bosonic case one usually applies a different definition using the operator
+$\Phi_k = \op a_k + \op a_{-k}^+$. This yields
+%
+\begin{equation*}
+    G_0(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
+    \E^{\I \omega_n \tau} \av{\op \Phi_k(\tau) \, \op \Phi_k^+}_0
+    = \frac 1 {\I \omega_n - \epsilon_k} - \frac 1 {\I \omega_n + \epsilon_{-k}}
+    \overset{\epsilon_k = \epsilon_{-k}} =
+    -\frac{2 \epsilon_k}{\omega_n^2 + \epsilon_k^2}
+\end{equation*}
+%
+with the spectral function $A(\omega) = \delta(\omega - \epsilon_k) -
+\delta(\omega + \epsilon_{-k})$.
+
+\section{Perturbation series}
+
+It is now shown how the full \name{Green} function is calculated. The idea is to
+build it iteratively from what is already known, namely the \name{Green}
+functions of the free particles and the coupling strengths of the interaction.
+
+The first step is to rewrite the \name{Green} function in a way that both the
+ensemble average and the time dependence of the operators refer to the
+unperturbed part $\op H_0$ of the \name{Hamilton} operator.
+
+In the imaginary-time formalism, the time-evolution operator according to
+Eq.~\ref{Dyson series} reads
+%
+\begin{equation} \label{Matsubara-Dyson series}
+    \op S(t, t_0) = \sum_{n = 0}^\infty \frac{(-1)^n}{n!}
+    \int \from{\tau_0} \till \tau \D \tau_1 \dots
+    \int \from{\tau_0} \till \tau \D \tau_n \,
+    \op T \, \op V[\tau_1] \dots \op V[\tau_n],
+\end{equation}
+%
+For brevity, let $\op S(\tau) = \op S(\tau, 0) = \E^{\op H_0 \tau} \, \E^{-\op H
+\tau}$. Inserting unities it can be shown that
+%
+\begin{align*}
+    \av \dots &= \frac 1 Z \Tr \big[ \E^{-\beta \op H} \dots \big]
+    = \frac 1 Z \Tr \big[
+        \E^{-\beta \op H_0} \, \E^{\beta \op H_0} \, \E^{-\beta \op H} \dots
+    \big]
+    = \frac{\av{\op S(\beta) \dots}_0}{\av{\op S(\beta)}_0},
+    \\
+    \op A(\tau) &= \E^{\op H \tau} \, \op A \, \E^{-\op H \tau}
+    = \E^{\op H \tau} \, \E^{-\op H_0 \tau} \,
+    \E^{\op H_0 \tau} \, \op A \, \E^{-\op H_0 \tau} \,
+    \E^{\op H_0 \tau} \, \E^{-\op H \tau}
+    = \op S^{-1}(\tau) \, \op A[\tau] \, \op S(\tau).
+\end{align*}
+
+The \name{Matsubara-Green} function defined in Eq.~\ref{Matsubara-Green
+function} may thus be written as
+%
+\begin{align*}
+    G(\tau) &= -\av{\op T \, \op A(\tau) \, \op B} =
+    -\Theta(\tau) \av{\op A(\tau) \, \op B}
+    \pm \Theta(-\tau) \av{\op B(-\tau) \, \op A}
+    \\
+    &= \frac 1 {\av{S(\beta)}_0} \left \{
+    \begin{aligned}
+        - & \langle \op S(\beta) &&
+        \op S^{-1}(\tau) && \op A[\tau] && \op S(\tau) &&
+        \op B \rangle_0 && \text{for $0 < \tau < \beta$,} \\
+        \pm & \langle \op S(\beta) &&
+        \op S^{-1}(-\tau) && \op B[-\tau] && \op S(-\tau) &&
+        \op A \rangle_0 && \text{for $-\beta < \tau < 0$.}
+    \end{aligned}
+    \right .
+\end{align*}
+%
+Since $\op S(\beta) \, \op S^{-1}(\pm \tau) = \op S(\beta, \pm \tau)$, in both
+cases the expectation value is fully time-ordered from right to left.
+Consequently, it makes no difference if one introduces a time-ordering operator
+for the \name{Dirac} picture that acts \emph{after} the time-evolution operators
+have been expanded up to the level of creation and annihilation operators. Then
+the factors may be freely permuted, except that sign changes have to taken into
+account. However, the latter does not apply to the time-evolution operators
+since the interaction usually contains an even number of fermion operators.
+Mutual inverses cancel each other and the final expression reads
+%
+\begin{equation*}
+    G(\tau) = -\frac{\av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B}_0}
+    {\av{\op S(\beta)}_0}.
+\end{equation*}
+
+Using the above formula the \name{Matsubara-Green} function may be calculated
+with an arbitrary order of accuracy by truncating the Taylor series in
+Eq.~\ref{Matsubara-Dyson series} after the corresponding number of terms. In
+doing so, expectation values of products of a growing number of creation and
+annihilation operators will emerge. Fortunately, these can be factorized into
+\name{Green} functions of free particles with the help of the \name{Wick}
+theorem.
+
+\subsection{\name{Wick} theorem}
+
+\begin{equation*}
+    [\op A_1, \prod_{i = 2}^{2 n} \op A_i]_\pm =
+    \sum_{i = 2}^{2 n} (\mp 1)^i [\op A_1, \op A_i]_\pm
+    \smash[b]{\prod_{\substack{j = 2 \\ j \neq i}}^n \op A_j},
+\end{equation*}
+%
+e.g. in the case of six operators,
+%
+\begin{align*}
+        [\op A, \op B \op C \op D \op E \op F]_\pm
+    =   [\op A, \op B]_\pm \op C \op D \op E \op F
+    \mp \op B [\op A, \op C]_\pm \op D \op E \op F
+    +   \op B \op C [\op A, \op D]_\pm \op E \op F
+    \mp \op B \op C \op D [\op A, \op E]_\pm \op F
+    +   \op B \op C \op D \op E [\op A, \op F]_\pm.
+\end{align*}

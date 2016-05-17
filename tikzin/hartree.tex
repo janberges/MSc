@@ -1,0 +1,25 @@
+%!TEX root = ../thesis.tex
+
+\begin{tikzpicture}
+    \coordinate (i) at (0, 0);
+    \coordinate (2) at (2, 0);
+    \coordinate (1) at (2, 4/3);
+    \coordinate (o) at (4, 0);
+    %
+    \draw [phonon] (2) -- node [right] {$0$} (1);
+    %
+    \draw [electron] (i) -- node [below] {$\vec k \sigma$} (2);
+    \draw [electron] (2) -- node [below] {$\vec k \sigma$} (o);
+    %
+    \draw [electron] (1) arc (-90:270:5mm)
+        node [yshift=5mm] {$\vec k' \sigma'$};
+    %
+    \foreach \point in {1, 2} \fill (\point) circle (1pt);
+    %
+    \node [below] at (i) {$0$};
+    \node [above left] at (2) {$\tau''$};
+    \node [below left] at (1) {$\tau'$};
+    \node [below] at (o) {$\tau$};
+    %
+    \useasboundingbox ([yshift=1mm] current bounding box.north east);
+\end{tikzpicture}

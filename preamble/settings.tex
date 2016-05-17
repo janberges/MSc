@@ -1,0 +1,33 @@
+%!TEX root = ../thesis.tex
+
+
+% AVOID WARNING FOR INKSCAPE PDFS
+
+\begingroup
+    \expandafter\ifx\csname pdfsuppresswarningpagegroup\endcsname\relax
+    \else\global\pdfsuppresswarningpagegroup=1\relax\fi
+\endgroup
+
+
+% AVOID BLANK PAGE AFTER TABLE OF CONTENTS
+
+\let\cleardoublepage\clearpage
+
+
+% FLOATS
+
+\setcounter{topnumber}{1}
+\setcounter{bottomnumber}{1}
+
+\def\textfraction {0.2}
+\def\topfraction {0.8}
+\def\bottomfraction {0.8}
+\def\floatpagefraction {0.7}
+
+% PENALTIES
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen

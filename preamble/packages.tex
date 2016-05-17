@@ -1,0 +1,103 @@
+%!TEX root = ../thesis.tex
+
+
+% JUST TEMPORARY
+
+\usepackage{lipsum}
+
+
+% GENERAL APPEARANCE
+
+\usepackage[margin=3cm, bindingoffset=1cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[ngerman, english]{babel}
+
+\usepackage[math]{iwona}
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+
+\usepackage{microtype, slantsc}
+
+\usepackage[font=small, labelfont=bf, parindent=5mm]{subcaption}
+
+\usepackage[perpage]{footmisc}
+
+
+% MATH
+
+\usepackage{mathtools, upgreek}
+\usepackage[sans]{dsfont}
+
+
+% GRAPHICS
+
+\usepackage{tikz}
+
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikzout/, only named, export=false]
+
+
+% HEADERS AND FOOTERS
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\def\chaptermark#1{\markboth{\thechapter\quad\MakeUppercase{#1}}{}}
+\def\sectionmark#1{\markright{\MakeUppercase{#1}\quad\thesection}}
+
+\fancyhead[EL]\leftmark
+\fancyhead[OR]\rightmark
+\fancyfoot[C]\thepage
+
+\def\headrulewidth{0pt}
+\def\footrulewidth{0pt}
+
+
+% BIBLIOGRAPHY
+
+\usepackage[backend=bibtex8, style=alphabetic, firstinits=true]{biblatex}
+
+\bibliography{references/references}
+
+\let\mkbibnamelast\textsc
+\def\labelnamepunct{\addcolon\space}
+
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+
+\DeclareCiteCommand\barecite{}{\usebibmacro{citeindex}\usebibmacro{cite}}{}{}
+
+\DeclareCiteCommand\supercite[\mkbibsuperscript]
+    \bibopenbracket
+        {\usebibmacro{citeindex}\usebibmacro{cite}}
+        \supercitedelim
+    \bibclosebracket
+
+\DeclareBibliographyDriver{incollection}{%
+    \usebibmacro{bibindex}%
+    \usebibmacro{begentry}%
+    \usebibmacro{author/translator+others}%
+    \setunit\labelnamepunct\newblock
+    \usebibmacro{title}%
+    \newunit
+    \printlist{language}%
+    \newunit\newblock
+    \usebibmacro{in:}%
+    \barecite{\thefield{xref}}%
+    \setunit\bibpagespunct
+    \usebibmacro{chapter+pages}%
+    \setunit{\bibpagerefpunct}\newblock
+    \usebibmacro{pageref}%
+    \usebibmacro{finentry}
+    }
+
+
+% HYPERLINKS
+
+\usepackage[hidelinks]{hyperref}
+
+\pdfstringdefDisableCommands{\let\name\relax}

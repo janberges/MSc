@@ -1,0 +1,32 @@
+%!TEX TS-options = --shell-escape
+
+\documentclass[a4paper, 10pt, twoside, openany]{book}
+
+\input{preamble/packages}
+\input{preamble/settings}
+\input{preamble/definitions}
+
+\includeonly{
+    frontmatter/tableofcontents,
+    mainmatter/manybodyphysics,
+    appendix/fourieranalysis,
+    backmatter/references,
+    }
+
+\begin{document}
+    \frontmatter
+    \include{frontmatter/titlepage}
+    \include{frontmatter/tableofcontents}
+    \mainmatter
+    \include{mainmatter/motivation}
+    \include{mainmatter/manybodyphysics}
+    \include{mainmatter/perturbationseries}
+    \include{mainmatter/eliashbergtheory}
+    \appendix
+    \include{appendix/fourieranalysis}
+    \backmatter
+    \include{backmatter/acknowledgment}
+    \include{backmatter/declarations}
+    \include{backmatter/listoffigures}
+    \include{backmatter/references}
+\end{document}

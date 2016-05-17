@@ -1,0 +1,52 @@
+%!TEX root = ../thesis.tex
+
+
+% TEXT
+
+\def\centered#1#2{\hspace{0pt}\llap{#1}\hspace{1pc}\rlap{#2}}
+
+\let\name\textsc
+\def\q'#1'{\textit{``#1''}}
+
+% MATH
+
+\let\op\mathrm
+\let\vec\boldsymbol
+
+\let\epsilon\varepsilon
+\let\Delta\varDelta
+\let\Omega\varOmega
+\let\Sigma\varSigma
+\let\Theta\varTheta
+
+\let\up\uparrow
+\let\down\downarrow
+
+\def\D{\mathrm d}
+\def\I{\mathrm i}
+\def\E{\mathrm e}
+
+\let\Re\relax
+\let\Im\relax
+
+\DeclareMathOperator\Re{Re}
+\DeclareMathOperator\Im{Im}
+\DeclareMathOperator\Tr{Tr}
+
+\def\super#1{\sp{\text{#1}}}
+\def\sub#1{\sb{\text{#1}}}
+\def\from#1{\sb{\mathrlap{#1}}}
+\def\till#1{\sp{\mathrlap{#1}}}
+
+
+% INCLUDE SYMBOLS FOR FEYNMAN DIAGRAMS
+
+\def\feyn#1{\includegraphics[width=5mm,valign=c]{fig/#1.pdf}}
+
+
+% QUANTUM MECHANICS
+
+\def\bra#1{\langle#1|}
+\def\ket#1{|#1\rangle}
+\def\bracket#1#2{\langle#1|#2\rangle}
+\def\av#1{\langle#1\rangle}

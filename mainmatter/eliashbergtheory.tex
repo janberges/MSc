@@ -1,0 +1,49 @@
+%!TEX root = ../thesis.tex
+
+\chapter{\name{Eliashberg} theory}
+
+For a self-energy on the imaginary axis, which may be written as
+%
+\begin{align*}
+    \vec \Sigma_{\vec k}(\I \omega_n) &= -\frac 1 \beta \sum_{m \, \vec q}
+    \vec \sigma_3 \vec G_{\vec q \sigma}(\I \omega_m) \vec \sigma_3 \,
+    V_{\vec k, \vec q}(\omega_n - \omega_m)
+    \\
+    &= \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] \vec \sigma_0
+    + \phi_{\vec k}(\I \omega_n) \vec \sigma_1
+    + \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
+    + \chi_{\vec k}(\I \omega_n) \vec \sigma_3,
+\end{align*}
+%
+equating coefficients yields the \textsc{Eliashberg} equations
+%
+\begin{align} \label{Eliashberg equations}
+    \begin{split}
+        \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] &=
+        \frac 1 \beta \sum_{m \, \vec q}
+        \frac
+            {\I \omega_m Z_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        V_{\vec k, \vec q}(\omega_n - \omega_m),
+        \\
+        \phi^{(\prime)}_{\vec k}(\I \omega_n) &=
+        -\frac 1 \beta \sum_{m \, \vec q}
+        \frac
+            {\phi^{(\prime)}_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        V_{\vec k, \vec q}(\omega_n - \omega_m),
+        \\
+        \chi_{\vec k}(\I \omega_n) &=
+        \frac 1 \beta \sum_{m \, \vec q}
+        \frac
+            {\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        V_{\vec k, \vec q}(\omega_n - \omega_m),
+        \\
+        \Theta_{\vec k}(\I \omega_n) &=
+        [\omega_n Z_{\vec k}(\I \omega_n)]^2
+        + [\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)]^2
+        + \phi_{\vec k}^2(\I \omega_n)
+        + \phi'^2_{\vec k}(\I \omega_n).
+    \end{split}
+\end{align}
