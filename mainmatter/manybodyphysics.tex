@@ -540,9 +540,9 @@ with the spectral function $A(\omega) = \delta(\omega - \epsilon_k) -
 
 \section{Perturbation series}
 
-It is now shown how the full \name{Green} function is calculated. The idea is to
-build it iteratively from what is already known, namely the \name{Green}
-functions of the free particles and the coupling strengths of the interaction.
+It is still to be clarified how the full \name{Green} function for arbitrary
+interactions can be calculated. The basis idea is to build it iteratively from
+what is already known, namely the \name{Green} functions of free particles.
 
 The first step is to rewrite the \name{Green} function in a way that both the
 ensemble average and the time dependence of the operators refer to the
@@ -579,18 +579,18 @@ The \name{Matsubara-Green} function defined in Eq.~\ref{Matsubara-Green
 function} may thus be written as
 %
 \begin{align*}
-    G(\tau) &= -\av{\op T \, \op A(\tau) \, \op B} =
-    -\Theta(\tau) \av{\op A(\tau) \, \op B}
-    \pm \Theta(-\tau) \av{\op B(-\tau) \, \op A}
+    G(\tau) &= -\av{\op T \, \op A(\tau) \, \op B(0)} =
+    -\Theta(\tau) \av{\op A(\tau) \, \op B(0)}
+    \pm \Theta(-\tau) \av{\op B(-\tau) \, \op A(0)}
     \\
     &= \frac 1 {\av{S(\beta)}_0} \left \{
     \begin{aligned}
         - & \langle \op S(\beta) &&
         \op S^{-1}(\tau) && \op A[\tau] && \op S(\tau) &&
-        \op B \rangle_0 && \text{for $0 < \tau < \beta$,} \\
+        \op B[0] \rangle_0 && \text{for $0 < \tau < \beta$,} \\
         \pm & \langle \op S(\beta) &&
         \op S^{-1}(-\tau) && \op B[-\tau] && \op S(-\tau) &&
-        \op A \rangle_0 && \text{for $-\beta < \tau < 0$.}
+        \op A[0] \rangle_0 && \text{for $-\beta < \tau < 0$.}
     \end{aligned}
     \right .
 \end{align*}
@@ -605,18 +605,50 @@ account. However, the latter does not apply to the time-evolution operators
 since the interaction usually contains an even number of fermion operators.
 Mutual inverses cancel each other and the final expression reads
 %
-\begin{equation*}
-    G(\tau) = -\frac{\av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B}_0}
+\begin{equation} \label{perturbation series}
+    G(\tau) = -\frac{\av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B[0]}_0}
     {\av{\op S(\beta)}_0}.
-\end{equation*}
+\end{equation}
 
-Using the above formula the \name{Matsubara-Green} function may be calculated
-with an arbitrary order of accuracy by truncating the Taylor series in
-Eq.~\ref{Matsubara-Dyson series} after the corresponding number of terms. In
-doing so, expectation values of products of a growing number of creation and
-annihilation operators will emerge. Fortunately, these can be factorized into
-\name{Green} functions of free particles with the help of the \name{Wick}
-theorem.
+Using the above formula, the \name{Matsubara-Green} function may be calculated
+to an arbitrary order of accuracy by simply truncating the Taylor series in
+Eq.~\ref{Matsubara-Dyson series} after the corresponding number of terms.
+
+As an example, a perturbation of the form $\op V = \sum_{k k'} v_{k k'} \, \op
+a_{k'}^+ \op a_k$ is considered. As a single-particle operator it describes the
+interaction of a particle with some scattering potential rather than with other
+particles. The first terms of the enumerator in Eq.~\ref{perturbation series}
+read
+%
+\begin{gather*}
+    \av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B[0]}_0 =
+    \av{\op T \, \op A[\tau] \, \op B[0]}_0 -
+    \int \from 0 \till \beta \D \tau_1
+    \sum_{k, k'} v_{k k'}
+    \av{
+        \op T \, \op A[\tau] \,
+        \op a_{k'}^+[\tau_1] \op a_k[\tau_1] \,
+        \op B[0]
+    }_0 \\ + \frac 1 2
+    \int \from 0 \till \beta \D \tau_1
+    \int \from 0 \till \beta \D \tau_2
+    \sum_{\mathclap{k, k', q, q'}} v_{k k'} v_{q q'}
+    \av{
+        \op T \, \op A[\tau] \,
+        \op a_{k'}^+[\tau_1] \, \op a_k[\tau_1] \,
+        \op a_{q'}^+[\tau_2] \, \op a_q[\tau_2] \,
+        \op B[0]
+    }_0 + \dots
+\end{gather*}
+%
+Continuing in this way, expectation values of products of a growing number of
+creation and annihilation operators will emerge. Fortunately, these can be
+factorized into free-particle \name{Green} functions with the help of the
+\name{Wick} theorem, which is presented in the following section.
+
+This is the last step to be taken on the way to \name{Feynman}'s diagrammatical
+perturbation theory, which will be outlined during the analysis of the models
+introduced in the next chapter.
 
 \subsection{\name{Wick} theorem}
 
