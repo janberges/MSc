@@ -28,9 +28,9 @@ are presented, focussing on the interaction picture. On this basis \name{Green}
 functions are introduced, including their imaginary-axis formulation. Next, not
 only to exemplify what was stated so far but also because it will provide the
 fundamental building block for what follows, the special case of non-interacting
-particles is discussed. Finally, a variety of the \name{Wick} theorem, which
-prepares the ground for \name{Feynman}'s diagrammatical perturbation theory, is
-derived.
+particles is discussed. Finally, the perturbation series and the \name{Wick}
+theorem for non-zero temperatures are derived, which prepare the ground for
+\name{Feynman}'s diagrammatical perturbation theory.
 
 Throughout this work units are chosen in which the \name{Boltzmann} and the
 reduced \name{Planck} constant are unity, i.e. $k \sub B = \hbar = 1$.
@@ -409,7 +409,8 @@ with the \emph{\name{Matsubara} frequencies}
 With the help of Eq.~\ref{C(t) in energy basis} and comparing with
 Eqs.~\ref{G_ret(omega)} and \ref{G_adv} one finds that both $G \sub{ret.}
 (\omega)$ and $G \sub{adv.} (\omega)$ can be obtained from $G(\I \omega)$
-through analytic continuation $\I \omega \rightarrow \omega \pm \I 0^+$, since
+through \emph{analytic continuation} $\I \omega \rightarrow \omega \pm \I 0^+$,
+since
 %
 \begin{align*}
     G(\I \omega_n) &= -\frac 1 Z \sum_{n m}
@@ -431,8 +432,9 @@ of the special case of free particles, which will turn out to be fundamental in
 the following section. In this context \q'free' shall not be understood as
 \q'free from any forces' but rather as \q'non-interacting' since independent
 \name{Bloch} electrons in a fixed lattice are very well considered free, just as
-every quasi-particle which diagonalizes the full \name{Hamilton} operator. The
-latter may then be written as
+every quasi-particle which diagonalizes a single-particle \name{Hamilton}
+operator. In second quantization the latter is quadratic in the particle
+operators and diagonalized it reads
 %
 \begin{equation} \label{H_0}
     \op H_0 = \sum_k \epsilon_k \op n_k
@@ -490,18 +492,19 @@ For fermions $N = 1$ and thus
 For bosons $N = \infty$ and, recognizing that
 %
 \begin{equation*}
-    n_k = \underbrace{
-        0 + (n_k - 1) + 1 = 1 + (n_k - 2) + 1 = \dots = (n_k - 1) + 0 + 1
-    } \sub{$n_k$ partitions}
+        0 + (n_k - 1) + 1, \quad
+        1 + (n_k - 2) + 1 \quad \dots \quad
+        (n_k - 1) + 0 + 1
 \end{equation*}
 %
-as well as a geometric series, one finds
+are $n_k$ ways to express $n_k$ as well as a geometric series, one finds
 %
 \begin{equation} \label{Bose function}
     f_-(\epsilon_k)
-    = \frac {\sum_{n, m} \E^{-\beta \epsilon_k (n + m + 1)}}
-        {\sum_n \E^{-\beta \epsilon_k n}}
-    = \sum_m \E^{-\beta \epsilon_k (m + 1)}
+    = \frac {\sum_{n = 0}^\infty \sum_{m = 0}^\infty
+        \E^{-\beta \epsilon_k (n + m + 1)}}
+        {\sum_{n = 0}^\infty \E^{-\beta \epsilon_k n}}
+    = \sum_{m = 0}^\infty \E^{-\beta \epsilon_k (m + 1)}
     = \frac{\E^{-\beta \epsilon_k}}{1 - \E^{-\beta \epsilon_k}}
     = \frac 1 {\E^{\beta \epsilon_k} - 1}.
 \end{equation}
@@ -699,7 +702,7 @@ Eq.~\ref{time-dependent ladder operators} one finds
 \end{equation*}
 %
 where $\epsilon(\op A)$ is the energy change caused by applying $\op A$ to the
-system state.
+state of the unperturbed system.
 
 The right-hand side of Eq.~\ref{left to right} is averaged as well. A
 comparison,
@@ -712,7 +715,7 @@ comparison,
 \end{equation*}
 %
 considering $\av{\op A \op B}_0 = \pm f_\pm[\epsilon(\op A)] [\op A,
-\op B]_\pm$ yields the \emph{\name{Wick} theorem} for finite temperatures:
+\op B]_\pm$ yields the \emph{\name{Wick} theorem} for non-zero temperatures:
 %
 \begin{align*}
     \av{\op A_1 \dots \op A_n}_0 &=
