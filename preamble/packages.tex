@@ -47,14 +47,19 @@
 
 \fancyhf{}
 
-\def\chaptermark#1{\markboth{\thechapter\quad\MakeUppercase{#1}}{}}
-\def\sectionmark#1{\markright{\MakeUppercase{#1}\quad\thesection}}
+\def\chaptermark#1{\markboth
+    {\thechapter\quad\MakeUppercase{#1}}
+    {\MakeUppercase{#1}\quad\thechapter}}
 
-\fancyhead[EL]\leftmark
-\fancyhead[OR]\rightmark
-\fancyfoot[C]\thepage
+\def\sectionmark#1{\markright{
+    \MakeUppercase{#1}\quad\thesection}}
 
-\def\headrulewidth{0pt}
+\fancyhead[OL]\leftmark
+\fancyhead[ER]\rightmark
+\fancyhead[OR]\thepage
+\fancyhead[EL]\thepage
+
+\def\headrulewidth{0.1mm}
 \def\footrulewidth{0pt}
 
 
