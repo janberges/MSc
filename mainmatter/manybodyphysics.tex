@@ -793,6 +793,89 @@ values as well, thus
     decorate,
     }}
 
+Calculate 1st/2nd order of perturbation series explicitly.
+
+\subsection{\name{Holstein} model}
+
+Further application of \textsc{Wick}'s theorem to the electronic part
+$\av{\text{el.}}_0$ yields
+%
+\begingroup
+	\def\minalignsep{0pt}
+	\begin{align*}
+		&-
+		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        \, \op a_{\vec k \sigma}^+[0]}_0
+		&& \delta_{\vec q}^0 \delta_{\vec q'}^0
+		&& \delta_{\sigma''}^\sigma
+		&& \delta_{\vec k''}^{\vec k} \\
+		&-
+		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        \, \op a_{\vec k \sigma}^+[0]}_0
+		&& \delta_{\vec q}^0 \delta_{\vec q'}^0
+		&& \delta_{\sigma'}^\sigma
+		&& \delta_{\vec k'}^{\vec k} \\
+		&+
+		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        \, \op a_{\vec k \sigma}^+[0]}_0
+		&& \delta_{\vec q'}^{-\vec q}
+		&& \delta_{\sigma'}^\sigma \delta_{\sigma''}^\sigma
+		&& \delta_{\vec k''}^{\vec k} \delta_{\vec k'}^{\vec k - \vec q} \\
+		&+
+		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        \, \op a_{\vec k \sigma}^+[0]}_0
+		&& \delta_{\vec q'}^{-\vec q}
+		&& \delta_{\sigma'}^\sigma \delta_{\sigma''}^\sigma
+		&& \delta_{\vec k'}^{\vec k} \delta_{\vec k''}^{\vec k + \vec q} \\
+		&+
+		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k \sigma}^+[0]}_0
+		&& \delta_{\vec q}^0 \delta_{\vec q'}^0
+		&&
+		&& \\
+		&-
+		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k \sigma}^+[0]}_0
+		&& \delta_{\vec q'}^{-\vec q}
+		&& \delta_{\sigma''}^{\sigma'}
+		&& \delta_{\vec k''}^{\vec k' + \vec q} \\
+		&+
+		&& \av{\op P^+ \op T \, \op a_{\vec k' \sigma'}[\tau']
+        \, \op a_{\vec k'' \sigma''}[\tau'']}_0
+		&& \av{\op P \op T \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']
+        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k \sigma}^+[0]}_0
+		&& \delta_{\vec q'}^{-\vec q}
+		&& \delta_{\sigma''}^{-\sigma'}
+		&& \delta_{\vec k''}^{-\vec k'}.
+	\end{align*}
+\endgroup
+
 \begin{figure}
     \small
     \medmuskip=0mu
@@ -801,36 +884,109 @@ values as well, thus
         \tikzsetnextfilename{hartree}
         \input{tikzin/hartree.tex}
         \caption{Hartree}
+        \label{Hartree}
     \end{subfigure}%
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{fock}
         \input{tikzin/fock.tex}
         \caption{Fock}
+        \label{Fock}
     \end{subfigure}%
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{fock-anomalous}
         \input{tikzin/fock-anomalous.tex}
         \caption{Fock, anomalous}
+        \label{Fock, anomalous}
     \end{subfigure}\\[1cm]
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{glasses}
         \input{tikzin/glasses.tex}
         \caption{``Glasses''}
+        \label{glasses}
     \end{subfigure}%
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{porthole}
         \input{tikzin/porthole.tex}
         \caption{``Porthole''}
+        \label{porthole}
     \end{subfigure}%
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{porthole-anomalous}
         \input{tikzin/porthole-anomalous.tex}
         \caption{``Porthole'', anomalous}
+        \label{porthole, anomalous}
     \end{subfigure}
     \caption{2nd order \name{Feynman} graphs}
 \end{figure}
+
+Substituting the corresponding non-interacting \textsc{Green} functions one
+obtains
+%
+\begin{align*}
+	\sum_{\smash[b]{\begin{smallmatrix*}[l]
+        \vec k' & \vec k'' \\
+        \sigma' & \sigma'' \\
+        \vec q & \vec q'
+    \end{smallmatrix*}}}
+    \av \dots_0 =
+	%
+	\let\displaystyle\textstyle
+	%
+	\begin{aligned}[t]
+		&- \sum_{\vec k' \sigma'}
+		&& G^0_{\vec k \sigma}(\tau - \tau'')
+		&& G^0_{\vec k' \sigma'}(0)
+		&& G^0_{\vec k \sigma}(\tau'')
+		&& D^0_0(\tau' - \tau'')
+		&  \text{(\ref{Hartree})} \\
+		&- \sum_{\vec k'' \sigma''}
+		&& G^0_{\vec k \sigma}(\tau - \tau')
+		&& G^0_{\vec k'' \sigma''}(0)
+		&& G^0_{\vec k \sigma}(\tau')
+		&& D^0_0(\tau' - \tau'')
+		&  \\
+		&+ \sum_{\vec q}
+		&& G^0_{\vec k \sigma}(\tau - \tau')
+		&& G^0_{\vec k - \vec q \sigma}(\tau' - \tau'')
+		&& G^0_{\vec k \sigma}(\tau'')
+		&& D^0_{\vec q}(\tau' - \tau'')
+		&  \text{(\ref{Fock})} \\
+		&+ \sum_{\vec q}
+		&& G^0_{\vec k \sigma}(\tau - \tau'')
+		&& G^0_{\vec k + \vec q \sigma}(\tau'' - \tau')
+		&& G^0_{\vec k \sigma}(\tau')
+		&& D^0_{\vec q}(\tau' - \tau'')
+		&  \\
+		&+ \textstyle \sum_{\vec k' \vec k'' \sigma' \sigma''}
+		&& G^0_{\vec k' \sigma'}(0)
+		&& G^0_{\vec k'' \sigma''}(0)
+		&& G^0_{\vec k \sigma}(\tau)
+		&& D^0_0(\tau' - \tau'')
+		&  \text{(\ref{glasses})} \\
+		&- \sum_{\vec k' \sigma' \vec q}
+		&& G^0_{\vec k' \sigma'}(\tau' - \tau'')
+		&& G^0_{\vec k' + \vec q \sigma'}(\tau'' - \tau')
+		&& G^0_{\vec k \sigma}(\tau)
+		&& D^0_{\vec q}(\tau' - \tau'')
+		&  \text{(\ref{porthole})} \\
+		&+ \sum_{\vec k' \sigma' \vec q}
+		&& F^0_{\vec k' \sigma'}(\tau' - \tau'')
+		&& \smash{\widetilde F^0_{\vec k' + \vec q \sigma'}}(\tau'' - \tau')
+		&& G^0_{\vec k \sigma}(\tau)
+		&& D^0_{\vec q}(\tau' - \tau'').
+		&  \text{(\ref{porthole, anomalous})}
+	\end{aligned}
+\end{align*}
+
+\subsection{Jellium model}
+
+$\delta(\tau' + 0^+ - \tau'')$
+
+\subsection{\name{Hubbard} model}
+
+\section{Self energy and \name{Dyson} equation}
