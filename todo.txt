@@ -1,0 +1,6 @@
+- Create symbols for repeated use with TikZ?
+- Analyse cutoff-convergence with N(0)V replacing mu*(omega_c)
+- How does cutoff change normal-state Z(i omega_n)?
+- Sort existing sections for master's thesis
+- Where should the square-lattice dispersion be derived?
+- Review history of superconductivity (Ginzburg-Landau?)
