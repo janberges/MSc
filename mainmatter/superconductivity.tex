@@ -2,9 +2,80 @@
 
 \chapter{Superconductivity}
 
+This chapter gives an introduction to the field of superconductivity and is not
+intended to be exhaustive. The theory that will actually be applied in this work
+is presented the following two chapters.
+
+In the first section the earlier history of superconductivity is briefly
+reviewed up to the point when the interaction of electrons and phonons is
+identified as causing the phenomenon.%
+%
+\footnote{The history is retold following H. \name{Fröhlich}
+\cite{Froehlich82}.}
+%
+Next, a canonical transformation is presented which reveals how this interaction
+can lead to an effective attraction between electrons and consequently to the
+formation of \name{Cooper} pairs. Thereafter, the theory of \name{Bardeen},
+\name{Cooper} and \name{Schrieffer} is presented, followed by a description of
+the concept of \q'off-diagonal long-range order'.
+
 \section{History of superconductivity}
 
+In 1911 the dutch physicist H. \name{Kamerlingh Onnes} finds that mercury ceases
+to resist electric current completely when cooled down to temperatures below
+$4\,^\circ \mathrm K$ with the help of liquid helium.%
+%
+\footnote{According to Ref.~\barecite{vanDelftKes10}, on April 8, 1911
+\name{Kamerlingh Onnes} writes \q'Kwik nagenoeg nul' in his notebook, which
+means \q'[resistance of] mercury near-enough zero'. In Communication No. 122b
+from the Physical Laboratory at Leiden he states more precisely: \q'At
+$3\,^\circ \mathrm K$, the resistance was found to have fallen below [\dots] one
+ten-millionth of the value which it would have at $0\,^\circ \mathrm C$'
+\cite{KamerlinghOnnes11}.}
+%
+This is the first time a manifestation of superconductivity is observed. In the
+years that follow, similar observations are made for other metals and the
+fundamental properties of the novel state are exposed.
+
 \section{Canonical transformation}
+
+It is now shown that the electron-phonon interaction can involve an effective
+electron-electron interaction which is attractive.%
+%
+\footnote{The original derivation is due to \name{Fröhlich} \cite{Froehlich52}.
+The presentation at hand is rather guided by Ref.~\barecite{Czycholl08}.}
+%
+To that end the \name{Fröhlich-Hamilton} operator
+%
+\begin{gather*}
+    \op H = \overbrace{
+        \sum_{\vec k} \epsilon_{\vec k} \op c_{\vec k}^+ \op c_{\vec k} +
+        \sum_{\vec q} \omega_{\vec q} \op b_{\vec q}^+ \op b_{\vec q}
+    }^{\op H_0} + \overbrace{
+        \sum_{\vec k \vec q} g_{\vec q} \op c_{\vec k + \vec q}^+ \op c_{\vec k}
+        [\op b_{\vec q} + \op b_{-\vec q}^+]
+    }^{\op V}
+\end{gather*}
+%
+is considered, which describes the interaction between electrons with wave
+number $\vec k$ and energy $\epsilon_{\vec k}$, which are annihilated and
+created by the \name{Fermi} operator $\op a_{\vec k}$ and its adjoint,
+respectively, and longitudinal phonons, where analogous definitions hold for
+$\vec q$, $\omega_{\vec q}$ and $\op b_{\vec q}$. The strength of the coupling
+is given by $g_{\vec q}$. The spin is of no importance here and thus omitted.
+
+With the help of \name{Hadamard}'s lemma,
+%
+\begin{align*}
+    \op H \sub T
+    = \E^{-\I \op S} \, \op H \, \E^{\I \op S}
+    &= \op H + \I [\op H, \op S] - \frac 1 2 [[\op H, \op S], \op S] + \dots \\
+    &= \op H_0 + \op V + \I [\op H_0, \op S] + \I [\op V, \op S]
+    - \frac 1 2 [[\op H_0, \op S], \op S] + \dots \\
+    &\approx \op H_0 + \frac \I 2 [\op V, \op S],
+\end{align*}
+%
+choosing $[\op H_0, \op S] = \I \op V$.
 
 \name{Fröhlich-Hamilton} operator $\rightarrow$ effective electron interaction
 
