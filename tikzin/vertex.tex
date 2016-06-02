@@ -11,11 +11,12 @@
     %
     \node at (3.5, 0) {$+$};
     %
-    \coordinate (I) at (4.0, -{sqrt(3)/2});
-    \coordinate (L) at (4.5, 0);
-    \coordinate (X) at (5.0, +{sqrt(3)/2});
-    \coordinate (R) at (5.5, 0);
-    \coordinate (O) at (6.0, -{sqrt(3)/2});
+    \coordinate (I) at (4.0, -{sqrt(3)/4});
+    \coordinate (X) at (4.5, +{sqrt(3)/4});
+    \coordinate (O) at (5.0, -{sqrt(3)/4});
+    %
+    \node at (5.5, 0) {$+$};
+    \node at (6.5, 0) {$\dots$};
     %
     \foreach \point in {i, 0, I}
         \draw [electron, gray] (\point) +(225:5mm) -- (\point);
@@ -26,17 +27,14 @@
     \foreach \point in {o, 0, O}
         \draw [electron, gray] (\point) -- +(-45:5mm);
     %
-    \draw [phonon, double] (I) -- (O);
-    \draw [electron, double] (I) -- (L);
-    \draw [electron, double] (R) -- (O);
+    \draw [phonon] (I) -- (O);
+    \draw [electron] (I) -- (X);
+    \draw [electron] (X) -- (O);
     %
-    \draw [fill=black!10!white]
-        (x) -- (i) -- (o) -- (x)
-        (X) -- (L) -- (R) -- (X);
+    \draw [fill=black!10!white] (x) -- (i) -- (o) -- (x);
     %
-    \foreach \point in {i, x, o, 0, I, L, X, R, O}
+    \foreach \point in {i, x, o, 0, I, X, O}
         \fill (\point) circle (1.5pt);
     %
-    \foreach \point in {x, X}
-        \node [below=3mm] at (\point) {$\Gamma$};
+    \node [below=3mm] at (x) {$\Gamma$};
 \end{tikzpicture}%
