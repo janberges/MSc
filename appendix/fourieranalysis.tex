@@ -32,10 +32,10 @@ where $\hat y_\nu$ and $y_n \in \mathds C$ are defined for all $\nu$ and $n \in
 $\nu_0$ and $n_0 \in \mathds Z$ arbitrary. Invertibility is ensured by the
 orthogonality relation
 %
-\begin{equation*}
+\begin{equation} \label{DFT orthogonality relation}
     \smashoperator{\sum_{n = n_0}^{n_0 + N - 1}} \E^{2 \pi \I n \nu / N} =
     \sum_{n \in \mathds Z} \delta_{\nu, n N},
-\end{equation*}
+\end{equation}
 %
 which is proven recognizing the partial sum of a geometrical series:
 %
@@ -63,13 +63,17 @@ with period $T \in \mathds R^+$ making the lower limit $t_0 \in \mathds R$
 arbitrary and $y_n \in \mathds C$ is defined for all $n \in \mathds Z$. There
 are two orthogonality relations,
 %
-\begin{align*}
-    \int \from{t_0} \till{t_0 + T} \D t \, \E^{2 \pi \I n t T}
-    &= T \delta_{n, 0},
-    \\
-    \sum_{n \in \mathds Z} \E^{2 \pi \I n t / T}
-    &= T \sum_{n \in \mathds Z} \delta(t - n T).
-\end{align*}
+\begin{subequations}
+    \begin{align}
+        \label{Fourier series orthogonality relation}
+        \int \from{t_0} \till{t_0 + T} \D t \, \E^{2 \pi \I n t T}
+        &= T \delta_{n, 0},
+        \\
+        \label{Dirac comb}
+        \sum_{n \in \mathds Z} \E^{2 \pi \I n t / T}
+        &= T \sum_{n \in \mathds Z} \delta(t - n T).
+    \end{align}
+\end{subequations}
 %
 The second equation is just mentioned for completeness since the left-hand side
 is the \name{Fourier} series of the right-hand side. The first equation is
