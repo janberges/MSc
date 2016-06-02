@@ -1,0 +1,23 @@
+%!TEX root = ../thesis.tex
+%
+\begin{tikzpicture}[baseline]
+    \pgfmathsetmacro\r{sqrt(sqrt(3)/pi)/2}
+    %
+    \draw [electron, double] (0, 0) -- (1, 0);
+    %
+    \node at (1.5, 0) {$=$};
+    %
+    \draw [electron] (2, 0) -- (3, 0);
+    %
+    \node at (3.5, 0) {$+$};
+    %
+    \coordinate (i) at (5-\r, 0);
+    \coordinate (o) at (5+\r, 0);
+    %
+    \draw [electron] (4, 0) -- (i);
+    \draw [electron, double] (o) -- (6, 0);
+    %
+    \draw [fill=black!10!white] (5, 0) circle [radius=\r] node {$\Sigma$};
+    %
+    \foreach \point in {i, o} \fill (\point) circle (1.5pt);
+\end{tikzpicture}

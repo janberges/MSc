@@ -1,0 +1,32 @@
+%!TEX root = ../thesis.tex
+%
+\begin{tikzpicture}[baseline]
+    \pgfmathsetmacro\r{sqrt(sqrt(3)/pi)/2}
+    %
+    \coordinate (t) at (1-\r, +\r);
+    \coordinate (b) at (1-\r, -\r);
+    %
+    \draw [fill=black!10!white] (1-\r, 0) circle [radius=\r] node {$\Pi$};
+    %
+    \node at (1.5, 0) {$=$};
+    %
+    \coordinate (I) at (2.0, 0);
+    \coordinate (T) at (2.5, +{sqrt(3)/2});
+    \coordinate (B) at (2.5, -{sqrt(3)/2});
+    \coordinate (O) at (3.0, 0);
+    %
+    \foreach \point in {t, T}
+        \draw [phonon, gray] (\point) -- +(+90:5mm);
+    %
+    \foreach \point in {b, B}
+        \draw [phonon, gray] (\point) -- +(-90:5mm);
+    %
+    \draw [electron, double] (B) -- (I);
+    \draw [electron, double] (O) -- (B);
+    %
+    \draw [fill=black!10!white] (T) -- (I) -- (O) -- (T);
+    %
+    \foreach \point in {t, b, I, T, B, O} \fill (\point) circle (1.5pt);
+    %
+    \node [below=3mm] at (T) {$\Gamma$};
+\end{tikzpicture}%

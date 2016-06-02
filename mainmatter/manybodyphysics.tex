@@ -417,17 +417,19 @@ Eqs.~\ref{G_ret(omega)} and \ref{G_adv} one finds that both $G \sub{ret.}
 through \emph{analytic continuation} $\I \omega \rightarrow \omega \pm \I 0^+$,
 since
 %
-\begin{align*}
-    G(\I \omega_n) &= -\frac 1 Z \sum_{n m}
-    \E^{-\beta E_n} A_{n m} B_{m n}
-    \int \from 0 \till \beta \D \tau \,
-    \E^{\I \omega_n \tau} \E^{(E_n - E_m) \tau} \\
-    &=
-    \frac 1 Z \sum_{n m} A_{n m} B_{m n}
-    \frac{\E^{-\beta E_n} \pm \E^{-E_m \beta}}{\I \omega_n - (E_m - E_n)}
-    = \int \from{-\infty} \till \infty \D \omega
-    \frac{A(\omega)}{\I \omega_n - \omega}.
-\end{align*}
+\begin{equation} \label{G(i omega_n)}
+    \begin{split}
+        G(\I \omega_n) &= -\frac 1 Z \sum_{n m}
+        \E^{-\beta E_n} A_{n m} B_{m n}
+        \int \from 0 \till \beta \D \tau \,
+        \E^{\I \omega_n \tau} \E^{(E_n - E_m) \tau} \\
+        &=
+        \frac 1 Z \sum_{n m} A_{n m} B_{m n}
+        \frac{\E^{-\beta E_n} \pm \E^{-E_m \beta}}{\I \omega_n - (E_m - E_n)}
+        = \int \from{-\infty} \till \infty \D \omega
+        \frac{A(\omega)}{\I \omega_n - \omega}.
+    \end{split}
+\end{equation}
 
 \section{Free particles}
 \label{free particles}
@@ -519,13 +521,13 @@ Eq.~\ref{Fermi function} and \ref{Bose function} one can formulate correlation
 functions $\av{\op a_k(\tau) \, \op a_k^+} = \E^{-\epsilon_k \tau} [1 \mp
 f_\pm(\epsilon_k)]$ and therewith
 %
-\begin{equation*}
+\begin{equation} \label{G_0(i omega_n)}
     G_0(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
     \E^{\I \omega_n \tau} \av{\op a_k(\tau) \, \op a_k^+}_0
     = \frac{1 \pm \E^{-\beta \epsilon_k}}{\I \omega_n - \epsilon_k}
         [1 \mp f_\pm(\epsilon_k)]
     = \frac 1 {\I \omega_n - \epsilon_k},
-\end{equation*}
+\end{equation}
 %
 which corresponds to a spectral function $A(\omega) = \delta(\omega -
 \epsilon_k)$.
@@ -534,13 +536,13 @@ Although the above formula formally holds for all kinds of particles, in the
 bosonic case one usually applies a different definition using the operator
 $\Phi_k = \op a_k + \op a_{-k}^+$. This yields
 %
-\begin{equation*}
+\begin{equation} \label{D_0(i omega_n)}
     G_0(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
     \E^{\I \omega_n \tau} \av{\op \Phi_k(\tau) \, \op \Phi_k^+}_0
     = \frac 1 {\I \omega_n - \epsilon_k} - \frac 1 {\I \omega_n + \epsilon_{-k}}
     \overset{\epsilon_k = \epsilon_{-k}} =
     -\frac{2 \epsilon_k}{\omega_n^2 + \epsilon_k^2}
-\end{equation*}
+\end{equation}
 %
 with the spectral function $A(\omega) = \delta(\omega - \epsilon_k) -
 \delta(\omega + \epsilon_{-k})$.
@@ -654,8 +656,8 @@ factorized into free-particle \name{Green} functions with the help of the
 \name{Wick} theorem, which is presented in the following section.
 
 This is the last step to be taken on the way to \name{Feynman}'s diagrammatical
-perturbation theory, which will be outlined during the analysis of the models
-introduced in the next chapter.
+perturbation theory, which will be outlined afterwards during the analysis of
+some model interactions.
 
 \subsection{\name{Wick} theorem}
 
@@ -697,7 +699,7 @@ where the cyclic property of the trace has been used. With the help of
 Eq.~\ref{time-dependent ladder operators} one finds
 %
 \begin{equation*}
-	[\E^{-\beta \op H_0}, \op A_1]_\pm
+    [\E^{-\beta \op H_0}, \op A_1]_\pm
     = \E^{-\beta \op H_0} \E^{\beta \op H_0} [\E^{-\beta \op H_0}, \op A_1]_\pm
     = \E^{-\beta \op H_0} \big[
         1 \pm \E^{\epsilon(A_1) \beta}
@@ -745,14 +747,14 @@ is the group of all possible pairings. Since within each pair of operators the
 original order is preserved, the theorem holds for time-ordered expectation
 values as well, thus
 %
-\begin{align*}
+\begin{equation} \label{Wick theorem}
     \av{\op T \, \op A_1[\tau_1] \dots \op A_n[\tau_n]}_0 =
     \sum_{\mathclap{P \in P_n}} (\mp 1)^{T(P)}
     \av{\op T \, \op A_{P(1)}[\tau_{P(1)}] \,
     \op A_{P(2)}[\tau_{P(2)}]}_0 \dots
     \av{\op T \, \op A_{P(n - 1)}[\tau_{P(n - 1)}] \,
     \op A_{P(n)}[\tau_{P(n)}]}_0.
-\end{align*}
+\end{equation}
 
 
 \section{Model interactions}
@@ -793,7 +795,8 @@ values as well, thus
 
 \tikzset{electron/.style={
     thick,
-    decoration={markings, mark=at position 0.5 with {\arrow>}},
+    decoration={markings, mark=at position 0.5 with {\arrow[%
+        xshift=0.525pt + 0.9625\pgflinewidth]>}},
     postaction={decorate},
     }}
 
@@ -803,88 +806,204 @@ values as well, thus
     decorate,
     }}
 
-Calculate 1st/2nd order of perturbation series explicitly.
+For a satisfactory description of superconductivity, not only the \q'normal'
+\name{Green} function
+%
+\begin{equation*}
+    G_{\vec k \sigma}(\tau) = -\av{\op T \,
+    \op a_{\vec k \sigma}(\tau) \,
+    \op a_{\vec k \sigma}^+(0)},
+\end{equation*}
+%
+which describes the propagation of an electron, but also the \emph{anomalous
+\name{Gorkov-Green} function}
+%
+\begin{equation*}
+    F_{\vec k \sigma}(\tau) = -\av{\op P^+ \op T \,
+    \op a_{\vec k \sigma}(\tau) \,
+    \op a_{-\vec k -\sigma}(0)},
+\end{equation*}
+%
+which is a measure for the correlation between the presence or absence of an
+electron at one time and its time-reversed counterpart at another time, thus for
+the existence of \name{Cooper} pairs, is needed. Solely for convenience, one
+introduced two additional functions
+%
+\begin{align*}
+    \smash{\widetilde G_{\vec k \sigma}}(\tau) &= -\av{\op T \,
+    \op a_{-\vec k -\sigma}^+(\tau) \,
+    \op a_{-\vec k -\sigma}(0)} = -G_{-\vec k -\sigma}(-\tau),
+    \\
+    \smash{\widetilde F_{\vec k \sigma}}(\tau) &= -\av{\op P \op T \,
+    \op a_{-\vec k -\sigma}^+(\tau) \,
+    \op a_{\vec k \sigma}^+(0)} = F_{\vec k \sigma}^*(\tau).
+\end{align*}
+
+In the following, leading terms of $G_{\vec k \sigma}(\tau)$ and $F_{\vec k
+\sigma}(\tau)$ are calculated explicitly for some model interactions. First, the
+perturbation series for the electron-phonon interaction as described by the
+\name{Holstein-Hamilton} operator is analyzed up the second order. As will be
+shown, the latter bears a close resemblance to the first order terms of the
+homogeneous electron gas and the more simple \name{Hubbard} model of interacting
+electrons.
 
 \subsection{\name{Holstein} model}
 
-Further application of \textsc{Wick}'s theorem to the electronic part
+In real space, the interaction term of the \emph{\name{Holstein-Hamilton}
+operator} reads
+%
+\begin{equation*}
+    \op V = g \sum_{\vec R \sigma}
+    \op a_{\vec R \sigma}^+ \op a_{\vec R \sigma}
+    [\op b_{\vec R} + \op b_{\vec R}^+],
+\end{equation*}
+%
+where $g$ is the local electron-phonon coupling strength and $\op a_{\vec R
+\sigma}^{(+)}$ and $\op b_{\vec R}^{(+)}$ annihilate (create) electronic and
+phononic excitations, respectively, localized at the lattice sites $\vec R$.
+
+A discrete \name{Fourier} transform of the creation and annihilation operators
+with the help of Eq.~\ref{DFT orthogonality relation} yields the momentum-space
+representation
+%
+\begin{align*}
+    \op V &= \frac g {\sqrt N} \sum_{\vec k \vec k' \sigma \vec q}
+    \frac 1 N \sum_{\vec R} \E^{\I (\vec k' - \vec k) \vec R}
+    \op a_{\vec k' \sigma}^+ \op a_{\vec k \sigma} [
+        \E^{-\I \vec q \vec R} \op b_{\vec q} +
+        \E^{\I \vec q \vec R} \op b_{\vec q}^+
+    ] \\ &= \frac g {\sqrt N} \sum_{\vec k \sigma \vec q}
+    \op a_{\vec k + \vec q \sigma}^+ \op a_{\vec k \sigma}
+    \upvarphi_{\vec q}
+    \quad \text{with} \quad
+    \upvarphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+.
+\end{align*}
+
+First, $G_{\vec k \sigma}(\tau)$ is evaluated. The zeroth term is just the
+\name{Green} function of non-interacting electrons, the \name{Matsubara}
+representation of which is given in Eq.~\ref{G_0(i omega_n)}. First-order terms
+vanish because $\upvarphi_{\vec q}$ is does not conserve the particle number,
+unlike the unperturbed \name{Hamilton} operator with respect to which the
+averages are taken. Eventually, in second order one finds
+%
+\begin{align} \label{Holstein 2nd}
+    G \super{2nd}_{\vec k \sigma}(\tau) &\propto
+    \sum_{\vec k' \vec k'' \sigma \sigma' \vec q \vec q'}
+    \int \from 0 \till \beta \D \tau' \int \from 0 \till \beta \D \tau'' \,
+    \av \dots_0,
+    \\ \notag
+    \av \dots_0 &= \av{\op T \,
+        \op a_{\vec k \sigma}[\tau] \,
+        \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+        \op a_{\vec k' \sigma'}[\tau'] \,
+        \upvarphi_{\vec q}[\tau'] \,
+        \op a_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
+        \op a_{\vec k'' \sigma''}[\tau''] \,
+        \upvarphi_{\vec q'}[\tau''] \,
+        \op a_{\vec k \sigma}^+[0]}_0
+    \\ \notag
+    &= \underbrace{
+            \av{\op T \,
+                \op a_{\vec k \sigma}[\tau] \,
+                \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+                \op a_{\vec k' \sigma'}[\tau'] \,
+                \op a_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
+                \op a_{\vec k'' \sigma''}[\tau''] \,
+                \op a_{\vec k \sigma}^+[0]}_0
+            }_{\displaystyle \av{\text{el.}}_0}
+        \underbrace{
+            \av{\op T \,
+                \upvarphi_{\vec q}[\tau'] \,
+                \upvarphi_{\vec q'}[\tau'']}_0
+            }_{\displaystyle -D^0_{\vec q}(\tau' - \tau'')},
+\end{align}
+%
+where the \name{Green} function $D^0_{\vec q}(\tau)$ of free phonons can be
+transformed into Eq.~\ref{D_0(i omega_n)}. Further application of the
+\textsc{Wick} theorem as stated in Eq.~\ref{Wick theorem} to the electronic part
 $\av{\text{el.}}_0$ yields
 %
 \begingroup
-	\def\minalignsep{0pt}
-	\begin{align*}
-		&-
-		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+    \def\minalignsep{0pt}
+    \begin{align*}
+        &-
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
         \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
         \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
         \, \op a_{\vec k \sigma}^+[0]}_0
-		&& \delta_{\vec q}^0 \delta_{\vec q'}^0
-		&& \delta_{\sigma''}^\sigma
-		&& \delta_{\vec k''}^{\vec k} \\
-		&-
-		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        && \delta_{\vec q}^0 \delta_{\vec q'}^0
+        && \delta_{\sigma''}^\sigma
+        && \delta_{\vec k''}^{\vec k} \\
+        &-
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
         \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
         \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
         \, \op a_{\vec k \sigma}^+[0]}_0
-		&& \delta_{\vec q}^0 \delta_{\vec q'}^0
-		&& \delta_{\sigma'}^\sigma
-		&& \delta_{\vec k'}^{\vec k} \\
-		&+
-		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        && \delta_{\vec q}^0 \delta_{\vec q'}^0
+        && \delta_{\sigma'}^\sigma
+        && \delta_{\vec k'}^{\vec k} \\
+        &+
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
         \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
         \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
         \, \op a_{\vec k \sigma}^+[0]}_0
-		&& \delta_{\vec q'}^{-\vec q}
-		&& \delta_{\sigma'}^\sigma \delta_{\sigma''}^\sigma
-		&& \delta_{\vec k''}^{\vec k} \delta_{\vec k'}^{\vec k - \vec q} \\
-		&+
-		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        && \delta_{\vec q'}^{-\vec q}
+        && \delta_{\sigma'}^\sigma \delta_{\sigma''}^\sigma
+        && \delta_{\vec k''}^{\vec k} \delta_{\vec k'}^{\vec k - \vec q} \\
+        &+
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
         \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
         \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
         \, \op a_{\vec k \sigma}^+[0]}_0
-		&& \delta_{\vec q'}^{-\vec q}
-		&& \delta_{\sigma'}^\sigma \delta_{\sigma''}^\sigma
-		&& \delta_{\vec k'}^{\vec k} \delta_{\vec k''}^{\vec k + \vec q} \\
-		&+
-		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        && \delta_{\vec q'}^{-\vec q}
+        && \delta_{\sigma'}^\sigma \delta_{\sigma''}^\sigma
+        && \delta_{\vec k'}^{\vec k} \delta_{\vec k''}^{\vec k + \vec q} \\
+        &+
+        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
         \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
         \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
         \, \op a_{\vec k \sigma}^+[0]}_0
-		&& \delta_{\vec q}^0 \delta_{\vec q'}^0
-		&&
-		&& \\
-		&-
-		&& \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
+        && \delta_{\vec q}^0 \delta_{\vec q'}^0
+        &&
+        && \\
+        &-
+        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
         \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-		&& \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
         \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
         \, \op a_{\vec k \sigma}^+[0]}_0
-		&& \delta_{\vec q'}^{-\vec q}
-		&& \delta_{\sigma''}^{\sigma'}
-		&& \delta_{\vec k''}^{\vec k' + \vec q} \\
-		&+
-		&& \av{\op P^+ \op T \, \op a_{\vec k' \sigma'}[\tau']
+        && \delta_{\vec q'}^{-\vec q}
+        && \delta_{\sigma''}^{\sigma'}
+        && \delta_{\vec k''}^{\vec k' + \vec q} \\
+        &+
+        && \av{\op P^+ \op T \, \op a_{\vec k' \sigma'}[\tau']
         \, \op a_{\vec k'' \sigma''}[\tau'']}_0
-		&& \av{\op P \op T \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']
+        && \av{\op P \op T \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']
         \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-		&& \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
         \, \op a_{\vec k \sigma}^+[0]}_0
-		&& \delta_{\vec q'}^{-\vec q}
-		&& \delta_{\sigma''}^{-\sigma'}
-		&& \delta_{\vec k''}^{-\vec k'}.
-	\end{align*}
+        && \delta_{\vec q'}^{-\vec q}
+        && \delta_{\sigma''}^{-\sigma'}
+        && \delta_{\vec k''}^{-\vec k'}.
+    \end{align*}
 \endgroup
+
+The last line is generated by introducing $\op P \op P^+ = 1$ prior to the
+factorization. Although $\av{\op P \dots}_0$ and $\av{\op P^+ \dots}_0$ vanish,
+for a reason that will be given later, the corresponding summands are listed if
+$\op a_{\vec k \sigma}$ and $\op a_{\vec k \sigma}^+$ are not involved in such
+anomalous pairings.
 
 \begin{figure}
     \small
@@ -893,110 +1012,605 @@ $\av{\text{el.}}_0$ yields
         \centering
         \tikzsetnextfilename{hartree}
         \input{tikzin/hartree.tex}
-        \caption{Hartree}
+        \caption{``\name{Hartree}''}
         \label{Hartree}
     \end{subfigure}%
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{fock}
         \input{tikzin/fock.tex}
-        \caption{Fock}
+        \caption{``\name{Fock}''}
         \label{Fock}
     \end{subfigure}%
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{fock-anomalous}
         \input{tikzin/fock-anomalous.tex}
-        \caption{Fock, anomalous}
+        \caption{``\name{Fock}'', anomalous}
         \label{Fock, anomalous}
     \end{subfigure}\\[1cm]
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{glasses}
         \input{tikzin/glasses.tex}
-        \caption{``Glasses''}
+        \caption{``glasses''}
         \label{glasses}
     \end{subfigure}%
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{porthole}
         \input{tikzin/porthole.tex}
-        \caption{``Porthole''}
+        \caption{``porthole''}
         \label{porthole}
     \end{subfigure}%
     \begin{subfigure}[b]{\linewidth/3}
         \centering
         \tikzsetnextfilename{porthole-anomalous}
         \input{tikzin/porthole-anomalous.tex}
-        \caption{``Porthole'', anomalous}
+        \caption{``porthole'', anomalous}
         \label{porthole, anomalous}
     \end{subfigure}
-    \caption{2nd order \name{Feynman} graphs}
+    \caption{Second-order processes that occur in the \textsc{Feynman-Dyson}
+             perturbation series of $G_{\vec k \sigma}$ and $F_{\vec k \sigma}$
+             in the \textsc{Holstein} model. Diagrams with anomalous in- or
+             outgoing lines vanish and are omitted. The quantum numbers $\vec
+             k'$, $\vec k''$, $\sigma'$, $\sigma''$ and $\vec q$ of internal
+             lines are summed, time parameters $\tau'$ and $\tau''$ of internal
+             vertices integrated over. Solid and wavy lines represent electrons
+             and phonons, respectively.}
+    \label{Feynman diagrams}
 \end{figure}
 
-Substituting the corresponding non-interacting \textsc{Green} functions one
-obtains
+Substituting the corresponding non-interacting \textsc{Matsubara-Green}
+functions and performing the summation to eliminate the \name{Kronecker} deltas,
+one obtains
 %
 \begin{align*}
-	\sum_{\smash[b]{\begin{smallmatrix*}[l]
+    \sum_{\smash[b]{\begin{smallmatrix*}[l]
         \vec k' & \vec k'' \\
         \sigma' & \sigma'' \\
         \vec q & \vec q'
     \end{smallmatrix*}}}
     \av \dots_0 =
-	%
-	\let\displaystyle\textstyle
-	%
-	\begin{aligned}[t]
-		&- \sum_{\vec k' \sigma'}
-		&& G^0_{\vec k \sigma}(\tau - \tau'')
-		&& G^0_{\vec k' \sigma'}(0)
-		&& G^0_{\vec k \sigma}(\tau'')
-		&& D^0_0(\tau' - \tau'')
-		&  \text{(\ref{Hartree})} \\
-		&- \sum_{\vec k'' \sigma''}
-		&& G^0_{\vec k \sigma}(\tau - \tau')
-		&& G^0_{\vec k'' \sigma''}(0)
-		&& G^0_{\vec k \sigma}(\tau')
-		&& D^0_0(\tau' - \tau'')
-		&  \\
-		&+ \sum_{\vec q}
-		&& G^0_{\vec k \sigma}(\tau - \tau')
-		&& G^0_{\vec k - \vec q \sigma}(\tau' - \tau'')
-		&& G^0_{\vec k \sigma}(\tau'')
-		&& D^0_{\vec q}(\tau' - \tau'')
-		&  \text{(\ref{Fock})} \\
-		&+ \sum_{\vec q}
-		&& G^0_{\vec k \sigma}(\tau - \tau'')
-		&& G^0_{\vec k + \vec q \sigma}(\tau'' - \tau')
-		&& G^0_{\vec k \sigma}(\tau')
-		&& D^0_{\vec q}(\tau' - \tau'')
-		&  \\
-		&+ \textstyle \sum_{\vec k' \vec k'' \sigma' \sigma''}
-		&& G^0_{\vec k' \sigma'}(0)
-		&& G^0_{\vec k'' \sigma''}(0)
-		&& G^0_{\vec k \sigma}(\tau)
-		&& D^0_0(\tau' - \tau'')
-		&  \text{(\ref{glasses})} \\
-		&- \sum_{\vec k' \sigma' \vec q}
-		&& G^0_{\vec k' \sigma'}(\tau' - \tau'')
-		&& G^0_{\vec k' + \vec q \sigma'}(\tau'' - \tau')
-		&& G^0_{\vec k \sigma}(\tau)
-		&& D^0_{\vec q}(\tau' - \tau'')
-		&  \text{(\ref{porthole})} \\
-		&+ \sum_{\vec k' \sigma' \vec q}
-		&& F^0_{\vec k' \sigma'}(\tau' - \tau'')
-		&& \smash{\widetilde F^0_{\vec k' + \vec q \sigma'}}(\tau'' - \tau')
-		&& G^0_{\vec k \sigma}(\tau)
-		&& D^0_{\vec q}(\tau' - \tau'').
-		&  \text{(\ref{porthole, anomalous})}
-	\end{aligned}
+    %
+    \let\displaystyle\textstyle
+    %
+    \begin{aligned}[t]
+        &- \sum_{\vec k' \sigma'}
+        && G^0_{\vec k \sigma}(\tau - \tau'')
+        && G^0_{\vec k' \sigma'}(0)
+        && G^0_{\vec k \sigma}(\tau'')
+        && D^0_0(\tau' - \tau'')
+        &  \text{(\ref{Hartree})} \\
+        &- \sum_{\vec k'' \sigma''}
+        && G^0_{\vec k \sigma}(\tau - \tau')
+        && G^0_{\vec k'' \sigma''}(0)
+        && G^0_{\vec k \sigma}(\tau')
+        && D^0_0(\tau' - \tau'')
+        &  \\
+        &+ \sum_{\vec q}
+        && G^0_{\vec k \sigma}(\tau - \tau')
+        && G^0_{\vec k - \vec q \sigma}(\tau' - \tau'')
+        && G^0_{\vec k \sigma}(\tau'')
+        && D^0_{\vec q}(\tau' - \tau'')
+        &  \text{(\ref{Fock})} \\
+        &+ \sum_{\vec q}
+        && G^0_{\vec k \sigma}(\tau - \tau'')
+        && G^0_{\vec k + \vec q \sigma}(\tau'' - \tau')
+        && G^0_{\vec k \sigma}(\tau')
+        && D^0_{\vec q}(\tau' - \tau'')
+        &  \\
+        &+ \textstyle \sum_{\vec k' \vec k'' \sigma' \sigma''}
+        && G^0_{\vec k' \sigma'}(0)
+        && G^0_{\vec k'' \sigma''}(0)
+        && G^0_{\vec k \sigma}(\tau)
+        && D^0_0(\tau' - \tau'')
+        &  \text{(\ref{glasses})} \\
+        &- \sum_{\vec k' \sigma' \vec q}
+        && G^0_{\vec k' \sigma'}(\tau' - \tau'')
+        && G^0_{\vec k' + \vec q \sigma'}(\tau'' - \tau')
+        && G^0_{\vec k \sigma}(\tau)
+        && D^0_{\vec q}(\tau' - \tau'')
+        &  \text{(\ref{porthole})} \\
+        &+ \sum_{\vec k' \sigma' \vec q}
+        && F^0_{\vec k' \sigma'}(\tau' - \tau'')
+        && \smash{\widetilde F^0_{\vec k' + \vec q \sigma'}}(\tau'' - \tau')
+        && G^0_{\vec k \sigma}(\tau)
+        && D^0_{\vec q}(\tau' - \tau'').
+        &  \text{(\ref{porthole, anomalous})}
+    \end{aligned}
+\end{align*}
+%
+The corresponding \textsc{Feynman} diagrams are depicted in Fig.~\ref{Feynman
+diagrams}.
+
+The last three terms represent \emph{disconnected diagrams}. Calculating the
+second order of $\av{S(\beta)}_0$, which has been ignored so far, yields these
+very diagrams, except that the in- and outgoing electron lines are missing. It
+turns out that every diagram part contained in the denominator $\av{S(\beta)}_0$
+of Eq.~\ref{perturbation series} will reappear in the nominator in a way that
+%
+\begin{equation*}
+    \av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B[0]}_0 =
+    \av{\op S(\beta)}_0
+    \av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B[0]}_0 \super{c.}
+\end{equation*}
+%
+where $\av \dots_0 \super{c.}$ is $\av \dots_0$ less all terms corresponding to
+disconnected diagrams. Hence,
+%
+\begin{equation*}
+    G(\tau) = -\av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B[0]}_0
+    \super{c.}.
+\end{equation*}
+
+In the following, all terms with $D^0_0$ are neglected since phonons with $\vec
+q = 0$ are no actual phonons but rather translations of the crystal as a whole,
+which shall not be considered here.%
+%
+\footnote{according to \cite[p.~82]{Mahan00}}
+
+Performing the integrals, the remaining two terms turn out to be equivalent
+since $\tau'$ and $\tau''$ occur in exchangeable positions. Transforming to
+\textsc{Matsubara} frequencies as per Eq.~\ref{Matsubara-Green function} yields
+%
+\begin{align*}
+    G \super{2nd}_{\vec k \sigma}(\I \omega_n)
+    &= \int \from 0 \till \beta \D \tau \,
+    \E^{\I \omega_n \tau} G \super{2nd}_{\vec k \sigma}(\tau) \\
+    &= -\frac {g^2} N \sum_{\vec q}
+    \int \from 0 \till \beta \D \tau
+    \int \from 0 \till \beta \D \tau'
+    \int \from 0 \till \beta \D \tau'' \,
+    \E^{\I \omega_n \tau}
+    G^0_{\vec k \sigma}(\tau - \tau') \,
+    G^0_{\vec k - \vec q \sigma}(\tau' - \tau'') \,
+    G^0_{\vec k \sigma}(\tau'') \,
+    D^0_{\vec q}(\tau' - \tau'') \\
+    &= -\frac {g^2}{N \beta} \sum_{\vec q} \sum_{i j k m}
+    G^0_{\vec k \sigma}(\I \omega_i) \,
+    G^0_{\vec k - \vec q \sigma}(\I \omega_m) \,
+    G^0_{\vec k \sigma}(\I \omega_j) \,
+    D^0_{\vec q}(\I \Omega_k) \times \dots \\
+    \dots &\times
+    \frac 1 \beta \int \from 0 \till \beta \D \tau \,
+    \E^{\I (\omega_n - \omega_i) \tau} \,
+    \frac 1 \beta \int \from 0 \till \beta \D \tau' \,
+    \E^{\I (\omega_i - \omega_m - \Omega_k) \tau'} \,
+    \frac 1 \beta \int \from 0 \till \beta \D \tau'' \,
+    \E^{\I (\omega_m - \omega_j + \Omega_k) \tau''}
+\end{align*}
+%
+where lower- and uppercase omegas denote fermionic and bosonic \name{Matsubara}
+frequencies. Noting that differences of \name{Matsubara} frequencies of mixed
+and equal type are fermionic and bosonic, respectively, and that for bosons the
+\name{Matsubara-Fourier} series is defined as an ordinary \name{Fourier} series,
+one can apply the orthogonality relation given in Eq.~\ref{Fourier series
+orthogonality relation}. Thus
+%
+\begin{equation*}
+    G \super{2nd}_{\vec k \sigma}(\I \omega_n) =
+    G^0_{\vec k \sigma}(\I \omega_n) \,
+    \Sigma_{\vec k \sigma}^G(\I \omega_n) \,
+    G^0_{\vec k \sigma}(\I \omega_n),
+\end{equation*}
+%
+where the part in between is a \emph{self-energy contribution} an given by
+%
+\begin{equation} \label{self-energy contribution}
+    \Sigma_{\vec k \sigma}^G(\I \omega_n)
+    = -\frac {g^2}{N \beta} \sum_{\vec q m}
+    G^0_{\vec k - \vec q \sigma}(\I \omega_m) \,
+    D^0_{\vec q}(\I \omega_n - \I \omega_m)
+    = -\frac {g^2}{N \beta} \sum_{\vec q m}
+    G^0_{\vec q \sigma}(\I \omega_m) \,
+    D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
+\end{equation}
+
+Next, $F_{\vec k \sigma}(\tau)$ is analyzed. The procedure is as above except
+that
+%
+\begin{align*}
+    \av{\text{el.}}_0= \av{\op P^+ \op T \,
+        \op a_{\vec k \sigma}[\tau] \,
+        \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+        \op a_{\vec k' \sigma'}[\tau'] \,
+        \op a_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
+        \op a_{\vec k'' \sigma''}[\tau''] \,
+        \op a_{-\vec k -\sigma}[0]}_0.
+\end{align*}
+%
+has to be considered. With the help of the \textsc{Wick} theorem this reduces to
+%
+\begingroup
+    \def\minalignsep{0pt}
+    \begin{align*}
+        &-
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op P^+ \op T \, \op a_{\vec k' \sigma'}[\tau']
+        \, \op a_{\vec k'' \sigma''}[\tau'']}_0
+        && \av{\op T \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']
+        \, \op a_{-\vec k -\sigma}[0]}_0
+        && \delta_{\vec q'}^{-\vec q}
+        && \delta_{\sigma'}^\sigma \delta_{\sigma''}^{-\sigma}
+        && \delta_{\vec k'}^{\vec k - \vec q}
+           \delta_{\vec k''}^{\vec q - \vec k} \\
+        &-
+        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
+        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+        && \av{\op P^+ \op T \, \op a_{\vec k'' \sigma''}[\tau'']
+        \, \op a_{\vec k' \sigma'}[\tau']}_0
+        && \av{\op T \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']
+        \, \op a_{-\vec k -\sigma}[0]}_0
+        && \delta_{\vec q'}^{-\vec q}
+        && \delta_{\sigma'}^{-\sigma} \delta_{\sigma''}^\sigma
+        && \delta_{\vec k'}^{-\vec k - \vec q}
+           \delta_{\vec k''}^{\vec k + \vec q}.
+    \end{align*}
+\endgroup
+%
+Substituting \textsc{Green}'s functions one finds
+%
+\begin{align*}
+    \sum_{\mathclap{\vec k' \vec k'' \sigma' \sigma'' \vec q \vec q'}}
+    \av \dots_0 =
+    %
+    \let\displaystyle\textstyle
+    %
+    \begin{aligned}[t]
+        &- \sum_{\vec q}
+        && G^0_{\vec k \sigma}(\tau - \tau')
+        && F^0_{\vec k - \vec q \sigma}(\tau' - \tau'')
+        && \smash{\widetilde G^0_{\vec k \sigma}}(\tau'')
+        && D^0_{\vec q}(\tau' - \tau'')
+        &  \text{(Fig.~\ref{Fock, anomalous})} \\
+        &- \sum_{\vec q}
+        && G^0_{\vec k \sigma}(\tau - \tau'')
+        && F^0_{\vec k + \vec q \sigma}(\tau'' - \tau')
+        && \smash{\widetilde G^0_{\vec k \sigma}}(\tau')
+        && D^0_{\vec q}(\tau' - \tau'').
+        &
+    \end{aligned}
+\end{align*}
+%
+where again both lines of the right-hand side will prove equivalent.
+
+Bar the sign, the final result formally resembles the the one for $G
+\super{2nd}_{\vec k \sigma}(\I \omega_n)$:
+%
+\begin{equation*}
+    F \super{2nd}_{\vec k \sigma}(\I \omega_n)
+    = G^0_{\vec k \sigma}(\I \omega_n) \,
+    \Sigma_{\vec k \sigma}^F(\I \omega_n) \,
+    \widetilde G^0_{\vec k \sigma}(\I \omega_n)
+    \quad \text{with} \quad
+    \Sigma_{\vec k \sigma}^F(\I \omega_n)
+    = \frac {g^2}{N \beta} \sum_{\vec q m}
+    F^0_{\vec q \sigma}(\I \omega_m) \,
+    D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
+\end{equation*}
+
+\subsection{Homogeneous electron gas and jellium}
+
+The interaction within an \emph{homogenous electron gas} reads
+%
+\begin{align*}
+    \op V = \frac 1 2 \sum_{\vec k \vec k' \sigma \sigma' \vec q} U_{\vec q} \,
+    \op a_{\vec k + \vec q \sigma}^+
+    \op a_{\vec k' - \vec q \sigma'}^+
+    \op a_{\vec k' \sigma'}
+    \op a_{\vec k \sigma}
+    \quad \text{with} \quad
+    U_{\vec q} = \frac{e^2}{V} \frac{4 \pi}{q^2}.
+\end{align*}
+%
+The first-order term of the \textsc{Feynman-Dyson} perturbation series for
+$G_{\vec k \sigma}(\tau)$ is thus
+%
+\begin{align*}
+    G \super{1st}_{\vec k \sigma}(\tau) &= \frac 1 2
+    \sum_{\vec k' \vec k'' \sigma' \sigma'' \vec q} U_{\vec q}
+    \int \from 0 \till \beta \D \tau' \, \av \dots_0 \super{c.},
+    \\
+    \av \dots_0 &= \av{\op T \,
+        \op a_{\vec k \sigma}[\tau] \,
+        \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+        \op a_{\vec k'' - \vec q \sigma''}^+[\tau'] \,
+        \op a_{\vec k'' \sigma''}[\tau'] \,
+        \op a_{\vec k' \sigma'}[\tau'] \,
+        \op a_{\vec k \sigma}^+[0]
+    }_0 \\ &= \av{\op T \,
+        \op a_{\vec k \sigma}[\tau] \,
+        \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+        \op a_{\vec k' \sigma'}[\tau'] \,
+        \op a_{\vec k'' - \vec q \sigma''}^+[\tau'] \,
+        \op a_{\vec k'' \sigma''}[\tau'] \,
+        \op a_{\vec k \sigma}^+[0]
+    }_0
+\end{align*}
+%
+A comparison with Eq.~\ref{Holstein 2nd}, the corresponding formula for the
+\name{Holstein} model, reveals that
+%
+\begin{align*}
+    \av \dots_0 =
+    \sum_{\vec q'} \delta_{\vec q'}^{-\vec q}
+    \int \from 0 \till \beta \D \tau'' \,
+    \delta(\tau'' - \tau'_+) \, \av{\text{el.}}_0,
+\end{align*}
+%
+where $\tau'_+$ corresponds to a time infinitesimally later than $\tau'$ in
+order to ensure a causal time-ordering. The \textsc{Kronecker} delta is actually
+superflous for being contained in each term of $\av{\text{el.}}_0$ anyway. Once
+the factorized expression has been rewritten in terms of \name{Green} functions,
+the subscript plus sign can be dropped again. One finds
+%
+\begin{align*}
+    \sum_{\mathclap{\vec k' \vec k'' \sigma' \sigma'' \vec q}}
+    \av \dots_0 \super{c.} =
+    2 G^0_{\vec k \sigma}(\tau - \tau')
+    \Big[
+        U_0 \sum_{\vec k' \sigma'} G^0_{\vec k' \sigma'}(0) -
+        \sum_{\vec q} U_{\vec q} \, G^0_{\vec k - \vec q \sigma}(0)
+    \Big]
+    G^0_{\vec k \sigma}(\tau').
+\end{align*}
+%
+The terms inside the brackets correspond to \textsc{Hartree} and \textsc{Fock}
+self-energy contributions. The former may be compensated exactly by a homogenous
+positive background which is introduced into the theory simply by omitting the
+$\vec q = 0$ terms from the interaction, i.e. considering the so-called
+\emph{jellium model}. Then one has
+%
+\begin{align*}
+    G \super{1st}_{\vec k \sigma}(\I \omega_n) &=
+    \int \from 0 \till \beta \D \tau \, \E^{\I \omega_n \tau}
+    G \super{1st}_{\vec k \sigma}(\tau)
+    = -\sum_{\vec q \neq 0} U_{\vec q}
+    \int \from 0 \till \beta \D \tau
+    \int \from 0 \till \beta \D \tau' \,
+    \E^{\I \omega_n \tau}
+    G^0_{\vec k \sigma}(\tau - \tau') \,
+    G^0_{\vec k - \vec q \sigma}(0) \,
+    G^0_{\vec k \sigma}(\tau')
+    \\
+    &= -\frac 1 \beta \sum_{\vec q \neq 0} U_{\vec q} \sum_{i j m}
+    G^0_{\vec k \sigma}(\I \omega_i) \,
+    G^0_{\vec k - \vec q \sigma}(\I \omega_m) \,
+    G^0_{\vec k \sigma}(\I \omega_j) \,
+    \frac 1 \beta \int \from 0 \till \beta \D \tau \,
+    \E^{\I (\omega_n - \omega_i) \tau} \,
+    \frac 1 \beta \int \from 0 \till \beta \D \tau' \,
+    \E^{\I (\omega_i - \omega_j) \tau'}.
+\end{align*}
+%
+Finally, one finds a frequency-independent self-energy contribution:
+%
+\begin{align*}
+    G \super{1st}_{\vec k \sigma}(\I \omega_n)
+    = G^0_{\vec k \sigma}(\I \omega_n) \,
+    \Sigma_{\vec k \sigma}^G \,
+    G^0_{\vec k \sigma}(\I \omega_n)
+    \quad \text{with} \quad
+    \Sigma_{\vec k \sigma}^G
+    = -\frac 1 \beta \sum_{\vec q \neq \vec k} U_{\vec k - \vec q}
+    \sum_m G^0_{\vec q \sigma}(\I \omega_m),
 \end{align*}
 
-\subsection{Jellium model}
-
-$\delta(\tau' + 0^+ - \tau'')$
+Analogously, during the calculation of $F^0_{\vec k \sigma}(\tau)$ one obtains
+%
+\begin{align*}
+    \sum_{\vec k' \vec k'' \sigma' \sigma''} \sum_{\vec q \neq 0}
+    \av \dots_0 \super{c.}
+    = 2 \sum_{\vec q \neq 0} U_{\vec q} \,
+    G^0_{\vec k \sigma}(\tau - \tau') \,
+    F^0_{\vec k - \vec q \sigma}(0) \,
+    \widetilde G^0_{\vec k \sigma}(\tau')
+\end{align*}
+%
+and, again, a formally equal result apart from the sign:
+%
+\begin{equation*}
+    F \super{1st}_{\vec k \sigma}(\I \omega_n)
+    = G^0_{\vec k \sigma}(\I \omega_n) \,
+    \Sigma_{\vec k \sigma}^F \,
+    \widetilde G^0_{\vec k \sigma}(\I \omega_n)
+    \quad \text{with} \quad
+    \Sigma_{\vec k \sigma}^F
+    = \frac 1 \beta \sum_{\vec q \neq k} U_{\vec k - \vec q}
+    \sum_m F^0_{\vec q \sigma}(\I \omega_m).
+\end{equation*}
 
 \subsection{\name{Hubbard} model}
 
-\section{Self energy and \name{Dyson} equation}
+The \textsc{Hubbard} model further restricts the \textsc{Coulomb} interaction to
+occur only between electrons at the same site, which must consequently have
+opposite spins because of the \name{Pauli} principle. With the on-site
+\textsc{Coulomb} repulsion $U$, the corresponding operator in real space reads
+%
+\begin{equation*}
+    \op V = U \sum_{\vec R}
+    \op a_{\vec R \uparrow}^+
+    \op a_{\vec R \downarrow}^+
+    \op a_{\vec R \downarrow}
+    \op a_{\vec R \uparrow}.
+\end{equation*}
+
+As for the \name{Holstein} model, a discrete \name{Fourier} transform using
+Eq.~\ref{DFT orthogonality relation} is applied, yielding
+%
+\begin{align*}
+    \op V &=
+    \frac U N \sum_{\vec k \vec k' \vec q \vec q'}
+    \frac 1 N \sum_{\vec R}
+    \E^{\I (\vec q + \vec{q'} - \vec k - \vec{k'}) \vec R}
+    \op a_{\vec q' \uparrow}^+
+    \op a_{\vec q \downarrow}^+
+    \op a_{\vec k' \downarrow}
+    \op a_{\vec k \uparrow}
+    \\
+    &= \frac U N \sum_{\vec k \vec k' \vec q}
+    \op a_{\vec k + \vec k' - \vec q \uparrow}^+
+    \op a_{\vec q \downarrow}^+
+    \op a_{\vec k' \downarrow}
+    \op a_{\vec k \uparrow}
+    = \frac U N \sum_{\vec k \vec k' \vec q}
+    \op a_{\vec k + \vec q \uparrow}^+
+    \op a_{\vec k' - \vec q \downarrow}^+
+    \op a_{\vec k' \downarrow} \op a_{\vec k \uparrow}.
+\end{align*}
+
+In terms of $\av{\text{el.}}_0$ from Eq.~\ref{Holstein 2nd}, the first order of
+the perturbation series for $G_{\vec k \sigma}(\tau)$ reads
+%
+\begin{align*}
+    G \super{1st}_{\vec k \sigma}(\tau) &=
+    \frac U N \sum_{\vec k' \vec k'' \sigma' \sigma'' \vec q \vec q'}
+    \delta_{\sigma'}^\up \delta_{\sigma''}^\down \delta_{\vec q'}^{-\vec q}
+    \int \from 0 \till \beta \D \tau' \,
+    \int \from 0 \till \beta \D \tau'' \,
+    \delta(\tau'' - \tau'_+) \,
+    \av{\text{el.}}_0 \super{c.}.
+\end{align*}
+%
+Excluding terms with $\vec q = 0$, one finds all diagrams either disconnected or
+vanishing, thus
+%
+\begin{align*}
+    G \super{1st}_{\vec k \sigma}(\I \omega_n)
+    &= G^0_{\vec k \sigma}(\I \omega_n) \,
+    \Sigma_{\vec k \sigma}^G \,
+    G^0_{\vec k \sigma}(\I \omega_n)
+    \quad \text{with} \quad
+    \Sigma_{\vec k \sigma}^G = 0.
+\end{align*}
+
+Nevertheless, the analogous calculation of $F_{\vec k \sigma}(\tau)$ yields
+%
+\begin{align*}
+    \sum_{\vec k' \vec k''} \sum_{\vec q \neq 0} \av \dots_0 \super{c.} =
+    \sum_{\vec q \neq 0}
+    G^0_{\vec k \sigma}(\tau - \tau') \,
+    F^0_{\vec k - \vec q \sigma}(0) \,
+    \widetilde G^0_{\vec k \sigma}(\tau')
+\end{align*}
+%
+with the final result
+%
+\begin{equation*}
+    F \super{1st}_{\vec k \sigma}(\I \omega_n)
+    = G^0_{\vec k \sigma}(\I \omega_n) \,
+    \Sigma_\sigma^F \,
+    \widetilde G^0_{\vec k \sigma}(\I \omega_n)
+    \quad \text{with} \quad
+    \Sigma_\sigma^F
+    = \frac U {N \beta} \sum_{\vec q \neq \vec k} \sum_m
+    F^0_{\vec q \sigma}(\I \omega_m).
+\end{equation*}
+
+\section{Self-energy}
+
+The full \name{Green} function is found by adding \emph{all} valid connected
+diagrams. But which diagrams are valid? In Fig.~\ref{Feynman diagrams}, each
+diagram features three fermion lines, a single boson line and two vertices at
+each of which one fermion is annihilated and another one created under the
+influence of one boson. This process has to be simultaneous and conserves both
+momentum and spin. For this type of interaction, a general diagram contains
+%
+\begin{equation*}
+    n \times \tikz [baseline=-0.5ex] \draw [phonon] (0, 0) -- (1, 0);,
+    \quad
+    (2 n + 1) \times \tikz [baseline=-0.5ex] \draw [electron] (0, 0) -- (1, 0);
+    \quad \text{and} \quad
+    2 n \times
+    \begin{tikzpicture}[baseline=-0.5ex]
+        \draw [electron, gray] (0, 0) +(225:5mm) -- (0, 0);
+        \draw [phonon, gray] (0, 0) -- +(90:5mm);
+        \draw [electron, gray] (0, 0) -- +(-45:5mm);
+        \fill (0, 0) circle (1.5pt);
+    \end{tikzpicture}
+    \quad \text{with} \quad
+    n \in \mathds N.
+\end{equation*}
+%
+As a consequence, there is always one starting point as well as one endpoint of
+a fermion line, which is not connected to a vertex.
+
+It is convenient to define the \emph{self-energy} $\Sigma = \sum_i \Sigma_i$ as
+the sum of all \emph{irreducible} diagram parts $\Sigma_i$, i.e. such which can
+not be split into two disconnected parts by \q'cutting' one fermion line. A way
+to generate all diagrams is to take all possible subsets of the irreducible
+parts and join them with fermion lines $G_0$ in all possible orders:
+%
+\begin{align*}
+    G &= G_0 + G_0 \Sigma G_0 + G_0 \Sigma G_0 \Sigma G_0 + \dots \\
+    &= G_0 + G_0 \Sigma [G_0 + G_0 \Sigma G_0 + \dots] \\
+    &= G_0 + G_0 \Sigma G.
+\end{align*}
+
+This is knows as the \emph{\name{Dyson} equation} which can also be formulated
+diagrammatically as
+%
+\begin{subequations} \label{Hedin equations}
+    \begin{equation}
+        \input{tikzin/electron.tex}.
+    \end{equation}
+    %
+    Since the \q'dressed' $G$ appears on both sides of the equation, the latter
+    defines a self-consistency problem. It can be solved iteratively, i.e. by
+    calculating $G_{n + 1} = G_0 + G_0 \Sigma G_n$ with the \q'bare' $G_0$ as
+    the initial value. At each step a higher number of diagrams is considered.
+    Multiplication with $G_0^{-1}$ and $G^{-1}$ from the left and right,
+    respectively, yields
+    %
+    \begin{equation*}
+        G^{-1} = G_0^{-1} - \Sigma
+    \end{equation*}
+    %
+    The denominators of $G$ and $G_0$ contain the excitation energies of the
+    full and the unperturbed system, as can be seen in Eq.~\ref{G(i omega_n)}
+    and Eq.~\ref{G_0(i omega_n)}, respectively. Thus $\Sigma$ acts as an energy
+    \emph{renormalization}.
+
+    How can the full self-energy be obtained? It turns out that it can be
+    derived from the leading self-energy contributions calculated in the
+    previous section, e.g. Eq.~\ref{self-energy contribution}, through
+    renormalization of selected lines and vertices, in analogy to the treatment
+    of the fermion line in the \name{Dyson} equation. The self-energy then reads
+    %
+    \begin{equation}
+        \input{tikzin/self-energy.tex},
+    \end{equation}
+    %
+    where left left summand can be incorporated into the single-particle
+    dispersion relation and thus be omitted. The dressed phonon line obeys
+    another \name{Dyson} equation,
+    %
+    \begin{equation}
+        \input{tikzin/phonon.tex}
+        \qquad \text{with} \qquad
+        \input{tikzin/polarization.tex},
+    \end{equation}
+    %
+    where the \emph{polarization} $\Pi$ has taken the place of $\Sigma$.
+
+    Finally, the full vertex is given by the plain vertex together with vertex
+    corrections:
+    %
+    \begin{equation}
+        \input{tikzin/vertex.tex}
+    \end{equation}
+
+    Eqs.~\ref{Hedin equations}, known as \name{Hedin}'s equations,%
+    %
+    \footnote{see appendix A of \cite{Hedin65}}
+    %
+    are all coupled among themselves, which makes their solution a non-trivial
+    task. In practice of often applies certain approximations, which are
+    presented in the following.
+\end{subequations}
+
+\subsection{GW approximation}
+
+\subsection{\name{Hartree-Fock} approximation}

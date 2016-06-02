@@ -1,0 +1,23 @@
+%!TEX root = ../thesis.tex
+%
+\begin{tikzpicture}[baseline]
+    \pgfmathsetmacro\r{sqrt(sqrt(3)/pi)/2}
+    %
+    \draw [phonon, double] (0, -0.5) -- (0, 0.5);
+    %
+    \node at (0.5, 0) {$=$};
+    %
+    \draw [phonon] (1, -0.5) -- (1, 0.5);
+    %
+    \node at (1.5, 0) {$+$};
+    %
+    \coordinate (T) at (2+\r, +\r);
+    \coordinate (B) at (2+\r, -\r);
+    %
+    \draw [phonon, double] (T) -- +(+90:1-\r);
+    \draw [phonon] (B) -- +(-90:1-\r);
+    %
+    \draw [fill=black!10!white] (2+\r, 0) circle [radius=\r] node {$\Pi$};
+    %
+    \foreach \point in {T, B} \fill (\point) circle (1.5pt);
+\end{tikzpicture}%
