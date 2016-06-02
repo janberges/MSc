@@ -762,15 +762,19 @@ values as well, thus
 \usetikzlibrary{decorations.markings}
 
 \pgfdeclaredecoration{waves}{start}{
-    \state{start}[width=0pt, next state=positive, persistent precomputation={
+    \state{start}[width=0pt, next state=wave, persistent precomputation={
         \pgfmathsetlengthmacro\pgfdecorationsegmentlength{
-            \pgfdecoratedinputsegmentlength / int(2
-                * \pgfdecoratedinputsegmentlength
+             \pgfdecoratedpathlength / int(2
+                * \pgfdecoratedpathlength
                 / \pgfdecorationsegmentlength
                 )
             }
         }] \relax
-    \state{positive}[width=\pgfdecorationsegmentlength, next state=negative]{
+    \state{wave}[width=\pgfdecorationsegmentlength, persistent precomputation={
+        \pgfmathsetlengthmacro\pgfdecorationsegmentamplitude{
+            -\pgfdecorationsegmentamplitude
+            }
+        }]{
         \pgfpathsine{\pgfpoint
             {\pgfdecorationsegmentlength/2}
             {\pgfdecorationsegmentamplitude/2}
@@ -780,17 +784,7 @@ values as well, thus
             {\pgfdecorationsegmentamplitude/-2}
             }
         }
-    \state{negative}[width=\pgfdecorationsegmentlength, next state=positive]{
-        \pgfpathsine{\pgfpoint
-            {\pgfdecorationsegmentlength/2}
-            {\pgfdecorationsegmentamplitude/-2}
-            }
-        \pgfpathcosine{\pgfpoint
-            {\pgfdecorationsegmentlength/2}
-            {\pgfdecorationsegmentamplitude/2}
-            }
-        }
-    \state{final}{\pgfpathmoveto\pgfpointdecoratedpathlast}
+    \state{final}{\pgfmoveto\pgfpointdecoratedpathlast}
     }
 
 \tikzset{electron/.style={
