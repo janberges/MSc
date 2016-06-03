@@ -4,6 +4,52 @@
 
 \section{\name{Nambu} formalism}
 
+\begin{equation*}
+    \input{tikzin/nambu-dyson.tex}
+\end{equation*}
+
+\begin{align*}
+	\begin{bmatrix}
+		G & F \\
+		\widetilde F & \widetilde G
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+		G_0 & 0 \\
+		0 & \widetilde G_0
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		G_0 & 0 \\
+		0 & \widetilde G_0
+	\end{bmatrix}
+	\begin{bmatrix}
+		\Sigma^G & \Sigma^F \\
+		\Sigma^{\widetilde F} & \Sigma^{\widetilde G}
+	\end{bmatrix}
+	\begin{bmatrix}
+		G & F \\
+		\widetilde F & \widetilde G
+	\end{bmatrix}
+	\\
+	&=
+	\begin{bmatrix*}[r]
+		G_0 + G_0 \Sigma^G G + G_0 \Sigma^F \widetilde F
+        & G_0 \Sigma^G F + G_0 \Sigma^F \widetilde G \\
+		\widetilde G_0 \Sigma^{\widetilde F} G
+        + \widetilde G_0 \Sigma^{\widetilde G} \widetilde F
+        & \widetilde G_0 + \widetilde G_0 \Sigma^{\widetilde F} F
+        + \widetilde G_0 \Sigma^{\widetilde G} \widetilde G
+	\end{bmatrix*}
+	\\
+	&\approx
+	\begin{bmatrix*}[r]
+		G_0 + G_0 \Sigma^G_0 G_0 & G_0 \Sigma^F_0 \widetilde G_0 \\
+		\widetilde G_0 \Sigma^{\widetilde F}_0 G_0 & \widetilde G_0
+        + \widetilde G_0 \Sigma^{\widetilde G}_0 \widetilde G_0
+	\end{bmatrix*}
+\end{align*}
+
 \section{General equations}
 
 For a self-energy on the imaginary axis, which may be written as
