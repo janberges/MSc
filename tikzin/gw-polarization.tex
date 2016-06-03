@@ -2,27 +2,27 @@
 %
 \begin{tikzpicture}[baseline]
     \pgfmathsetmacro\r{sqrt(sqrt(3)/pi)/2}
-    %
+
     \coordinate (t) at (1-\r, +\r);
     \coordinate (b) at (1-\r, -\r);
-    %
+
     \draw [fill=black!10!white] (1-\r, 0) circle [radius=\r] node {$\Pi$};
-    %
+
     \node at (1.5, 0) {$=$};
-    %
+
     \coordinate (T) at (2+\r, +\r);
     \coordinate (B) at (2+\r, -\r);
-    %
+
     \begin{scope}[gray]
         \foreach \point in {t, T}
             \draw [phonon] (\point) -- +(+90:5mm);
-        %
+    
         \foreach \point in {b, B}
             \draw [phonon] (\point) -- +(-90:5mm);
     \end{scope}
-    %
+
     \draw [electron, double] (B) arc (-90:90:\r);
     \draw [electron, double] (T) arc (90:270:\r);
-    %
+
     \foreach \point in {t, b, T, B} \fill (\point) circle (1.5pt);
 \end{tikzpicture}%

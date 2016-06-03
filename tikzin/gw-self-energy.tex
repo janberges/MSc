@@ -2,37 +2,36 @@
 %
 \begin{tikzpicture}[baseline]
     \pgfmathsetmacro\r{sqrt(sqrt(3)/pi)/2}
-    %
+
     \coordinate (i) at (1-2*\r, 0);
-    %
+
     \draw [fill=black!10!white] (1-\r, 0) circle [radius=\r] node {$\Sigma$};
-    %
+
     \coordinate (o) at (1, 0);
-    %
+
     \node at (2, 0) {$=$};
-    %
+
     \coordinate (0) at (3, 0.0);
     \coordinate (1) at (3, 0.5);
-    %
+
     \node at (4, 0) {$+$};
-    %
+
     \coordinate (I) at (5, 0);
     \coordinate (O) at (5+2*\r, 0);
-    %
+
     \begin{scope}[gray]
         \foreach \point in {i, 0, I}
             \draw [electron] (\point) +(180:5mm) -- (\point);
-        %
+    
         \foreach \point in {o, 0, O}
             \draw [electron] (\point) -- +(0:5mm);
     \end{scope}
-    %
+
     \draw [phonon] (0) -- (1);
     \draw [electron, double] (1) arc (-90:270:2.5mm);
-    %
-    % -15 in place of 0 to compensate low accuracy:
+
     \draw [phonon, double] (I) -- (O);
     \draw [electron, double] (I) arc (180:0:\r);
-    %
+
     \foreach \point in {i, o, 0, 1, I, O} \fill (\point) circle (1.5pt);
 \end{tikzpicture}

@@ -6,18 +6,18 @@
     \coordinate (t) at (6/3, 6/3);
     \coordinate (1) at (8/3, 4/3);
     \coordinate (o) at (4, 0);
-    %
+
     \draw [phonon] (2) -- node [below] {$\vec q$} (1);
-    %
+
     \draw [electron] (i) to [bend right]
         node [above left] {$\vec k \sigma$} (2);
     \draw [electron] (2) to [bend left] (t)
         node [above] {$\vec k - \vec q \sigma$} to [bend left] (1);
     \draw [electron] (1) to [bend right]
         node [above right] {$\vec k \sigma$} (o);
-    %
+
     \foreach \point in {1, 2} \fill (\point) circle (1pt);
-    %
+
     \node [below] at (i) {$0$};
     \node [left] at (2) {$\tau''$};
     \node [right] at (1) {$\tau'$};
