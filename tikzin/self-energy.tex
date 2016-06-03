@@ -1,5 +1,7 @@
 %!TEX root = ../thesis.tex
 %
+\tikzsetnextfilename{self-energy}
+%
 \begin{tikzpicture}[baseline]
     \pgfmathsetmacro\r{sqrt(sqrt(3)/pi)/2}
 
@@ -40,4 +42,6 @@
     \foreach \point in {i, o, 0, 1, I, X, R, O} \fill (\point) circle (1.5pt);
 
     \node [below=3mm] at (X) {$\Gamma$};
+
+    \useasboundingbox ([yshift=1mm] current bounding box.north east);
 \end{tikzpicture}

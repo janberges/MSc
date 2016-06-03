@@ -1,5 +1,7 @@
 %!TEX root = ../thesis.tex
 %
+\tikzsetnextfilename{gw-self-energy}
+%
 \begin{tikzpicture}[baseline]
     \pgfmathsetmacro\r{sqrt(sqrt(3)/pi)/2}
 
@@ -34,4 +36,6 @@
     \draw [electron, double] (I) arc (180:0:\r);
 
     \foreach \point in {i, o, 0, 1, I, O} \fill (\point) circle (1.5pt);
+
+    \useasboundingbox ([yshift=1mm] current bounding box.north east);
 \end{tikzpicture}
