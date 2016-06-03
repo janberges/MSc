@@ -13,11 +13,13 @@
     \coordinate (T) at (2+\r, +\r);
     \coordinate (B) at (2+\r, -\r);
     %
-    \foreach \point in {t, T}
-        \draw [phonon, gray] (\point) -- +(+90:5mm);
-    %
-    \foreach \point in {b, B}
-        \draw [phonon, gray] (\point) -- +(-90:5mm);
+    \begin{scope}[gray]
+        \foreach \point in {t, T}
+            \draw [phonon] (\point) -- +(+90:5mm);
+        %
+        \foreach \point in {b, B}
+            \draw [phonon] (\point) -- +(-90:5mm);
+    \end{scope}
     %
     \draw [electron, double] (B) arc (-90:90:\r);
     \draw [electron, double] (T) arc (90:270:\r);

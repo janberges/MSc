@@ -18,14 +18,16 @@
     \node at (5.5, 0) {$+$};
     \node at (6.5, 0) {$\dots$};
     %
-    \foreach \point in {i, 0, I}
-        \draw [electron, gray] (\point) +(225:5mm) -- (\point);
-    %
-    \foreach \point in {x, 0, X}
-        \draw [phonon, gray] (\point) -- +(90:5mm);
-    %
-    \foreach \point in {o, 0, O}
-        \draw [electron, gray] (\point) -- +(-45:5mm);
+    \begin{scope}[gray]
+        \foreach \point in {i, 0, I}
+            \draw [electron] (\point) +(225:5mm) -- (\point);
+        %
+        \foreach \point in {x, 0, X}
+            \draw [phonon] (\point) -- +(90:5mm);
+        %
+        \foreach \point in {o, 0, O}
+            \draw [electron] (\point) -- +(-45:5mm);
+    \end{scope}
     %
     \draw [phonon] (I) -- (O);
     \draw [electron] (I) -- (X);

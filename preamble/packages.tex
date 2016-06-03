@@ -38,6 +38,82 @@
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikzout/, only named, export=false]
 
+\usetikzlibrary{decorations.markings}
+
+\pgfdeclaredecoration{waves}{start}{
+    \state{start}[width=0pt, next state=wave, persistent precomputation={
+        \pgfmathsetlengthmacro\pgfdecorationsegmentlength{
+             \pgfdecoratedpathlength / int(2
+                * \pgfdecoratedpathlength
+                / \pgfdecorationsegmentlength
+                )
+            }
+        }] \relax
+    \state{wave}[width=\pgfdecorationsegmentlength, persistent precomputation={
+        \pgfmathsetlengthmacro\pgfdecorationsegmentamplitude{
+            -\pgfdecorationsegmentamplitude
+            }
+        }]{
+        \pgfpathsine{\pgfpoint
+            {\pgfdecorationsegmentlength/2}
+            {\pgfdecorationsegmentamplitude/2}
+            }
+        \pgfpathcosine{\pgfpoint
+            {\pgfdecorationsegmentlength/2}
+            {\pgfdecorationsegmentamplitude/-2}
+            }
+        }
+    \state{final}{\pgfmoveto\pgfpointdecoratedpathlast}
+    }
+
+\def\xshift{0.525pt + 0.9625\pgflinewidth}
+
+\tikzset{forward/.style={
+    thick,
+    decoration={
+        markings,
+        mark=at position 1/2 with {\arrow[xshift=\xshift]>},
+        },
+    preaction={decorate},
+    }}
+
+\tikzset{backward/.style={
+    thick,
+    decoration={
+        markings,
+        mark=at position 1/2 with {\arrow[xshift=\xshift]<},
+        },
+    preaction={decorate},
+    }}
+
+\tikzset{inward/.style={
+    thick,
+    decoration={
+        markings,
+        mark=at position 1/3 with {\arrow[xshift=\xshift]>},
+        mark=at position 2/3 with {\arrow[xshift=\xshift]<},
+        },
+    preaction={decorate},
+    }}
+
+\tikzset{outward/.style={
+    thick,
+    decoration={
+        markings,
+        mark=at position 1/3 with {\arrow[xshift=\xshift]<},
+        mark=at position 2/3 with {\arrow[xshift=\xshift]>},
+        },
+    preaction={decorate},
+    }}
+
+\tikzset{electron/.style={forward}}
+
+\tikzset{phonon/.style={
+    thick,
+    decoration={waves, amplitude=2mm/3, segment length=2mm},
+    decorate,
+    }}
+
 
 % HEADERS AND FOOTERS
 

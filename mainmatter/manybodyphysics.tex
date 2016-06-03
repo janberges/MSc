@@ -759,47 +759,6 @@ values as well, thus
 
 \section{Model interactions}
 
-\usetikzlibrary{decorations.markings}
-
-\pgfdeclaredecoration{waves}{start}{
-    \state{start}[width=0pt, next state=wave, persistent precomputation={
-        \pgfmathsetlengthmacro\pgfdecorationsegmentlength{
-             \pgfdecoratedpathlength / int(2
-                * \pgfdecoratedpathlength
-                / \pgfdecorationsegmentlength
-                )
-            }
-        }] \relax
-    \state{wave}[width=\pgfdecorationsegmentlength, persistent precomputation={
-        \pgfmathsetlengthmacro\pgfdecorationsegmentamplitude{
-            -\pgfdecorationsegmentamplitude
-            }
-        }]{
-        \pgfpathsine{\pgfpoint
-            {\pgfdecorationsegmentlength/2}
-            {\pgfdecorationsegmentamplitude/2}
-            }
-        \pgfpathcosine{\pgfpoint
-            {\pgfdecorationsegmentlength/2}
-            {\pgfdecorationsegmentamplitude/-2}
-            }
-        }
-    \state{final}{\pgfmoveto\pgfpointdecoratedpathlast}
-    }
-
-\tikzset{electron/.style={
-    thick,
-    decoration={markings, mark=at position 0.5 with {\arrow[%
-        xshift=0.525pt + 0.9625\pgflinewidth]>}},
-    postaction={decorate},
-    }}
-
-\tikzset{phonon/.style={
-    thick,
-    decoration={waves, amplitude=2mm/3, segment length=2mm},
-    decorate,
-    }}
-
 For a satisfactory description of superconductivity, not only the \q'normal'
 \name{Green} function
 %
