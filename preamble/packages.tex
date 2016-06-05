@@ -152,12 +152,6 @@
 
 \DeclareCiteCommand\barecite{}{\usebibmacro{citeindex}\usebibmacro{cite}}{}{}
 
-\DeclareCiteCommand\supercite[\mkbibsuperscript]
-    \bibopenbracket
-        {\usebibmacro{citeindex}\usebibmacro{cite}}
-        \supercitedelim
-    \bibclosebracket
-
 \DeclareBibliographyDriver{incollection}{%
     \usebibmacro{bibindex}%
     \usebibmacro{begentry}%
