@@ -166,15 +166,13 @@
     \usebibmacro{title}%
     \newunit\newblock
     \usebibmacro{in:}%
-    \barecite{\thefield{crossref}}%
+    Ref.~\barecite{\thefield{booktitle}}%
     \setunit\bibpagespunct
     \usebibmacro{chapter+pages}%
-    \setunit{\bibpagerefpunct}\newblock
+    \setunit\bibpagerefpunct\newblock
     \usebibmacro{pageref}%
-    \usebibmacro{finentry}
+    \usebibmacro{finentry}%
     }
-
-\nocite{*}
 
 % HYPERLINKS
 
