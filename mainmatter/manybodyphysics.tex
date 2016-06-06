@@ -21,24 +21,27 @@ this chapter.%
 %
 \footnote{Physical concepts that are very well established nowadays will be
 stated without reference to their specific origins. They are covered in most
-textbooks such as the one by \name{Mahan} \cite{Mahan00}.}
+textbooks such as the one by \name{Mahan} \cite{Mahan00} on the present
+subject.}
 
 Initially, the possible ways of handling time dependence in quantum mechanics
 are presented, focussing on the interaction picture. On this basis \name{Green}
-functions are introduced, including their imaginary-axis formulation. Next, not
+functions are defined, including their imaginary-axis formulation. Next, not
 only to exemplify what was stated so far but also because it will provide the
 fundamental building block for what follows, the special case of non-interacting
-particles is discussed. Finally, the perturbation series and the \name{Wick}
-theorem for non-zero temperatures are derived, which prepare the ground for
-\name{Feynman}'s diagrammatical perturbation theory.
+particles is discussed. Subsequently, the perturbation series and the
+\name{Wick} theorem for non-zero temperatures are derived, which prepare the
+ground for \name{Feynman}'s diagrammatical perturbation theory. For some model
+interactions the most important diagrams are deduced explicitly. Finally, the
+self-energy and its most common approximations are introduced.
 
 Throughout this work units are chosen in which the \name{Boltzmann} and the
 reduced \name{Planck} constant are unity, i.e. $k \sub B = \hbar = 1$.
-Consequently, no distinction between frequency and both temperature and energy
-is made. Moreover, in some places where no ambiguity arises different quantities
-are represented by the same symbol and only distinguished by the name of their
-formal argument. An example are continuous functions and their \name{Fourier}
-transforms.
+Consequently, the same dimension is attributed to energy and both temperature
+and frequency. Moreover, in some places where no ambiguity arises different
+quantities are represented by the same symbol and only distinguished by the name
+of their formal argument. This concerns mutual \name{Fourier} transforms as well
+as functions of real and imaginary time.
 
 \section{Dynamical pictures}
 
@@ -81,10 +84,9 @@ yields \textsc{Heisenberg}'s equation of motion. Thus
 \end{equation*}
 
 A useful compromise is provided by the the \emph{\textsc{Dirac} picture}, also
-known as the \emph{interaction picture}, where the time dependence is shared
-among observables and states. The former evolve according to the unperturbed
-part of the \textsc{Hamilton} operator while the latter are governed by the
-interaction.
+known as \emph{interaction picture}, where the time dependence is shared among
+observables and states. The former evolve according to the unperturbed part of
+the \textsc{Hamilton} operator while the latter are governed by the interaction.
 
 To be able to distinguish between the different pictures, time arguments will be
 enclosed in square brackets $[\dots]$. Formally, both a \name{Heisenberg}- and a
@@ -110,9 +112,9 @@ respectively:
 According to Eq.~\ref{Dirac state}, the unitary time-evolution operator $\op
 S(t, t_0)$ for arbitrary initial times $t_0$,%
 %
-\footnote{\name{Dirac} establishes this operator together with the distributed
-time dependence in §\,44 \qq{The perturbation considered as causing transitions}
-of his textbook on quantum mechanics \cite{Dirac58}.}
+\footnote{\name{Dirac} introduced such operator in §\,44 \qq{The perturbation
+considered as causing transitions} of his textbook on quantum mechanics
+\cite{Dirac58}.}
 %
 precisely the one defined by $\ket{\psi[t]} = \op S(t, t_0) \ket{\psi[t_0]}$,
 has to satisfy the differential equation
@@ -191,9 +193,9 @@ if not impossible task. However, much can be learned by studying the behavior of
 single test particles within this system.
 
 To that end \emph{correlation functions} like $\av{\op A(t) \, \op B(t')}$ are
-considered, where $\op A$ and $\op B$ are either fermion or boson operators.
-They describe how the presence or absence of a certain particle at one time
-correlates with an analogous occurrence at another time.
+considered, where $\op A$ and $\op B$ are either fermionic or bosonic ladder
+operators. They describe how the presence or absence of a certain particle at
+one time correlates with an analogous occurrence at another time.
 
 To take an equilibrium temperature $\beta^{-1}$ into account, $\av \dots$ shall
 denote an ensemble average. For brevity, a canonical ensemble with the partition
@@ -317,10 +319,11 @@ be able to treat both in one go which can be accomplished by assuming the time
 to be purely imaginary. Introducing a real parameter $\tau = \I t$ and writing
 %
 \begin{equation*}
-    \op A(\tau) = \E^{\op H \tau} \, \op X \, \E^{-\op H \tau},
+    \op X(\tau) = \E^{\op H \tau} \, \op X \, \E^{-\op H \tau}
 \end{equation*}
 %
-the theory as been formally freed from all periodic terms.
+as in Eq.~2.6 of Ref.~\barecite{Matsubara55}, the theory as been formally freed
+from the periodic terms.
 
 The \emph{\name{Matsubara-Green} function} is preliminary defined as
 %
@@ -1093,10 +1096,8 @@ disconnected diagrams. Hence,
 \end{equation*}
 
 In the following, all terms with $D^0_0$ are neglected since phonons with $\vec
-q = 0$ are no actual phonons but rather translations of the crystal as a whole,
-which shall not be considered here.%
-%
-\footnote{according to \cite[p.~82]{Mahan00}}
+q = 0$ are no actual phonons but rather translations of the crystal as a whole
+\cite[p.~82]{Mahan00}, which shall not be considered.
 
 Performing the integrals, the remaining two terms turn out to be equivalent
 since $\tau'$ and $\tau''$ occur in exchangeable positions. Transforming to
@@ -1459,12 +1460,12 @@ with the final result
 
 \section{Self-energy}
 
-The full \name{Green} function is found by adding \emph{all} valid connected
-diagrams. But which diagrams are valid? In Fig.~\ref{Feynman diagrams}, each
-diagram features three fermion lines, a single boson line and two vertices at
-each of which one fermion is annihilated and another one created under the
-influence of one boson. This process has to be simultaneous and conserves both
-momentum and spin. For this type of interaction, a general diagram contains
+The full \name{Green} function is found by adding \emph{all} diagrams, that are
+properly connected. But which are valid connections? In Fig.~\ref{Feynman
+diagrams}, each diagram features three fermion lines, a single boson line and
+two vertices at each of which one fermion is annihilated and another one created
+under the influence of one boson. This process is simultaneous and conserves
+both momentum and spin. For this type of interaction, a general diagram contains
 %
 \begin{equation*}
     n \times \tikz [baseline=-0.5ex] \draw [phonon] (0, 0) -- (1, 0);,
@@ -1473,9 +1474,11 @@ momentum and spin. For this type of interaction, a general diagram contains
     \quad \text{and} \quad
     2 n \times
     \begin{tikzpicture}[baseline=-0.5ex]
-        \draw [electron, gray] (0, 0) +(225:5mm) -- (0, 0);
-        \draw [phonon, gray] (0, 0) -- +(90:5mm);
-        \draw [electron, gray] (0, 0) -- +(-45:5mm);
+        \begin{scope}[gray]
+            \draw [electron] (0, 0) +(225:5mm) -- (0, 0);
+            \draw [phonon] (0, 0) -- +(90:5mm);
+            \draw [electron] (0, 0) -- +(-45:5mm);
+        \end{scope}
         \fill (0, 0) circle (1.5pt);
     \end{tikzpicture}
     \quad \text{with} \quad
