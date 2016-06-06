@@ -23,10 +23,10 @@
 
     \begin{scope}[gray]
         \foreach \point in {i, 0, I}
-            \draw [electron](\point) +(180:5mm) -- (\point);
+            \draw [backward] (\point) -- +(180:5mm);
     
         \foreach \point in {o, 0, O}
-            \draw [electron](\point) -- +(0:5mm);
+            \draw [forward] (\point) -- +(0:5mm);
     \end{scope}
 
     \draw [phonon] (0) -- (1);

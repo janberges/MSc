@@ -1475,9 +1475,9 @@ both momentum and spin. For this type of interaction, a general diagram contains
     2 n \times
     \begin{tikzpicture}[baseline=-0.5ex]
         \begin{scope}[gray]
-            \draw [electron] (0, 0) +(225:5mm) -- (0, 0);
-            \draw [phonon] (0, 0) -- +(90:5mm);
-            \draw [electron] (0, 0) -- +(-45:5mm);
+            \draw [  phonon] (0, 0) -- +(90:5mm);
+            \draw [backward] (0, 0) -- +(225:5mm);
+            \draw [ forward] (0, 0) -- +(315:5mm);
         \end{scope}
         \fill (0, 0) circle (1.5pt);
     \end{tikzpicture}
