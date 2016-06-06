@@ -18,7 +18,7 @@
     \begin{scope}[gray]
         \foreach \point in {t, T}
             \draw [phonon] (\point) -- +(+90:5mm);
-    
+
         \foreach \point in {b, B}
             \draw [phonon] (\point) -- +(-90:5mm);
     \end{scope}
@@ -27,4 +27,6 @@
     \draw [electron, double] (T) arc (90:270:\r);
 
     \foreach \point in {t, b, T, B} \fill (\point) circle (1.5pt);
+
+    \useasboundingbox ([xshift=1mm] current bounding box.north east);
 \end{tikzpicture}%
