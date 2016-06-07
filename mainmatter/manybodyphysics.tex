@@ -767,8 +767,8 @@ For a satisfactory description of superconductivity, not only the \q{normal}
 %
 \begin{equation*}
     G_{\vec k \sigma}(\tau) = -\av{\op T \,
-    \op a_{\vec k \sigma}(\tau) \,
-    \op a_{\vec k \sigma}^+(0)},
+    \op c_{\vec k \sigma}(\tau) \,
+    \op c_{\vec k \sigma}^+(0)},
 \end{equation*}
 %
 which describes the propagation of an electron, but also the \emph{anomalous
@@ -776,8 +776,8 @@ which describes the propagation of an electron, but also the \emph{anomalous
 %
 \begin{equation*}
     F_{\vec k \sigma}(\tau) = -\av{\op P^+ \op T \,
-    \op a_{\vec k \sigma}(\tau) \,
-    \op a_{-\vec k -\sigma}(0)},
+    \op c_{\vec k \sigma}(\tau) \,
+    \op c_{-\vec k -\sigma}(0)},
 \end{equation*}
 %
 which is a measure for the correlation between the presence or absence of an
@@ -788,12 +788,12 @@ introduced two additional functions
 \begin{equation} \label{auxiliary Green functions}
     \begin{split}
         \smash{\widetilde G_{\vec k \sigma}}(\tau) &= -\av{\op T \,
-        \op a_{-\vec k -\sigma}^+(\tau) \,
-        \op a_{-\vec k -\sigma}(0)} = -G_{-\vec k -\sigma}(-\tau),
+        \op c_{-\vec k -\sigma}^+(\tau) \,
+        \op c_{-\vec k -\sigma}(0)} = -G_{-\vec k -\sigma}(-\tau),
         \\
         \smash{\widetilde F_{\vec k \sigma}}(\tau) &= -\av{\op P \op T \,
-        \op a_{-\vec k -\sigma}^+(\tau) \,
-        \op a_{\vec k \sigma}^+(0)} = F_{\vec k \sigma}^*(\tau).
+        \op c_{-\vec k -\sigma}^+(\tau) \,
+        \op c_{\vec k \sigma}^+(0)} = F_{\vec k \sigma}^*(\tau).
     \end{split}
 \end{equation}
 
@@ -812,11 +812,11 @@ operator} reads
 %
 \begin{equation*}
     \op V = g \sum_{\vec R \sigma}
-    \op a_{\vec R \sigma}^+ \op a_{\vec R \sigma}
+    \op c_{\vec R \sigma}^+ \op c_{\vec R \sigma}
     [\op b_{\vec R} + \op b_{\vec R}^+],
 \end{equation*}
 %
-where $g$ is the local electron-phonon coupling strength and $\op a_{\vec R
+where $g$ is the local electron-phonon coupling strength and $\op c_{\vec R
 \sigma}^{(+)}$ and $\op b_{\vec R}^{(+)}$ annihilate (create) electronic and
 phononic excitations, respectively, localized at the lattice sites $\vec R$.
 
@@ -827,11 +827,11 @@ representation
 \begin{align*}
     \op V &= \frac g {\sqrt N} \sum_{\vec k \vec k' \sigma \vec q}
     \frac 1 N \sum_{\vec R} \E^{\I (\vec k' - \vec k) \vec R}
-    \op a_{\vec k' \sigma}^+ \op a_{\vec k \sigma} [
+    \op c_{\vec k' \sigma}^+ \op c_{\vec k \sigma} [
         \E^{-\I \vec q \vec R} \op b_{\vec q} +
         \E^{\I \vec q \vec R} \op b_{\vec q}^+
     ] \\ &= \frac g {\sqrt N} \sum_{\vec k \sigma \vec q}
-    \op a_{\vec k + \vec q \sigma}^+ \op a_{\vec k \sigma}
+    \op c_{\vec k + \vec q \sigma}^+ \op c_{\vec k \sigma}
     \upphi_{\vec q}
     \quad \text{with} \quad
     \upphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+.
@@ -851,23 +851,23 @@ averages are taken. Eventually, in second order one finds
     \av \dots_0,
     \\ \notag
     \av \dots_0 &= \av{\op T \,
-        \op a_{\vec k \sigma}[\tau] \,
-        \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
-        \op a_{\vec k' \sigma'}[\tau'] \,
+        \op c_{\vec k \sigma}[\tau] \,
+        \op c_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+        \op c_{\vec k' \sigma'}[\tau'] \,
         \upphi_{\vec q}[\tau'] \,
-        \op a_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
-        \op a_{\vec k'' \sigma''}[\tau''] \,
+        \op c_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
+        \op c_{\vec k'' \sigma''}[\tau''] \,
         \upphi_{\vec q'}[\tau''] \,
-        \op a_{\vec k \sigma}^+[0]}_0
+        \op c_{\vec k \sigma}^+[0]}_0
     \\ \notag
     &= \underbrace{
             \av{\op T \,
-                \op a_{\vec k \sigma}[\tau] \,
-                \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
-                \op a_{\vec k' \sigma'}[\tau'] \,
-                \op a_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
-                \op a_{\vec k'' \sigma''}[\tau''] \,
-                \op a_{\vec k \sigma}^+[0]}_0
+                \op c_{\vec k \sigma}[\tau] \,
+                \op c_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+                \op c_{\vec k' \sigma'}[\tau'] \,
+                \op c_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
+                \op c_{\vec k'' \sigma''}[\tau''] \,
+                \op c_{\vec k \sigma}^+[0]}_0
             }_{\displaystyle \av{\text{el.}}_0}
         \underbrace{
             \av{\op T \,
@@ -885,72 +885,72 @@ $\av{\text{el.}}_0$ yields
     \def\minalignsep{0pt}
     \begin{align*}
         &-
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
-        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
-        \, \op a_{\vec k \sigma}^+[0]}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+        && \av{\op T \, \op c_{\vec k' \sigma'}[\tau']
+        \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op T \, \op c_{\vec k'' \sigma''}[\tau'']
+        \, \op c_{\vec k \sigma}^+[0]}_0
         && \delta_{\vec q}^0 \delta_{\vec q'}^0
         && \delta_{\sigma''}^\sigma
         && \delta_{\vec k''}^{\vec k} \\
         &-
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
-        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
-        \, \op a_{\vec k \sigma}^+[0]}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op T \, \op c_{\vec k'' \sigma''}[\tau'']
+        \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+        && \av{\op T \, \op c_{\vec k' \sigma'}[\tau']
+        \, \op c_{\vec k \sigma}^+[0]}_0
         && \delta_{\vec q}^0 \delta_{\vec q'}^0
         && \delta_{\sigma'}^\sigma
         && \delta_{\vec k'}^{\vec k} \\
         &+
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
-        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
-        \, \op a_{\vec k \sigma}^+[0]}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op T \, \op c_{\vec k' \sigma'}[\tau']
+        \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+        && \av{\op T \, \op c_{\vec k'' \sigma''}[\tau'']
+        \, \op c_{\vec k \sigma}^+[0]}_0
         && \delta_{\vec q'}^{-\vec q}
         && \delta_{\sigma'}^\sigma \delta_{\sigma''}^\sigma
         && \delta_{\vec k''}^{\vec k} \delta_{\vec k'}^{\vec k - \vec q} \\
         &+
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
-        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
-        \, \op a_{\vec k \sigma}^+[0]}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+        && \av{\op T \, \op c_{\vec k'' \sigma''}[\tau'']
+        \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op T \, \op c_{\vec k' \sigma'}[\tau']
+        \, \op c_{\vec k \sigma}^+[0]}_0
         && \delta_{\vec q'}^{-\vec q}
         && \delta_{\sigma'}^\sigma \delta_{\sigma''}^\sigma
         && \delta_{\vec k'}^{\vec k} \delta_{\vec k''}^{\vec k + \vec q} \\
         &+
-        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
-        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
-        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k \sigma}^+[0]}_0
+        && \av{\op T \, \op c_{\vec k' \sigma'}[\tau']
+        \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op T \, \op c_{\vec k'' \sigma''}[\tau'']
+        \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k \sigma}^+[0]}_0
         && \delta_{\vec q}^0 \delta_{\vec q'}^0
         &&
         && \\
         &-
-        && \av{\op T \, \op a_{\vec k' \sigma'}[\tau']
-        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-        && \av{\op T \, \op a_{\vec k'' \sigma''}[\tau'']
-        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k \sigma}^+[0]}_0
+        && \av{\op T \, \op c_{\vec k' \sigma'}[\tau']
+        \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+        && \av{\op T \, \op c_{\vec k'' \sigma''}[\tau'']
+        \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k \sigma}^+[0]}_0
         && \delta_{\vec q'}^{-\vec q}
         && \delta_{\sigma''}^{\sigma'}
         && \delta_{\vec k''}^{\vec k' + \vec q} \\
         &+
-        && \av{\op P^+ \op T \, \op a_{\vec k' \sigma'}[\tau']
-        \, \op a_{\vec k'' \sigma''}[\tau'']}_0
-        && \av{\op P \op T \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']
-        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k \sigma}^+[0]}_0
+        && \av{\op P^+ \op T \, \op c_{\vec k' \sigma'}[\tau']
+        \, \op c_{\vec k'' \sigma''}[\tau'']}_0
+        && \av{\op P \op T \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']
+        \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k \sigma}^+[0]}_0
         && \delta_{\vec q'}^{-\vec q}
         && \delta_{\sigma''}^{-\sigma'}
         && \delta_{\vec k''}^{-\vec k'}.
@@ -960,7 +960,7 @@ $\av{\text{el.}}_0$ yields
 The last line is generated by introducing $\op P \op P^+ = 1$ prior to the
 factorization. Although $\av{\op P \dots}_0$ and $\av{\op P^+ \dots}_0$ vanish,
 for a reason that will be given later, the corresponding summands are listed if
-$\op a_{\vec k \sigma}$ and $\op a_{\vec k \sigma}^+$ are not involved in such
+$\op c_{\vec k \sigma}$ and $\op c_{\vec k \sigma}^+$ are not involved in such
 anomalous pairings.
 
 \begin{figure}
@@ -1163,12 +1163,12 @@ that
 %
 \begin{align*}
     \av{\text{el.}}_0= \av{\op P^+ \op T \,
-        \op a_{\vec k \sigma}[\tau] \,
-        \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
-        \op a_{\vec k' \sigma'}[\tau'] \,
-        \op a_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
-        \op a_{\vec k'' \sigma''}[\tau''] \,
-        \op a_{-\vec k -\sigma}[0]}_0.
+        \op c_{\vec k \sigma}[\tau] \,
+        \op c_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+        \op c_{\vec k' \sigma'}[\tau'] \,
+        \op c_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
+        \op c_{\vec k'' \sigma''}[\tau''] \,
+        \op c_{-\vec k -\sigma}[0]}_0.
 \end{align*}
 %
 has to be considered. With the help of the \textsc{Wick} theorem this reduces to
@@ -1177,23 +1177,23 @@ has to be considered. With the help of the \textsc{Wick} theorem this reduces to
     \def\minalignsep{0pt}
     \begin{align*}
         &-
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']}_0
-        && \av{\op P^+ \op T \, \op a_{\vec k' \sigma'}[\tau']
-        \, \op a_{\vec k'' \sigma''}[\tau'']}_0
-        && \av{\op T \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']
-        \, \op a_{-\vec k -\sigma}[0]}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']}_0
+        && \av{\op P^+ \op T \, \op c_{\vec k' \sigma'}[\tau']
+        \, \op c_{\vec k'' \sigma''}[\tau'']}_0
+        && \av{\op T \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']
+        \, \op c_{-\vec k -\sigma}[0]}_0
         && \delta_{\vec q'}^{-\vec q}
         && \delta_{\sigma'}^\sigma \delta_{\sigma''}^{-\sigma}
         && \delta_{\vec k'}^{\vec k - \vec q}
            \delta_{\vec k''}^{\vec q - \vec k} \\
         &-
-        && \av{\op T \, \op a_{\vec k \sigma}[\tau]
-        \, \op a_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
-        && \av{\op P^+ \op T \, \op a_{\vec k'' \sigma''}[\tau'']
-        \, \op a_{\vec k' \sigma'}[\tau']}_0
-        && \av{\op T \, \op a_{\vec k' + \vec q \sigma'}^+[\tau']
-        \, \op a_{-\vec k -\sigma}[0]}_0
+        && \av{\op T \, \op c_{\vec k \sigma}[\tau]
+        \, \op c_{\vec k'' + \vec q' \sigma''}^+[\tau'']}_0
+        && \av{\op P^+ \op T \, \op c_{\vec k'' \sigma''}[\tau'']
+        \, \op c_{\vec k' \sigma'}[\tau']}_0
+        && \av{\op T \, \op c_{\vec k' + \vec q \sigma'}^+[\tau']
+        \, \op c_{-\vec k -\sigma}[0]}_0
         && \delta_{\vec q'}^{-\vec q}
         && \delta_{\sigma'}^{-\sigma} \delta_{\sigma''}^\sigma
         && \delta_{\vec k'}^{-\vec k - \vec q}
@@ -1269,10 +1269,10 @@ The interaction within an \emph{homogenous electron gas} reads
 %
 \begin{align*}
     \op V = \frac 1 2 \sum_{\vec k \vec k' \sigma \sigma' \vec q} U_{\vec q} \,
-    \op a_{\vec k + \vec q \sigma}^+
-    \op a_{\vec k' - \vec q \sigma'}^+
-    \op a_{\vec k' \sigma'}
-    \op a_{\vec k \sigma}
+    \op c_{\vec k + \vec q \sigma}^+
+    \op c_{\vec k' - \vec q \sigma'}^+
+    \op c_{\vec k' \sigma'}
+    \op c_{\vec k \sigma}
     \quad \text{with} \quad
     U_{\vec q} = \frac{e^2}{V} \frac{4 \pi}{q^2}.
 \end{align*}
@@ -1286,19 +1286,19 @@ $G_{\vec k \sigma}(\tau)$ is thus
     \int \from 0 \till \beta \D \tau' \, \av \dots_0 \super{c.},
     \\
     \av \dots_0 &= \av{\op T \,
-        \op a_{\vec k \sigma}[\tau] \,
-        \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
-        \op a_{\vec k'' - \vec q \sigma''}^+[\tau'] \,
-        \op a_{\vec k'' \sigma''}[\tau'] \,
-        \op a_{\vec k' \sigma'}[\tau'] \,
-        \op a_{\vec k \sigma}^+[0]
+        \op c_{\vec k \sigma}[\tau] \,
+        \op c_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+        \op c_{\vec k'' - \vec q \sigma''}^+[\tau'] \,
+        \op c_{\vec k'' \sigma''}[\tau'] \,
+        \op c_{\vec k' \sigma'}[\tau'] \,
+        \op c_{\vec k \sigma}^+[0]
     }_0 \\ &= \av{\op T \,
-        \op a_{\vec k \sigma}[\tau] \,
-        \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
-        \op a_{\vec k' \sigma'}[\tau'] \,
-        \op a_{\vec k'' - \vec q \sigma''}^+[\tau'] \,
-        \op a_{\vec k'' \sigma''}[\tau'] \,
-        \op a_{\vec k \sigma}^+[0]
+        \op c_{\vec k \sigma}[\tau] \,
+        \op c_{\vec k' + \vec q \sigma'}^+[\tau'] \,
+        \op c_{\vec k' \sigma'}[\tau'] \,
+        \op c_{\vec k'' - \vec q \sigma''}^+[\tau'] \,
+        \op c_{\vec k'' \sigma''}[\tau'] \,
+        \op c_{\vec k \sigma}^+[0]
     }_0
 \end{align*}
 %
@@ -1400,10 +1400,10 @@ opposite spins because of the \name{Pauli} principle. With the on-site
 %
 \begin{equation*}
     \op V = U \sum_{\vec R}
-    \op a_{\vec R \uparrow}^+
-    \op a_{\vec R \downarrow}^+
-    \op a_{\vec R \downarrow}
-    \op a_{\vec R \uparrow}.
+    \op c_{\vec R \uparrow}^+
+    \op c_{\vec R \downarrow}^+
+    \op c_{\vec R \downarrow}
+    \op c_{\vec R \uparrow}.
 \end{equation*}
 
 As for the \name{Holstein} model, a discrete \name{Fourier} transform using
@@ -1414,20 +1414,20 @@ Eq.~\ref{DFT orthogonality relation} is applied, yielding
     \frac U N \sum_{\vec k \vec k' \vec q \vec q'}
     \frac 1 N \sum_{\vec R}
     \E^{\I (\vec q + \vec{q'} - \vec k - \vec{k'}) \vec R}
-    \op a_{\vec q' \uparrow}^+
-    \op a_{\vec q \downarrow}^+
-    \op a_{\vec k' \downarrow}
-    \op a_{\vec k \uparrow}
+    \op c_{\vec q' \uparrow}^+
+    \op c_{\vec q \downarrow}^+
+    \op c_{\vec k' \downarrow}
+    \op c_{\vec k \uparrow}
     \\
     &= \frac U N \sum_{\vec k \vec k' \vec q}
-    \op a_{\vec k + \vec k' - \vec q \uparrow}^+
-    \op a_{\vec q \downarrow}^+
-    \op a_{\vec k' \downarrow}
-    \op a_{\vec k \uparrow}
+    \op c_{\vec k + \vec k' - \vec q \uparrow}^+
+    \op c_{\vec q \downarrow}^+
+    \op c_{\vec k' \downarrow}
+    \op c_{\vec k \uparrow}
     = \frac U N \sum_{\vec k \vec k' \vec q}
-    \op a_{\vec k + \vec q \uparrow}^+
-    \op a_{\vec k' - \vec q \downarrow}^+
-    \op a_{\vec k' \downarrow} \op a_{\vec k \uparrow}.
+    \op c_{\vec k + \vec q \uparrow}^+
+    \op c_{\vec k' - \vec q \downarrow}^+
+    \op c_{\vec k' \downarrow} \op c_{\vec k \uparrow}.
 \end{align*}
 
 In terms of $\av{\text{el.}}_0$ from Eq.~\ref{Holstein 2nd}, the first order of
