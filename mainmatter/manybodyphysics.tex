@@ -517,37 +517,37 @@ geometric series, one finds
     = \frac 1 {\E^{\beta \epsilon_k} - 1}.
 \end{equation}
 
-Finally, the free \name{Matsubara-Green} function on the imaginary-axis
-according to Eq.~\ref{Matsubara-Green function} can be calculated. The operators
-$\op A$ and $\op B$ are simply $\op a_k$ and $\op a_k^+$. With the help of
-Eq.~\ref{Fermi function} and \ref{Bose function} one can formulate correlation
-functions $\av{\op a_k(\tau) \, \op a_k^+} = \E^{-\epsilon_k \tau} [1 \mp
-f_\pm(\epsilon_k)]$ and therewith
+Finally, the \name{Matsubara-Green} function on the imaginary-axis as defined in
+Eq.~\ref{Matsubara-Green function} is determined. The operators $\op A$ and $\op
+B$ are simply $\op a_k$ and $\op a_k^+$. Applying Eqs.~\ref{time-dependent
+ladder operators}, \ref{Fermi function} and \ref{Bose function} one can
+formulate correlation functions $\av{\op a_k[\tau] \, \op a_k^+}_0 =
+\E^{-\epsilon_k \tau} [1 \mp f_\pm(\epsilon_k)]$ and therewith
 %
 \begin{equation} \label{G_0(i omega_n)}
     G_0(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
-    \E^{\I \omega_n \tau} \av{\op a_k(\tau) \, \op a_k^+}_0
+    \E^{\I \omega_n \tau} \av{\op a_k[\tau] \, \op a_k^+}_0
     = \frac{1 \pm \E^{-\beta \epsilon_k}}{\I \omega_n - \epsilon_k}
         [1 \mp f_\pm(\epsilon_k)]
     = \frac 1 {\I \omega_n - \epsilon_k},
 \end{equation}
 %
 which corresponds to a spectral function $A(\omega) = \delta(\omega -
-\epsilon_k)$.
+\epsilon_k)$ as follows from Eq.~\ref{G(i omega_n)}.
 
 Although the above formula formally holds for all kinds of particles, in the
 bosonic case one usually applies a different definition using the operator
-$\Phi_k = \op a_k + \op a_{-k}^+$. This yields
+$\upphi_k = \op a_k + \op a_{-k}^+$. This yields
 %
 \begin{equation} \label{D_0(i omega_n)}
     G_0(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
-    \E^{\I \omega_n \tau} \av{\op \Phi_k(\tau) \, \op \Phi_k^+}_0
+    \E^{\I \omega_n \tau} \av{\upphi_k[\tau] \, \upphi_k^+}_0
     = \frac 1 {\I \omega_n - \epsilon_k} - \frac 1 {\I \omega_n + \epsilon_{-k}}
     \overset{\epsilon_k = \epsilon_{-k}} =
     -\frac{2 \epsilon_k}{\omega_n^2 + \epsilon_k^2}
 \end{equation}
 %
-with the spectral function $A(\omega) = \delta(\omega - \epsilon_k) -
+and thus the spectral function $A(\omega) = \delta(\omega - \epsilon_k) -
 \delta(\omega + \epsilon_{-k})$.
 
 \section{Perturbation series}
@@ -785,15 +785,17 @@ electron at one time and its time-reversed counterpart at another time, thus for
 the existence of \name{Cooper} pairs, is needed. Solely for convenience, one
 introduced two additional functions
 %
-\begin{align*}
-    \smash{\widetilde G_{\vec k \sigma}}(\tau) &= -\av{\op T \,
-    \op a_{-\vec k -\sigma}^+(\tau) \,
-    \op a_{-\vec k -\sigma}(0)} = -G_{-\vec k -\sigma}(-\tau),
-    \\
-    \smash{\widetilde F_{\vec k \sigma}}(\tau) &= -\av{\op P \op T \,
-    \op a_{-\vec k -\sigma}^+(\tau) \,
-    \op a_{\vec k \sigma}^+(0)} = F_{\vec k \sigma}^*(\tau).
-\end{align*}
+\begin{equation} \label{auxiliary Green functions}
+    \begin{split}
+        \smash{\widetilde G_{\vec k \sigma}}(\tau) &= -\av{\op T \,
+        \op a_{-\vec k -\sigma}^+(\tau) \,
+        \op a_{-\vec k -\sigma}(0)} = -G_{-\vec k -\sigma}(-\tau),
+        \\
+        \smash{\widetilde F_{\vec k \sigma}}(\tau) &= -\av{\op P \op T \,
+        \op a_{-\vec k -\sigma}^+(\tau) \,
+        \op a_{\vec k \sigma}^+(0)} = F_{\vec k \sigma}^*(\tau).
+    \end{split}
+\end{equation}
 
 In the following, leading terms of $G_{\vec k \sigma}(\tau)$ and $F_{\vec k
 \sigma}(\tau)$ are calculated explicitly for some model interactions. First, the
@@ -830,15 +832,15 @@ representation
         \E^{\I \vec q \vec R} \op b_{\vec q}^+
     ] \\ &= \frac g {\sqrt N} \sum_{\vec k \sigma \vec q}
     \op a_{\vec k + \vec q \sigma}^+ \op a_{\vec k \sigma}
-    \upvarphi_{\vec q}
+    \upphi_{\vec q}
     \quad \text{with} \quad
-    \upvarphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+.
+    \upphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+.
 \end{align*}
 
 First, $G_{\vec k \sigma}(\tau)$ is evaluated. The zeroth term is just the
 \name{Green} function of non-interacting electrons, the \name{Matsubara}
 representation of which is given in Eq.~\ref{G_0(i omega_n)}. First-order terms
-vanish because $\upvarphi_{\vec q}$ is does not conserve the particle number,
+vanish because $\upphi_{\vec q}$ is does not conserve the particle number,
 unlike the unperturbed \name{Hamilton} operator with respect to which the
 averages are taken. Eventually, in second order one finds
 %
@@ -852,10 +854,10 @@ averages are taken. Eventually, in second order one finds
         \op a_{\vec k \sigma}[\tau] \,
         \op a_{\vec k' + \vec q \sigma'}^+[\tau'] \,
         \op a_{\vec k' \sigma'}[\tau'] \,
-        \upvarphi_{\vec q}[\tau'] \,
+        \upphi_{\vec q}[\tau'] \,
         \op a_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
         \op a_{\vec k'' \sigma''}[\tau''] \,
-        \upvarphi_{\vec q'}[\tau''] \,
+        \upphi_{\vec q'}[\tau''] \,
         \op a_{\vec k \sigma}^+[0]}_0
     \\ \notag
     &= \underbrace{
@@ -869,8 +871,8 @@ averages are taken. Eventually, in second order one finds
             }_{\displaystyle \av{\text{el.}}_0}
         \underbrace{
             \av{\op T \,
-                \upvarphi_{\vec q}[\tau'] \,
-                \upvarphi_{\vec q'}[\tau'']}_0
+                \upphi_{\vec q}[\tau'] \,
+                \upphi_{\vec q'}[\tau'']}_0
             }_{\displaystyle -D^0_{\vec q}(\tau' - \tau'')},
 \end{align}
 %
@@ -1240,6 +1242,27 @@ Bar the sign, the final result formally resembles the the one for $G
     D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
 \end{equation*}
 
+For completeness, the corresponding results $\widetilde G_{\vec k \sigma}(\I
+\omega_n)$ and $\widetilde F_{\vec k \sigma}(\I \omega_n)$ shall be derived as
+well. From Eqs.~\ref{G_0(i omega_n)} and \ref{D_0(i omega_n)} it follows that
+$G^0_{\vec k \sigma}(\I \omega_n) = [G^0_{\vec k \sigma}(-\I \omega_n)]^*$ and
+$D^0_{\vec q}(\I \omega_n) = [D^0_{\vec q}(-\I \omega_n)]^* = D^0_{-\vec q}(-\I
+\omega_n)$. Using Eq.~\ref{auxiliary Green functions},
+%
+\begin{align*}
+    \widetilde G \super{2nd}_{\vec k \sigma}(\I \omega_n)
+    = -G \super{2nd}_{-\vec k -\sigma}(-\I \omega_n)
+    = \widetilde G^0_{\vec k \sigma}(\I \omega_n) \,
+    \Sigma_{\vec k \sigma}^{\widetilde G}(\I \omega_n) \,
+    \widetilde G^0_{\vec k \sigma}(\I \omega_n),
+    \\
+    \widetilde F \super{2nd}_{\vec k \sigma}(\I \omega_n)
+    = [F \super{2nd}_{\vec k \sigma}(-\I \omega_n)]^*
+    = \widetilde G^0_{\vec k \sigma}(\I \omega_n) \,
+    \Sigma_{\vec k \sigma}^{\widetilde F}(\I \omega_n) \,
+    G^0_{\vec k \sigma}(\I \omega_n).
+\end{align*}
+
 \subsection{Homogeneous electron gas and jellium}
 
 The interaction within an \emph{homogenous electron gas} reads
@@ -1332,20 +1355,17 @@ $\vec q = 0$ terms from the interaction, i.e. considering the so-called
     \E^{\I (\omega_n - \omega_i) \tau} \,
     \frac 1 \beta \int \from 0 \till \beta \D \tau' \,
     \E^{\I (\omega_i - \omega_j) \tau'}.
-\end{align*}
-%
-Finally, one finds a frequency-independent self-energy contribution:
-%
-\begin{align*}
-    G \super{1st}_{\vec k \sigma}(\I \omega_n)
-    = G^0_{\vec k \sigma}(\I \omega_n) \,
+    \\
+    &= G^0_{\vec k \sigma}(\I \omega_n) \,
     \Sigma_{\vec k \sigma}^G \,
     G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
     \Sigma_{\vec k \sigma}^G
     = -\frac 1 \beta \sum_{\vec q \neq \vec k} U_{\vec k - \vec q}
-    \sum_m G^0_{\vec q \sigma}(\I \omega_m),
+    \sum_m G^0_{\vec q \sigma}(\I \omega_m).
 \end{align*}
+%
+The self-energy contribution turns out to be independent of frequency.
 
 Analogously, during the calculation of $F^0_{\vec k \sigma}(\tau)$ one obtains
 %
@@ -1465,7 +1485,13 @@ properly connected. But which are valid connections? In Fig.~\ref{Feynman
 diagrams}, each diagram features three fermion lines, a single boson line and
 two vertices at each of which one fermion is annihilated and another one created
 under the influence of one boson. This process is simultaneous and conserves
-both momentum and spin. For this type of interaction, a general diagram contains
+both momentum and spin. Leaving the anomalous lines
+%
+\tikz [baseline=-0.5ex] \draw [  inward] (0, 0) -- (1, 0); and
+\tikz [baseline=-0.5ex] \draw [ outward] (0, 0) -- (1, 0);
+%
+out of account for the moment, a general diagram for this type of interaction
+contains
 %
 \begin{equation*}
     n \times \tikz [baseline=-0.5ex] \draw [phonon] (0, 0) -- (1, 0);,
@@ -1485,8 +1511,8 @@ both momentum and spin. For this type of interaction, a general diagram contains
     n \in \mathds N.
 \end{equation*}
 %
-As a consequence, there is always one starting point as well as one endpoint of
-a fermion line, which is not connected to a vertex.
+As a consequence, there is always one in- and one outgoing side of a fermion
+line, which is not connected to a vertex.
 
 It is convenient to define the \emph{self-energy} $\Sigma = \sum_i \Sigma_i$ as
 the sum of all \emph{irreducible} diagram parts $\Sigma_i$, i.e. such which can
@@ -1496,7 +1522,7 @@ parts and join them with fermion lines $G_0$ in all possible orders:
 %
 \begin{align*}
     G &= G_0 + G_0 \Sigma G_0 + G_0 \Sigma G_0 \Sigma G_0 + \dots \\
-    &= G_0 + G_0 \Sigma [G_0 + G_0 \Sigma G_0 + \dots] \\
+    &= G_0 + G_0 \Sigma (G_0 + G_0 \Sigma G_0 + \dots) \\
     &= G_0 + G_0 \Sigma G.
 \end{align*}
 
