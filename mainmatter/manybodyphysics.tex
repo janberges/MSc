@@ -759,47 +759,57 @@ values as well, thus
     \op A_{P(n)}[\tau_{P(n)}]}_0.
 \end{equation}
 
-
 \section{Model interactions}
 
-For a satisfactory description of superconductivity, not only the \q{normal}
-\name{Green} function
-%
-\begin{equation*}
-    G_{\vec k \sigma}(\tau) = -\av{\op T \,
-    \op c_{\vec k \sigma}(\tau) \,
-    \op c_{\vec k \sigma}^+(0)},
-\end{equation*}
-%
-which describes the propagation of an electron, but also the \emph{anomalous
-\name{Gorkov-Green} function}
-%
-\begin{equation*}
-    F_{\vec k \sigma}(\tau) = -\av{\op P^+ \op T \,
-    \op c_{\vec k \sigma}(\tau) \,
-    \op c_{-\vec k -\sigma}(0)},
-\end{equation*}
-%
-which is a measure for the correlation between the presence or absence of an
-electron at one time and its time-reversed counterpart at another time, thus for
-the existence of \name{Cooper} pairs, is needed. Solely for convenience, one
-introduced two additional functions
-%
-\begin{equation} \label{auxiliary Green functions}
-    \begin{split}
+\begin{subequations} \label{Green functions of interest}
+    For a satisfactory description of superconductivity, not only the \q{normal}
+    \name{Green} function
+    %
+    \begin{equation}
+        G_{\vec k \sigma}(\tau) = -\av{\op T \,
+        \op c_{\vec k \sigma}(\tau) \,
+        \op c_{\vec k \sigma}^+(0)} \in \mathds R,
+    \end{equation}
+    %
+    which describes the propagation of an electron, but also the \emph{anomalous
+    \name{Gorkov-Green} function}
+    %
+    \begin{equation}
+        F_{\vec k \sigma}(\tau) = -\av{\op P^+ \op T \,
+        \op c_{\vec k \sigma}(\tau) \,
+        \op c_{-\vec k -\sigma}(0)} \in \mathds C,
+    \end{equation}
+    %
+    which is a measure for the correlation between the presence or absence of an
+    electron at one time and its time-reversed counterpart at another time, thus
+    for the existence of \name{Cooper} pairs, is needed. Solely for convenience,
+    one introduces two additional functions,
+    %
+    \begin{align}
         \smash{\widetilde G_{\vec k \sigma}}(\tau) &= -\av{\op T \,
         \op c_{-\vec k -\sigma}^+(\tau) \,
         \op c_{-\vec k -\sigma}(0)} = -G_{-\vec k -\sigma}(-\tau),
         \\
         \smash{\widetilde F_{\vec k \sigma}}(\tau) &= -\av{\op P \op T \,
         \op c_{-\vec k -\sigma}^+(\tau) \,
-        \op c_{\vec k \sigma}^+(0)} = F_{\vec k \sigma}^*(\tau).
-    \end{split}
-\end{equation}
+        \op c_{\vec k \sigma}^+(0)} = [F_{\vec k \sigma}(\tau)]^*,
+    \end{align}
+    %
+    as well as the full phonon \name{Green} function
+    %
+    \begin{equation}
+        D_{\vec q}(\tau) = -\av{\op T \,
+        \op \upphi_{\vec q}(\tau) \,
+        \op \upphi_{\vec q}(0)} = D_{-\vec q}(-\tau) \in \mathds R,
+    \end{equation}
+    %
+    where $\upphi_{\vec q} = b_{-\vec q} + b_{-\vec q}^+$ is defined as in
+    Eq.~\ref{D_0(i omega_n)}.
+\end{subequations}
 
-In the following, leading terms of $G_{\vec k \sigma}(\tau)$ and $F_{\vec k
-\sigma}(\tau)$ are calculated explicitly for some model interactions. First, the
-perturbation series for the electron-phonon interaction as described by the
+In the following, leading terms of the electronic \name{Green} functions are
+calculated explicitly for some model interactions. First, the perturbation
+series for the electron-phonon interaction as described by the
 \name{Holstein-Hamilton} operator is analyzed up the second order. As will be
 shown, the latter bears a close resemblance to the first order terms of the
 homogeneous electron gas and the more simple \name{Hubbard} model of interacting
@@ -836,6 +846,8 @@ representation
     \quad \text{with} \quad
     \upphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+.
 \end{align*}
+
+\subsubsection{Normal \name{Green} function}
 
 First, $G_{\vec k \sigma}(\tau)$ is evaluated. The zeroth term is just the
 \name{Green} function of non-interacting electrons, the \name{Matsubara}
@@ -1010,7 +1022,10 @@ anomalous pairings.
          k''$, $\sigma'$, $\sigma''$ and $\vec q$ of internal lines are summed,
          time parameters $\tau'$ and $\tau''$ of internal vertices integrated
          over. Solid and wavy lines represent electrons and phonons,
-         respectively.}
+         respectively. The convention is followed that the arrows point from
+         from the creation towards the annihilation event. Thus out- or inward
+         double arrows stand for \name{Cooper} pairs of unspecified origin or
+         destiny.}
     \label{Feynman diagrams}
 \end{figure}
 
@@ -1158,6 +1173,8 @@ where the part in between is a \emph{self-energy contribution} an given by
     D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
 \end{equation}
 
+\subsubsection{\name{Gorkov-Green} function}
+
 Next, $F_{\vec k \sigma}(\tau)$ is analyzed. The procedure is as above except
 that
 %
@@ -1201,7 +1218,8 @@ has to be considered. With the help of the \textsc{Wick} theorem this reduces to
     \end{align*}
 \endgroup
 %
-Substituting \textsc{Green}'s functions one finds
+Substituting \textsc{Green}'s functions, one finds two contributions which again
+will prove equivalent:
 %
 \begin{align*}
     \sum_{\mathclap{\vec k' \vec k'' \sigma' \sigma'' \vec q \vec q'}}
@@ -1225,8 +1243,6 @@ Substituting \textsc{Green}'s functions one finds
     \end{aligned}
 \end{align*}
 %
-where again both lines of the right-hand side will prove equivalent.
-
 Bar the sign, the final result formally resembles the the one for $G
 \super{2nd}_{\vec k \sigma}(\I \omega_n)$:
 %
@@ -1242,25 +1258,41 @@ Bar the sign, the final result formally resembles the the one for $G
     D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
 \end{equation*}
 
-For completeness, the corresponding results $\widetilde G_{\vec k \sigma}(\I
+\subsubsection{Auxiliary \name{Green} functions}
+
+For completeness, the corresponding results for $\widetilde G_{\vec k \sigma}(\I
 \omega_n)$ and $\widetilde F_{\vec k \sigma}(\I \omega_n)$ shall be derived as
-well. From Eqs.~\ref{G_0(i omega_n)} and \ref{D_0(i omega_n)} it follows that
-$G^0_{\vec k \sigma}(\I \omega_n) = [G^0_{\vec k \sigma}(-\I \omega_n)]^*$ and
-$D^0_{\vec q}(\I \omega_n) = [D^0_{\vec q}(-\I \omega_n)]^* = D^0_{-\vec q}(-\I
-\omega_n)$. Using Eq.~\ref{auxiliary Green functions},
+well. From the properties given in Eqs.~\ref{Green functions of interest} it
+follows that $\widetilde G_{\vec k \sigma}(\I \omega_n) = -G_{-\vec k
+-\sigma}(-\I \omega_n)$, $[G_{\vec k \sigma}(\I \omega_n)]^* = G_{\vec k
+\sigma}(-\I \omega_n)$ and $[F_{\vec k \sigma}(\I \omega_n)]^* = \widetilde
+F_{\vec k \sigma}(-\I \omega_n)$ as well as $D_{\vec q}(\I \omega_n) = D_{-\vec
+q}(-\I \omega_n)$. Thus
 %
 \begin{align*}
     \widetilde G \super{2nd}_{\vec k \sigma}(\I \omega_n)
-    = -G \super{2nd}_{-\vec k -\sigma}(-\I \omega_n)
-    = \widetilde G^0_{\vec k \sigma}(\I \omega_n) \,
+    &= -G \super{2nd}_{-\vec k -\sigma}(-\I \omega_n) &&
+    \\
+    &= \widetilde G^0_{\vec k \sigma}(\I \omega_n) \,
     \Sigma_{\vec k \sigma}^{\widetilde G}(\I \omega_n) \,
     \widetilde G^0_{\vec k \sigma}(\I \omega_n),
+    &
+    \Sigma_{\vec k \sigma}^{\widetilde G}(\I \omega_n)
+    &= -\frac {g^2}{N \beta} \sum_{\vec q m}
+    \widetilde G^0_{\vec q \sigma}(\I \omega_m) \,
+    D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
     \\
     \widetilde F \super{2nd}_{\vec k \sigma}(\I \omega_n)
-    = [F \super{2nd}_{\vec k \sigma}(-\I \omega_n)]^*
-    = \widetilde G^0_{\vec k \sigma}(\I \omega_n) \,
+    &= [F \super{2nd}_{\vec k \sigma}(-\I \omega_n)]^* &&
+    \\
+    &= \widetilde G^0_{\vec k \sigma}(\I \omega_n) \,
     \Sigma_{\vec k \sigma}^{\widetilde F}(\I \omega_n) \,
-    G^0_{\vec k \sigma}(\I \omega_n).
+    G^0_{\vec k \sigma}(\I \omega_n),
+    &
+    \Sigma_{\vec k \sigma}^{\widetilde F}(\I \omega_n)
+    &= +\frac {g^2}{N \beta} \sum_{\vec q m}
+    \widetilde F^0_{\vec q \sigma}(\I \omega_m) \,
+    D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
 \end{align*}
 
 \subsection{Homogeneous electron gas and jellium}
@@ -1526,10 +1558,10 @@ parts and join them with fermion lines $G_0$ in all possible orders:
     &= G_0 + G_0 \Sigma G.
 \end{align*}
 
-This is knows as the \emph{\name{Dyson} equation} which can also be formulated
-diagrammatically as
-%
 \begin{subequations} \label{Hedin equations}
+    This is knows as the \emph{\name{Dyson} equation} which can also be
+    formulated diagrammatically as
+    %
     \begin{equation}
         \input{tikzin/electron.tex}.
     \end{equation}
@@ -1578,15 +1610,12 @@ diagrammatically as
     \begin{equation}
         \input{tikzin/vertex.tex}
     \end{equation}
-
-    Eqs.~\ref{Hedin equations}, known as \name{Hedin}'s equations,%
-    %
-    \footnote{see appendix A of \cite{Hedin65}}
-    %
-    are all coupled among themselves, which makes their solution a non-trivial
-    task. In practice of often applies certain approximations, which are
-    presented in the following.
 \end{subequations}
+
+Eqs.~\ref{Hedin equations}, known as \name{Hedin}'s equations \cite[Appendix
+A]{Hedin65}, are all coupled among themselves, which makes their solution a
+non-trivial task. In practice of often applies certain approximations, which are
+presented in the following.
 
 \subsection{GW approximation}
 
