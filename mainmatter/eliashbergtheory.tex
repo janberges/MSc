@@ -2,12 +2,36 @@
 
 \chapter{\name{Eliashberg} theory}
 
+Based on the results presented in the previous chapter, one can formulate a set
+of equations, namely the \name{Eliashberg} equations, which determine
+self-energies for both normal and anomalous \name{Green} functions, the latter
+being suitable order parameters for the superconducting state.
+
+To that end it is convenient to combine the \name{Green} functions of interest
+into a $2 \times 2$ matrix, i.e. to use the \name{Nambu} formalism, which is
+presented in the first section. With that, the general form of the
+\name{Eliashberg} equations on the imaginary frequency axis are derived,
+followed by some common simplifications which assume (i) a $\vec k$-independent
+self-energy, (ii) a constant density of states and (iii) the suitability of a
+\name{Coulomb} pseudo-potential. Next, it is shown how the results, which are
+generally just the numerical values corresponding to a finite set of
+\name{Matsubara} frequencies rather than analytical expressions, can be
+continued to the real axis by means of \name{Padé} approximants. Finally, it is
+outlined how \name{McMillan} and \name{Dynes}' formula for the critical
+temperature can be obtained from the \name{Eliashberg} theory.
+
 \section{\name{Nambu} formalism}
 
+As found by \name{Nambu} \cite{Nambu60}, the \text{Dyson} equations for all four
+electronic \name{Green} functions introduced at the beginning of
+Section~\ref{Model interactions} can be compactly formulated as a single matrix equation:
+%
 \begin{equation*}
     \input{tikzin/nambu-dyson.tex}
 \end{equation*}
-
+%
+or formally, where quantum numbers and frequency arguments are suppressed, as
+%
 \begin{align*}
 	\begin{bmatrix}
 		G & F \\
@@ -47,8 +71,67 @@
 		G_0 + G_0 \Sigma^G_0 G_0 & G_0 \Sigma^F_0 \widetilde G_0 \\
 		\widetilde G_0 \Sigma^{\widetilde F}_0 G_0 & \widetilde G_0
         + \widetilde G_0 \Sigma^{\widetilde G}_0 \widetilde G_0
-	\end{bmatrix*}
+	\end{bmatrix*}.
 \end{align*}
+
+A comparison with the results for the \name{Holstein} model derived in
+Section~\ref{Holstein model} reveals that the above approximation is correct up
+to the second order of the perturbation series.
+
+Giving names to the involved matrices, the \name{Dyson} equation may be written
+as $\vec G = \vec G_0 + \vec G_0 \vec \Sigma \vec G$ or even as $\vec G^{-1} =
+\vec G_0^{-1} - \vec \Sigma$ using inverse matrices. For a concise definition of
+$\vec G$ and $\vec G_0$ the two-component quantities
+%
+\begin{equation*}
+	\vec \uppsi_{\vec k} =
+    \begin{bmatrix}
+        \op c_{\vec k \uparrow} \\
+        \op c_{-\vec k \downarrow}^+
+    \end{bmatrix}
+    \quad \text{and} \quad
+    \vec \uppsi_{\vec k}^+ =
+    \begin{bmatrix}
+        \op a_{\vec k \uparrow}^+ &
+        \op a_{-\vec k \downarrow}
+    \end{bmatrix}
+\end{equation*}
+%
+are introduced, together with the \textsc{Pauli} matrices
+%
+\begin{equation*}
+	\sigma_1 =
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix},
+    \quad
+    \sigma_2 =
+    \begin{bmatrix}
+        0 & -\I \\
+        \I & 0
+    \end{bmatrix},
+    \quad
+    \sigma_3 =
+    \begin{bmatrix}
+    1 & 0 \\
+    0 & -1
+    \end{bmatrix}
+    \quad \text{and} \quad
+    \sigma_0 =
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}.
+\end{equation*}
+%
+Therewith, the dressed (bare) \name{Green} function may be written as
+%
+\begin{equation*}
+    \vec G_{\vec k}^{(0)}(\tau) = -\av{\op T \,
+    \vec \uppsi_{\vec k}(\tau) \,
+    \vec \uppsi_{\vec k}^+(0)}_{(0)}.
+\end{equation*}
 
 \section{General equations}
 

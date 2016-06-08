@@ -760,6 +760,7 @@ values as well, thus
 \end{equation}
 
 \section{Model interactions}
+\label{Model interactions}
 
 \begin{subequations} \label{Green functions of interest}
     For a satisfactory description of superconductivity, not only the \q{normal}
@@ -816,6 +817,7 @@ homogeneous electron gas and the more simple \name{Hubbard} model of interacting
 electrons.
 
 \subsection{\name{Holstein} model}
+\label{Holstein model}
 
 In real space, the interaction term of the \emph{\name{Holstein-Hamilton}
 operator} reads
@@ -1157,14 +1159,14 @@ orthogonality relation}. Thus
 \begin{equation*}
     G \super{2nd}_{\vec k \sigma}(\I \omega_n) =
     G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma_{\vec k \sigma}^G(\I \omega_n) \,
+    \Sigma^0_{\vec k \sigma}(\I \omega_n) \,
     G^0_{\vec k \sigma}(\I \omega_n),
 \end{equation*}
 %
-where the part in between is a \emph{self-energy contribution} an given by
+where the part in between is a \emph{self-energy contribution} and given by
 %
 \begin{equation} \label{self-energy contribution}
-    \Sigma_{\vec k \sigma}^G(\I \omega_n)
+    \Sigma^0_{\vec k \sigma}(\I \omega_n)
     = -\frac {g^2}{N \beta} \sum_{\vec q m}
     G^0_{\vec k - \vec q \sigma}(\I \omega_m) \,
     D^0_{\vec q}(\I \omega_n - \I \omega_m)
@@ -1249,10 +1251,10 @@ Bar the sign, the final result formally resembles the the one for $G
 \begin{equation*}
     F \super{2nd}_{\vec k \sigma}(\I \omega_n)
     = G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma_{\vec k \sigma}^F(\I \omega_n) \,
+    \Sigma^0_{\vec k \sigma}(\I \omega_n) \,
     \widetilde G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
-    \Sigma_{\vec k \sigma}^F(\I \omega_n)
+    \Sigma^0_{\vec k \sigma}(\I \omega_n)
     = \frac {g^2}{N \beta} \sum_{\vec q m}
     F^0_{\vec q \sigma}(\I \omega_m) \,
     D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
@@ -1274,10 +1276,10 @@ q}(-\I \omega_n)$. Thus
     &= -G \super{2nd}_{-\vec k -\sigma}(-\I \omega_n) &&
     \\
     &= \widetilde G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma_{\vec k \sigma}^{\widetilde G}(\I \omega_n) \,
+    \Sigma^0_{\vec k \sigma}(\I \omega_n) \,
     \widetilde G^0_{\vec k \sigma}(\I \omega_n),
     &
-    \Sigma_{\vec k \sigma}^{\widetilde G}(\I \omega_n)
+    \Sigma^0_{\vec k \sigma}(\I \omega_n)
     &= -\frac {g^2}{N \beta} \sum_{\vec q m}
     \widetilde G^0_{\vec q \sigma}(\I \omega_m) \,
     D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
@@ -1286,10 +1288,10 @@ q}(-\I \omega_n)$. Thus
     &= [F \super{2nd}_{\vec k \sigma}(-\I \omega_n)]^* &&
     \\
     &= \widetilde G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma_{\vec k \sigma}^{\widetilde F}(\I \omega_n) \,
+    \Sigma^0_{\vec k \sigma}(\I \omega_n) \,
     G^0_{\vec k \sigma}(\I \omega_n),
     &
-    \Sigma_{\vec k \sigma}^{\widetilde F}(\I \omega_n)
+    \Sigma^0_{\vec k \sigma}(\I \omega_n)
     &= +\frac {g^2}{N \beta} \sum_{\vec q m}
     \widetilde F^0_{\vec q \sigma}(\I \omega_m) \,
     D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
@@ -1354,7 +1356,7 @@ the subscript plus sign can be dropped again. One finds
 %
 \begin{align*}
     \sum_{\mathclap{\vec k' \vec k'' \sigma' \sigma'' \vec q}}
-    \av \dots_0 \super{c.} =
+    U_{\vec q} \av \dots_0 \super{c.} =
     2 G^0_{\vec k \sigma}(\tau - \tau')
     \Big[
         U_0 \sum_{\vec k' \sigma'} G^0_{\vec k' \sigma'}(0) -
@@ -1391,10 +1393,10 @@ $\vec q = 0$ terms from the interaction, i.e. considering the so-called
     \E^{\I (\omega_i - \omega_j) \tau'}.
     \\
     &= G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma_{\vec k \sigma}^G \,
+    \Sigma^0_{\vec k \sigma} \,
     G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
-    \Sigma_{\vec k \sigma}^G
+    \Sigma^0_{\vec k \sigma}
     = -\frac 1 \beta \sum_{\vec q \neq \vec k} U_{\vec k - \vec q}
     \sum_m G^0_{\vec q \sigma}(\I \omega_m).
 \end{align*}
@@ -1419,10 +1421,10 @@ and, again, a formally equal result apart from the sign:
 \begin{equation*}
     F \super{1st}_{\vec k \sigma}(\I \omega_n)
     = G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma_{\vec k \sigma}^F \,
+    \Sigma^0_{\vec k \sigma} \,
     \widetilde G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
-    \Sigma_{\vec k \sigma}^F
+    \Sigma^0_{\vec k \sigma}
     = \frac 1 \beta \sum_{\vec q \neq k} U_{\vec k - \vec q}
     \sum_m F^0_{\vec q \sigma}(\I \omega_m).
 \end{equation*}
@@ -1487,10 +1489,10 @@ vanishing, thus
 \begin{align*}
     G \super{1st}_{\vec k \sigma}(\I \omega_n)
     &= G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma_{\vec k \sigma}^G \,
+    \Sigma^0 \,
     G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
-    \Sigma_{\vec k \sigma}^G = 0.
+    \Sigma^0 = 0.
 \end{align*}
 
 \subsubsection{\name{Gor'kov-Green} function}
@@ -1510,10 +1512,10 @@ with the final result
 \begin{equation*}
     F \super{1st}_{\vec k \sigma}(\I \omega_n)
     = G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma_\sigma^F \,
+    \Sigma^0_\sigma \,
     \widetilde G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
-    \Sigma_\sigma^F
+    \Sigma^0_\sigma
     = \frac U {N \beta} \sum_{\vec q \neq \vec k} \sum_m
     F^0_{\vec q \sigma}(\I \omega_m).
 \end{equation*}
