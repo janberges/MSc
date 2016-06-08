@@ -1,16 +1,9 @@
+.PHONY: all clean
+
 all: thesis.pdf
 
-%.pdf: %.tex %.bbl %.aux
-	pdflatex $<
-
-%.bbl: %.aux
-	bibtex $*
-
-%.aux: %.tex
-	pdflatex $<
-
-.PHONY: clean
-
 clean:
-	rm -f thesis-blx.bib thesis.aux thesis.auxlock thesis.bbl thesis.blg \ 	theses.lof thesis.log thesis.out thesis.run.xml thesis.synctex.gz \
-	thesis.toc */*.aux
+	@rm -f *.aux */*.aux *.auxlock *.bbl *.blg *-blx.bib */*.dpth .DS_Store */.DS_Store *.fdb_latexmk *.fls .*.lb *.lof *.log */*.log */*.md5 *.out *.run.xml */*.run.xml *.synctex.gz *.toc
+
+%.pdf: %.tex
+	latexmk $*
