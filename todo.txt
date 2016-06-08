@@ -8,3 +8,5 @@
 - Reference Allen/Dynes with respect to rescaled mu*
 - Introduce meaning of k, q, sigma only once
 - Uniform citation scheme (object or parenthesis)
+- Write time argument (0) or not?
+- Fröhlich transformation correct? Divergences because of poles in S?

@@ -43,7 +43,7 @@ It is now shown that the electron-phonon interaction can involve an effective
 electron-electron interaction which is attractive.%
 %
 \footnote{The original derivation is due to \name{Fröhlich} \cite{Froehlich52}.
-The presentation at hand is rather guided by Ref.~\barecite{Czycholl08}.}
+The presentation at hand is rather guided by \name{Czycholl} \cite{Czycholl08}.}
 %
 To that end the \name{Fröhlich-Hamilton} operator
 %
@@ -64,6 +64,8 @@ respectively, and longitudinal phonons, where analogous definitions hold for
 $\vec q$, $\omega_{\vec q}$ and $\op b_{\vec q}$. The strength of the coupling
 is given by $g_{\vec q}$. The spin is of no importance here and thus omitted.
 
+The idea is to apply a canonical transformation to the \name{Hamilton} operator
+by means of the unitary operator $\E^{\I \op S}$, where $\op S$ is self-adjoint.
 With the help of \name{Hadamard}'s lemma,
 %
 \begin{align*}
@@ -72,12 +74,69 @@ With the help of \name{Hadamard}'s lemma,
     &= \op H + \I [\op H, \op S] - \frac 1 2 [[\op H, \op S], \op S] + \dots \\
     &= \op H_0 + \op V + \I [\op H_0, \op S] + \I [\op V, \op S]
     - \frac 1 2 [[\op H_0, \op S], \op S] + \dots \\
-    &\approx \op H_0 + \frac \I 2 [\op V, \op S],
+    &\approx \op H_0 + \frac \I 2 [\op V, \op S] \equiv \op H_0 + \op V',
 \end{align*}
 %
-choosing $[\op H_0, \op S] = \I \op V$.
-
-\name{Fröhlich-Hamilton} operator $\rightarrow$ effective electron interaction
+choosing $[\op H_0, \op S] = \I \op V$, which implies a linear dependence of
+$\op S$ on $\op V$. Thus all terms with are at least quadratic in the
+interaction are neglected. Making use of the commutation relations
+%
+\begin{align*}
+    [\op b_{\vec q'}^+ \op b_{\vec q'}, \ \op b_{\vec q \phantom +}]
+    &= -\op b_{\vec q \phantom +} \delta_{\vec q'}^{\vec q},
+    &
+    [ \op c_{\vec k' \phantom{+ \vec q'}}^+ \op c_{\vec k'},
+    \ \op c_{\vec k + \vec q}^+ \op c_{\vec k} ]
+    &= \op c_{\vec k + \vec q}^+ \op c_{\vec k}
+    \big[ \delta_{\vec k'}^{\vec k + \vec q} - \delta_{\vec k'}^{\vec k} \big],
+    \\
+    [\op b_{\vec q'}^+ \op b_{\vec q'}, \ \op b_{-\vec q}^+]
+    &= \phantom + \op b_{-\vec q}^+ \delta_{\vec q'}^{-\vec q},
+    &
+    [ \op c_{\vec k' + \vec q'}^+ \op c_{\vec k'},
+    \  \op c_{\vec k  + \vec q }^+ \op c_{\vec k } ]
+    &= \op c_{\vec k + \vec q + \vec q'}^+ \op c_{\vec k}
+    \delta_{\vec k'}^{\vec k + \vec q}
+    - \op c_{\vec k + \vec q}^+ \op c_{\vec k - \vec q'}
+    \delta_{\vec k'}^{\vec k - \vec q'}
+\end{align*}
+%
+one can verify both that $\op S$ has the explicit form
+%
+\begin{equation*}
+    \op S = \I \sum_{\vec k \vec q} g_{\vec q}
+    \op c_{\vec k + \vec q}^+ \op c_{\vec k} \left[
+        \frac {\op b_{\vec q}}
+        {\epsilon_{\vec k + \vec q} - \epsilon_{\vec k} - \omega_{\vec q}}
+        + \frac {\op b_{-\vec q}^+}
+        {\epsilon_{\vec k + \vec q} - \epsilon_{\vec k} + \omega_{-\vec q}}
+    \right]
+\end{equation*}
+%
+and, assuming $g_{\vec q}^* = g_{\vec - q}$ and $\omega_{\vec q} = \omega_{-\vec
+q}$, that the renormalized interaction is given by
+%
+\begin{align*}
+    \op V' = &\sum_{\vec k \vec k' \vec q}
+    \frac {|g_{\vec q}|^2 \omega_{\vec q}}
+    {(\epsilon_{\vec k + \vec q} - \epsilon_{\vec k})^2 - \omega_{\vec q}^2}
+    \op c_{\vec k  + \vec q}^+ \op c_{\vec k }
+    \op c_{\vec k' - \vec q}^+ \op c_{\vec k'} + \dots
+    \\
+    \dots - \frac 1 2 &\sum_{\vec k \vec q \vec q'} g_{\vec q} g_{\vec q'}
+    \big[ \op c_{\vec k + \vec q + \vec q'}^+ \op c_{\vec k}
+    - \op c_{\vec k + \vec q}^+ \op c_{\vec k - \vec q'} \big]
+    \big[ \op b_{\vec q'} + \op b_{-\vec q'}^+ \big] \left[
+        \frac {\op b_{\vec q}}
+        {\epsilon_{\vec k + \vec q} - \epsilon_{\vec k} - \omega_{\vec q}}
+        + \frac {\op b_{-\vec q}^+}
+        {\epsilon_{\vec k + \vec q} - \epsilon_{\vec k} + \omega_{-\vec q}}
+    \right].
+\end{align*}
+%
+The first term describes an effective interaction between electrons which is
+attractive, i.e. negative, for $|\epsilon_{\vec k + \vec q} - \epsilon_{\vec k}|
+< \omega_{\vec q}$. The seconds term describes processes involving two phonons.
 
 \section{BCS theory}
 
