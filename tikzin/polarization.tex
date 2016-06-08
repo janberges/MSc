@@ -8,7 +8,7 @@
     \coordinate (t) at (1-\r, +\r);
     \coordinate (b) at (1-\r, -\r);
 
-    \draw [fill=black!10!white] (1-\r, 0) circle [radius=\r] node {$\Pi$};
+    \draw [fill=blockcolor] (1-\r, 0) circle [radius=\r] node {$\Pi$};
 
     \node at (1.5, 0) {$=$};
 
@@ -26,7 +26,7 @@
     \draw [electron, double] (B) -- (I);
     \draw [electron, double] (O) -- (B);
 
-    \draw [fill=black!10!white] (T) -- (I) -- (O) -- (T);
+    \draw [fill=blockcolor] (T) -- (I) -- (O) -- (T);
 
     \foreach \point in {t, b, I, T, B, O} \fill (\point) circle (1.5pt);
 

@@ -7,7 +7,7 @@
 
     \coordinate (i) at (1-2*\r, 0);
 
-    \draw [fill=black!10!white] (1-\r, 0) circle [radius=\r] node {$\Sigma$};
+    \draw [fill=blockcolor] (1-\r, 0) circle [radius=\r] node {$\Sigma$};
 
     \coordinate (o) at (1, 0);
 
@@ -37,7 +37,7 @@
     \draw [phonon, double] (X) -- (O);
     \draw [electron, double] (R) -- (O);
 
-    \draw [fill=black!10!white] (X) -- (I) -- (R) -- (X);
+    \draw [fill=blockcolor] (X) -- (I) -- (R) -- (X);
 
     \foreach \point in {i, o, 0, 1, I, X, R, O} \fill (\point) circle (1.5pt);
 
