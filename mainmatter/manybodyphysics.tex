@@ -1165,7 +1165,7 @@ orthogonality relation}. Thus
 %
 where the part in between is a \emph{self-energy contribution} and given by
 %
-\begin{equation} \label{self-energy contribution}
+\begin{equation*}
     \Sigma^0_{\vec k \sigma}(\I \omega_n)
     = -\frac {g^2}{N \beta} \sum_{\vec q m}
     G^0_{\vec k - \vec q \sigma}(\I \omega_m) \,
@@ -1173,7 +1173,7 @@ where the part in between is a \emph{self-energy contribution} and given by
     = -\frac {g^2}{N \beta} \sum_{\vec q m}
     G^0_{\vec q \sigma}(\I \omega_m) \,
     D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
-\end{equation}
+\end{equation*}
 
 \subsubsection{\name{Gor'kov-Green} function}
 
@@ -1365,11 +1365,11 @@ the subscript plus sign can be dropped again. One finds
     G^0_{\vec k \sigma}(\tau').
 \end{align*}
 %
-The terms inside the brackets correspond to \textsc{Hartree} and \textsc{Fock}
-self-energy contributions. The former may be compensated exactly by a homogenous
-positive background which is introduced into the theory simply by omitting the
-$\vec q = 0$ terms from the interaction, i.e. considering the so-called
-\emph{jellium model}. Then one has
+The two terms inside the brackets correspond to the leading \textsc{Hartree} and
+\textsc{Fock} self-energy contributions. The former may be compensated exactly
+by a homogenous positive background which is introduced into the theory simply
+by omitting the $\vec q = 0$ terms from the interaction, i.e. considering the
+so-called \emph{jellium model}. Then one has
 %
 \begin{align*}
     G \super{1st}_{\vec k \sigma}(\I \omega_n) &=
@@ -1550,11 +1550,12 @@ contains
         \fill (0, 0) circle (1.5pt);
     \end{tikzpicture}
     \quad \text{with} \quad
-    n \in \mathds N.
+    n \in \mathds N,
 \end{equation*}
 %
-As a consequence, there is always one in- and one outgoing side of a fermion
-line, which is not connected to a vertex.
+where the gray lines define the \q{contacts}. As a consequence, there is always
+one in- and one outgoing side of a fermion line, which is not connected to a
+vertex.
 
 It is convenient to define the \emph{self-energy} $\Sigma = \sum_i \Sigma_i$ as
 the sum of all \emph{irreducible} diagram parts $\Sigma_i$, i.e. such which can
@@ -1584,7 +1585,7 @@ possible subsets of all irreducible parts and join them with fermion lines:
     respectively, yields
     %
     \begin{equation*}
-        G^{-1} = G_0^{-1} - \Sigma
+        G^{-1} = G_0^{-1} - \Sigma.
     \end{equation*}
     %
     The denominators of $G$ and $G_0$ contain the excitation energies of the
@@ -1593,18 +1594,19 @@ possible subsets of all irreducible parts and join them with fermion lines:
     \emph{renormalization}.
 
     How can the full self-energy be obtained? It turns out that it can be
-    derived from the leading self-energy contributions calculated in the
-    previous section, e.g. Eq.~\ref{self-energy contribution}, through
-    renormalization of selected lines and vertices, in analogy to the treatment
-    of the fermion line in the \name{Dyson} equation. The self-energy then reads
+    derived from the leading self-energy contributions, calculated in the
+    previous section and shown in Fig.~\ref{Hartree} and \ref{Fock}, through
+    renormalization of selected lines and even one vertex. This yields
     %
     \begin{equation}
         \input{tikzin/self-energy.tex},
     \end{equation}
     %
-    where left left summand can be incorporated into the single-particle
-    dispersion relation and thus be omitted. The dressed phonon line obeys
-    another \name{Dyson} equation,
+    where the \emph{full vertex} $\Gamma$ has been introduced. The
+    \name{Hartree} term on the left can be either neglected, as in the phonon
+    case, or incorporated into the single-particle dispersion relation.
+
+    The dressed boson line obeys another \name{Dyson} equation,
     %
     \begin{equation}
         \input{tikzin/phonon.tex}
@@ -1612,14 +1614,21 @@ possible subsets of all irreducible parts and join them with fermion lines:
         \input{tikzin/polarization.tex},
     \end{equation}
     %
-    where the \emph{polarization} $\Pi$ has taken the place of $\Sigma$.
+    where the corresponding self-energy $\Pi$ is referred to as
+    \emph{polarization}.
 
     Finally, the full vertex is given by the plain vertex together with vertex
-    corrections:
+    corrections, i.e. by all diagram parts with can mediate a boson-induced
+    fermionic transition:
     %
     \begin{equation}
         \input{tikzin/vertex.tex}
     \end{equation}
+    %
+    Unforfunately, there is no integral equation for $\Gamma$ that could be
+    formulated diagrammatically with nothing but the building blocks introduced
+    so far, since the vertex corrections involve a functional derivative of the
+    self-energy with respect to the dressed \name{Green} function.
 \end{subequations}
 
 Eqs.~\ref{Hedin equations}, known as \name{Hedin}'s equations \cite[Appendix
