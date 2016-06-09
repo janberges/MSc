@@ -1,0 +1,48 @@
+%!TEX root = ../thesis.tex
+%
+\begin{tikzpicture}[baseline]
+    \coordinate (i) at (0.0, -{sqrt(3)/4});
+    \coordinate (x) at (0.5, +{sqrt(3)/4});
+    \coordinate (o) at (1.0, -{sqrt(3)/4});
+    %
+    \node at (1.5, 0) {$=$};
+    %
+    \coordinate (0) at (2.5, 0);
+    %
+    \node at (3.5, 0) {$+$};
+    %
+    \coordinate (I) at (4.00, -{sqrt(3)/2});
+    \coordinate (l) at (4.25, -{sqrt(3)/4});
+    \coordinate (L) at (4.50, 0);
+    \coordinate (X) at (5.00, +{sqrt(3)/2});
+    \coordinate (R) at (5.50, 0);=
+    \coordinate (r) at (5.75, -{sqrt(3)/4});
+    \coordinate (O) at (6.00, -{sqrt(3)/2});
+    %
+    \begin{scope}[gray]
+        \foreach \point in {i, 0, I}
+            \draw [backward] (\point) -- +(225:5mm);
+        %
+        \foreach \point in {x, 0, X}
+            \draw [phonon] (\point) -- +(90:5mm);
+        %
+        \foreach \point in {o, 0, O}
+            \draw [forward] (\point) -- +(315:5mm);
+    \end{scope}
+    %
+    \draw [electron, double] (l) -- (L);
+    \draw [electron, double] (R) -- (r);
+    %
+    \draw [fill=blockcolor]
+        (x) -- (i) -- (o) -- (x)
+        (X) -- (L) -- (R) -- (X)
+        (I) -- (O) -- (r) -- (l) -- (I);
+    %
+    \foreach \point in {i, x, o, 0, I, l, L, X, R, r, O}
+        \fill (\point) circle (1.5pt);
+    %
+    \foreach \point in {x, X}
+        \node [below=3mm] at (\point) {$\Gamma$};
+    %
+    \node at (5, -{3*sqrt(3)/8}) {$\delta \Sigma / \delta G$};
+\end{tikzpicture}%

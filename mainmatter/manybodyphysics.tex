@@ -1606,7 +1606,8 @@ possible subsets of all irreducible parts and join them with fermion lines:
     \name{Hartree} term on the left can be either neglected, as in the phonon
     case, or incorporated into the single-particle dispersion relation.
 
-    The dressed boson line obeys another \name{Dyson} equation,
+    The dressed boson \name{Green} function, $D$ say, obeys another \name{Dyson}
+    equation,
     %
     \begin{equation}
         \input{tikzin/phonon.tex}
@@ -1615,20 +1616,25 @@ possible subsets of all irreducible parts and join them with fermion lines:
     \end{equation}
     %
     where the corresponding self-energy $\Pi$ is referred to as
-    \emph{polarization}.
+    the \emph{polarization}.
 
     Finally, the full vertex is given by the plain vertex together with vertex
     corrections, i.e. by all diagram parts with can mediate a boson-induced
     fermionic transition:
     %
-    \begin{equation}
+    \begin{equation*}
         \input{tikzin/vertex.tex}
-    \end{equation}
+    \end{equation*}
     %
     Unforfunately, there is no integral equation for $\Gamma$ that could be
     formulated diagrammatically with nothing but the building blocks introduced
     so far, since the vertex corrections involve a functional derivative of the
-    self-energy with respect to the dressed \name{Green} function.
+    self-energy with respect to the dressed \name{Green} function. Representing
+    this part with a trapezoidal shape, one can write
+    %
+    \begin{equation}
+        \input{tikzin/vertex-exact.tex}.
+    \end{equation}
 \end{subequations}
 
 Eqs.~\ref{Hedin equations}, known as \name{Hedin}'s equations \cite[Appendix
@@ -1638,16 +1644,30 @@ presented in the following.
 
 \subsection{GW approximation}
 
-Vertex corrections are neglected. Polarization in RPA.
-
+A considable simplification consists in neglecting all vertex corrections, i.e.
+replacing $\Gamma$ with the bare vertex \cite[Eq.~A27, A28]{Hedin65}. The 
+corresponding diagram reads:
+%
 \begin{equation}
     \input{tikzin/gw-self-energy.tex}
     \qquad \text{with} \qquad
-    \input{tikzin/gw-polarization.tex}
+    \input{tikzin/gw-polarization.tex}.
 \end{equation}
+%
+Since the dressed boson line is often denoted as $W$, this is known as the
+\emph{GW approximation} with reference to the resulting formula for the exchange
+part of the $\Sigma$. With focus on $\Pi$ and for historical reasons it is also
+referred to as the \emph{random-phase approximation} (RPA).
 
 \subsection{\name{Hartree-Fock} approximation}
 
+The self-energy can be further simplified by neglecting the polarization and
+thus replacing all dressed boson lines with simple ones. This yields the
+\emph{\name{Hartree-Fock} approximation} (HF):
+%
 \begin{equation}
-    \input{tikzin/hf-self-energy.tex}
+    \input{tikzin/hf-self-energy.tex}.
 \end{equation}
+%
+Within HF, many-body problems can always be mapped onto effective
+single-particle problems.
