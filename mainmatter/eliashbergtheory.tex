@@ -24,67 +24,66 @@ temperature can be obtained from the \name{Eliashberg} theory.
 
 As found by \name{Nambu} \cite{Nambu60}, the \text{Dyson} equations for all four
 electronic \name{Green} functions introduced at the beginning of
-Section~\ref{Model interactions} can be compactly formulated as a single matrix equation:
+Section~\ref{Model interactions} can be compactly formulated as a single matrix
+equation:
 %
 \begin{equation*}
     \input{tikzin/nambu-dyson.tex}
 \end{equation*}
 %
-or formally, where quantum numbers and frequency arguments are suppressed, as
+or formally, where quantum numbers and frequency arguments are suppressed,
 %
-\begin{align*}
-	\begin{bmatrix}
-		G & F \\
-		\widetilde F & \widetilde G
-	\end{bmatrix}
-	&=
-	\begin{bmatrix}
-		G_0 & 0 \\
-		0 & \widetilde G_0
-	\end{bmatrix}
-	+
-	\begin{bmatrix}
-		G_0 & 0 \\
-		0 & \widetilde G_0
-	\end{bmatrix}
-	\begin{bmatrix}
-		\Sigma^G & \Sigma^F \\
-		\Sigma^{\widetilde F} & \Sigma^{\widetilde G}
-	\end{bmatrix}
-	\begin{bmatrix}
-		G & F \\
-		\widetilde F & \widetilde G
-	\end{bmatrix}
-	\\
-	&=
-	\begin{bmatrix*}[r]
-		G_0 + G_0 \Sigma^G G + G_0 \Sigma^F \widetilde F
-        & G_0 \Sigma^G F + G_0 \Sigma^F \widetilde G \\
-		\widetilde G_0 \Sigma^{\widetilde F} G
-        + \widetilde G_0 \Sigma^{\widetilde G} \widetilde F
-        & \widetilde G_0 + \widetilde G_0 \Sigma^{\widetilde F} F
-        + \widetilde G_0 \Sigma^{\widetilde G} \widetilde G
-	\end{bmatrix*}
-	\\
-	&\approx
-	\begin{bmatrix*}[r]
-		G_0 + G_0 \Sigma^G_0 G_0 & G_0 \Sigma^F_0 \widetilde G_0 \\
-		\widetilde G_0 \Sigma^{\widetilde F}_0 G_0 & \widetilde G_0
-        + \widetilde G_0 \Sigma^{\widetilde G}_0 \widetilde G_0
-	\end{bmatrix*}.
-\end{align*}
-
-A comparison with the results for the \name{Holstein} model derived in
-Section~\ref{Holstein model} reveals that the above approximation is correct up
-to the second order of the perturbation series.
+\begin{equation} \label{Nambu-Dyson equation}
+    \begin{split}
+        \begin{bmatrix}
+            G & F \\
+            \widetilde F & \widetilde G
+        \end{bmatrix}
+        &=
+        \begin{bmatrix}
+            G_0 & 0 \\
+            0 & \widetilde G_0
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+            G_0 & 0 \\
+            0 & \widetilde G_0
+        \end{bmatrix}
+        \begin{bmatrix}
+            \Sigma^G & \Sigma^F \\
+            \Sigma^{\widetilde F} & \Sigma^{\widetilde G}
+        \end{bmatrix}
+        \begin{bmatrix}
+            G & F \\
+            \widetilde F & \widetilde G
+        \end{bmatrix}
+        \\
+        &=
+        \begin{bmatrix*}[r]
+            G_0 + G_0 \Sigma^G G + G_0 \Sigma^F \widetilde F
+            & G_0 \Sigma^G F + G_0 \Sigma^F \widetilde G \\
+            \widetilde G_0 \Sigma^{\widetilde F} G
+            + \widetilde G_0 \Sigma^{\widetilde G} \widetilde F
+            & \widetilde G_0 + \widetilde G_0 \Sigma^{\widetilde F} F
+            + \widetilde G_0 \Sigma^{\widetilde G} \widetilde G
+        \end{bmatrix*}
+        \\
+        &\approx
+        \begin{bmatrix*}[r]
+            G_0 + G_0 \Sigma^G_0 G_0 & G_0 \Sigma^F_0 \widetilde G_0 \\
+            \widetilde G_0 \Sigma^{\widetilde F}_0 G_0 & \widetilde G_0
+            + \widetilde G_0 \Sigma^{\widetilde G}_0 \widetilde G_0
+        \end{bmatrix*}.
+    \end{split}
+\end{equation}
 
 Giving names to the involved matrices, the \name{Dyson} equation may be written
-as $\vec G = \vec G_0 + \vec G_0 \vec \Sigma \vec G$ or even as $\vec G^{-1} =
-\vec G_0^{-1} - \vec \Sigma$ using inverse matrices. For a concise definition of
-$\vec G$ and $\vec G_0$ the two-component quantities
+as $\vec G = \vec G_0 + \vec G_0 \vec \Sigma \vec G$ or even $\vec G^{-1} = \vec
+G_0^{-1} - \vec \Sigma$, using inverse matrices. With the help of the
+two-component quantities
 %
 \begin{equation*}
-	\vec \uppsi_{\vec k} =
+    \vec \uppsi_{\vec k} =
     \begin{bmatrix}
         \op c_{\vec k \uparrow} \\
         \op c_{-\vec k \downarrow}^+
@@ -93,93 +92,200 @@ $\vec G$ and $\vec G_0$ the two-component quantities
     \vec \uppsi_{\vec k}^+ =
     \begin{bmatrix}
         \op a_{\vec k \uparrow}^+ &
-        \op a_{-\vec k \downarrow}
+        \op a_{-\vec k \downarrow},
     \end{bmatrix}
 \end{equation*}
 %
-are introduced, together with the \textsc{Pauli} matrices
+the dressed (bare) \name{Green} function matrix can be concisely defined as
 %
 \begin{equation*}
-	\sigma_1 =
+    \vec G_{\vec k}^{(0)}(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
+    \E^{\I \omega_n \tau} \av{
+    \vec \uppsi_{\vec k}(\tau) \,
+    \vec \uppsi_{\vec k}^+(0)}_{(0)}.
+\end{equation*}
+
+Introducing unit and \name{Pauli} matrices
+%
+\begin{equation*}
+    \vec \sigma_0 =
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix},
+    \quad
+    \vec \sigma_1 =
     \begin{bmatrix}
         0 & 1 \\
         1 & 0
     \end{bmatrix},
     \quad
-    \sigma_2 =
+    \vec \sigma_2 =
     \begin{bmatrix}
         0 & -\I \\
         \I & 0
     \end{bmatrix},
     \quad
-    \sigma_3 =
+    \vec \sigma_3 =
     \begin{bmatrix}
     1 & 0 \\
     0 & -1
     \end{bmatrix}
-    \quad \text{and} \quad
-    \sigma_0 =
+\end{equation*}
+%
+and the real scalar functions $Z_{\vec k}(\I \omega_n)$, $\phi^{(\prime)}_{\vec
+k}(\I \omega_n)$ and $\chi_{\vec k}(\I \omega_n)$, the self-energy matrix is
+written as
+%
+\begin{align*}
+    \vec \Sigma_{\vec k}(\I \omega_n) &= \I \omega_n
+    [1 - Z_{\vec k}(\I \omega_n)] \vec \sigma_0
+    + \phi _{\vec k}(\I \omega_n) \vec \sigma_1
+    + \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
+    + \chi _{\vec k}(\I \omega_n) \vec \sigma_3
+    \\
+    &=
     \begin{bmatrix}
-        1 & 0 \\
-        0 & 1
-    \end{bmatrix}.
-\end{equation*}
+        \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] + \chi_{\vec k}(\I \omega_n) &
+        \phi_{\vec k}(\I \omega_n) - \I \phi'_{\vec k}(\I \omega_n) \\
+        \phi_{\vec k}(\I \omega_n) + \I \phi'_{\vec k}(\I \omega_n) &
+        \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] - \chi_{\vec k}(\I \omega_n)
+    \end{bmatrix},
+\end{align*}
 %
-Therewith, the dressed (bare) \name{Green} function may be written as
+With $[\vec G^0_{\vec k}(\I \omega_n)]^{-1} = \I \omega_n \vec \sigma_0 -
+\epsilon_{\vec k} \vec \sigma_3$ the \textsc{Dyson} equation reads
 %
-\begin{equation*}
-    \vec G_{\vec k}^{(0)}(\tau) = -\av{\op T \,
-    \vec \uppsi_{\vec k}(\tau) \,
-    \vec \uppsi_{\vec k}^+(0)}_{(0)}.
-\end{equation*}
+\begin{align*}
+    [\vec G_{\vec k}(\I \omega_n)]^{-1} &=
+    [\vec G^0_{\vec k}(\I \omega_n)]^{-1} - \vec \Sigma_{\vec k}(\I \omega_n)
+    \\
+    &= \I \omega_n Z_{\vec k}(\I \omega_n) \vec \sigma_0
+    - \phi _{\vec k}(\I \omega_n) \vec \sigma_1
+    - \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
+    - [\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)] \vec \sigma_3 \\
+    &= \begin{bmatrix}
+        \I \omega_n Z_{\vec k}(\I \omega_n)
+        - \epsilon_{\vec k} - \chi_{\vec k}(\I \omega_n) &
+        -\phi_{\vec k}(\I \omega_n) + \I \phi'_{\vec k}(\I \omega_n) \\
+        -\phi_{\vec k}(\I \omega_n) - \I \phi'_{\vec k}(\I \omega_n) &
+        \I \omega_n Z_{\vec k}(\I \omega_n)
+        + \epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)
+    \end{bmatrix},
+\end{align*}
+%
+Inversion yields
+%
+\begin{align*}
+    \vec G_{\vec k}(\I \omega_n) &= -\Theta_{\vec k}^{-1}(\I \omega_n) \{
+        \I \omega_n Z_{\vec k}(\I \omega_n) \vec \sigma_0
+        + \phi _{\vec k}(\I \omega_n) \vec \sigma_1
+        + \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
+        + [\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)] \vec \sigma_3 \}
+    \\
+    &= -\frac 1 {\Theta_{\vec k}(\I \omega_n)}
+    \begin{bmatrix}
+        \I \omega_n Z_{\vec k}(\I \omega_n)
+        + \epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n) &
+        \phi_{\vec k}(\I \omega_n) - \I \phi'_{\vec k}(\I \omega_n) \\
+        \phi_{\vec k}(\I \omega_n) + \I \phi'_{\vec k}(\I \omega_n) &
+        \I \omega_n Z_{\vec k}(\I \omega_n)
+        - \epsilon_{\vec k} - \chi_{\vec k}(\I \omega_n)
+    \end{bmatrix},
+    \\
+    \Theta_{\vec k}(\I \omega_n) &= -\det [\vec G_{\vec k}(\I \omega_n)]^{-1}
+    = [\omega_n Z_{\vec k}(\I \omega_n)]^2
+    + [\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)]^2
+    + \phi ^2_{\vec k}(\I \omega_n)
+    + \phi'^2_{\vec k}(\I \omega_n).
+\end{align*}
+%
+The excitation energies are the poles of $\vec G_{\vec k}(\I \omega_n)$, i.e.
+the zeros of $\Theta_{\vec k}(\I \omega_n)$, which satisfy
+%
+\begin{align*}
+    (\I \omega_n)^2 = \left[ \frac
+        {\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)}
+        {Z_{\vec k}(\I \omega_n)}
+    \right]^2
+    + \frac
+        {\phi_{\vec k}^2(\I \omega_n) + \phi'^2_{\vec k}(\I \omega_n)}
+        {Z_{\vec k}^2(\I \omega_n)}
+    \equiv \widetilde \epsilon^2_{\vec k}(\I \omega_n)
+    + |\Delta_{\vec k}(\I \omega)|^2.
+\end{align*}
+%
+This identifies $Z_{\vec k}(\I \omega_n)$ as a renormalization function,
+$\chi_{\vec k}(\I \omega_n)$ as an energy shift and $\phi^{(\prime)}_{\vec k}(\I
+\omega_n)$ as a suitable order parameter, since the energy gap of the
+superconducting state turns out to be
+%
+\begin{align*}
+    \Delta_{\vec k}(\I \omega) = \frac
+        {\phi_{\vec k}(\I \omega_n) - \I \phi'_{\vec k}(\I \omega_n)}
+        {Z_{\vec k}(\I \omega_n)}.
+\end{align*}
 
 \section{General equations}
 
-For a self-energy on the imaginary axis, which may be written as
+A comparison with the results derived in Section~\ref{Holstein model} reveals
+that the approximation made in Eq.~\ref{Nambu-Dyson equation} is correct up to
+the second order of the perturbation series for the \name{Holstein} model.
+Dressing the leading contributions, the corresponding self-energy matrix reads
+%
+\begin{equation}
+    \vec \Sigma_{\vec k}(\I \omega_n) = -\frac{g^2}{N \beta} \sum_{\vec q m}
+    \vec \sigma_3 \, \vec G_{\vec q}(\I \omega_m) \, \vec \sigma_3 \,
+    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
+\end{equation}
+%
+where the \name{Pauli} matrices $\vec \sigma_3$ swap the sign of the
+off-diagonal components.
+
+In terms of \textsc{Pauli} matrices it reads
+%
+\begin{multline*}
+    \I \omega_n
+    [1 - Z_{\vec k}(\I \omega_n)] \vec \sigma_0
+    + \phi _{\vec k}(\I \omega_n) \vec \sigma_1
+    + \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
+    + \chi _{\vec k}(\I \omega_n) \vec \sigma_3
+    \\
+    = \frac{g^2}{N \beta} \sum_{\vec q m} \frac {
+        \I \omega_m Z_{\vec q}(\I \omega_m) \vec \sigma_0
+        - \phi _{\vec q}(\I \omega_m) \vec \sigma_1
+        - \phi'_{\vec q}(\I \omega_m) \vec \sigma_2
+        + [\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)] \vec \sigma_3 }
+        {\Theta_{\vec q}(\I \omega_m)}
+        D_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
+\end{multline*}
+%
+A coefficient comparison yields the \textsc{Eliashberg} equations
 %
 \begin{align*}
-    \vec \Sigma_{\vec k}(\I \omega_n) &= -\frac 1 \beta \sum_{m \, \vec q}
-    \vec \sigma_3 \vec G_{\vec q \sigma}(\I \omega_m) \vec \sigma_3 \,
-    V_{\vec k, \vec q}(\omega_n - \omega_m)
+    \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] &= \frac{g^2}{N \beta}
+    \sum_{\vec q m} \frac
+        {\I \omega_m Z_{\vec q}(\I \omega_m)}
+        {\Theta_{\vec q}(\I \omega_m)}
+    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
     \\
-    &= \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] \vec \sigma_0
-    + \phi_{\vec k}(\I \omega_n) \vec \sigma_1
-    + \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
-    + \chi_{\vec k}(\I \omega_n) \vec \sigma_3,
+    \phi^{(\prime)}_{\vec k}(\I \omega_n) &= -\frac{g^2}{N \beta}
+    \sum_{\vec q m} \frac
+        {\phi^{(\prime)}_{\vec q}(\I \omega_m)}
+        {\Theta_{\vec q}(\I \omega_m)}
+    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
+    \\
+    \chi_{\vec k}(\I \omega_n) &= \frac{g^2}{N \beta}
+    \sum_{\vec q m} \frac
+        {\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)}
+        {\Theta_{\vec q}(\I \omega_m)}
+    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
 \end{align*}
 %
-equating coefficients yields the \textsc{Eliashberg} equations
-%
-\begin{align} \label{Eliashberg equations}
-    \begin{split}
-        \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] &=
-        \frac 1 \beta \sum_{m \, \vec q}
-        \frac
-            {\I \omega_m Z_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
-        V_{\vec k, \vec q}(\omega_n - \omega_m),
-        \\
-        \phi^{(\prime)}_{\vec k}(\I \omega_n) &=
-        -\frac 1 \beta \sum_{m \, \vec q}
-        \frac
-            {\phi^{(\prime)}_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
-        V_{\vec k, \vec q}(\omega_n - \omega_m),
-        \\
-        \chi_{\vec k}(\I \omega_n) &=
-        \frac 1 \beta \sum_{m \, \vec q}
-        \frac
-            {\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
-        V_{\vec k, \vec q}(\omega_n - \omega_m),
-        \\
-        \Theta_{\vec k}(\I \omega_n) &=
-        [\omega_n Z_{\vec k}(\I \omega_n)]^2
-        + [\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)]^2
-        + \phi_{\vec k}^2(\I \omega_n)
-        + \phi'^2_{\vec k}(\I \omega_n).
-    \end{split}
-\end{align}
+$\phi_{\vec k}(\I \omega_n)$ and $\phi'_{\vec k}(\I \omega_n)$ obey equal
+equations, leaving the phase of $\phi_{\vec k}(\I \omega) - \I \phi'_{\vec k}(\I
+\omega_n)$ undetermined. This gauge invariance allows to assume $\phi'_{\vec
+k}(\I \omega_n) = 0$ \cite[37]{AllenMitrovic82}.
 
 \section{Isotropic equations}
 

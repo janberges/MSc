@@ -10,3 +10,4 @@
 - Uniform citation scheme (object or parenthesis)
 - Write time argument (0) or not?
 - Fröhlich transformation correct? Divergences because of poles in S?
+- Where does epsilon_Fermi=0 come in?
