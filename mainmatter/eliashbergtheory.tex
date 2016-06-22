@@ -77,10 +77,21 @@ or formally, where quantum numbers and frequency arguments are suppressed,
     \end{split}
 \end{equation}
 
+\tikz [baseline=-0.5ex] \draw [ inward] (0, 0) -- (0.5, 0); and
+\tikz [baseline=-0.5ex] \draw [outward] (0, 0) -- (0.5, 0);
+%
+vanish, so does each term of the perturbation series of
+%
+\tikz [baseline=-0.5ex] \draw [ inward, double] (0, 0) -- (0.5, 0); and
+\tikz [baseline=-0.5ex] \draw [outward, double] (0, 0) -- (0.5, 0);.
+%
+A non-zero self-consistent solution of the above integral equations may still
+exist \cite[before Eq.~2.14]{Nambu60}.
+
 Giving names to the involved matrices, the \name{Dyson} equation may be written
 as $\vec G = \vec G_0 + \vec G_0 \vec \Sigma \vec G$ or even $\vec G^{-1} = \vec
 G_0^{-1} - \vec \Sigma$, using inverse matrices. With the help of the
-two-component quantities
+two-component operators
 %
 \begin{equation*}
     \vec \uppsi_{\vec k} =
@@ -96,14 +107,17 @@ two-component quantities
     \end{bmatrix}
 \end{equation*}
 %
-the dressed (bare) \name{Green} function matrix can be concisely defined as
+the dressed (bare) \name{Green} function matrix is concisely defined as
 %
 \begin{equation*}
     \vec G_{\vec k}^{(0)}(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
-    \E^{\I \omega_n \tau} \av{
+    \E^{\I \omega_n \tau} \av{ \op U \,
     \vec \uppsi_{\vec k}(\tau) \,
-    \vec \uppsi_{\vec k}^+(0)}_{(0)}.
+    \vec \uppsi_{\vec k}^+(0)}_{(0)},
 \end{equation*}
+%
+where $\op U = 1 + \op P + \op P^+$ ensures terms conserving the particle number
+in all components \cite{ScalapinoSchriefferWilkins66}.
 
 Introducing unit and \name{Pauli} matrices
 %
@@ -137,13 +151,13 @@ and the real scalar functions $Z_{\vec k}(\I \omega_n)$, $\phi^{(\prime)}_{\vec
 k}(\I \omega_n)$ and $\chi_{\vec k}(\I \omega_n)$, the self-energy matrix is
 written as
 %
-\begin{align*}
+\begin{align} \label{self-energy matrix}
     \vec \Sigma_{\vec k}(\I \omega_n) &= \I \omega_n
     [1 - Z_{\vec k}(\I \omega_n)] \vec \sigma_0
     + \phi _{\vec k}(\I \omega_n) \vec \sigma_1
     + \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
     + \chi _{\vec k}(\I \omega_n) \vec \sigma_3
-    \\
+    \\ \notag
     &=
     \begin{bmatrix}
         \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] + \chi_{\vec k}(\I \omega_n) &
@@ -151,13 +165,13 @@ written as
         \phi_{\vec k}(\I \omega_n) + \I \phi'_{\vec k}(\I \omega_n) &
         \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] - \chi_{\vec k}(\I \omega_n)
     \end{bmatrix},
-\end{align*}
+\end{align}
 %
 With $[\vec G^0_{\vec k}(\I \omega_n)]^{-1} = \I \omega_n \vec \sigma_0 -
 \epsilon_{\vec k} \vec \sigma_3$ the \textsc{Dyson} equation reads
 %
 \begin{align*}
-    [\vec G_{\vec k}(\I \omega_n)]^{-1} &=
+    \vec G_{\vec k}^{-1}(\I \omega_n) &=
     [\vec G^0_{\vec k}(\I \omega_n)]^{-1} - \vec \Sigma_{\vec k}(\I \omega_n)
     \\
     &= \I \omega_n Z_{\vec k}(\I \omega_n) \vec \sigma_0
@@ -192,13 +206,17 @@ Inversion yields
         \I \omega_n Z_{\vec k}(\I \omega_n)
         - \epsilon_{\vec k} - \chi_{\vec k}(\I \omega_n)
     \end{bmatrix},
-    \\
-    \Theta_{\vec k}(\I \omega_n) &= -\det [\vec G_{\vec k}(\I \omega_n)]^{-1}
+\end{align*}
+%
+where the denominator is given by
+%
+\begin{equation*}
+    \Theta_{\vec k}(\I \omega_n) = -\det \vec G_{\vec k}^{-1}(\I \omega_n)
     = [\omega_n Z_{\vec k}(\I \omega_n)]^2
     + [\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)]^2
     + \phi ^2_{\vec k}(\I \omega_n)
     + \phi'^2_{\vec k}(\I \omega_n).
-\end{align*}
+\end{equation*}
 %
 The excitation energies are the poles of $\vec G_{\vec k}(\I \omega_n)$, i.e.
 the zeros of $\Theta_{\vec k}(\I \omega_n)$, which satisfy
@@ -226,71 +244,209 @@ superconducting state turns out to be
         {Z_{\vec k}(\I \omega_n)}.
 \end{align*}
 
+\newpage
+
 \section{General equations}
 
-A comparison with the results derived in Section~\ref{Holstein model} reveals
-that the approximation made in Eq.~\ref{Nambu-Dyson equation} is correct up to
-the second order of the perturbation series for the \name{Holstein} model.
-Dressing the leading contributions, the corresponding self-energy matrix reads
+A comparison with the results derived in Section~\ref{Hubbard model}
+(\ref{Holstein model}) reveals that the approximation made in
+Eq.~\ref{Nambu-Dyson equation} is correct up to the first (second) order of the
+perturbation series for the \name{Hubbard} (\name{Holstein}) model.
+Consequently, for the \emph{\name{Hubbard-Holstein} model} one has
 %
-\begin{equation}
-    \vec \Sigma_{\vec k}(\I \omega_n) = -\frac{g^2}{N \beta} \sum_{\vec q m}
-    \vec \sigma_3 \, \vec G_{\vec q}(\I \omega_m) \, \vec \sigma_3 \,
-    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
-\end{equation}
+\begin{equation*}
+    \vec \Sigma_{\vec k} (\I \omega_n)
+    = \vec \Sigma_{\vec k} \super{el.}
+    + \vec \Sigma_{\vec k} \super{ph.} (\I \omega_n),
+\end{equation*}
 %
-where the \name{Pauli} matrices $\vec \sigma_3$ swap the sign of the
-off-diagonal components.
-
-In terms of \textsc{Pauli} matrices it reads
+where the electronic part within the HF approximation according to
+Eq.~\ref{HF approximation} reads
+%
+\begin{equation*}
+    \vec \Sigma_{\vec k} \super{el.} (\I \omega_n)
+    = -\frac{U}{N \beta} \sum_{\vec q m} \frac
+        { \phi _{\vec q}(\I \omega_m) \vec \sigma_1
+        + \phi'_{\vec q}(\I \omega_m) \vec \sigma_2 }
+        {\Theta_{\vec q}(\I \omega_m)}
+\end{equation*}
+%
+and the corresponding phononic part
 %
 \begin{multline*}
-    \I \omega_n
-    [1 - Z_{\vec k}(\I \omega_n)] \vec \sigma_0
-    + \phi _{\vec k}(\I \omega_n) \vec \sigma_1
-    + \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
-    + \chi _{\vec k}(\I \omega_n) \vec \sigma_3
+    \vec \Sigma_{\vec k} \super{ph.} (\I \omega_n)
+    = -\frac{g^2}{N \beta} \sum_{\vec q m}
+    \vec \sigma_3 \, \vec G_{\vec q}(\I \omega_m) \, \vec \sigma_3 \,
+    D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
     \\
-    = \frac{g^2}{N \beta} \sum_{\vec q m} \frac {
-        \I \omega_m Z_{\vec q}(\I \omega_m) \vec \sigma_0
+    = \frac{g^2}{N \beta} \sum_{\vec q m}
+    \frac { \I \omega_m
+              Z_{\vec q}(\I \omega_m) \vec \sigma_0
         - \phi _{\vec q}(\I \omega_m) \vec \sigma_1
         - \phi'_{\vec q}(\I \omega_m) \vec \sigma_2
-        + [\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)] \vec \sigma_3 }
+        + [\chi_{\vec q}(\I \omega_m) + \epsilon_{\vec q}] \vec \sigma_3 }
         {\Theta_{\vec q}(\I \omega_m)}
-        D_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
+    D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
 \end{multline*}
 %
-A coefficient comparison yields the \textsc{Eliashberg} equations
+where the \name{Pauli} matrices in the first line swap the sign of the
+off-diagonal components.
+
+From now on, $T = \beta^{-1}$ is used rather than $\beta$. A coefficient
+comparison with Eq.~\ref{self-energy matrix} yields the
+\emph{\textsc{Eliashberg} equations} for the \name{Hubbard-Holstein} model:
 %
-\begin{align*}
-    \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] &= \frac{g^2}{N \beta}
-    \sum_{\vec q m} \frac
-        {\I \omega_m Z_{\vec q}(\I \omega_m)}
-        {\Theta_{\vec q}(\I \omega_m)}
-    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
-    \\
-    \phi^{(\prime)}_{\vec k}(\I \omega_n) &= -\frac{g^2}{N \beta}
-    \sum_{\vec q m} \frac
-        {\phi^{(\prime)}_{\vec q}(\I \omega_m)}
-        {\Theta_{\vec q}(\I \omega_m)}
-    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
-    \\
-    \chi_{\vec k}(\I \omega_n) &= \frac{g^2}{N \beta}
-    \sum_{\vec q m} \frac
-        {\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)}
-        {\Theta_{\vec q}(\I \omega_m)}
-    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
-\end{align*}
+\begin{subequations} \label{Eliashberg equations}
+    \begin{align}
+        \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] &= \frac T N
+        \sum_{\vec q m} \frac
+            {\I \omega_m Z_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        g^2 D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
+        \\
+        \phi^{(\prime)}_{\vec k}(\I \omega_n) &= -\frac T N
+        \sum_{\vec q m} \frac
+            {\phi^{(\prime)}_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        \big[ g^2 D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m) + U \big],
+        \\
+        \chi_{\vec k}(\I \omega_n) &= \frac T N
+        \sum_{\vec q m} \frac
+            {\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        g^2 D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
+    \end{align}
+\end{subequations}
 %
 $\phi_{\vec k}(\I \omega_n)$ and $\phi'_{\vec k}(\I \omega_n)$ obey equal
 equations, leaving the phase of $\phi_{\vec k}(\I \omega) - \I \phi'_{\vec k}(\I
 \omega_n)$ undetermined. This gauge invariance allows to assume $\phi'_{\vec
-k}(\I \omega_n) = 0$ \cite[37]{AllenMitrovic82}.
+k}(\I \omega_n) = 0$ \cites[37]{AllenMitrovic82}[around Eq.~2.20]{Nambu60}.
 
-\section{Isotropic equations}
+Using the definitions \cite{MargineGiustino13}
+%
+\begin{align*}
+    \mu = n(0) \, U,
+        \quad
+    \lambda_{\vec q}(\Omega_n) = -n(0) \, g^2 D_{\vec q}^0(\I \Omega_n),
+        \quad
+    n(E) = \frac{N(E)} N,
+        \quad
+    N(E) = \sum_{\vec k} \delta(E - \epsilon_{\vec k}),
+\end{align*}
+%
+where $n(E)$ is the density of states per spin and unit cell, one can
+equivalently write
+%
+\begin{multline*}
+    \vec \Sigma_{\vec k} (\I \omega_n)
+    = \frac T {N(0)} \sum_{\vec q m}
+    \Theta_{\vec q}^{-1}(\I \omega_m) \big \{ \dots
+    \\
+    \dots \lambda_{\vec k - \vec q}(\omega_n - \omega_m) \{ -\I
+        \omega_m Z_{\vec q}(\I \omega_m) \vec \sigma_0
+        +     \phi_{\vec q}(\I \omega_m) \vec \sigma_1
+        -    [\chi_{\vec q}(\I \omega_m) + \epsilon_{\vec q}] \vec \sigma_3 \}
+        - \mu \phi_{\vec q}(\I \omega_m) \vec \sigma_1 \big \},
+\end{multline*}
+%
+which yields a more common formulation of the \name{Eliashberg} equations:
+%
+\begin{subequations}
+    \begin{align}
+        Z_{\vec k}(\I \omega_n) &= 1 + \frac T {N(0)} \frac 1 {\omega_n}
+        \sum_{\vec q m} \frac
+            {\omega_m Z_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        \lambda_{\vec k - \vec q}(\omega_n - \omega_m),
+        \\
+        \phi_{\vec k}(\I \omega_n) &= \frac T {N(0)}
+        \sum_{\vec q m} \frac
+            {\phi_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        \big[ \lambda_{\vec k - \vec q}(\omega_n - \omega_m) - \mu \big],
+        \\
+        \chi_{\vec k}(\I \omega_n) &= -\frac T {N(0)}
+        \sum_{\vec q m} \frac
+            {\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(\I \omega_m)}
+        \lambda_{\vec k - \vec q}(\omega_n - \omega_m).
+    \end{align}
+\end{subequations}
 
-\name{Holstein} and/or \name{Hubbard} model
+\section{Local self-energy}
 
-\subsection{Constant-density approximation}
+Assuming that the phonon part of the unperturbed \name{Hamilton} operator reads
+%
+\begin{equation*}
+    \op H_0 \super{ph.}
+    = \omega \sub E \sum_{\vec R} \op b_{\vec R}^+ \op b_{\vec R}
+    = \omega \sub E \sum_{\vec q \vec q'} \frac 1 N \sum_{\vec R}
+        \E^{\I (\vec q' - \vec q) \vec R} \op b_{\vec q'}^+ \op b_{\vec q}
+    = \omega \sub E \sum_{\vec q} \op b_{\vec q}^+ \op b_{\vec q},
+\end{equation*}
+%
+with a single Einstein frequency $\omega \sub E$, which is already renormalized,
+one finds
+%
+\begin{align*}
+    D_0(\I \Omega_n) &= -\int \from 0 \till \infty \D \omega \,
+        \frac{2 \omega \, B(\omega)}{\Omega_n^2 + \omega^2}
+    = -\frac{2 \omega \sub E}{\Omega_n^2 + \omega^2 \sub E}
+    \quad \text{with} \quad
+    B(\omega) = \delta(\omega - \omega \sub E) - \delta(\omega + \omega \sub E),
+    \\
+    \lambda(\Omega_n) &= \int \from{-\infty} \till \infty \D \omega \,
+        \frac{2 \omega \, \alpha^2 F(\omega)}{\Omega_n^2 + \omega}
+    = \frac{2 \omega \sub E \, n(0) \, g^2}{\Omega_n^2 + \omega^2 \sub E}
+    \quad \text{with} \quad
+    \alpha^2 F(\omega) = n(0) \, g^2 B(\omega)
+\end{align*}
+%
+independent of $\vec k$, i.e. \emph{local}. $B(\omega)$ and $\alpha^2 F(\omega)$
+are \emph{phonon} and \emph{electron-phonon spectral functions}, respectively.
+As a consequence, the same applies to the self-energy $\vec \Sigma$ and its
+components $Z$, $\phi$ and $\chi$. It is thus possible to replace the $\vec q$
+summation by an energy integral:
+%
+\begin{multline*}
+    \vec \Sigma_{\vec k} (\I \omega_n)
+    = T \sum_m \int \from{-\infty} \till \infty \D \epsilon \,
+    \frac{N(\epsilon)}{N(0)}
+    \Theta_\epsilon^{-1}(\I \omega_m) \big \{ \dots
+    \\
+    \dotsc \lambda(\omega_n - \omega_m) \{ - \I
+        \omega_m Z(\I \omega_m) \vec \sigma_0
+        +     \phi(\I \omega_m) \vec \sigma_1
+        -    [\chi(\I \omega_m) + \epsilon] \vec \sigma_3 \}
+        - \mu \phi(\I \omega_m) \vec \sigma_1 \big \}
+\end{multline*}
+%
+with $\Theta_\epsilon(\I \omega_n) = [\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
+\omega_n) + [\epsilon + \chi(\I \omega_n)]^2$. The \emph{local \name{Eliashberg}
+equations} read
+%
+\begin{subequations} \label{local Eliashberg equations}
+   \begin{align}
+      Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_m
+      \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
+      \frac{\omega_m Z (\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+      \lambda(\omega_n - \omega_m),
+      \\
+      \phi(\I \omega_n) &= T \sum_m
+      \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
+      \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+      [\lambda(\omega_n - \omega_m) - \mu],
+      \\
+      \chi(\I \omega_n) &= -T \sum_m
+      \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
+      \frac{\epsilon + \chi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+      \lambda(\omega_n - \omega_m).
+   \end{align}
+\end{subequations}
 
-\subsection{Computational implementation}
+\section{Constant-density approximation}
+
+\section{\name{Coulomb} pseudo-potential}
+
+\section{Computational implementation}

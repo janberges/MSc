@@ -11,3 +11,9 @@
 - Write time argument (0) or not?
 - Fröhlich transformation correct? Divergences because of poles in S?
 - Where does epsilon_Fermi=0 come in?
+
+- Anomalous perturbation theory/spontaneous symmetry breaking:
+    - Richard D. Mattuck: A Guide to Feynman Diagrams in the Many-body Problem,
+      Sec. 17.4
+    - Gabriele Giuliani, Giovanni Vignale: Quantum Theory of the Electron
+      Liquid, Fig. 6.33

@@ -1431,6 +1431,7 @@ and, again, a formally equal result apart from the sign:
 \end{equation*}
 
 \subsection{\name{Hubbard} model}
+\label{Hubbard model}
 
 The \textsc{Hubbard} model further restricts the \textsc{Coulomb} interaction to
 occur only between electrons at the same site, which must consequently have
@@ -1530,8 +1531,8 @@ two vertices at each of which one fermion is annihilated and another one created
 under the influence of one boson. This process is simultaneous and conserves
 both momentum and spin. Leaving the anomalous lines
 %
-\tikz [baseline=-0.5ex] \draw [  inward] (0, 0) -- (1, 0); and
-\tikz [baseline=-0.5ex] \draw [ outward] (0, 0) -- (1, 0);
+\tikz [baseline=-0.5ex] \draw [ inward] (0, 0) -- (1, 0); and
+\tikz [baseline=-0.5ex] \draw [outward] (0, 0) -- (1, 0);
 %
 out of account for the moment, a general diagram for this type of interaction
 contains
@@ -1649,7 +1650,7 @@ A considable simplification consists in neglecting all vertex corrections, i.e.
 replacing $\Gamma$ with the bare vertex \cite[Eq.~A27, A28]{Hedin65}. The 
 corresponding diagram reads:
 %
-\begin{equation}
+\begin{equation} \label{GW approximation}
     \input{tikzin/gw-self-energy.tex}
     \qquad \text{with} \qquad
     \input{tikzin/gw-polarization.tex}.
@@ -1660,13 +1661,13 @@ Since the dressed boson line is often denoted as $W$, this is known as the
 part of the $\Sigma$. With focus on $\Pi$ and for historical reasons it is also
 referred to as the \emph{random-phase approximation} (RPA).
 
-\subsection{\name{Hartree-Fock} approximation}
+\subsection{HF approximation}
 
 The self-energy can be further simplified by neglecting the polarization and
 thus replacing all dressed boson lines with simple ones. This yields the
 \emph{\name{Hartree-Fock} approximation} (HF):
 %
-\begin{equation}
+\begin{equation} \label{HF approximation}
     \input{tikzin/hf-self-energy.tex}.
 \end{equation}
 %
