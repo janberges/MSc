@@ -330,12 +330,12 @@ Using the definitions \cite{MargineGiustino13}
         \quad
     \lambda_{\vec q}(\Omega_n) = -n(0) \, g^2 D_{\vec q}^0(\I \Omega_n),
         \quad
-    n(E) = \frac{N(E)} N,
+    n(\epsilon) = \frac{N(\epsilon)} N,
         \quad
-    N(E) = \sum_{\vec k} \delta(E - \epsilon_{\vec k}),
+    N(\epsilon) = \sum_{\vec k} \delta(\epsilon - \epsilon_{\vec k}),
 \end{align*}
 %
-where $n(E)$ is the density of states per spin and unit cell, one can
+where $n(\epsilon)$ is the density of states per spin and unit cell, one can
 equivalently write
 %
 \begin{multline*}
@@ -446,6 +446,23 @@ equations} read
 \end{subequations}
 
 \section{Constant-density approximation}
+
+\begin{figure}
+    \small
+    \begin{subfigure}{6.75cm}
+        \input{tikzin/const-dos-approx-1.tex}
+        \caption{$\omega = 0.2\,\mathrm{eV}$. At higher frequencies, exact and
+                 approximate integrand may differ considerably.}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}{6.75cm}
+        \input{tikzin/const-dos-approx-2.tex}
+        \caption{$\omega = 0.02\,\mathrm{eV}$. At lower frequencies, points for
+                 numerical integration must be chosen carefully.}
+    \end{subfigure}
+    \caption{Constant-density approximation}
+    \label{constant-density approximation}
+\end{figure}
 
 \section{\name{Coulomb} pseudo-potential}
 
