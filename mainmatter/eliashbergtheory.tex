@@ -284,7 +284,7 @@ and the corresponding phononic part
               Z_{\vec q}(\I \omega_m) \vec \sigma_0
         - \phi _{\vec q}(\I \omega_m) \vec \sigma_1
         - \phi'_{\vec q}(\I \omega_m) \vec \sigma_2
-        + [\chi_{\vec q}(\I \omega_m) + \epsilon_{\vec q}] \vec \sigma_3 }
+        + [\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)] \vec \sigma_3 }
         {\Theta_{\vec q}(\I \omega_m)}
     D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
 \end{multline*}
@@ -328,7 +328,7 @@ Using the definitions \cite{MargineGiustino13}
 \begin{align*}
     \mu = n(0) \, U,
         \quad
-    \lambda_{\vec q}(\Omega_n) = -n(0) \, g^2 D_{\vec q}^0(\I \Omega_n),
+    \lambda_{\vec q}(\I \Omega_n) = -n(0) \, g^2 D_{\vec q}^0(\I \Omega_n),
         \quad
     n(\epsilon) = \frac{N(\epsilon)} N,
         \quad
@@ -343,10 +343,10 @@ equivalently write
     = \frac T {N(0)} \sum_{\vec q m}
     \Theta_{\vec q}^{-1}(\I \omega_m) \big \{ \dots
     \\
-    \dots \lambda_{\vec k - \vec q}(\omega_n - \omega_m) \{ -\I
-        \omega_m Z_{\vec q}(\I \omega_m) \vec \sigma_0
-        +     \phi_{\vec q}(\I \omega_m) \vec \sigma_1
-        -    [\chi_{\vec q}(\I \omega_m) + \epsilon_{\vec q}] \vec \sigma_3 \}
+    \dots \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m) \{
+        - \I \omega_m Z_{\vec q}(\I \omega_m) \vec \sigma_0
+        + \phi_{\vec q}(\I \omega_m) \vec \sigma_1
+        - [\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)] \vec \sigma_3 \}
         - \mu \phi_{\vec q}(\I \omega_m) \vec \sigma_1 \big \},
 \end{multline*}
 %
@@ -358,19 +358,19 @@ which yields a more common formulation of the \name{Eliashberg} equations:
         \sum_{\vec q m} \frac
             {\omega_m Z_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
-        \lambda_{\vec k - \vec q}(\omega_n - \omega_m),
+        \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
         \\
         \phi_{\vec k}(\I \omega_n) &= \frac T {N(0)}
         \sum_{\vec q m} \frac
             {\phi_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
-        \big[ \lambda_{\vec k - \vec q}(\omega_n - \omega_m) - \mu \big],
+        \big[ \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m) - \mu \big],
         \\
         \chi_{\vec k}(\I \omega_n) &= -\frac T {N(0)}
         \sum_{\vec q m} \frac
             {\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
-        \lambda_{\vec k - \vec q}(\omega_n - \omega_m).
+        \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
     \end{align}
 \end{subequations}
 
@@ -396,7 +396,7 @@ one finds
     \quad \text{with} \quad
     B(\omega) = \delta(\omega - \omega \sub E) - \delta(\omega + \omega \sub E),
     \\
-    \lambda(\Omega_n) &= \int \from{-\infty} \till \infty \D \omega \,
+    \lambda(\I \Omega_n) &= \int \from{-\infty} \till \infty \D \omega \,
         \frac{2 \omega \, \alpha^2 F(\omega)}{\Omega_n^2 + \omega}
     = \frac{2 \omega \sub E \, n(0) \, g^2}{\Omega_n^2 + \omega^2 \sub E}
     \quad \text{with} \quad
@@ -409,18 +409,18 @@ As a consequence, the same applies to the self-energy $\vec \Sigma$ and its
 components $Z$, $\phi$ and $\chi$. It is thus possible to replace the $\vec q$
 summation by an energy integral:
 %
-\begin{multline*}
+\begin{multline} \label{local self-energy}
     \vec \Sigma_{\vec k} (\I \omega_n)
     = T \sum_m \int \from{-\infty} \till \infty \D \epsilon \,
     \frac{N(\epsilon)}{N(0)}
     \Theta_\epsilon^{-1}(\I \omega_m) \big \{ \dots
     \\
-    \dotsc \lambda(\omega_n - \omega_m) \{ - \I
-        \omega_m Z(\I \omega_m) \vec \sigma_0
-        +     \phi(\I \omega_m) \vec \sigma_1
-        -    [\chi(\I \omega_m) + \epsilon] \vec \sigma_3 \}
+    \dotsc \lambda(\I \omega_n - \I \omega_m) \{
+        - \I \omega_m Z(\I \omega_m) \vec \sigma_0
+        + \phi(\I \omega_m) \vec \sigma_1
+        - [\epsilon + \chi(\I \omega_m)] \vec \sigma_3 \}
         - \mu \phi(\I \omega_m) \vec \sigma_1 \big \}
-\end{multline*}
+\end{multline}
 %
 with $\Theta_\epsilon(\I \omega_n) = [\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
 \omega_n) + [\epsilon + \chi(\I \omega_n)]^2$. The \emph{local \name{Eliashberg}
@@ -431,21 +431,62 @@ equations} read
       Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_m
       \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
       \frac{\omega_m Z (\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-      \lambda(\omega_n - \omega_m),
+      \lambda(\I \omega_n - \I \omega_m),
       \\
       \phi(\I \omega_n) &= T \sum_m
       \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
       \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-      [\lambda(\omega_n - \omega_m) - \mu],
+      [\lambda(\I \omega_n - \I \omega_m) - \mu],
       \\
       \chi(\I \omega_n) &= -T \sum_m
       \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
       \frac{\epsilon + \chi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-      \lambda(\omega_n - \omega_m).
+      \lambda(\I \omega_n - \I \omega_m).
    \end{align}
 \end{subequations}
 
-\section{Constant-density approximation}
+\subsection{Constant-DOS approximation}
+
+Save for the factor $N(\epsilon)$, which is unspecified at this point, the
+integrands in Eq.~\ref{local self-energy} converge towards zero as $\epsilon$
+diverges from $-\chi(\I \omega_m)$. Therefore, it can be a acceptable to
+approximate $N(\epsilon)$ by a constant $N(0)$ so that the integration can be
+performed analytically. With the help of
+%
+\begin{equation*}
+    \int_{-\infty}^\infty \frac{\D x}{x^2 + y^2} = \frac \pi {|y|}
+    \quad \text{and} \quad
+    \mathcal P \int \from{-\infty} \till \infty \D x \, \frac x {x^2 + y^2} = 0,
+\end{equation*}
+%
+where $\mathcal P$ denotes the \textsc{Cauchy} principal value, this yields
+%
+\begin{equation*}
+    \vec \Sigma_{\vec k} (\I \omega_n)
+    = \pi T \sum_m \frac{ \lambda(\I \omega_n - \I \omega_m) \{
+        - \I \omega_m Z(\I \omega_m) \vec \sigma_0
+        + \phi(\I \omega_m) \vec \sigma_1 \}
+        - \mu \phi(\I \omega_m) \vec \sigma_1 }
+        { \Xi(\I \omega_m) }
+\end{equation*}
+%
+with $\Xi(\I \omega_n) = \sqrt{[\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
+\omega_n)}$ and thus the \emph{constant-DOS \name{Eliashberg} equations}
+%
+\begin{subequations}
+    \begin{align}
+        Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
+        \frac{\omega_m Z(\I \omega_m)}{\Xi(\I \omega_m)}
+        \lambda(\I \omega_n - \I \omega_m),
+        \\
+        \phi(\I \omega_n) &= \pi T \sum_m
+        \frac{\phi(\I \omega_m)}{\Xi(\I \omega_m)}
+        [\lambda(\I \omega_n - \I \omega_m) - \mu].
+    \end{align}
+\end{subequations}
+
+The effect of this approximation is visualized in Fig.~\ref{constant-DOS
+approximation}.
 
 \begin{figure}
     \small
@@ -460,8 +501,33 @@ equations} read
         \caption{$\omega = 0.02\,\mathrm{eV}$. At lower frequencies, points for
                  numerical integration must be chosen carefully.}
     \end{subfigure}
-    \caption{Constant-density approximation}
-    \label{constant-density approximation}
+    \captionsetup{singlelinecheck=off}
+    \caption[Constant-DOS approximation]{ %
+        The constant-DOS approximation is exemplified by its application to the
+        scalar product of the density of states $n(\epsilon)$ of a square
+        tight-binding lattice (compare Section $n$) and a \name{Lorentz}
+        function:
+        %
+        \begin{align*}
+            \int \from{-\infty} \till \infty
+            \D \epsilon \, \frac {n(\epsilon)} \pi
+            \frac \omega {\omega^2 + \epsilon^2}
+            \quad
+            (\tikz \draw [fill=red!70!white, rounded corners=3pt]
+                (0, 0) rectangle (0.5, 0.2);)
+            \quad \approx \quad
+            \int \from{-\infty} \till \infty
+            \D \epsilon \, \frac {n(0)} \pi
+            \frac \omega {\omega^2 + \epsilon^2}.
+            \quad
+            (\tikz \draw [fill=yellow!60!white, rounded corners=3pt]
+                (0, 0) rectangle (0.5, 0.2);)
+        \end{align*}
+        %
+        The exact integral bears a close resemblance to those which occur in the
+        local self energy (Eq.~\ref{local self-energy}).
+        }
+    \label{constant-DOS approximation}
 \end{figure}
 
 \section{\name{Coulomb} pseudo-potential}
