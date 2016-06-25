@@ -342,12 +342,15 @@ equivalently write
     \vec \Sigma_{\vec k} (\I \omega_n)
     = \frac T {N(0)} \sum_{\vec q m}
     \Theta_{\vec q}^{-1}(\I \omega_m) \big \{ \dots
-    \\
-    \dots \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m) \{
-        - \I \omega_m Z_{\vec q}(\I \omega_m) \vec \sigma_0
-        + \phi_{\vec q}(\I \omega_m) \vec \sigma_1
-        - [\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)] \vec \sigma_3 \}
-        - \mu \phi_{\vec q}(\I \omega_m) \vec \sigma_1 \big \},
+        \\
+        \dots \{
+            - \I \omega_m Z_{\vec q}(\I \omega_m) \vec \sigma_0
+            + \phi_{\vec q}(\I \omega_m) \vec \sigma_1
+            - [\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)] \vec \sigma_3
+            \}
+        \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
+        - \phi_{\vec q}(\I \omega_m) \vec \sigma_1 \mu
+    \big \},
 \end{multline*}
 %
 which yields a more common formulation of the \name{Eliashberg} equations:
@@ -396,8 +399,8 @@ one finds
     \quad \text{with} \quad
     B(\omega) = \delta(\omega - \omega \sub E) - \delta(\omega + \omega \sub E),
     \\
-    \lambda(\I \Omega_n) &= \int \from{-\infty} \till \infty \D \omega \,
-        \frac{2 \omega \, \alpha^2 F(\omega)}{\Omega_n^2 + \omega}
+    \lambda(\I \Omega_n) &= \int \from 0 \till \infty \D \omega \,
+        \frac{2 \omega \, \alpha^2 F(\omega)}{\Omega_n^2 + \omega^2}
     = \frac{2 \omega \sub E \, n(0) \, g^2}{\Omega_n^2 + \omega^2 \sub E}
     \quad \text{with} \quad
     \alpha^2 F(\omega) = n(0) \, g^2 B(\omega)
@@ -410,16 +413,19 @@ components $Z$, $\phi$ and $\chi$. It is thus possible to replace the $\vec q$
 summation by an energy integral:
 %
 \begin{multline} \label{local self-energy}
-    \vec \Sigma_{\vec k} (\I \omega_n)
+    \vec \Sigma(\I \omega_n)
     = T \sum_m \int \from{-\infty} \till \infty \D \epsilon \,
     \frac{N(\epsilon)}{N(0)}
     \Theta_\epsilon^{-1}(\I \omega_m) \big \{ \dots
-    \\
-    \dotsc \lambda(\I \omega_n - \I \omega_m) \{
-        - \I \omega_m Z(\I \omega_m) \vec \sigma_0
-        + \phi(\I \omega_m) \vec \sigma_1
-        - [\epsilon + \chi(\I \omega_m)] \vec \sigma_3 \}
-        - \mu \phi(\I \omega_m) \vec \sigma_1 \big \}
+        \\
+        \dots \{
+            - \I \omega_m Z(\I \omega_m) \vec \sigma_0
+            + \phi(\I \omega_m) \vec \sigma_1
+            - [\epsilon + \chi(\I \omega_m)] \vec \sigma_3
+            \}
+        \lambda(\I \omega_n - \I \omega_m)
+        - \phi(\I \omega_m) \vec \sigma_1 \mu
+    \big \}
 \end{multline}
 %
 with $\Theta_\epsilon(\I \omega_n) = [\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
@@ -462,11 +468,11 @@ performed analytically. With the help of
 where $\mathcal P$ denotes the \textsc{Cauchy} principal value, this yields
 %
 \begin{equation*}
-    \vec \Sigma_{\vec k} (\I \omega_n)
-    = \pi T \sum_m \frac{ \lambda(\I \omega_n - \I \omega_m) \{
+    \vec \Sigma(\I \omega_n)
+    = \pi T \sum_m \frac{ \{
         - \I \omega_m Z(\I \omega_m) \vec \sigma_0
-        + \phi(\I \omega_m) \vec \sigma_1 \}
-        - \mu \phi(\I \omega_m) \vec \sigma_1 }
+        + \phi(\I \omega_m) \vec \sigma_1 \} \lambda(\I \omega_n - \I \omega_m)
+        - \phi(\I \omega_m) \vec \sigma_1 \mu }
         { \Xi(\I \omega_m) }
 \end{equation*}
 %
