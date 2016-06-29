@@ -257,21 +257,27 @@ Consequently, for the \emph{\name{Hubbard-Holstein} model} one has
 \begin{equation*}
     \vec \Sigma_{\vec k} (\I \omega_n)
     = \vec \Sigma_{\vec k} \super{el.}
-    + \vec \Sigma_{\vec k} \super{ph.} (\I \omega_n),
+    + \vec \Sigma_{\vec k} \super{ph.} (\I \omega_n).
 \end{equation*}
+
+The electronic part within the HF approximation according to Eq.~\ref{HF
+approximation} reads
 %
-where the electronic part within the HF approximation according to
-Eq.~\ref{HF approximation} reads
-%
-\begin{equation*}
+\begin{align*}
     \vec \Sigma_{\vec k} \super{el.} (\I \omega_n)
-    = -\frac{U}{N \beta} \sum_{\vec q m} \frac
+    = \frac{U}{N \beta} &\sum_{\vec q m}
+        \vec G_{\vec q} \super{od.} (\I \omega_m)
+    \\
+    = -\frac{U}{N \beta} &\sum_{\vec q m} \frac
         { \phi _{\vec q}(\I \omega_m) \vec \sigma_1
         + \phi'_{\vec q}(\I \omega_m) \vec \sigma_2 }
-        {\Theta_{\vec q}(\I \omega_m)}
-\end{equation*}
+        {\Theta_{\vec q}(\I \omega_m)},
+\end{align*}
 %
-and the corresponding phononic part
+where \q{od.} indicates that the components which are not \q{off-diagonal} have
+been nullified.
+
+The corresponding phononic part is
 %
 \begin{multline*}
     \vec \Sigma_{\vec k} \super{ph.} (\I \omega_n)
@@ -455,9 +461,9 @@ equations} read
 
 Save for the factor $N(\epsilon)$, which is unspecified at this point, the
 integrands in Eq.~\ref{local self-energy} converge towards zero as $\epsilon$
-diverges from $-\chi(\I \omega_m)$. Therefore, it can be a acceptable to
-approximate $N(\epsilon)$ by a constant $N(0)$ so that the integration can be
-performed analytically. With the help of
+diverges from $-\chi(\I \omega_m)$. Therefore, assuming $\chi(\I \omega_m)
+\approx 0$, it may be acceptable to approximate $N(\epsilon)$ by a constant
+$N(0)$ so that the integration can be performed analytically. With the help of
 %
 \begin{equation*}
     \int_{-\infty}^\infty \frac{\D x}{x^2 + y^2} = \frac \pi {|y|}
@@ -465,28 +471,29 @@ performed analytically. With the help of
     \mathcal P \int \from{-\infty} \till \infty \D x \, \frac x {x^2 + y^2} = 0,
 \end{equation*}
 %
-where $\mathcal P$ denotes the \textsc{Cauchy} principal value, this yields
+where $\mathcal P$ denotes the \textsc{Cauchy} principal value, and using
+$\Delta(\I \omega) = \phi(\I \omega) / Z(\I \omega)$, this yields
 %
 \begin{equation*}
     \vec \Sigma(\I \omega_n)
     = \pi T \sum_m \frac{ \{
-        - \I \omega_m Z(\I \omega_m) \vec \sigma_0
-        + \phi(\I \omega_m) \vec \sigma_1 \} \lambda(\I \omega_n - \I \omega_m)
-        - \phi(\I \omega_m) \vec \sigma_1 \mu }
-        { \Xi(\I \omega_m) }
+        - \I \omega_m \vec \sigma_0
+        + \Delta(\I \omega_m) \vec \sigma_1 \}
+        \lambda(\I \omega_n - \I \omega_m)
+        - \Delta(\I \omega_m) \vec \sigma_1 \mu }
+        { \sqrt{\omega_m^2 + \Delta^2(\I \omega_m)} }
 \end{equation*}
 %
-with $\Xi(\I \omega_n) = \sqrt{[\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
-\omega_n)}$ and thus the \emph{constant-DOS \name{Eliashberg} equations}
+and thus the \emph{constant-DOS \name{Eliashberg} equations}
 %
 \begin{subequations}
     \begin{align}
         Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
-        \frac{\omega_m Z(\I \omega_m)}{\Xi(\I \omega_m)}
+        \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
         \lambda(\I \omega_n - \I \omega_m),
         \\
-        \phi(\I \omega_n) &= \pi T \sum_m
-        \frac{\phi(\I \omega_m)}{\Xi(\I \omega_m)}
+        \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_m
+        \frac{\Delta(\I \omega_m)}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
         [\lambda(\I \omega_n - \I \omega_m) - \mu].
     \end{align}
 \end{subequations}
