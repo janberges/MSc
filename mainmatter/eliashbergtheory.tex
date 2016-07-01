@@ -649,7 +649,7 @@ and to analytically continue the self-energy, which yields
 With the identity \cite[Eq.~12.4]{AllenMitrovic82}
 %
 \begin{equation*}
-    T \sum_m \frac 1 {\I \omega_n - \omega'} = f_+(\omega') - \frac 1 2
+    T \sum_m \frac 1 {\I \omega_n - \omega'} = -\frac 1 2 [1 - 2 f_+(\omega')]
 \end{equation*}
 %
 the electronic part of the self-energy is analogously found to be
@@ -658,11 +658,11 @@ the electronic part of the self-energy is analogously found to be
     \vec \Sigma \super{el.} (\omega)
     = \mu T \sum_{m} \int \from{-\infty} \till \infty \D \epsilon \,
     \vec G_{\vec q} \super{od.} (\omega)
-    = \mu \int \from{-\infty} \till \infty \D \omega' \,
+    = -\frac \mu 2 \int \from{-\infty} \till \infty \D \omega' \,
     \Re \bigg[ \frac
         {\Delta(\omega'_+) \vec \sigma_1}
         {\sqrt[*]{\omega'^2_+ - \Delta^2(\omega'_+)}}
-    \bigg] \bigg[ f_+(\omega') - \frac 1 2 \bigg].
+    \bigg] [1 - 2 f_+(\omega')].
 \end{align*}
 
 For $\vec \Sigma(\omega) = \vec \Sigma \super{ph.}(\omega) + \vec \Sigma
@@ -670,21 +670,21 @@ For $\vec \Sigma(\omega) = \vec \Sigma \super{ph.}(\omega) + \vec \Sigma
 are actually defined for the whole complex plane, are found to be
 %
 \begin{align*}
-    \omega [1 - Z(\omega)] =
+    Z(\omega) = 1 - \frac 1 \omega
     &\int \from{-\infty} \till \infty \D \omega' \,
     \Re \bigg[
         \frac{\omega'_+}{\sqrt[*]{\omega'^2_+ - \Delta^2(\omega'_+)}}
     \bigg] \int \from 0 \till \infty \D \omega'' \, \alpha^2 F(\omega'') \,
     \Omega(\omega, \omega', \omega''),
     \\
-    \Delta(\omega) = \frac 1 {Z(\omega)}
+    \Delta(\omega) = -\frac 1 {Z(\omega)}
     &\int \from{-\infty} \till \infty \D \omega' \,
     \Re \bigg[
         \frac{\Delta(\omega'_+)}{\sqrt[*]{\omega'^2_+ - \Delta^2(\omega'_+)}}
     \bigg]
     \bigg \{
-        \bigg[ f_+(\omega') - \frac 1 2 \bigg] \mu
-        - \int \from 0 \till \infty \D \omega'' \, \alpha^2 F(\omega'') \,
+        [1 - 2 f_+(\omega')] \, \frac \mu 2
+        + \int \from 0 \till \infty \D \omega'' \, \alpha^2 F(\omega'') \,
         \Omega(\omega, \omega', \omega'')
     \bigg \}.
 \end{align*}
@@ -703,7 +703,7 @@ arithmetical operations, such as $\Delta(\omega) = \phi(\omega) / Z(\omega)$,
 $\omega^2 + \Delta^2(\omega)$ or $\omega^2 Z^2(\omega) + \phi^2(\omega)$.
 Complex conjugation reflects a number across the real axis and its square roots
 across any of the axes which span the complex plane, i.e. from odd- to
-even-numbered quadrants or vice verse if the number is not real. As a
+even-numbered quadrants or vice versa if the number is not real. As a
 consequence, sign changes of $\Im[\omega^2 + \Delta^2(\omega)]$ and
 $\Re[\sqrt[*]{\omega^2 + \Delta^2(\omega)}]$ are coupled. Note that the domain
 of $\sqrt[*] \cdots$ changes with $Z(\omega)$.
@@ -714,35 +714,53 @@ real-axis \name{Eliashberg} equations:
 %
 \begin{subequations} \label{real-axis Eliashberg equations}
     \begin{align} \notag
-        \omega [1 - Z(\omega)] =
+        Z(\omega) = 1 - \frac 1 \omega
         &\int \from 0 \till \infty \D \omega' \,
         \Re \bigg[
             \frac{\omega'_+}{\sqrt[*]{\omega'^2_+ - \Delta^2(\omega'_+)}}
         \bigg]
         \times \dots
-        \\
+        \\ \label{Z(omega)}
         \dots \times
         &\int \from 0 \till \infty \D \omega'' \, \alpha^2 F(\omega'') \,
-        [ \Omega(\omega, \omega', \omega'')
-        + \Omega(\omega, -\omega', \omega'')],
+        [ \Omega(\omega,  \omega', \omega'')
+        + \Omega(\omega, -\omega', \omega'') ],
         \\ \notag
-        \Delta(\omega) = \frac 1 {Z(\omega)}
+        \Delta(\omega) = -\frac 1 {Z(\omega)}
         &\int \from 0 \till \infty \D \omega' \,
         \Re \bigg[ \frac
             {\Delta(\omega'_+)}
             {\sqrt[*]{\omega'^2_+ - \Delta^2(\omega'_+)}}
         \bigg]
         \bigg \{
-            [2 f_+(\omega') - 1] \, \mu
+            [1 - 2 f_+(\omega')] \, \mu
             + \dots
             \\
-            \dots -
+            \dots +
             &\int \from 0 \till \infty \D \omega'' \, \alpha^2 F(\omega'') \,
-            [ \Omega(\omega, \omega', \omega'')
+            [ \Omega(\omega,  \omega', \omega'')
             - \Omega(\omega, -\omega', \omega'') ]
         \bigg \}.
     \end{align}
 \end{subequations}
+%
+The $\omega$ in the denominator of Eq.~\ref{Z(omega)} is cancelled since, where
+braces enclose alternatives,
+%
+\begin{equation*}
+    \frac {
+        \Omega(\omega,  \omega', \omega'') \pm
+        \Omega(\omega, -\omega', \omega'')
+        } 2
+    = \begin{Bmatrix} \omega \\ \omega' + \omega'' \end{Bmatrix}
+    \frac
+        {f_+(-\omega') + f_-(\omega'')}
+        {\omega^2 -(\omega' + \omega'')^2}
+    + \begin{Bmatrix} \omega \\ \omega' - \omega'' \end{Bmatrix}
+    \frac
+        {f_+(\omega') + f_-(\omega'')}
+        {\omega^2 -(\omega' - \omega'')^2}.
+\end{equation*}
 
 \section{\name{McMillan}'s formula}
 
@@ -760,19 +778,19 @@ maximum phonon frequency $\omega_0$ and the electronic bandwidth $E \sub B$,
 Eq.~\ref{real-axis Eliashberg equations} becomes
 %
 \begin{align*}
-    \omega [1 - Z(\omega)] =
+    Z(\omega) = 1 - \frac 1 \omega
     \int \from 0 \till \infty \D \omega'
     &\int \from 0 \till{\omega_0} \D \omega'' \, \alpha^2 F(\omega'') \,
     [\Omega(\omega, \omega', \omega'') + \Omega(\omega, -\omega', \omega'')],
     \\
-    \Delta(\omega) = \frac 1 {Z(\omega)}
+    \Delta(\omega) = -\frac 1 {Z(\omega)}
     \int \from 0 \till \infty \D \omega' \,
     \!&\,\frac{\Re[\Delta(\omega')]}{\omega'}
     \Big \{
-        \Theta(E \sub B - \omega') \, [2 f_+(\omega') - 1] \, \mu
+        \Theta(E \sub B - \omega') \, [1 - 2 f_+(\omega')] \, \mu
         + \dots
         \\
-        \dots -
+        \dots +
         &\int \from 0 \till{\omega_0} \D \omega'' \, \alpha^2 F(\omega'') \,
         [\Omega(\omega, \omega', \omega'') - \Omega(\omega, -\omega', \omega'')]
     \Big \}.
@@ -791,97 +809,80 @@ frequencies:
     \end{cases}
 \end{equation*}
 %
-where $\Delta_0, \Delta_\infty \in \mathds R$. Neglecting the \name{Bose}
-functions in $\Omega(\omega, \omega', \omega'')$ several approximate
-contributions are taken into account:
+where $\Delta_0, \Delta_\infty \in \mathds R$. Several approximate contributions
+to $\Delta(0)$ and $\Delta(\infty)$ are taken into account:
 %
 \begin{enumerate}
     \item \textbf{Phononic contribution to \bm$\Delta(0)$ for \bm$\omega' <
     \omega_0$.} Neglecting $\omega'$ relative to $\omega''$ yields
     %
-    \begin{align*}
-        \Omega(0, \pm \omega', \omega'')
-        &\approx \pm \frac{2 f_+(\omega') - 1}{\omega''}
+    \begin{gather*}
+        \Omega(0, \omega', \omega'') - \Omega(0, -\omega', \omega'')
+        \approx -\frac 2 {\omega''} [1 - 2 f_+(\omega')],
         \\
-        \Delta^{(1)}(0) &\approx -\frac 1 {Z(0)}
-        \int \from 0 \till{\omega_0} \D \omega' \,
-        \frac{\Delta_0}{\omega'}
-        \int \from 0 \till{\omega_0} \D \omega'' \, \alpha^2 F(\omega'') \,
-        \frac{4 f_+(\omega') - 2}{\omega''},
-    \end{align*}
+        \Delta^{(1)}(0) \approx \frac{\Delta_0}{Z(0)}
+        \hypo
+            {\int_0^{\omega_0} \frac{\D \omega'}{\omega'}
+            \hyper{[1 - 2 f_+(\omega')]}{\approx \Theta(\omega' - T \sub c)}}
+            {\approx \ln(\omega_0 / T \sub c)} \
+        \hypo
+            {2 \int_0^{\omega_0} \frac{\D \omega''}{\omega''}
+            \alpha^2 F(\omega'')}{\equiv \lambda},
+    \end{gather*}
     %
-    which is simplified by the definition of the \emph{electron-phonon coupling
-    strength} and an approximate solution of the remaining integral:
-    %
-    \begin{align*}
-        \Delta^{(1)}(0) &\approx \frac{\Delta_0 \lambda}{Z(0)}
-        \ln \frac{\omega_0}{T \sub c},
-        &
-        \lambda &= 2 \int_0^{\omega_0} \frac{\D \omega''}{\omega''} \,
-        \alpha^2 F(\omega''),
-        &
-        \int_0^{\omega_0} \frac{\D \omega'}{\omega'}
-        [1 - 2 f_+(\omega')]
-        &\approx \ln \frac{\omega_0}{T \sub c}.
-    \end{align*}
+    where the \emph{electron-phonon coupling strength} $\lambda$ has been
+    defined.
     %
     \item \textbf{Phononic contribution to \bm$\Delta(0)$ for \bm$\omega' \geq
     \omega_0$.} Neglecting $\omega''$ relative to $\omega'$ yields
     %
-    \begin{align*}
-        \Omega(0, \pm \omega', \omega'') &\approx \mp \frac 1 {\omega'},
+    \begin{gather*}
+        \Omega(0, \omega', \omega'') - \Omega(0, -\omega', \omega'')
+        \approx -\frac 2 {\omega'} [1 - 2 f_-(\omega'')],
         \\
-        \Delta^{(2)}(0) &\approx \frac 1 {Z(0)}
-        \int \from{\omega_0} \till \infty \D \omega' \,
-        \frac{\Delta_\infty}{\omega'}
-        \int \from 0 \till{\omega_0} \D \omega'' \, \alpha^2 F(\omega'') \,
-        \frac 2 {\omega'},
-    \end{align*}
+        \Delta^{(2)}(0) \approx \frac{\Delta_\infty \lambda}{Z(0)}
+        \hypo
+            {\int_{\omega_0}^\infty \frac{\D \omega'}{\omega'^2}}
+            {= 1 / \omega_0} \
+        \hypo
+            {\frac 2 \lambda \int \from 0 \till{\omega_0} \D \omega'' \,
+            \alpha^2 F(\omega'')}{\equiv \av \omega}
+        \hypo{[1 - 2 f_-(\omega'')]}{\approx 1},
+    \end{gather*}
     %
-    which is simplified by the definition of an \emph{average phonon frequency}
-    and the exact solution of the remaining integral:
-    %
-    \begin{align*}
-        \Delta^{(2)}(0) &\approx \frac{\Delta_0 \lambda}{Z(0)}
-        \frac{\av \omega}{\omega_0},
-        &
-        \av \omega &= \frac 2 \lambda
-        \int \from 0 \till{\omega_0} \D \omega'' \, \alpha^2 F(\omega''),
-        &
-        \int_{\omega_0}^\infty \frac{\D \omega'}{\omega'^2}
-        &= \frac 1 {\omega_0}.
-    \end{align*}
-    %
-    \item \textbf{Electronic contribution to \bm$\Delta(0)$.} Using the above
-    approximate integral,
-    %
-    \begin{align*}
-        \Delta^{(3)}(0) &= \frac 1 {Z(0)}
-        \int \from 0 \till{E \sub B} \D \omega' \,
-        \frac
-            { \Delta_0 \Theta(\omega_0 - \omega')
-            + \Delta_\infty \Theta(\omega' - \omega_0) }
-            {\omega'}
-           [2 f_+(\omega') - 1] \, \mu
-        \\
-        &\approx -\frac \mu {Z(0)} \bigg[
-            \Delta_0 \ln \frac{\omega_0}{T \sub c}
-            + \Delta_\infty \ln \frac{E \sub B}{\omega_0}
-        \bigg].
-    \end{align*}
+    where an \emph{average phonon frequency} $\av \omega$ has been defined.
     %
     \item \textbf{Phononic contribution to \bm$\Delta(\infty)$.} This part
-    vanishes due to diverging denominators.
+    vanishes for $\Omega(\infty, \omega', \omega'') - \Omega(\infty, -\omega',
+    \omega'') = 0$.
+    %
+    \item \textbf{Electronic contribution to \bm$\Delta(0)$.} Approximating the
+    distributions as in $\Delta^{(1)}(0)$ and $\Delta^{(2)}(0)$,
+    %
+    \begin{equation*}
+        \Delta^{(3)}(0) = -\frac \mu {Z(0)} \bigg[
+            \Delta_0 \hypo
+                {\int_0^{\omega_0} \frac{\D \omega'}{\omega'}
+                \hyper
+                    {[1 - 2 f_+(\omega')]}
+                    {\approx \Theta(\omega' - T \sub c)}}
+                {\approx \ln(\omega_0 / T \sub c)}
+            + \Delta_\infty \hypo
+                {\int_{\omega_0}^{E \sub B}
+                \frac{\D \omega'}{\omega'}}{= \ln(E \sub B / \omega_0)}
+            \hypo{[1 - 2 f_+(\omega')]}{\approx 1}
+        \bigg].
+    \end{equation*}
     %
     \item \textbf{Electronic contribution to \bm$\Delta(\infty)$.} Analogous to
     the calculation of $\Delta^{(3)}(0)$,
     %
-    \begin{align*}
-        \Delta(\infty) &\approx -\frac \mu {Z(\infty)} \bigg[
+    \begin{equation*}
+        \Delta(\infty) \approx -\frac \mu {Z(\infty)} \bigg[
             \Delta_0 \ln \frac{\omega_0}{T \sub c}
             + \Delta_\infty \ln \frac{E \sub B}{\omega_0}
         \bigg].
-    \end{align*}
+    \end{equation*}
 \end{enumerate}
 
 \section{Computational implementation}
