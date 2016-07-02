@@ -543,7 +543,122 @@ approximation}.
     \label{constant-DOS approximation}
 \end{figure}
 
+\subsection{Critical point and normal state}
+
+At $T \sub c$, where the order parameter $\Delta(\I \omega_m)$ is infinitesimal,
+and in the normal state, where it is zero, it can be neglected relative to
+$\omega_m$. This yields the \emph{linearized \name{Eliashberg} equations},
+%
+\begin{subequations} \label{linearized Eliashberg equations}
+    \begin{align}
+        Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
+        \sgn(\omega_m) \, \lambda(\I \omega_n - \I \omega_m),
+        \\
+        \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_m
+        \frac{\Delta(\I \omega_m)}{|\omega_m|}
+        [\lambda(\I \omega_n - \I \omega_m) - \mu].
+    \end{align}
+\end{subequations}
+
+At this point the equation for $Z(\I \omega_n)$ is neither coupled to the
+equation of $\Delta(\I \omega)$ nor must it be solved self-consistently. One can
+further evaluate
+%
+\begin{equation*}
+    Z(\I \omega_n) = 1 + \frac{\pi T}{\omega_n} \sum_{m=-n}^n \lambda(\I \nu_m)
+    = 1 + \frac{\pi T}{\omega_n}
+    \Big[ \lambda(0) + 2 \sum_{m=1}^n \lambda(\I \nu_m) \Big].
+\end{equation*}
+
 \subsection{\name{Coulomb} pseudo-potential}
+
+Solving the above equations on a computer requires a truncation of the infinite
+sum over \textsc{Matsubara} frequencies. For the phonon part this is
+unproblematic since it has a natural cutoff through $\lambda(\I \nu_n)$, which
+decays rapidly with the magnitude of $\nu_n$. The \textsc{Coulomb} part,
+however, does not depend on frequency and thus couples all terms equally strong.
+As a consequence, any cutoff frustrates convergence to reasonable values. The
+following procedure circumvents this difficulty.
+
+Let $\phi(\I \omega_n) = \phi \sub{ph} (\I \omega_n) + \phi \sub C$ and consider
+the \textsc{Eliashberg} equation for $\phi \sub C$,
+%
+\begin{align*}
+	\phi \sub C = -\mu \pi T \sum_m^{\mathclap{|\omega_m| < \omega_u}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
+\end{align*}
+%
+where $\omega_u$ is the (upper) cutoff frequency. The idea is to truncate the
+Coulomb part at a lower frequency $\omega_l$, above which the phonon part $\phi
+\sub{ph} (\I \omega_m)$ is already negligible and $\phi \sub C \ll \omega_m$.
+Hence,
+%
+\begin{align*}
+	\sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+    \approx \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
+    \frac{\phi \sub C}{|\omega_m|}
+\end{align*}
+%
+where $Z(\I \omega_m) = 1$ has been assumed additionally. It follows that
+%
+\begin{align*}
+	\Big[
+        1 + \mu \pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
+        |\omega_m|^{-1}
+    \Big]
+    \phi \sub C = -\mu \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+\end{align*}
+%
+or equivalently
+%
+\begin{align*}
+	\phi \sub C = -\mu^* \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+    \quad \text{with} \quad
+    \mu^* &= \frac \mu {1 + \mu \pi T
+    \sum_m^{\omega_l \leq |\omega_m| < \omega_u} |\omega_m|^{-1}},
+\end{align*}
+%
+the \emph{\textsc{Anderson-Morel} \textsc{Coulomb} pseudo-potential}. One can
+further simplify
+%
+\begin{align*}
+	\pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
+    |\omega_m|^{-1}
+    &= \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
+    \frac 1 {|2 m + 1|}
+    = \sum_{m = l}^{u - 1} \frac 1 {m + \frac 1 2} \\
+	&= \psi(u + \tfrac 1 2) - \psi(l + \tfrac 1 2)
+    \approx \log \frac{u + \frac 1 2}{l + \frac 1 2}
+    = \log \frac{2 u + 1}{2 l + 1} = \ln \frac{\omega_u}{\omega_l},
+\end{align*}
+%
+where $\psi(x) = \varGamma'(x) / \varGamma(x)$ is the digamma function and the
+approximate identity becomes exact asymptotically for large arguments and is
+related to the \textsc{Stirling} formula.\footnote{Appendix~A of
+\cite{AllenMitrovic82} is dedicated to the digamma function.} Hence,
+%
+\begin{align*}
+	\mu^* = \frac \mu {1 + \mu \ln(\omega_u / \omega_l)}.
+\end{align*}
+
+Analogous derivations are given by \name{Schrieffer}
+\cite[185-188]{Schrieffer83} and \name{Allen} and \name{Mitrovi\'{c}}
+\cite[Sec.~9]{AllenMitrovic82}. According to the former, the formula for $\mu^*$
+was first given in 1959 by \name{Bogoliubov}, \name{Tolmachev} and
+\name{Shirkov} \cite[83]{BogoliubovTolmachevShirkov59}. Nevertheless, the
+quantity is named after Pierre \textsc{Morel} and Philip W. \textsc{Anderson}
+with reference to Ref.~\barecite{MorelAnderson62} from 1962.
 
 \subsection{Real-axis equations}
 
@@ -772,10 +887,9 @@ pseudo-potential $\mu^*$. This section provides a review of the original work
 \cite{McMillan68}.
 
 The starting point is a linearized form of the real-axis \name{Eliashberg}
-equations. At $T \sub c$, the order parameter $\Delta(\omega)$ is infinitesimal
-and can be neglected relative to $\omega$. Introducing two cutoff energies, the
-maximum phonon frequency $\omega_0$ and the electronic bandwidth $E \sub B$,
-Eq.~\ref{real-axis Eliashberg equations} becomes
+equations analogous to Eqs.~\ref{linearized Eliashberg equations}. Introducing
+two cutoff energies, the maximum phonon frequency $\omega_0$ and the electronic
+bandwidth $E \sub B$, Eq.~\ref{real-axis Eliashberg equations} becomes
 %
 \begin{align*}
     Z(\omega) = 1 - \frac 1 \omega
@@ -838,7 +952,7 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account:
     %
     \begin{gather*}
         \Omega(0, \omega', \omega'') - \Omega(0, -\omega', \omega'')
-        \approx -\frac 2 {\omega'} [1 - 2 f_-(\omega'')],
+        \approx -\frac 2 {\omega'} [1 + 2 f_-(\omega'')],
         \\
         \Delta^{(2)}(0) \approx \frac{\Delta_\infty \lambda}{Z(0)}
         \hypo
@@ -847,7 +961,7 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account:
         \hypo
             {\frac 2 \lambda \int \from 0 \till{\omega_0} \D \omega'' \,
             \alpha^2 F(\omega'')}{\equiv \av \omega}
-        \hypo{[1 - 2 f_-(\omega'')]}{\approx 1},
+        \hypo{[1 + 2 f_-(\omega'')]}{\approx 1},
     \end{gather*}
     %
     where an \emph{average phonon frequency} $\av \omega$ has been defined.

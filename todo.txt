@@ -17,3 +17,6 @@
       Sec. 17.4
     - Gabriele Giuliani, Giovanni Vignale: Quantum Theory of the Electron
       Liquid, Fig. 6.33
+
+- q=0 phonons and how to get from mu to W(q,q')?
+- Consistently use nu_n for bosonic Matsubara frequencies
