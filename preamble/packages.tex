@@ -166,6 +166,8 @@
     Ref.~\barecite{\thefield{booktitle}}%
     \setunit\bibpagespunct
     \usebibmacro{chapter+pages}%
+    \newunit\newblock
+    \usebibmacro{doi+eprint+url}%
     \setunit\bibpagerefpunct\newblock
     \usebibmacro{pageref}%
     \usebibmacro{finentry}%
@@ -176,6 +178,6 @@
 
 \definecolor{linkcolor}{rgb}{0.5, 0, 0}
 
-\usepackage[ocgcolorlinks, allcolors=linkcolor]{hyperref}
+\usepackage[colorlinks, allcolors=linkcolor]{hyperref} % ocgcolorlinks
 
 \pdfstringdefDisableCommands{\let\name\relax}
