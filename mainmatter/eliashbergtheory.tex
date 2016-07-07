@@ -10,28 +10,30 @@ being suitable order parameters for the superconducting state.
 To that end it is convenient to combine the \name{Green} functions of interest
 into a $2 \times 2$ matrix, i.e. to use the \name{Nambu} formalism, which is
 presented in the first section. With that, the general form of the
-\name{Eliashberg} equations on the imaginary frequency axis are derived,
-followed by some common simplifications which assume (i) a $\vec k$-independent
-self-energy, (ii) a constant density of states and (iii) the suitability of a
-\name{Coulomb} pseudo-potential. Next, it is shown how the results, which are
-generally just the numerical values corresponding to a finite set of
+\name{Eliashberg} equations on the imaginary frequency axis is derived, followed
+by some common approximations which assume (I) a $\vec k$-independent
+self-energy, (II) a constant density of states and (III) the suitability of a
+\name{Coulomb} pseudo-potential. Next, it is shown how the real-axis equations
+can be obtained through analytical continuation. On this basis \name{McMillan}'s
+formula for the critical temperature is derived. Finally, it is demonstrated how
+the imaginary-axis equations can be solved numerically and how the results,
+which are generally just the numerical values corresponding to a finite set of
 \name{Matsubara} frequencies rather than analytical expressions, can be
-continued to the real axis by means of \name{Padé} approximants. Finally, it is
-outlined how \name{McMillan} and \name{Dynes}' formula for the critical
-temperature can be obtained from the \name{Eliashberg} theory.
+continued to the real axis by means of \name{Padé} approximants.
 
 \section{\name{Nambu} formalism}
 
 As found by \name{Nambu} \cite{Nambu60}, the \text{Dyson} equations for all four
 electronic \name{Green} functions introduced at the beginning of
 Section~\ref{Model interactions} can be compactly formulated as a single matrix
-equation:
+equation. Diagrammatically, within the GW approximation and without
+\name{Hartree} contributions, it reads
 %
 \begin{equation*}
     \input{tikzin/nambu-dyson.tex}
 \end{equation*}
 %
-or formally, where quantum numbers and frequency arguments are suppressed,
+and formally, where quantum numbers and frequency arguments are suppressed,
 %
 \begin{equation} \label{Nambu-Dyson equation}
     \begin{split}
@@ -77,19 +79,22 @@ or formally, where quantum numbers and frequency arguments are suppressed,
     \end{split}
 \end{equation}
 
-\tikz [baseline=-0.5ex] \draw [ inward] (0, 0) -- (0.5, 0); and
-\tikz [baseline=-0.5ex] \draw [outward] (0, 0) -- (0.5, 0);
+\tikz [baseline=-0.5ex] \draw [ inward] (0, 0) -- (0.8, 0); and
+\tikz [baseline=-0.5ex] \draw [outward] (0, 0) -- (0.8, 0);
 %
 vanish, so does each term of the perturbation series of
 %
-\tikz [baseline=-0.5ex] \draw [ inward, double] (0, 0) -- (0.5, 0); and
-\tikz [baseline=-0.5ex] \draw [outward, double] (0, 0) -- (0.5, 0);.
+\tikz [baseline=-0.5ex] \draw [ inward, double] (0, 0) -- (0.8, 0); and
+\tikz [baseline=-0.5ex] \draw [outward, double] (0, 0) -- (0.8, 0);.
 %
-A non-zero self-consistent solution of the above integral equations may still
-exist \cite[before Eq.~2.14]{Nambu60}.
+However, a non-zero self-consistent solution of the above integral equations may
+also exist \cite[before Eq.~2.14]{Nambu60}. This is exactly the case in the
+superconducting state. The critical temperature is accordingly defined as the
+highest temperature which allows the off-diagonal components to be non-zero
+\cite[37]{AllenMitrovic82}.
 
 Giving names to the involved matrices, the \name{Dyson} equation may be written
-as $\vec G = \vec G_0 + \vec G_0 \vec \Sigma \vec G$ or even $\vec G^{-1} = \vec
+as $\vec G = \vec G_0 + \vec G_0 \vec \Sigma \vec G$ or $\vec G^{-1} = \vec
 G_0^{-1} - \vec \Sigma$, using inverse matrices. With the help of the
 two-component operators
 %
@@ -164,7 +169,7 @@ written as
         \phi_{\vec k}(\I \omega_n) - \I \phi'_{\vec k}(\I \omega_n) \\
         \phi_{\vec k}(\I \omega_n) + \I \phi'_{\vec k}(\I \omega_n) &
         \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] - \chi_{\vec k}(\I \omega_n)
-    \end{bmatrix},
+    \end{bmatrix}.
 \end{align}
 %
 With $[\vec G^0_{\vec k}(\I \omega_n)]^{-1} = \I \omega_n \vec \sigma_0 -
@@ -185,7 +190,7 @@ With $[\vec G^0_{\vec k}(\I \omega_n)]^{-1} = \I \omega_n \vec \sigma_0 -
         -\phi_{\vec k}(\I \omega_n) - \I \phi'_{\vec k}(\I \omega_n) &
         \I \omega_n Z_{\vec k}(\I \omega_n)
         + \epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)
-    \end{bmatrix},
+    \end{bmatrix}.
 \end{align*}
 %
 Inversion yields
@@ -244,15 +249,13 @@ superconducting state turns out to be
         {Z_{\vec k}(\I \omega_n)}.
 \end{align*}
 
-\newpage
-
 \section{General equations}
 
-A comparison with the results derived in Section~\ref{Hubbard model}
-(\ref{Holstein model}) reveals that the approximation made in
-Eq.~\ref{Nambu-Dyson equation} is correct up to the first (second) order of the
-perturbation series for the \name{Hubbard} (\name{Holstein}) model.
-Consequently, for the \emph{\name{Hubbard-Holstein} model} one has
+Considering the \name{Hubbard} (\name{Holstein}) model, the approximation made
+in Eq.~\ref{Nambu-Dyson equation} is correct up to the first (second) order of
+the perturbation series. From the analytical expressions derived in
+Section~\ref{Hubbard model} (\ref{Holstein model}) on can thus derive the
+self-energy for the \emph{\name{Hubbard-Holstein} model},
 %
 \begin{equation*}
     \vec \Sigma_{\vec k} (\I \omega_n)
@@ -260,12 +263,18 @@ Consequently, for the \emph{\name{Hubbard-Holstein} model} one has
     + \vec \Sigma_{\vec k} \super{ph.} (\I \omega_n).
 \end{equation*}
 
-The electronic part within the HF approximation according to Eq.~\ref{HF
-approximation} reads
+Within the HF approximation defined in Eq.~\ref{HF approximation} one can
+include any contribution from the \name{Coulomb} interaction into the
+single-particle energies $\epsilon_{\vec k}$ and therewith into the bare
+\name{Green} function matrix $\vec G_0$. In doing so for the normal state
+\cite[37]{AllenMitrovic82}, the electronic part reads
 %
 \begin{align*}
-    \vec \Sigma_{\vec k} \super{el.} (\I \omega_n)
-    = \frac{U}{N \beta} &\sum_{\vec q m}
+    \vec \Sigma_{\vec k} \super{el.}
+    = \frac{U}{N \beta} \sum_{\vec q m}
+        [ \vec G_{\vec q} (\I \omega_m)
+        - \vec G_{\vec q} \super{n.} (\I \omega_m) ]
+    \approx \frac{U}{N \beta} &\sum_{\vec q m}
         \vec G_{\vec q} \super{od.} (\I \omega_m)
     \\
     = -\frac{U}{N \beta} &\sum_{\vec q m} \frac
@@ -274,16 +283,22 @@ approximation} reads
         {\Theta_{\vec q}(\I \omega_m)},
 \end{align*}
 %
-where \q{od.} indicates that the components which are not \q{off-diagonal} have
-been nullified.
+where \q{n.} denotes the normal-state \name{Green} function and \q{od.}
+indicates that components which are not \q{off-diagonal} have been nullified.
+The above approximation becomes exact at the critical temperature and is also
+valid below \cite[38]{AllenMitrovic82} since the diagonal components are not
+very sensitive to changes in temperature.
 
-The corresponding phononic part is
+For the phononic part the GW approximation defined in Eq.~\ref{GW approximation}
+is used. For the electron-phonon interaction this is a rather good approximation
+since vertex corrections can be neglected according to \name{Migdal}'s theorem
+\cite{Migdal58}. Thus
 %
 \begin{multline*}
     \vec \Sigma_{\vec k} \super{ph.} (\I \omega_n)
     = -\frac{g^2}{N \beta} \sum_{\vec q m}
     \vec \sigma_3 \, \vec G_{\vec q}(\I \omega_m) \, \vec \sigma_3 \,
-    D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
+    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
     \\
     = \frac{g^2}{N \beta} \sum_{\vec q m}
     \frac { \I \omega_m
@@ -292,7 +307,7 @@ The corresponding phononic part is
         - \phi'_{\vec q}(\I \omega_m) \vec \sigma_2
         + [\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)] \vec \sigma_3 }
         {\Theta_{\vec q}(\I \omega_m)}
-    D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
+    D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
 \end{multline*}
 %
 where the \name{Pauli} matrices in the first line swap the sign of the
@@ -300,41 +315,45 @@ off-diagonal components.
 
 From now on, $T = \beta^{-1}$ is used rather than $\beta$. A coefficient
 comparison with Eq.~\ref{self-energy matrix} yields the
-\emph{\textsc{Eliashberg} equations} for the \name{Hubbard-Holstein} model:
+\emph{\textsc{Eliashberg} equations} \cite{Eliashberg60} for the
+\name{Hubbard-Holstein} model:
 %
-\begin{subequations} \label{Eliashberg equations}
+\begin{subequations}
     \begin{align}
         \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] &= \frac T N
         \sum_{\vec q m} \frac
             {\I \omega_m Z_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
-        g^2 D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
+        g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
         \\
         \phi^{(\prime)}_{\vec k}(\I \omega_n) &= -\frac T N
         \sum_{\vec q m} \frac
             {\phi^{(\prime)}_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
-        \big[ g^2 D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m) + U \big],
+        \big[ g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m) + U \big],
         \\
         \chi_{\vec k}(\I \omega_n) &= \frac T N
         \sum_{\vec q m} \frac
             {\epsilon_{\vec q} + \chi_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
-        g^2 D^0_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
+        g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
     \end{align}
 \end{subequations}
 %
-$\phi_{\vec k}(\I \omega_n)$ and $\phi'_{\vec k}(\I \omega_n)$ obey equal
-equations, leaving the phase of $\phi_{\vec k}(\I \omega) - \I \phi'_{\vec k}(\I
-\omega_n)$ undetermined. This gauge invariance allows to assume $\phi'_{\vec
-k}(\I \omega_n) = 0$ \cites[37]{AllenMitrovic82}[around Eq.~2.20]{Nambu60}.
+Since $\phi_{\vec k}(\I \omega_n)$ and $\phi'_{\vec k}(\I \omega_n)$ obey
+identical equations and enter the common denominator $\Theta_{\vec q}(\I
+\omega_m)$ only in form of the absolute value $|\phi_{\vec k}(\I \omega) - \I
+\phi'_{\vec k}(\I \omega_n)|^2$, the phase of $\phi_{\vec k}(\I \omega) - \I
+\phi'_{\vec k}(\I \omega_n)$ is left undetermined. This gauge invariance allows
+to set $\phi'_{\vec k}(\I \omega_n) = 0$ \cites[37]{AllenMitrovic82}[around
+Eq.~2.20]{Nambu60}.
 
 Using the definitions \cite{MargineGiustino13}
 %
 \begin{align*}
     \mu = n(0) \, U,
         \quad
-    \lambda_{\vec q}(\I \nu_n) = -n(0) \, g^2 D_{\vec q}^0(\I \nu_n),
+    \lambda_{\vec q}(\I \nu_n) = -n(0) \, g^2 D_{\vec q}(\I \nu_n),
         \quad
     n(\epsilon) = \frac{N(\epsilon)} N,
         \quad
@@ -361,7 +380,7 @@ equivalently write
 %
 which yields a more common formulation of the \name{Eliashberg} equations:
 %
-\begin{subequations}
+\begin{subequations} \label{Eliashberg equations}
     \begin{align}
         Z_{\vec k}(\I \omega_n) &= 1 + \frac T {N(0)} \frac 1 {\omega_n}
         \sum_{\vec q m} \frac
@@ -383,40 +402,71 @@ which yields a more common formulation of the \name{Eliashberg} equations:
     \end{align}
 \end{subequations}
 
-\section{Local self-energy}
+It is often convenient to work with the spectral representations
+%
+\begin{align*}
+    D_{\vec q}(\I \nu_n) = -&\int \from 0 \till \infty \D \omega \,
+        \frac{2 \omega \, B_{\vec q}(\omega)}{\nu_n^2 + \omega^2},
+    \\
+    \lambda_{\vec q}(\I \nu_n) = &\int \from 0 \till \infty \D \omega \,
+        \frac{2 \omega \, \alpha^2 F_{\vec q}(\omega)}{\nu_n^2 + \omega^2}
+    \quad \text{with} \quad
+    \alpha^2 F_{\vec q}(\omega) = n(0) \, g^2 B_{\vec q}(\omega).
+\end{align*}
+%
+$B_{\vec q}(\omega)$ and $\alpha^2 F_{\vec q}(\omega)$ are \emph{phonon} and
+\emph{electron-phonon spectral functions}, respectively. The name of the latter
+is composed of the traditional names $\alpha$ for the matrix element $g$ of the
+electron-phonon coupling \cite[Eq.~1, e.g.]{Migdal58} and $F(\omega)$ for the
+phonon density of states \cite[16]{AllenMitrovic82}, which is basically the
+$\vec q$ average of the spectral function $B_{\vec q}(\omega)$.
 
-Assuming that the phonon part of the unperturbed \name{Hamilton} operator reads
+\section{Common approximations}
+
+The numerical solution of the \name{Eliashberg} equations in the form presented
+in Eq.~\ref{Eliashberg equations} involves a high computational workload. It is
+therefore common to apply certain approximations.
+
+\subsection{Local self-energy}
+
+If $\lambda_{\vec q}(\I \nu_n) \equiv \lambda(\I \nu_n)$ is independent of $\vec
+q$, the self-energy $\vec \Sigma_{\vec k}(\I \omega_n) \equiv \vec \Sigma(\I
+\omega_n)$ and its components $Z$, $\phi$ and $\chi$ are independent of $\vec
+k$, i.e. \emph{local}. This is achieved, say, by taking a \name{Fermi}-surface
+average \cite[Eqs.~3.23, 3.24]{AllenMitrovic82}
 %
 \begin{equation*}
-    \op H_0 \super{ph.}
+    B(\omega) = \av{B_{\vec q}(\omega)}_{\epsilon_{\vec q} = 0}
+    = \frac
+        {\sum_{\vec q} \delta(\epsilon_{\vec q}) B_{\vec q}(\omega)}
+        {\sum_{\vec q} \delta(\epsilon_{\vec q})}
+\end{equation*}
+%
+or by assuming the simplest spectral function $B(\omega) = \delta(\omega -
+\omega \sub E) - \delta(\omega + \omega \sub E)$, where $\omega \sub E$ is a
+single \name{Einstein} frequency which is already renormalized. In the latter
+case,
+%
+\begin{equation*}
+    D(\I \nu_n)
+    = -\frac{2 \omega \sub E}{\nu_n^2 + \omega^2 \sub E}
+    \quad \text{and} \quad
+    \lambda(\I \nu_n)
+    = \frac{2 \omega \sub E \, n(0) \, g^2}{\nu_n^2 + \omega^2 \sub E},
+\end{equation*}
+%
+where $D(\I \nu_n)$ resembles the bare phonon \name{Green} function $D_0(\I
+\nu_n)$ for the \name{Hamilton} operator
+%
+\begin{equation*}
+    \op H_0
     = \omega \sub E \sum_{\vec R} \op b_{\vec R}^+ \op b_{\vec R}
     = \omega \sub E \sum_{\vec q \vec q'} \frac 1 N \sum_{\vec R}
         \E^{\I (\vec q' - \vec q) \vec R} \op b_{\vec q'}^+ \op b_{\vec q}
-    = \omega \sub E \sum_{\vec q} \op b_{\vec q}^+ \op b_{\vec q},
+    = \omega \sub E \sum_{\vec q} \op b_{\vec q}^+ \op b_{\vec q}.
 \end{equation*}
-%
-with a single Einstein frequency $\omega \sub E$, which is already renormalized,
-one finds
-%
-\begin{align*}
-    D_0(\I \nu_n) &= -\int \from 0 \till \infty \D \omega \,
-        \frac{2 \omega \, B(\omega)}{\nu_n^2 + \omega^2}
-    = -\frac{2 \omega \sub E}{\nu_n^2 + \omega^2 \sub E}
-    \quad \text{with} \quad
-    B(\omega) = \delta(\omega - \omega \sub E) - \delta(\omega + \omega \sub E),
-    \\
-    \lambda(\I \nu_n) &= \int \from 0 \till \infty \D \omega \,
-        \frac{2 \omega \, \alpha^2 F(\omega)}{\nu_n^2 + \omega^2}
-    = \frac{2 \omega \sub E \, n(0) \, g^2}{\nu_n^2 + \omega^2 \sub E}
-    \quad \text{with} \quad
-    \alpha^2 F(\omega) = n(0) \, g^2 B(\omega)
-\end{align*}
-%
-independent of $\vec k$, i.e. \emph{local}. $B(\omega)$ and $\alpha^2 F(\omega)$
-are \emph{phonon} and \emph{electron-phonon spectral functions}, respectively.
-As a consequence, the same applies to the self-energy $\vec \Sigma$ and its
-components $Z$, $\phi$ and $\chi$. It is thus possible to replace the $\vec q$
-summation by an energy integral:
+
+It is now possible to replace the $\vec q$ summation by an energy integral:
 %
 \begin{multline} \label{local self-energy}
     \vec \Sigma(\I \omega_n)
@@ -457,13 +507,16 @@ equations} read
    \end{align}
 \end{subequations}
 
-\subsection{Constant-DOS approximation}
+\subsection{Constant density of states}
 
 Save for the factor $N(\epsilon)$, which is unspecified at this point, the
 integrands in Eq.~\ref{local self-energy} converge towards zero as $\epsilon$
 diverges from $-\chi(\I \omega_m)$. Therefore, assuming $\chi(\I \omega_m)
 \approx 0$, it may be acceptable to approximate $N(\epsilon)$ by a constant
-$N(0)$ so that the integration can be performed analytically. With the help of
+$N(0)$ \cites [below Eq.~26]{Allen76} [17]{AllenMitrovic82}
+[Sec.~B]{MargineGiustino13}, the effect of which is visualized in
+Fig.~\ref{constant-DOS approximation}, so that the integration can be performed
+analytically. With the help of
 %
 \begin{equation} \label{integrals}
     \int_{-\infty}^\infty \frac{\D x}{x^2 + z} = \frac \pi {\sqrt z}
@@ -498,10 +551,7 @@ and thus the \emph{constant-DOS \name{Eliashberg} equations}
     \end{align}
 \end{subequations}
 
-The effect of this approximation is visualized in Fig.~\ref{constant-DOS
-approximation}.
-
-\begin{figure}
+\begin{figure}[b]
     \small
     \begin{subfigure}{6.75cm}
         \input{tikzin/const-dos-approx-1.tex}
@@ -543,7 +593,7 @@ approximation}.
     \label{constant-DOS approximation}
 \end{figure}
 
-\subsection{Critical point and normal state}
+\subsubsection{Critical point and normal state}
 
 At $T \sub c$, where the order parameter $\Delta(\I \omega_m)$ is infinitesimal,
 and in the normal state, where it is zero, it can be neglected relative to
@@ -564,103 +614,105 @@ At this point the equation for $Z(\I \omega_n)$ is neither coupled to the
 equation of $\Delta(\I \omega)$ nor must it be solved self-consistently. One can
 further evaluate
 %
-\begin{equation*}
+\begin{equation} \label{normal-state renormalization}
     Z(\I \omega_n) = 1 + \frac{\pi T}{\omega_n} \sum_{m=-n}^n \lambda(\I \nu_m)
     = 1 + \frac{\pi T}{\omega_n}
     \Big[ \lambda(0) + 2 \sum_{m=1}^n \lambda(\I \nu_m) \Big].
-\end{equation*}
+\end{equation}
 
 \subsection{\name{Coulomb} pseudo-potential}
 
 Solving the above equations on a computer requires a truncation of the infinite
-sum over \textsc{Matsubara} frequencies. For the phonon part this is
+summation over \textsc{Matsubara} frequencies. For the phonon part this is
 unproblematic since it has a natural cutoff through $\lambda(\I \nu_n)$, which
 decays rapidly with the magnitude of $\nu_n$. The \textsc{Coulomb} part,
 however, does not depend on frequency and thus couples all terms equally strong.
-As a consequence, any cutoff frustrates convergence to reasonable values. The
-following procedure circumvents this difficulty.
-
-Let $\phi(\I \omega_n) = \phi \sub{ph} (\I \omega_n) + \phi \sub C$ and consider
-the \textsc{Eliashberg} equation for $\phi \sub C$,
+As a consequence, the partial sum does not converge with increasing cutoff. The
+following procedure%
 %
-\begin{align*}
-	\phi \sub C = -\mu \pi T \sum_m^{\mathclap{|\omega_m| < \omega_u}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
-\end{align*}
-%
-where $\omega_u$ is the (upper) cutoff frequency. The idea is to truncate the
-Coulomb part at a lower frequency $\omega_l$, above which the phonon part $\phi
-\sub{ph} (\I \omega_m)$ is already negligible and $\phi \sub C \ll \omega_m$.
-Hence,
-%
-\begin{align*}
-	\sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
-    \approx \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
-    \frac{\phi \sub C}{|\omega_m|}
-\end{align*}
-%
-where $Z(\I \omega_m) = 1$ has been assumed additionally. It follows that
-%
-\begin{align*}
-	\Big[
-        1 + \mu \pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
-        |\omega_m|^{-1}
-    \Big]
-    \phi \sub C = -\mu \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
-\end{align*}
-%
-or equivalently
-%
-\begin{align*}
-	\phi \sub C = -\mu^* \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
-    \quad \text{with} \quad
-    \mu^* &= \frac \mu {1 + \mu \pi T
-    \sum_m^{\omega_l \leq |\omega_m| < \omega_u} |\omega_m|^{-1}},
-\end{align*}
-%
-the \emph{\textsc{Anderson-Morel} \textsc{Coulomb} pseudo-potential}. One can
-further simplify
-%
-\begin{align*}
-	\pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
-    |\omega_m|^{-1}
-    &= \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
-    \frac 1 {|2 m + 1|}
-    = \sum_{m = l}^{u - 1} \frac 1 {m + \frac 1 2} \\
-	&= \psi(u + \tfrac 1 2) - \psi(l + \tfrac 1 2)
-    \approx \log \frac{u + \frac 1 2}{l + \frac 1 2}
-    = \log \frac{2 u + 1}{2 l + 1} = \ln \frac{\omega_u}{\omega_l},
-\end{align*}
-%
-where $\psi(x) = \varGamma'(x) / \varGamma(x)$ is the digamma function and the
-approximate identity becomes exact asymptotically for large arguments and is
-related to the \textsc{Stirling} formula.\footnote{Appendix~A of
-\cite{AllenMitrovic82} is dedicated to the digamma function.} Hence,
-%
-\begin{align*}
-	\mu^* = \frac \mu {1 + \mu \ln(\omega_u / \omega_l)}.
-\end{align*}
-
-Analogous derivations are given by \name{Schrieffer}
+\footnote{Analogous derivations are given by \name{Schrieffer}
 \cite[185-188]{Schrieffer83} and \name{Allen} and \name{Mitrovi\'{c}}
 \cite[Sec.~9]{AllenMitrovic82}. According to the former, the formula for $\mu^*$
 was first given in 1959 by \name{Bogoliubov}, \name{Tolmachev} and
 \name{Shirkov} \cite[83]{BogoliubovTolmachevShirkov59}. Nevertheless, the
 quantity is named after Pierre \textsc{Morel} and Philip W. \textsc{Anderson}
-with reference to Ref.~\barecite{MorelAnderson62} from 1962.
+with reference to Ref.~\barecite{MorelAnderson62} from 1962.}
+%
+circumvents this.
 
-\subsection{Real-axis equations}
+Let $\phi(\I \omega_n) = \phi \sub{ph.} (\I \omega_n) + \phi \sub{el.}$ and
+consider the \textsc{Eliashberg} equation for $\phi \sub{el.}$,
+%
+\begin{equation} \label{Coulomb part of Eliashberg equation}
+    \phi \sub{el.} = -\mu \pi T \sum_m^{\mathclap{|\omega_m| < \omega_u}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
+\end{equation}
+%
+where $\omega_u$ is the (upper) cutoff frequency. The idea is to truncate the
+Coulomb part at a lower frequency $\omega_l$, above which $\phi \sub{ph.} (\I
+\omega_m) \approx 0$, $\phi \sub{el.} \ll \omega_m$ and $Z(\I \omega_m) \approx
+1$. Hence,
+%
+\begin{equation*}
+    \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+    \approx \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
+    \frac{\phi \sub{el.}}{|\omega_m|}
+\end{equation*}
+%
+Bringing this part to the left-hand side of Eq.~\ref{Coulomb part of Eliashberg
+equation} yields
+%
+\begin{equation*}
+    \Big[
+        1 + \mu \pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
+        |\omega_m|^{-1}
+    \Big]
+    \phi \sub{el.} = -\mu \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+\end{equation*}
+%
+or equivalently
+%
+\begin{equation*}
+    \phi \sub{el.} = -\mu^* \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+    \quad \text{with} \quad
+    \mu^* = \frac \mu {1 + \mu \pi T
+    \sum_m^{\omega_l \leq |\omega_m| < \omega_u} |\omega_m|^{-1}},
+\end{equation*}
+%
+the \emph{\textsc{Anderson-Morel} \textsc{Coulomb} pseudo-potential}. One can
+further simplify
+%
+\begin{align*}
+    \pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
+    |\omega_m|^{-1}
+    &= \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
+    \frac 1 {|2 m + 1|}
+    = \sum_{m = l}^{u - 1} \frac 1 {m + \frac 1 2} \\
+    &= \psi(u + \tfrac 1 2) - \psi(l + \tfrac 1 2)
+    \approx \log \frac{u + \frac 1 2}{l + \frac 1 2}
+    = \log \frac{2 u + 1}{2 l + 1} = \ln \frac{\omega_u}{\omega_l},
+\end{align*}
+%
+where $\psi(x) = \varGamma'(x) / \varGamma(x)$ is the digamma function. The
+approximation becomes exact asymptotically for large arguments and is related to
+the \textsc{Stirling} formula \cite[Appendix~A]{AllenMitrovic82}. Hence,
+%
+\begin{equation*}
+    \mu^* = \frac \mu {1 + \mu \ln(\omega_u / \omega_l)}.
+\end{equation*}
+
+\section{Real-axis equations}
 
 In this section the analytic continuation of the self-energy or the
 corresponding \name{Eliashberg} equations, which is complicated by the summation
@@ -924,7 +976,7 @@ frequencies:
 \end{equation*}
 %
 where $\Delta_0, \Delta_\infty \in \mathds R$. Several approximate contributions
-to $\Delta(0)$ and $\Delta(\infty)$ are taken into account:
+to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
 %
 \begin{enumerate}
     \item \textbf{Phononic contribution to \bm$\Delta(0)$ for \bm$\omega' <
@@ -1000,3 +1052,5 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account:
 \end{enumerate}
 
 \section{Computational implementation}
+
+\subsection{\name{Padé} approximants}
