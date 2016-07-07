@@ -429,11 +429,12 @@ therefore common to apply certain approximations.
 
 \subsection{Local self-energy}
 
-If $\lambda_{\vec q}(\I \nu_n) \equiv \lambda(\I \nu_n)$ is independent of $\vec
-q$, the self-energy $\vec \Sigma_{\vec k}(\I \omega_n) \equiv \vec \Sigma(\I
-\omega_n)$ and its components $Z$, $\phi$ and $\chi$ are independent of $\vec
-k$, i.e. \emph{local}. This is achieved, say, by taking a \name{Fermi}-surface
-average \cite[Eqs.~3.23, 3.24]{AllenMitrovic82}
+If the electron-phonon coupling strength $\lambda_{\vec q}(\I \nu_n) \equiv
+\lambda(\I \nu_n)$ is independent of $\vec q$, the self-energy $\vec
+\Sigma_{\vec k}(\I \omega_n) \equiv \vec \Sigma(\I \omega_n)$ and its components
+$Z$, $\phi$ and $\chi$ are independent of $\vec k$, i.e. \emph{local}. This is
+achieved, say, by taking a \name{Fermi}-surface average \cite[Eqs.~3.23,
+3.24]{AllenMitrovic82}
 %
 \begin{equation*}
     B(\omega) = \av{B_{\vec q}(\omega)}_{\epsilon_{\vec q} = 0}
@@ -514,9 +515,9 @@ integrands in Eq.~\ref{local self-energy} converge towards zero as $\epsilon$
 diverges from $-\chi(\I \omega_m)$. Therefore, assuming $\chi(\I \omega_m)
 \approx 0$, it may be acceptable to approximate $N(\epsilon)$ by a constant
 $N(0)$ \cites [below Eq.~26]{Allen76} [17]{AllenMitrovic82}
-[Sec.~B]{MargineGiustino13}, the effect of which is visualized in
-Fig.~\ref{constant-DOS approximation}, so that the integration can be performed
-analytically. With the help of
+[Sec.~B]{MargineGiustino13}, which is visualized in Fig.~\ref{constant-DOS
+approximation}, so that the integration can be performed analytically. With the
+help of
 %
 \begin{equation} \label{integrals}
     \int_{-\infty}^\infty \frac{\D x}{x^2 + z} = \frac \pi {\sqrt z}
@@ -832,9 +833,9 @@ the electronic part of the self-energy is analogously found to be
     \bigg] [1 - 2 f_+(\omega')].
 \end{align*}
 
-For $\vec \Sigma(\omega) = \vec \Sigma \super{ph.}(\omega) + \vec \Sigma
+Thus for $\vec \Sigma(\omega) = \vec \Sigma \super{ph.}(\omega) + \vec \Sigma
 \super{el.}(\omega)$ the so-called \emph{real-axis Eliashberg equations}, which
-are actually defined for the whole complex plane, are found to be
+are actually defined for the whole complex plane, read
 %
 \begin{align*}
     Z(\omega) = 1 - \frac 1 \omega
@@ -1050,6 +1051,56 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
         \bigg].
     \end{equation*}
 \end{enumerate}
+
+The renormalization at zero frequencies is assumed to be $Z(0) = Z(\I
+\omega_0)$, which is given by Eq.~\ref{normal-state renormalization}, whereas
+for the case of infinite frequency is trivial. Thus
+%
+\begin{equation*}
+    Z(0) = 1 + \lambda, \quad Z(\infty) = 1.
+\end{equation*}
+
+It is now required that $\Delta(0) \equiv \Delta_0$ and $\Delta(\infty) \equiv
+\Delta_\infty$. In the latter case is is possible to solve for $\Delta_\infty$,
+which yields
+%
+\begin{equation*}
+    \Delta_\infty = -\mu^* \Delta_0 \ln \frac{\omega_0}{T \sub c}
+    \quad \text{with} \quad
+    \mu^* = \frac \mu {1 + \mu \ln \frac{E \sub B}{\omega_0}},
+\end{equation*}
+%
+where the \emph{\name{Coulomb} pseudo-potential} $\mu^*$ has been identified.
+Inserting this result,
+%
+\begin{equation*}
+    \Delta_0 = \Delta^{(1)}(0) + \Delta^{(2)}(0) + \Delta^{(3)}(0)
+    = \frac{\Delta_0}{1 + \lambda}
+    [\lambda - \lambda \mu^* \av \omega / \omega_0 - \mu^*]
+    \ln \frac{\omega_0}{T \sub c}.
+\end{equation*}
+%
+This can be solved for $T \sub c$. The resulting formula is then generalized by
+the introduction of three fit parameters $A$, $B$ and $C$, in the course of
+which the the maximum frequency $\omega_0$ is replaced by the \name{Debye}
+frequency $\Theta$:
+%
+\begin{equation*}
+    T \sub c = \omega_0 \exp \bigg[ {-\frac
+        {1 + \lambda}
+        {\lambda - \lambda \mu^* \av \omega / \omega_0 - \mu^*}}
+    \bigg]
+    \rightarrow \frac \Theta A \exp \bigg[ {-\frac
+        {B (1 + \lambda)}
+        {\lambda - C \lambda \mu^* - \mu^*}}
+    \bigg].
+\end{equation*}
+
+$A$ and $B$ are determined for $\mu^* = 0$ via linear regression of
+%
+\begin{equation*}
+    \ln \frac \Theta {T \sub c} = \ln A + B \frac {1 + \lambda} \lambda.
+\end{equation*}
 
 \section{Computational implementation}
 
