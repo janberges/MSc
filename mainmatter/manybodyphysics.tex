@@ -1301,6 +1301,7 @@ q}(-\I \omega_n)$. Thus
 \subsection{Homogeneous electron gas and jellium}
 
 The interaction within an \emph{homogenous electron gas} reads
+\cite[165]{Czycholl08}
 %
 \begin{align*}
     \op V = \frac 1 2 \sum_{\vec k \vec k' \sigma \sigma' \vec q} U_{\vec q} \,
@@ -1359,34 +1360,29 @@ the subscript plus sign can be dropped again. One finds
     \sum_{\mathclap{\vec k' \vec k'' \sigma' \sigma'' \vec q}}
     U_{\vec q} \av \dots_0 \super{c.} =
     2 G^0_{\vec k \sigma}(\tau - \tau')
-    \Big[
+    \hyper{\Big[
         U_0 \sum_{\vec k' \sigma'} G^0_{\vec k' \sigma'}(0) -
         \sum_{\vec q} U_{\vec q} \, G^0_{\vec k - \vec q \sigma}(0)
-    \Big]
+    \Big]}{\equiv \Lambda_{\vec k \sigma}(0)}
     G^0_{\vec k \sigma}(\tau').
 \end{align*}
-%
-The two terms inside the brackets correspond to the leading \textsc{Hartree} and
-\textsc{Fock} self-energy contributions. The former may be compensated exactly
-by a homogenous positive background which is introduced into the theory simply
-by omitting the $\vec q = 0$ terms from the interaction, i.e. considering the
-so-called \emph{jellium model}. Then one has
+
+As a function of \name{Matsubara} frequencies one has
 %
 \begin{align*}
     G \super{1st}_{\vec k \sigma}(\I \omega_n) &=
     \int \from 0 \till \beta \D \tau \, \E^{\I \omega_n \tau}
-    G \super{1st}_{\vec k \sigma}(\tau)
-    = -\sum_{\vec q \neq 0} U_{\vec q}
+    G \super{1st}_{\vec k \sigma}(\tau) =
     \int \from 0 \till \beta \D \tau
     \int \from 0 \till \beta \D \tau' \,
     \E^{\I \omega_n \tau}
     G^0_{\vec k \sigma}(\tau - \tau') \,
-    G^0_{\vec k - \vec q \sigma}(0) \,
+    \Lambda_{\vec k \sigma}(0) \,
     G^0_{\vec k \sigma}(\tau')
     \\
-    &= -\frac 1 \beta \sum_{\vec q \neq 0} U_{\vec q} \sum_{i j m}
+    &= \frac 1 \beta \sum_{i j m}
     G^0_{\vec k \sigma}(\I \omega_i) \,
-    G^0_{\vec k - \vec q \sigma}(\I \omega_m) \,
+    \Lambda_{\vec k \sigma}(\I \omega_m) \,
     G^0_{\vec k \sigma}(\I \omega_j) \,
     \frac 1 \beta \int \from 0 \till \beta \D \tau \,
     \E^{\I (\omega_n - \omega_i) \tau} \,
@@ -1398,26 +1394,35 @@ so-called \emph{jellium model}. Then one has
     G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
     \Sigma^0_{\vec k \sigma}
-    = -\frac 1 \beta \sum_{\vec q \neq \vec k} U_{\vec k - \vec q}
-    \sum_m G^0_{\vec q \sigma}(\I \omega_m).
+    = \frac {U_0} \beta \sum_{\vec k' \sigma' m}
+    G^0_{\vec k' \sigma'}(\I \omega_m)
+    - \frac 1 \beta \sum_{\vec q m} U_{\vec k - \vec q}
+    G^0_{\vec q \sigma}(\I \omega_m).
 \end{align*}
 %
-The self-energy contribution turns out to be independent of frequency.
+The two terms in $\Sigma^0_{\vec k \sigma}$, which is independent of frequency
+because the \name{Coulomb} interaction is unscreened and assumed to be
+instantaneous, are the leading \textsc{Hartree} and \textsc{Fock} self-energy
+contributions. The former may be compensated exactly by a homogenous positive
+background, which is done in the so-called \emph{jellium model}
+\cite[182]{Czycholl08}.
 
 \subsubsection{\name{Gor'kov-Green} function}
 
 Analogously, during the calculation of $F^0_{\vec k \sigma}(\tau)$ one obtains
 %
 \begin{align*}
-    \sum_{\vec k' \vec k'' \sigma' \sigma''} \sum_{\vec q \neq 0}
+    \sum_{\mathclap{\vec k' \vec k'' \sigma' \sigma'' \vec q}}
     \av \dots_0 \super{c.}
-    = 2 \sum_{\vec q \neq 0} U_{\vec q} \,
+    = 2 \sum_{\vec q} U_{\vec q} \,
     G^0_{\vec k \sigma}(\tau - \tau') \,
     F^0_{\vec k - \vec q \sigma}(0) \,
-    \widetilde G^0_{\vec k \sigma}(\tau')
+    \widetilde G^0_{\vec k \sigma}(\tau').
 \end{align*}
 %
-and, again, a formally equal result apart from the sign:
+As in the case of the \name{Holstein} interaction, there is no anomalous
+\name{Hartree} contribution and, apart from the sign the anomalous \name{Fock}
+contribution formally resembles the normal one:
 %
 \begin{equation*}
     F \super{1st}_{\vec k \sigma}(\I \omega_n)
@@ -1426,8 +1431,8 @@ and, again, a formally equal result apart from the sign:
     \widetilde G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
     \Sigma^0_{\vec k \sigma}
-    = \frac 1 \beta \sum_{\vec q \neq k} U_{\vec k - \vec q}
-    \sum_m F^0_{\vec q \sigma}(\I \omega_m).
+    = \frac 1 \beta \sum_{\vec q m} U_{\vec k - \vec q}
+    F^0_{\vec q \sigma}(\I \omega_m).
 \end{equation*}
 
 \subsection{\name{Hubbard} model}
@@ -1475,41 +1480,34 @@ Eq.~\ref{DFT orthogonality relation} is applied, yielding
 In terms of $\av{\text{el.}}_0$ from Eq.~\ref{Holstein 2nd}, the first order of
 the perturbation series for $G_{\vec k \sigma}(\tau)$ reads
 %
-\begin{align*}
-    G \super{1st}_{\vec k \sigma}(\tau) &=
+\begin{equation*}
+    G \super{1st}_{\vec k \sigma}(\tau) =
     \frac U N \sum_{\vec k' \vec k'' \sigma' \sigma'' \vec q \vec q'}
     \delta_{\sigma'}^\up \delta_{\sigma''}^\down \delta_{\vec q'}^{-\vec q}
     \int \from 0 \till \beta \D \tau' \,
     \int \from 0 \till \beta \D \tau'' \,
     \delta(\tau'' - \tau'_+) \,
     \av{\text{el.}}_0 \super{c.}.
-\end{align*}
+\end{equation*}
 %
-Excluding terms with $\vec q = 0$, one finds all diagrams either disconnected or
-vanishing, thus
+Since interactions between electrons with the same spin are not considered in
+this model, an electron cannot interact with itself and thus there is no
+\name{Fock} contribution. The \name{Hartree} part is
 %
 \begin{align*}
     G \super{1st}_{\vec k \sigma}(\I \omega_n)
     &= G^0_{\vec k \sigma}(\I \omega_n) \,
-    \Sigma^0 \,
+    \Sigma^0_\sigma \,
     G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
-    \Sigma^0 = 0.
+    \Sigma^0_\sigma
+    = \frac U {N \beta} \sum_{\vec k' m} G^0_{\vec k' -\sigma}(\I \omega_m).
 \end{align*}
 
 \subsubsection{\name{Gor'kov-Green} function}
 
-Nevertheless, the analogous calculation of $F_{\vec k \sigma}(\tau)$ yields
-%
-\begin{align*}
-    \sum_{\vec k' \vec k''} \sum_{\vec q \neq 0} \av \dots_0 \super{c.} =
-    \sum_{\vec q \neq 0}
-    G^0_{\vec k \sigma}(\tau - \tau') \,
-    F^0_{\vec k - \vec q \sigma}(0) \,
-    \widetilde G^0_{\vec k \sigma}(\tau')
-\end{align*}
-%
-with the final result
+Nevertheless, the analogous calculation of $F_{\vec k \sigma}(\tau)$ yields the
+usual anomalous \name{Fock} contribution
 %
 \begin{equation*}
     F \super{1st}_{\vec k \sigma}(\I \omega_n)
@@ -1518,8 +1516,7 @@ with the final result
     \widetilde G^0_{\vec k \sigma}(\I \omega_n)
     \quad \text{with} \quad
     \Sigma^0_\sigma
-    = \frac U {N \beta} \sum_{\vec q \neq \vec k} \sum_m
-    F^0_{\vec q \sigma}(\I \omega_m).
+    = \frac U {N \beta} \sum_{\vec q m} F^0_{\vec q \sigma}(\I \omega_m).
 \end{equation*}
 
 \section{Self-energy}
@@ -1628,7 +1625,7 @@ possible subsets of all irreducible parts and join them with fermion lines:
         \input{tikzin/vertex.tex}
     \end{equation*}
     %
-    Unforfunately, there is no integral equation for $\Gamma$ that could be
+    Unfortunately, there is no integral equation for $\Gamma$ that could be
     formulated diagrammatically with nothing but the building blocks introduced
     so far, since the vertex corrections involve a functional derivative of the
     self-energy with respect to the dressed \name{Green} function. Representing
