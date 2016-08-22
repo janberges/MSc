@@ -421,6 +421,56 @@ electron-phonon coupling \cite[Eq.~1, e.g.]{Migdal58} and $F(\omega)$ for the
 phonon density of states \cite[16]{AllenMitrovic82}, which is basically the
 $\vec q$ average of the spectral function $B_{\vec q}(\omega)$.
 
+The above equations assume a constant chemical potential, which has been
+absorbed into the single-particle energy. As a consequence, the particle number
+is not necessarily conserved. Following
+Ref.~\barecite{SchafrothRodriguezNunezBeck97}, with the help of
+\name{Dirichlet}'s theorem and Eq.~\ref{Matsubara-Green function} one finds
+%
+\begin{align*}
+   \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+   = 1 - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
+   &= \frac { 1
+      + \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+      - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
+      } 2
+   \\
+   &= \frac {1 + G_{\vec k}(0^-) + G_{\vec k}(0^+)} 2
+   = \frac 1 2 + G_{\vec k}(0)
+   = \frac 1 2 + \frac 1 \beta \sum_{n \in \mathds Z} G_{\vec k}(\I \omega_n)
+\end{align*}
+%
+and thus the \emph{particle density} or \emph{occupation number} per unit cell
+%
+\begin{equation*}
+   n = \frac 1 N \sum_{\vec k \sigma} \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+   = 1 + \frac 2 {\beta N} \sum_{\vec k n} G_{\vec k}(\I \omega_n)
+   = 1 - \frac 2 {\beta N} \sum_{\vec k n} \frac
+      {\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)}
+      {\Theta_{\vec k}(\I \omega_n)},
+\end{equation*}
+%
+where $\I \omega_n Z_{\vec k}(\I \omega_n)$ have cancelled. Using
+Eq.~\ref{Matsubara sum} it can be shown that for $Z_{\vec k}(\I \omega_n) = 1$
+and $\phi_{\vec k}(\I \omega_n) = \chi_{\vec k}(\I \omega_n) = 0$ the
+free-particle occupation number is reproduced:
+%
+\begin{equation*}
+   1 - \frac 2 {\beta N} \sum_{\vec k n}
+   \frac
+      {\epsilon_{\vec k} \textcolor{gray}{{} - \I \omega_n}}
+      {\omega_n^2 + \epsilon_{\vec k}^2}
+   = 1 - \frac 2 {\beta N} \sum_{\vec k n}
+   \frac 1 {\I \omega_n + \epsilon_{\vec k}}
+   = \frac 2 N \sum_k f_+(\epsilon_k)
+   = 2 \int \from{-\infty} \till \infty \D \epsilon \,
+   n(\epsilon) \, f_+(\epsilon).
+\end{equation*}
+%
+In order to conserve the particle number, $\epsilon_{\vec k}$ has to be replaced
+by the appropriate $\epsilon_{\vec k} - \mu \sub{s.}$, where $\mu \sub{s.}$ is
+the chemical potential to be determined self-consistently.
+
 \section{Common approximations}
 
 The numerical solution of the \name{Eliashberg} equations in the form presented
@@ -816,9 +866,9 @@ and to analytically continue the self-energy, which yields
 
 With the identity \cite[Eq.~12.4]{AllenMitrovic82}
 %
-\begin{equation*}
+\begin{equation} \label{Matsubara sum}
     T \sum_m \frac 1 {\I \omega_m - \omega'} = -\frac 1 2 [1 - 2 f_+(\omega')]
-\end{equation*}
+\end{equation}
 %
 the electronic part of the self-energy is analogously found to be
 %
