@@ -1,5 +1,5 @@
 - Create symbols for repeated use with TikZ?
-- Analyse cutoff-convergence with N(0)V replacing mu*(omega_c)
++ Analyse cutoff-convergence with N(0)V replacing mu*(omega_c)
 - How does cutoff change normal-state Z(i omega_n)?
 + Sort existing sections for master's thesis
 - Where should the square-lattice dispersion be derived?
@@ -7,7 +7,7 @@
 + Prepare slides on isotropic Eliashberg theory
 - Reference Allen/Dynes with respect to rescaled mu*
 - Introduce meaning of k, q, sigma only once
-- Uniform citation scheme (object or parenthesis)
++ Uniform citation scheme (object or parenthesis)
 - Write time argument (0) or not?
 - Fröhlich transformation correct? Divergences because of poles in S?
 - Where does epsilon_Fermi=0 come in?
@@ -18,5 +18,40 @@
     - Gabriele Giuliani, Giovanni Vignale: Quantum Theory of the Electron
       Liquid, Fig. 6.33
 
-- q=0 phonons and how to get from mu to W(q,q')?
-- Consistently use nu_n for bosonic Matsubara frequencies
++ q=0 phonons and how to get from mu to W(q,q')?
++ Consistently use nu_n for bosonic Matsubara frequencies
+
+- McMillan may possibly fail for:
+    - Multi-pocket interactions (e.g. in MgB2, MoS2)
+    - Strong correlations (quasi particle picture still valid, see Marsiglio and
+      J.P. Carbotte)
+    - Fluctuations in the order parameter (magnons etc.)
+
+- Dynamical Mean-Field Theory (DMFT) and Dynamical Vertex Approximation (DGA)?
+- How does effective lambda change with energy shift and associated change of
+  the density of states? What happens for 0.001 % (two electrons) and 99.999 %
+  of half-filling for square lattice?
+- McMillan, Rowell in Superconductivity, ed. by Parks: mu* from measurement?
+- Use only one summand of Omega(omega, omega', omega") + Omega(omega, -omega',
+  omega'') in integral by returning to int[-inf, +inf] domega'
+- Read MgB2 paper by Igor Mazin cited by Roxana Margine
+
+- Where exactly is the zero crossing of the Matsubara gap?
+    - What happens for growing mu*/lambda?
+    - ... in the multiband case?
+
+- effective lambda: Show that eigenvalues of Kronecker product of matrices are
+  products of eigenvalues of its factors and that the maximum eigenvalue of
+  lambda determines Tc.
+    - Why are the asymptotes of lambda(1,2) = lambda^2 / lambda(2,1) moved
+      away from the axes according to non-linearized Eliashberg equations?
+    - lambda = [[x, 1], [1, y]] yields (x - lambda)(y - lambda) = 1. Do curves
+      like that reoccur for elements of muStar which does not commute with
+      lambda? Analyze special cases if whole problem is too difficult?
+
+- The eigenvalues of [1/(2m+1)]*[muStar(i,j)] are either zero or proportional to
+  the eigenvalues of muStar. The eigenvectors are constant. What about the
+  eigenvalues of matrix differences?
+- Show equivalence of Rainer-Bergmann formulation of Eliashberg eigenvalue
+  problem and maybe explain why it leads to a slower convergence.
+- Where does symmetry Sigma[i omega(n)] = Sigma[-i omega(n)] come from?
