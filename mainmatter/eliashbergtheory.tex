@@ -428,26 +428,26 @@ Ref.~\barecite{SchafrothRodriguezNunezBeck97}, with the help of
 \name{Dirichlet}'s theorem and Eq.~\ref{Matsubara-Green function} one finds
 %
 \begin{align*}
-   \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
-   = 1 - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
-   &= \frac { 1
-      + \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
-      - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
-      } 2
-   \\
-   &= \frac {1 + G_{\vec k}(0^-) + G_{\vec k}(0^+)} 2
-   = \frac 1 2 + G_{\vec k}(0)
-   = \frac 1 2 + \frac 1 \beta \sum_{n \in \mathds Z} G_{\vec k}(\I \omega_n)
+    \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+    = 1 - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
+    &= \frac { 1
+        + \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+        - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
+        } 2
+    \\
+    &= \frac {1 + G_{\vec k}(0^-) + G_{\vec k}(0^+)} 2
+    = \frac 1 2 + G_{\vec k}(0)
+    = \frac 1 2 + \frac 1 \beta \sum_{n \in \mathds Z} G_{\vec k}(\I \omega_n)
 \end{align*}
 %
 and thus the \emph{particle density} or \emph{occupation number} per unit cell
 %
 \begin{equation*}
-   n = \frac 1 N \sum_{\vec k \sigma} \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
-   = 1 + \frac 2 {\beta N} \sum_{\vec k n} G_{\vec k}(\I \omega_n)
-   = 1 - \frac 2 {\beta N} \sum_{\vec k n} \frac
-      {\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)}
-      {\Theta_{\vec k}(\I \omega_n)},
+    n = \frac 1 N \sum_{\vec k \sigma} \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+    = 1 + \frac 2 {\beta N} \sum_{\vec k n} G_{\vec k}(\I \omega_n)
+    = 1 - \frac 2 {\beta N} \sum_{\vec k n} \frac
+        {\epsilon_{\vec k} + \chi_{\vec k}(\I \omega_n)}
+        {\Theta_{\vec k}(\I \omega_n)},
 \end{equation*}
 %
 where $\I \omega_n Z_{\vec k}(\I \omega_n)$ have cancelled. Using
@@ -456,15 +456,15 @@ and $\phi_{\vec k}(\I \omega_n) = \chi_{\vec k}(\I \omega_n) = 0$ the
 free-particle occupation number is reproduced:
 %
 \begin{equation*}
-   1 - \frac 2 {\beta N} \sum_{\vec k n}
-   \frac
-      {\epsilon_{\vec k} \textcolor{gray}{{} - \I \omega_n}}
-      {\omega_n^2 + \epsilon_{\vec k}^2}
-   = 1 - \frac 2 {\beta N} \sum_{\vec k n}
-   \frac 1 {\I \omega_n + \epsilon_{\vec k}}
-   = \frac 2 N \sum_k f_+(\epsilon_k)
-   = 2 \int \from{-\infty} \till \infty \D \epsilon \,
-   n(\epsilon) \, f_+(\epsilon).
+    1 - \frac 2 {\beta N} \sum_{\vec k n}
+    \frac
+        {\epsilon_{\vec k} \textcolor{gray}{{} - \I \omega_n}}
+        {\omega_n^2 + \epsilon_{\vec k}^2}
+    = 1 - \frac 2 {\beta N} \sum_{\vec k n}
+    \frac 1 {\I \omega_n + \epsilon_{\vec k}}
+    = \frac 2 N \sum_k f_+(\epsilon_k)
+    = 2 \int \from{-\infty} \till \infty \D \epsilon \,
+    n(\epsilon) \, f_+(\epsilon).
 \end{equation*}
 %
 In order to conserve the particle number, $\epsilon_{\vec k}$ has to be replaced
@@ -540,22 +540,22 @@ with $\Theta_\epsilon(\I \omega_n) = [\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
 equations} read
 %
 \begin{subequations} \label{local Eliashberg equations}
-   \begin{align}
-      Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_m
-      \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
-      \frac{\omega_m Z (\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-      \lambda(\I \omega_n - \I \omega_m),
-      \\
-      \phi(\I \omega_n) &= T \sum_m
-      \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
-      \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-      [\lambda(\I \omega_n - \I \omega_m) - \mu],
-      \\
-      \chi(\I \omega_n) &= -T \sum_m
-      \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
-      \frac{\epsilon + \chi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-      \lambda(\I \omega_n - \I \omega_m).
-   \end{align}
+    \begin{align}
+        Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_m
+        \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
+        \frac{\omega_m Z (\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+        \lambda(\I \omega_n - \I \omega_m),
+        \\
+        \phi(\I \omega_n) &= T \sum_m
+        \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
+        \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+        [\lambda(\I \omega_n - \I \omega_m) - \mu],
+        \\
+        \chi(\I \omega_n) &= -T \sum_m
+        \int \from{-\infty} \till \infty \D \epsilon \frac{N(\epsilon)}{N(0)}
+        \frac{\epsilon + \chi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+        \lambda(\I \omega_n - \I \omega_m).
+    \end{align}
 \end{subequations}
 
 \subsection{Constant density of states}
@@ -1172,55 +1172,55 @@ $C$ is found via linear regression of
 Multiband \name{Eliashberg} equations with $|\omega_m| < \omega_N{}^{(*)}$:
 %
 \begin{equation*}
-   \begin{split}
-      Z_i(n) &= 1 + \frac{\pi T}{\omega_n} \sum_{j m}^{(*)}
-      \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
-      \lambda_{i j}(n - m),
-      \\
-      \Delta_i(n) &= \frac{\pi T}{Z_i(n)} \sum_{j m}^{(*)}
-      \frac{\Delta_j(m)}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
-      [\lambda_{i j}(n - m) - \mu^*_{i j}(N)].
-   \end{split}
+    \begin{split}
+        Z_i(n) &= 1 + \frac{\pi T}{\omega_n} \sum_{j m}^{(*)}
+        \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
+        \lambda_{i j}(n - m),
+        \\
+        \Delta_i(n) &= \frac{\pi T}{Z_i(n)} \sum_{j m}^{(*)}
+        \frac{\Delta_j(m)}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
+        [\lambda_{i j}(n - m) - \mu^*_{i j}(N)].
+    \end{split}
 \end{equation*}
 %
 \dots and how they are implemented:
 %
 \begin{align}
-   \begin{split}
-      Z_i(n) &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
-      \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
-      [\lambda_{i j}(n - m) - \lambda_{i j}(n + m + 1)],
-      \\
-      \Delta_i(n) &= \frac{\pi T}{Z_i(n)} \sum_j \sum_{m = 0}^{N - 1}
-      \frac{\Delta_j(m)}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
-      [\lambda_{i j}(n - m) + \lambda_{i j}(n + m + 1) - 2 \mu^*_{i j}(N)].
-   \end{split}
+    \begin{split}
+        Z_i(n) &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
+        \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
+        [\lambda_{i j}(n - m) - \lambda_{i j}(n + m + 1)],
+        \\
+        \Delta_i(n) &= \frac{\pi T}{Z_i(n)} \sum_j \sum_{m = 0}^{N - 1}
+        \frac{\Delta_j(m)}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
+        [\lambda_{i j}(n - m) + \lambda_{i j}(n + m + 1) - 2 \mu^*_{i j}(N)].
+    \end{split}
 \end{align}
 %
 \dots linearized at $T \sub c$:
 %
 \begin{equation*}
-   \begin{split}
-      Z_i(n) &= 1 + \frac{\pi T \sub c}{\omega_n} \sum_{j m}
-      \sgn(\omega_m) \, \lambda_{i j}(n - m),
-      \\
-      \Delta_i(n) &= \frac{\pi T \sub c}{Z_i(n)} \sum_{j m}
-      \frac{\Delta_j(m)}{|\omega_m|}
-      [\lambda_{i j}(n - m) - \mu^*_{i j}(N)].
-   \end{split}
+    \begin{split}
+        Z_i(n) &= 1 + \frac{\pi T \sub c}{\omega_n} \sum_{j m}
+        \sgn(\omega_m) \, \lambda_{i j}(n - m),
+        \\
+        \Delta_i(n) &= \frac{\pi T \sub c}{Z_i(n)} \sum_{j m}
+        \frac{\Delta_j(m)}{|\omega_m|}
+        [\lambda_{i j}(n - m) - \mu^*_{i j}(N)].
+    \end{split}
 \end{equation*}
 %
 \dots and how they are implemented:
 %
 \begin{equation*}
-   \begin{split}
-      Z_i(n) &= 1 + \frac{\pi T \sub c}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
-      [\lambda_{i j}(n - m) - \lambda_{i j}(n + m + 1)],
-      \\
-      \Delta_i(n) &= \frac{\pi T \sub c}{Z_i(n)} \sum_j \sum_{m = 0}^{N - 1}
-      \frac{\Delta_j(m)}{\omega_m}
-      [\lambda_{i j}(n - m) + \lambda_{i j}(n + m + 1) - 2 \mu^*_{i j}(N)].
-   \end{split}
+    \begin{split}
+        Z_i(n) &= 1 + \frac{\pi T \sub c}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
+        [\lambda_{i j}(n - m) - \lambda_{i j}(n + m + 1)],
+        \\
+        \Delta_i(n) &= \frac{\pi T \sub c}{Z_i(n)} \sum_j \sum_{m = 0}^{N - 1}
+        \frac{\Delta_j(m)}{\omega_m}
+        [\lambda_{i j}(n - m) + \lambda_{i j}(n + m + 1) - 2 \mu^*_{i j}(N)].
+    \end{split}
 \end{equation*}
 
 \subsection{Particle number}
@@ -1232,16 +1232,16 @@ corresponding free-particle expression, where $Z_i(n) = 1$ and $\phi_i(n) =
 \chi_i(n) = 0$. This yields
 %
 \begin{equation*}
-   n \approx 1 - 4 T \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
-   n_i(\epsilon)
-   \Bigg[
-      \sum_{n = 0}^{N - 1} \frac
-         {\epsilon - \mu + \chi_i(n)}
-         {[\omega_n Z_i(n)]^2 + \phi_i^2(n) + [\epsilon - \mu + \chi_i(n)]^2}
-      + \sum_{n = N}^\infty \frac
-         {\epsilon - \mu}
-         {\omega_n^2 + (\epsilon - \mu)^2}
-   \Bigg].
+    n \approx 1 - 4 T \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
+    n_i(\epsilon)
+    \Bigg[
+        \sum_{n = 0}^{N - 1} \frac
+            {\epsilon - \mu + \chi_i(n)}
+            {[\omega_n Z_i(n)]^2 + \phi_i^2(n) + [\epsilon - \mu + \chi_i(n)]^2}
+        + \sum_{n = N}^\infty \frac
+            {\epsilon - \mu}
+            {\omega_n^2 + (\epsilon - \mu)^2}
+    \Bigg].
 \end{equation*}
 %
 For a computational solution it is further convenient to replace the infinite
@@ -1249,92 +1249,92 @@ sum by a closed form. This is done by means of the identity
 \cite[Eq.~A.14]{AllenMitrovic82}
 %
 \begin{equation*}
-   \sum_{n = 0}^{N - 1} \frac x {(n + \tfrac 1 2)^2 + x^2}
-   = \Im[\psi(\tfrac 1 2 + \I x) - \psi(N + \tfrac 1 2 + \I x)]
+    \sum_{n = 0}^{N - 1} \frac x {(n + \tfrac 1 2)^2 + x^2}
+    = \Im[\psi(\tfrac 1 2 + \I x) - \psi(N + \tfrac 1 2 + \I x)]
 \end{equation*}
 %
 from which follows that
 %
 \begin{align*}
-   \smash[b]{\sum_{n = N}^\infty \frac x {(n + \tfrac 1 2)^2 + x^2}}
-   &= \lim_{M \rightarrow \infty}
-   \Big\{
-      \Im[\psi(N + \tfrac 1 2 + \I x) - \psi(M + \tfrac 1 2 + \I x)]
-   \Big\}
-   \\
-   &\approx \lim_{M \rightarrow \infty}
-   \Big\{
-      \Im[\log(N + \tfrac 1 2 + \I x) - \log(M + \tfrac 1 2 + \I x)]
-   \Big\}
-   \\
-   &= \lim_{M \rightarrow \infty}
-   \Big\{
-      \arg(N + \tfrac 1 2 + \I x) - \smash[b]
-      {\hypo{\arg(M + \tfrac 1 2 + \I x)}{\rightarrow 0}}
-   \Big\}
-   \\
-   &= \arctan \frac x {N + \tfrac 1 2}.
+    \smash[b]{\sum_{n = N}^\infty \frac x {(n + \tfrac 1 2)^2 + x^2}}
+    &= \lim_{M \rightarrow \infty}
+    \Big\{
+        \Im[\psi(N + \tfrac 1 2 + \I x) - \psi(M + \tfrac 1 2 + \I x)]
+    \Big\}
+    \\
+    &\approx \lim_{M \rightarrow \infty}
+    \Big\{
+        \Im[\log(N + \tfrac 1 2 + \I x) - \log(M + \tfrac 1 2 + \I x)]
+    \Big\}
+    \\
+    &= \lim_{M \rightarrow \infty}
+    \Big\{
+        \arg(N + \tfrac 1 2 + \I x) - \smash[b]
+        {\hypo{\arg(M + \tfrac 1 2 + \I x)}{\rightarrow 0}}
+    \Big\}
+    \\
+    &= \arctan \frac x {N + \tfrac 1 2}.
 \end{align*}
 %
 The occupation number is thus given by
 %
 \begin{equation} \label{occupation number}
-   n \approx 1 - 4 T \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
-   n_i(\epsilon)
-   \Bigg[
-      \sum_{n = 0}^{N - 1}
-      \frac{\epsilon - \mu + \chi_i(n)}{\Theta_i(\epsilon, n)}
-      + \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}
-   \Bigg].
+    n \approx 1 - 4 T \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
+    n_i(\epsilon)
+    \Bigg[
+        \sum_{n = 0}^{N - 1}
+        \frac{\epsilon - \mu + \chi_i(n)}{\Theta_i(\epsilon, n)}
+        + \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}
+    \Bigg].
 \end{equation}
 %
 With the help of the trigamma function
 %
 \begin{align*}
-   \frac{\D \psi}{\D z} = \sum_{n = 0}^\infty \frac 1 {(z + n)^2}
-   \approx \frac 1 z,
+    \frac{\D \psi}{\D z} = \sum_{n = 0}^\infty \frac 1 {(z + n)^2}
+    \approx \frac 1 z,
 \end{align*}
 %
 which is the derivative of the digamma function, one can furthermore deduce that
 %
 \begin{equation*}
-   \sum_{n = N}^\infty \frac 1 {(n + \tfrac 1 2)^2 + x^2}
-   \approx
-   \begin{cases}
-      \frac 1 x \arctan \frac x {N + \frac 1 2}
-         & \text{for $x \neq 0$,} \\
-      \frac 1 {N + \frac 1 2}
-         & \text{otherwise,}
-   \end{cases}
+    \sum_{n = N}^\infty \frac 1 {(n + \tfrac 1 2)^2 + x^2}
+    \approx
+    \begin{cases}
+        \frac 1 x \arctan \frac x {N + \frac 1 2}
+            & \text{for $x \neq 0$,} \\
+        \frac 1 {N + \frac 1 2}
+            & \text{otherwise,}
+    \end{cases}
 \end{equation*}
 %
 which allows transform Eq.~\ref{occupation number} into a fixed-point equation
 for the chemical potential:
 %
 \begin{align*}
-   \mu &\approx \frac
-   {
-      \frac{n - 1}{4 T}
-      + \sum_i \int_{-\infty}^\infty \D \epsilon \, n_i(\epsilon)
-      \big[
-         \epsilon R(\epsilon) + \sum_{n = 0}^{N - 1}
-         \frac{\epsilon + \chi_i(n)}{\Theta_i(\epsilon, n)}
-      \big]
-   }
-   {
-      \sum_i \int_{-\infty}^\infty \D \epsilon \, n_i(\epsilon)
-      \big[
-         R(\epsilon) + \sum_{n = 0}^{N - 1} \frac 1 {\Theta_i(\epsilon, n)}
-      \big]
-   },
-   \\
-   R(\epsilon) &= \frac 1 {2 \pi T}
-   \begin{cases}
-      \frac 1 {\epsilon - \mu} \arctan \frac{\epsilon - \mu}{\omega_N}
-         & \text{for $\epsilon \neq \mu$,} \\
-      \frac 1 {\omega_N}
-         & \text{otherwise.}
-   \end{cases}
+    \mu &\approx \frac
+    {
+        \frac{n - 1}{4 T}
+        + \sum_i \int_{-\infty}^\infty \D \epsilon \, n_i(\epsilon)
+        \big[
+            \epsilon R(\epsilon) + \sum_{n = 0}^{N - 1}
+            \frac{\epsilon + \chi_i(n)}{\Theta_i(\epsilon, n)}
+        \big]
+    }
+    {
+        \sum_i \int_{-\infty}^\infty \D \epsilon \, n_i(\epsilon)
+        \big[
+            R(\epsilon) + \sum_{n = 0}^{N - 1} \frac 1 {\Theta_i(\epsilon, n)}
+        \big]
+    },
+    \\
+    R(\epsilon) &= \frac 1 {2 \pi T}
+    \begin{cases}
+        \frac 1 {\epsilon - \mu} \arctan \frac{\epsilon - \mu}{\omega_N}
+            & \text{for $\epsilon \neq \mu$,} \\
+        \frac 1 {\omega_N}
+            & \text{otherwise.}
+    \end{cases}
 \end{align*}
 %
 In the non-interacting case, no approximations have to be made. The occupation
