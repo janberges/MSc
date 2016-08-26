@@ -1336,5 +1336,38 @@ for the chemical potential:
          & \text{otherwise.}
    \end{cases}
 \end{align*}
+%
+In the non-interacting case, no approximations have to be made. The occupation
+number reads
+%
+\begin{equation*}
+    n = 2 \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
+    n_i(\epsilon) f_+(\epsilon)
+    = 1 - \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
+    n_i(\epsilon) \tanh \frac{\epsilon - \mu}{2 T}
+\end{equation*}
+%
+and the corresponding fixed-point equation for the chemical potential
+%
+\begin{equation*}
+    \mu = \frac
+        {n - 1 + \int_{-\infty}^\infty \D \epsilon \, \epsilon \, w(\epsilon)}
+        {\int_{-\infty}^\infty \D \epsilon \, w(\epsilon)}
+    \quad \text{with} \quad
+    w(\epsilon) = \sum_i n_i(\epsilon)
+    \begin{cases}
+       \frac 1 {\epsilon - \mu} \tanh \frac{\epsilon - \mu}{2 T}
+          & \text{for $\epsilon \neq \mu$,} \\
+       \frac 1 {2 T}
+          & \text{otherwise.}
+    \end{cases}
+\end{equation*}
+%
+For half-filling, i.e. $n = 1$, this is simply the \emph{center of mass} of the
+weight function $w(\epsilon)$.
+
+Does fixed-point iteration $x_{n + 1} = f(x_n)$ converge if $|f(x) - \bar x| <
+|x - \bar x|$ for all possible starting points $x$, where $\bar x$ is the fixed
+point?
 
 \subsection{\name{Padé} approximants}
