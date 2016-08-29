@@ -16,7 +16,7 @@
 
 \usepackage[math]{iwona}
 \usepackage[T1]{fontenc}
-\usepackage{inconsolata}
+\usepackage[scaled=0.92]{inconsolata}
 
 \usepackage{microtype, slantsc}
 
@@ -139,6 +139,60 @@
 
 \def\headrulewidth{0.1mm}
 \def\footrulewidth{0pt}
+
+
+% SOURCE CODE LISTINGS
+
+\usepackage{listings}
+
+\lstdefinelanguage{f90}{
+	keywords = {
+        abstract, allocatable, allocate, call, case, character, class, close,
+        complex, contains, default, do, elemental, else, elsewhere, end,
+        function, if, implicit, integer, intent, interface, logical, module,
+        only, open, operator, optional, parameter, pass, pointer, private,
+        procedure, program, public, read, real, save, select, stop, subroutine,
+        then, type, use, where, while, write
+        },
+	comment = [l]{!},
+	string = [d]',
+	morestring = [d]",
+	sensitive = false,
+    }
+
+\lstdefinelanguage{py}{
+    keywords = {
+        and, as, assert, break, class, continue, def, del, elif, else, except,
+        exec, finally, for, from, global, if, import, in, is, lambda, not, or,
+        pass, print, raise, return, try, while, with, yield
+        }
+    comment = [l]{\#},
+    string = [b]',
+    morestring = [b]",
+    sensitive = true,
+    }
+
+\definecolor{basiccolor}{rgb}{0.1, 0.3, 0.5}
+\definecolor{keywordcolor}{rgb}{0.0, 0.4, 0.8}
+\definecolor{identifiercolor}{rgb}{0.2, 0.2, 0.2}
+\definecolor{commentcolor}{rgb}{0.5, 0.5, 0.5}
+\definecolor{numbercolor}{rgb}{0.5, 0.5, 0.5}
+
+\lstset{
+	basicstyle = \color{basiccolor} \ttfamily \small,
+	keywordstyle = \color{keywordcolor} \bfseries,
+	identifierstyle = \color{identifiercolor},
+	commentstyle = \color{commentcolor},
+	numberstyle = \color{numbercolor} \tiny,
+    %
+	showstringspaces = false,
+	%
+	numbers = left,
+    %
+	numbersep = 3mm,
+	aboveskip = 4mm,
+	belowskip = 4mm,
+    }
 
 
 % BIBLIOGRAPHY
