@@ -1,44 +1,40 @@
-- Create symbols for repeated use with TikZ?
-+ Analyse cutoff-convergence with N(0)V replacing mu*(omega_c)
-- How does cutoff change normal-state Z(i omega_n)?
-+ Sort existing sections for master's thesis
-- Where should the square-lattice dispersion be derived?
-- Review history of superconductivity (Ginzburg-Landau?)
-+ Prepare slides on isotropic Eliashberg theory
-- Reference Allen/Dynes with respect to rescaled mu*
-- Introduce meaning of k, q, sigma only once
-+ Uniform citation scheme (object or parenthesis)
-- Write time argument (0) or not?
-- Fröhlich transformation correct? Divergences because of poles in S?
-- Where does epsilon_Fermi=0 come in?
+05  Finish chapter on Eliashberg theory:
 
-- Anomalous perturbation theory/spontaneous symmetry breaking:
-    - Richard D. Mattuck: A Guide to Feynman Diagrams in the Many-body Problem,
-      Sec. 17.4
-    - Gabriele Giuliani, Giovanni Vignale: Quantum Theory of the Electron
-      Liquid, Fig. 6.33
+- Use chemical potential/grand canonical ensemble for Eliashberg theory
+- Explain where the symmetry Sigma[i omega(n)] = Sigma[-i omega(n)] comes from
+- Explain why cDOS approach requires rescaling the Coulomb interaction
+- Write more about linearized Eliashberg equations:
+    - Show equivalence of Rainer-Bergmann formulation of Eliashberg eigenvalue
+      problem and maybe explain why it leads to a slower convergence.
+- Use only one summand of Omega(omega, omega', omega") + Omega(omega, -omega',
+  omega'') in integral by returning to int[-inf, +inf] domega'?
+- McMillan's equation:
+    - Reference Allen/Dynes with respect to rescaled and McMillan's mu*
+    - McMillan, Rowell in Superconductivity, ed. by Parks: mu* from measurement?
 
-+ q=0 phonons and how to get from mu to W(q,q')?
-+ Consistently use nu_n for bosonic Matsubara frequencies
 
-- McMillan may possibly fail for:
-    - Multi-pocket interactions (e.g. in MgB2, MoS2)
-    - Strong correlations (quasi particle picture still valid, see Marsiglio and
-      J.P. Carbotte)
-    - Fluctuations in the order parameter (magnons etc.)
+06  Apply for PhD position.
 
-- Dynamical Mean-Field Theory (DMFT) and Dynamical Vertex Approximation (DGA)?
+
+07  Numerical results:
+
+- How are self-energy and Tc calculated?
+
+
+08  Non-cDOS self-energy and Tc:
+
+- Derive square-lattice dispersion and DOS which is used as example
 - How does effective lambda change with energy shift and associated change of
   the density of states? What happens for 0.001 % (two electrons) and 99.999 %
   of half-filling for square lattice?
-- McMillan, Rowell in Superconductivity, ed. by Parks: mu* from measurement?
-- Use only one summand of Omega(omega, omega', omega") + Omega(omega, -omega',
-  omega'') in integral by returning to int[-inf, +inf] domega'
-- Read MgB2 paper by Igor Mazin cited by Roxana Margine
 
-- Where exactly is the zero crossing of the Matsubara gap?
-    - What happens for growing mu*/lambda?
-    - ... in the multiband case?
+
+09  Convergence tests:
+
+- How does cutoff change normal-state Z(i omega_n) (exact analytical results)?
+
+
+15  Multi-band self-energy and Tc:
 
 - effective lambda: Show that eigenvalues of Kronecker product of matrices are
   products of eigenvalues of its factors and that the maximum eigenvalue of
@@ -48,10 +44,50 @@
     - lambda = [[x, 1], [1, y]] yields (x - lambda)(y - lambda) = 1. Do curves
       like that reoccur for elements of muStar which does not commute with
       lambda? Analyze special cases if whole problem is too difficult?
-
 - The eigenvalues of [1/(2m+1)]*[muStar(i,j)] are either zero or proportional to
   the eigenvalues of muStar. The eigenvectors are constant. What about the
   eigenvalues of matrix differences?
-- Show equivalence of Rainer-Bergmann formulation of Eliashberg eigenvalue
-  problem and maybe explain why it leads to a slower convergence.
-- Where does symmetry Sigma[i omega(n)] = Sigma[-i omega(n)] come from?
+
+
+19  Fix details, preserve overall consistency:
+
+- Introduce meaning of k, q, sigma only once
+- Write time argument (0) or not?
+
+
+20  Anomalous perturbation theory:
+
+- Anomalous perturbation theory/spontaneous symmetry breaking:
+    - Richard D. Mattuck: A Guide to Feynman Diagrams in the Many-body Problem,
+      Sec. 17.4
+    - Gabriele Giuliani, Giovanni Vignale: Quantum Theory of the Electron
+      Liquid, Fig. 6.33
+
+
+21  Introduction to superconductivity:
+
+- Review history of superconductivity (Ginzburg-Landau?)
+- Fröhlich transformation correct? Divergences because of poles in S?
+
+
+25  Introduction/motivation:
+
+- McMillan may possibly fail for:
+    - Multi-pocket interactions (e.g. in MgB2, MoS2)
+        - Read MgB2 paper by Igor Mazin cited by Roxana Margine
+    - Strong correlations (quasi particle picture still valid, see Marsiglio and
+      J.P. Carbotte)
+    - Fluctuations in the order parameter (magnons etc.)
+- Where exactly is the zero crossing of the Matsubara gap?
+    - What happens for growing mu*/lambda?
+    - ... in the multiband case?
+
+
+If there is time left:
+
+- Create symbols for repeated use with TikZ?
+
+
+If there is even more time left:
+
+- Dynamical Mean-Field Theory (DMFT) and Dynamical Vertex Approximation (DGA)?
