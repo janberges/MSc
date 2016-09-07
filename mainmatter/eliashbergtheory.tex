@@ -599,9 +599,10 @@ $\Delta(\I \omega_n) = \phi(\I \omega_n) / Z(\I \omega_n)$, this yields
         { \sqrt{\omega_m^2 + \Delta^2(\I \omega_m)} }
 \end{equation*}
 %
-and thus the \emph{constant-DOS \name{Eliashberg} equations}
+and thus the \emph{cDOS \name{Eliashberg} equations} for a constant density of
+states
 %
-\begin{subequations}
+\begin{subequations} \label{cDOS Eliashberg equations}
     \begin{align}
         Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
         \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
@@ -760,14 +761,18 @@ are actually defined for the whole complex plane, read
     \bigg \}.
 \end{align*}
 
-Let $f(\omega)$ represent any of the functions $\omega^2$, $Z(\omega)$ and
-$\phi(\omega)$. They all have in common that they transform into their complex
-conjugate if the sign of either the real or imaginary part of their argument
-changes \cite[Eq.~A5]{AmbegaokarTewordt64}. Formally,
+Noting that $\lambda(n) = \lambda(-n)$, one can easily verify that even
+functions $Z(\I \omega_n)$ and $\Delta(\I \omega_n)$ are perfectly compatible
+with Eqs.~\ref{cDOS Eliashberg equations}. This property is inherited by the
+corresponding real-axis quantities. More general: Let $f(\omega)$ represent any
+of the functions $\omega^2$, $Z(\omega)$ and $\phi(\omega)$. They all have in
+common that they transform into their complex conjugate if the sign of either
+the real or imaginary part of their argument changes
+\cite[Eq.~A5]{AmbegaokarTewordt64}. Formally,
 %
-\begin{equation*}
+\begin{equation} \label{frequency symmetries}
     f(-\omega) = f(\omega) \quad \text{and} \quad f(\omega^*) = f^*(\omega).
-\end{equation*}
+\end{equation}
 %
 The same applies to functions which are derived by means of the four basic
 arithmetical operations, such as $\Delta(\omega) = \phi(\omega) / Z(\omega)$,
@@ -1022,6 +1027,56 @@ $C$ is found via linear regression of
 \end{equation*}
 
 \section{\name{Coulomb} pseudo-potential}
+
+The introduction of the \name{Coulomb} pseudo-potential in the preceding section
+requires a more detailed analysis of the \name{Coulomb} interaction as occurring
+in the \name{Eliashberg} theory. Before that, however, it is convenient to put
+the local and cDOS \name{Eliashberg} equations (Eqs.~\ref{local Eliashberg
+equations} and \ref{cDOS Eliashberg equations}) into a form which is more
+suitable for both further analysis and computational implementation.
+
+As already stated in Eq.~\ref{frequency symmetries}, one can assume the
+solutions of the Eliashberg equations to be even function of frequency.
+Exploiting this symmetry it is possible to fold the negative half of the
+\name{Matsubara} sum onto the positive one. For local self-energies this yields
+%
+\begin{align*}
+    Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_{m = 0}^\infty
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac{\omega_m Z (\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    \Lambda^-(n, m),
+    \\
+    \phi(\I \omega_n) &= T \sum_{m = 0}^\infty
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    [\Lambda^+(n, m) - 2 \mu \sub C],
+    \\
+    \chi(\I \omega_n) &= -T \sum_{m = 0}^\infty
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac{\epsilon - \mu + \chi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    \Lambda^+(n, m)
+\end{align*}
+%
+and under the additional assumption of a constant density of states
+%
+\begin{align*}
+    Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_{m = 0}^\infty
+    \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
+    \Lambda^-(n, m),
+    \\
+    \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_{m = 0}^\infty
+    \frac{\Delta(\I \omega_m)}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
+    [\Lambda^+(n, m) - 2 \mu \sub C].
+\end{align*}
+%
+The occurring electron-phonon coupling matrices are defined as
+%
+\begin{equation*}
+    \Lambda^\pm(n, m) = \lambda(n - m) \pm \lambda(n + m + 1).
+\end{equation*}
 
 Solving the above equations on a computer requires a truncation of the infinite
 summation over \textsc{Matsubara} frequencies. For the phonon part this is
