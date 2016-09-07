@@ -11,15 +11,18 @@ To that end it is convenient to combine the \name{Green} functions of interest
 into a $2 \times 2$ matrix, i.e. to use the \name{Nambu} formalism, which is
 presented in the first section. With that, the general form of the
 \name{Eliashberg} equations on the imaginary frequency axis is derived, followed
-by some common approximations which assume (I) a $\vec k$-independent
-self-energy, (II) a constant density of states and (III) the suitability of a
-\name{Coulomb} pseudo-potential. Next, it is shown how the real-axis equations
-can be obtained through analytical continuation. On this basis \name{McMillan}'s
-formula for the critical temperature is derived. Finally, it is demonstrated how
-the imaginary-axis equations can be solved numerically and how the results,
-which are generally just the numerical values corresponding to a finite set of
-\name{Matsubara} frequencies rather than analytical expressions, can be
-continued to the real axis by means of \name{Padé} approximants.
+by two common approximations which assume (1) a local self-energy and (2) a
+constant density of states. Next, it is shown how the corresponding real-axis
+equations can be obtained through analytical continuation. On this basis
+\name{McMillan}'s formula for the critical temperature is derived, whereby the
+\name{Coulomb} pseudo-potential is introduced. This requires a more detailed
+discussion of rescaling of the \name{Coulomb} interaction, leading to results
+which are also useful in dealing with the chemical potential. After that, the
+whole formalism is generalized to multiple electronic bands. The penultimate
+section is dedicated to the determination of the critical temperature via
+linearized \name{Eliashberg} equations. Finally, it is demonstrated how
+imaginary-axis results can be continued to the real axis by means of \name{Padé}
+approximants.
 
 \section{\name{Nambu} formalism}
 
@@ -427,59 +430,15 @@ electron-phonon coupling \cite[Eq.~1, e.g.]{Migdal58} and $F(\omega)$ for the
 phonon density of states \cite[16]{AllenMitrovic82}, which is basically the
 $\vec q$ average of the spectral function $B_{\vec q}(\omega)$.
 
-If the chemical potential in the above equations is assumed to be constant, the
-particle number is not necessarily conserved. Following
-Ref.~\barecite{SchafrothRodriguezNunezBeck97}, with the help of
-\name{Dirichlet}'s theorem for \name{Fourier} series and
-Eq.~\ref{Matsubara-Green function} one finds
-%
-\begin{align*}
-    \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
-    = 1 - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
-    &= \frac { 1
-        + \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
-        - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
-        } 2
-    \\
-    &= \frac {1 + G_{\vec k}(0^-) + G_{\vec k}(0^+)} 2
-    = \frac 1 2 + G_{\vec k}(0)
-    = \frac 1 2 + \frac 1 \beta \sum_{n \in \mathds Z} G_{\vec k}(\I \omega_n)
-\end{align*}
-%
-and thus the \emph{particle density} or \emph{occupation number} per unit cell
-%
-\begin{equation*}
-    n = \frac 1 N \sum_{\vec k \sigma} \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
-    = 1 + \frac 2 {\beta N} \sum_{\vec k n} G_{\vec k}(\I \omega_n)
-    = 1 - \frac 2 {\beta N} \sum_{\vec k n} \frac
-        {\epsilon_{\vec k} - \mu + \chi_{\vec k}(\I \omega_n)}
-        {\Theta_{\vec k}(\I \omega_n)},
-\end{equation*}
-%
-where terms with $\I \omega_n Z_{\vec k}(\I \omega_n)$ have cancelled. Using
-Eq.~\ref{Matsubara sum} it can be shown that for $Z_{\vec k}(\I \omega_n) = 1$
-and $\phi_{\vec k}(\I \omega_n) = \chi_{\vec k}(\I \omega_n) = 0$ the
-free-particle occupation number is reproduced:
-%
-\begin{equation*}
-    1 - \frac 2 {\beta N} \sum_{\vec k n}
-    \frac
-        {\textcolor{gray}{\I \omega_n + {}} \epsilon_{\vec k} - \mu}
-        {\omega_n^2 + (\epsilon_{\vec k} - \mu)^2}
-    = 1 - \frac 2 {\beta N} \sum_{\vec k n}
-    \frac 1 {\epsilon_{\vec k} - \mu - \I \omega_n}
-    = \frac 2 N \sum_k f_+(\epsilon_k)
-    = 2 \int \from{-\infty} \till \infty \D \epsilon \,
-    n(\epsilon) \, f_+(\epsilon).
-\end{equation*}
-%
 In order to conserve the particle number, the chemical potential $\mu$ has to be
-determined self-consistently alongside the self-energy components.
+determined self-consistently alongside the self-energy components. This is
+discussed in detail in Section~\ref{chemical potential}.
 
 \section{Common approximations}
 
 The numerical solution of the \name{Eliashberg} equations in the form presented
-in Eq.~\ref{Eliashberg equations} involves a high computational workload. It is
+in Eq.~\ref{Eliashberg equations} involves a high computational workload,
+especially because of the summations over the \name{Brillouin} zone. It is
 therefore common to apply certain approximations.
 
 \subsection{Local self-energy}
@@ -566,49 +525,6 @@ with $\Theta_\epsilon(\I \omega_n) = [\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
 
 \subsection{Constant density of states}
 
-Save for the factor $N(\epsilon)$, which is unspecified at this point, the
-integrands in Eq.~\ref{local self-energy} converge towards zero as $\epsilon$
-diverges from $\mu - \chi(\I \omega_m) \approx \mu_0$. Therefore it may be
-acceptable to approximate $N(\epsilon)$ by a constant $N(\mu_0)$ \cites [below
-Eq.~26]{Allen76} [17]{AllenMitrovic82} [Sec.~B]{MargineGiustino13}, which is
-visualized in Fig.~\ref{constant-DOS approximation}, so that the integration can
-be performed analytically. With the help of
-%
-\begin{equation} \label{integrals}
-    \int_{-\infty}^\infty \frac{\D x}{x^2 + z} = \frac \pi {\sqrt z}
-    \quad \text{and} \quad
-    \mathcal P \int \from{-\infty} \till \infty \D x \, \frac x {x^2 + z} = 0,
-\end{equation}
-%
-where $\mathcal P$ denotes the \textsc{Cauchy} principal value, and using
-$\Delta(\I \omega_n) = \phi(\I \omega_n) / Z(\I \omega_n)$, this yields
-%
-\begin{equation*}
-    \vec \Sigma(\I \omega_n)
-    = \pi T \sum_m \frac{ \{
-        - \I \omega_m \vec \sigma_0 + \Delta(\I \omega_m) \vec \sigma_1
-        \} \lambda(n - m)
-        - \Delta(\I \omega_m) \vec \sigma_1 \mu \sub C }
-        { \sqrt{\omega_m^2 + \Delta^2(\I \omega_m)} }
-\end{equation*}
-%
-and thus the \emph{constant-DOS \name{Eliashberg} equations}
-%
-\begin{subequations}
-    \begin{align}
-        Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
-        \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
-        \lambda(n - m),
-        \\
-        \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_m
-        \frac{\Delta(\I \omega_m)}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
-        [\lambda(n - m) - \mu \sub C].
-    \end{align}
-\end{subequations}
-%
-The chemical potential and the energy shift have disappeared from the equations
-and the density of states enters through the coupling strengths only.
-
 \begin{figure}[b]
     \small
     \begin{subfigure}{6.75cm}
@@ -656,125 +572,49 @@ and the density of states enters through the coupling strengths only.
         }
     \label{constant-DOS approximation}
 \end{figure}
-
-\subsubsection{Critical point and normal state}
-
-At $T \sub c$, where the order parameter $\Delta(\I \omega_m)$ is infinitesimal,
-and in the normal state, where it is zero, it can be neglected relative to
-$\omega_m$. This yields the \emph{linearized \name{Eliashberg} equations},
 %
-\begin{subequations} \label{linearized Eliashberg equations}
+Save for the factor $N(\epsilon)$, which is unspecified at this point, the
+integrands in Eq.~\ref{local self-energy} converge towards zero as $\epsilon$
+diverges from $\mu - \chi(\I \omega_m) \approx \mu_0$. Therefore it may be
+acceptable to approximate $N(\epsilon)$ by a constant $N(\mu_0)$ \cites [below
+Eq.~26]{Allen76} [17]{AllenMitrovic82} [Sec.~B]{MargineGiustino13}, which is
+visualized in Fig.~\ref{constant-DOS approximation}, so that the integration can
+be performed analytically. With the help of
+%
+\begin{equation} \label{integrals}
+    \int_{-\infty}^\infty \frac{\D x}{x^2 + z} = \frac \pi {\sqrt z}
+    \quad \text{and} \quad
+    \mathcal P \int \from{-\infty} \till \infty \D x \, \frac x {x^2 + z} = 0,
+\end{equation}
+%
+where $\mathcal P$ denotes the \textsc{Cauchy} principal value, and using
+$\Delta(\I \omega_n) = \phi(\I \omega_n) / Z(\I \omega_n)$, this yields
+%
+\begin{equation*}
+    \vec \Sigma(\I \omega_n)
+    = \pi T \sum_m \frac{ \{
+        - \I \omega_m \vec \sigma_0 + \Delta(\I \omega_m) \vec \sigma_1
+        \} \lambda(n - m)
+        - \Delta(\I \omega_m) \vec \sigma_1 \mu \sub C }
+        { \sqrt{\omega_m^2 + \Delta^2(\I \omega_m)} }
+\end{equation*}
+%
+and thus the \emph{constant-DOS \name{Eliashberg} equations}
+%
+\begin{subequations}
     \begin{align}
         Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
-        \sgn(\omega_m) \, \lambda(n - m),
+        \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
+        \lambda(n - m),
         \\
         \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_m
-        \frac{\Delta(\I \omega_m)}{|\omega_m|}
+        \frac{\Delta(\I \omega_m)}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
         [\lambda(n - m) - \mu \sub C].
     \end{align}
 \end{subequations}
-
-At this point the equation for $Z(\I \omega_n)$ is neither coupled to the
-equation of $\Delta(\I \omega)$ nor must it be solved self-consistently. One can
-further evaluate
 %
-\begin{equation} \label{normal-state renormalization}
-    Z(\I \omega_n) = 1 + \frac{\pi T}{\omega_n} \sum_{m=-n}^n \lambda(m)
-    = 1 + \frac{\pi T}{\omega_n}
-    \Big[ \lambda(0) + 2 \sum_{m=1}^n \lambda(m) \Big].
-\end{equation}
-
-\subsection{\name{Coulomb} pseudo-potential}
-
-Solving the above equations on a computer requires a truncation of the infinite
-summation over \textsc{Matsubara} frequencies. For the phonon part this is
-unproblematic since it has a natural cutoff through $\lambda(n)$, which decays
-rapidly with the magnitude of $\nu_n$. The \textsc{Coulomb} part, however, does
-not depend on frequency and thus couples all terms equally strong. As a
-consequence, the partial sum does not converge with increasing cutoff. The
-following procedure%
-%
-\footnote{Analogous derivations are given by \name{Schrieffer}
-\cite[185-188]{Schrieffer83} and \name{Allen} and \name{Mitrovi\'{c}}
-\cite[Sec.~9]{AllenMitrovic82}. According to the former, the formula for $\mu^*$
-was first given in 1959 by \name{Bogoliubov}, \name{Tolmachev} and
-\name{Shirkov} \cite[83]{BogoliubovTolmachevShirkov59}. Nevertheless, the
-quantity is named after Pierre \textsc{Morel} and Philip W. \textsc{Anderson}
-with reference to Ref.~\barecite{MorelAnderson62} from 1962.}
-%
-circumvents this.
-
-Let $\phi(\I \omega_n) = \phi \sub{ph.} (\I \omega_n) + \phi \sub{el.}$ and
-consider the \textsc{Eliashberg} equation for $\phi \sub{el.}$,
-%
-\begin{equation} \label{Coulomb part of Eliashberg equation}
-    \phi \sub{el.} = -\mu \sub C \pi T \sum_m^{\mathclap{|\omega_m| < \omega_u}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
-\end{equation}
-%
-where $\omega_u$ is the (upper) cutoff frequency. The idea is to truncate the
-Coulomb part at a lower frequency $\omega_l$, above which $\phi \sub{ph.} (\I
-\omega_m) \approx 0$, $\phi \sub{el.} \ll \omega_m$ and $Z(\I \omega_m) \approx
-1$. Hence,
-%
-\begin{equation*}
-    \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
-    \approx \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
-    \frac{\phi \sub{el.}}{|\omega_m|}
-\end{equation*}
-%
-Bringing this part to the left-hand side of Eq.~\ref{Coulomb part of Eliashberg
-equation} yields
-%
-\begin{equation*}
-    \Big[
-        1 + \mu \sub C \pi T
-        \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}} |\omega_m|^{-1}
-    \Big]
-    \phi \sub{el.} = -\mu \sub C \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
-\end{equation*}
-%
-or equivalently
-%
-\begin{equation*}
-    \phi \sub{el.} = -\mu^* \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
-    \quad \text{with} \quad
-    \mu^* = \frac{\mu \sub C}{1 + \mu \sub C \pi T
-    \sum_m^{\omega_l \leq |\omega_m| < \omega_u} |\omega_m|^{-1}},
-\end{equation*}
-%
-the \emph{\textsc{Anderson-Morel} \textsc{Coulomb} pseudo-potential}. One can
-further simplify
-%
-\begin{align*}
-    \pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
-    |\omega_m|^{-1}
-    &= \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
-    \frac 1 {|2 m + 1|}
-    = \sum_{m = l}^{u - 1} \frac 1 {m + \frac 1 2} \\
-    &= \psi(u + \tfrac 1 2) - \psi(l + \tfrac 1 2)
-    \approx \log \frac{u + \frac 1 2}{l + \frac 1 2}
-    = \log \frac{2 u + 1}{2 l + 1} = \ln \frac{\omega_u}{\omega_l},
-\end{align*}
-%
-where $\psi(x) = \varGamma'(x) / \varGamma(x)$ is the digamma function. The
-approximation becomes exact asymptotically for large arguments and is related to
-the \textsc{Stirling} formula \cite[Appendix~A]{AllenMitrovic82}. Hence,
-%
-\begin{equation*}
-    \mu^* = \frac{\mu \sub C}{1 + \mu \sub C \ln(\omega_u / \omega_l)}.
-\end{equation*}
+The chemical potential and the energy shift have disappeared from the equations
+and the density of states enters through the coupling strengths only.
 
 \section{Real-axis equations}
 
@@ -1003,9 +843,10 @@ pseudo-potential $\mu^*$. This section provides a review of the original work
 \cite{McMillan68}.
 
 The starting point is a linearized form of the real-axis \name{Eliashberg}
-equations analogous to Eqs.~\ref{linearized Eliashberg equations}. Introducing
-two cutoff energies, the maximum phonon frequency $\omega_0$ and the electronic
-bandwidth $E \sub B$, Eq.~\ref{real-axis Eliashberg equations} becomes
+equations, which emerges at $T \sub c$ where $\Delta(\omega)$ is infinitesimal
+and negligible relative to $\omega$. Introducing two cutoff energies, the
+maximum phonon frequency $\omega_0$ and the electronic bandwidth $E \sub B$,
+Eq.~\ref{real-axis Eliashberg equations} becomes
 %
 \begin{align*}
     Z(\omega) = 1 - \frac 1 \omega
@@ -1116,8 +957,8 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
 \end{enumerate}
 
 The renormalization at zero frequencies is assumed to be $Z(0) = Z(\I
-\omega_0)$, which is given by Eq.~\ref{normal-state renormalization}, whereas
-for the case of infinite frequency is trivial. Thus
+\omega_0)$, which will be derived in Eq.~\ref{normal-state renormalization},
+whereas for the case of infinite frequency is trivial. Thus
 %
 \begin{equation*}
     Z(0) = 1 + \lambda, \quad Z(\infty) = 1.
@@ -1180,63 +1021,149 @@ $C$ is found via linear regression of
     + \frac{B \, (1 + \lambda)}{\mu^* \ln (A T \sub c / \Theta)}
 \end{equation*}
 
-\section{Computational implementation}
+\section{\name{Coulomb} pseudo-potential}
 
-Multiband \name{Eliashberg} equations with $|\omega_m| < \omega_N{}^{(*)}$:
+Solving the above equations on a computer requires a truncation of the infinite
+summation over \textsc{Matsubara} frequencies. For the phonon part this is
+unproblematic since it has a natural cutoff through $\lambda(n)$, which decays
+rapidly with the magnitude of $\nu_n$. The \textsc{Coulomb} part, however, does
+not depend on frequency and thus couples all terms equally strong. As a
+consequence, the partial sum does not converge with increasing cutoff. The
+following procedure%
+%
+\footnote{Analogous derivations are given by \name{Schrieffer}
+\cite[185-188]{Schrieffer83} and \name{Allen} and \name{Mitrovi\'{c}}
+\cite[Sec.~9]{AllenMitrovic82}. According to the former, the formula for $\mu^*$
+was first given in 1959 by \name{Bogoliubov}, \name{Tolmachev} and
+\name{Shirkov} \cite[83]{BogoliubovTolmachevShirkov59}. Nevertheless, the
+quantity is named after Pierre \textsc{Morel} and Philip W. \textsc{Anderson}
+with reference to Ref.~\barecite{MorelAnderson62} from 1962.}
+%
+circumvents this.
+
+Let $\phi(\I \omega_n) = \phi \sub{ph.} (\I \omega_n) + \phi \sub{el.}$ and
+consider the \textsc{Eliashberg} equation for $\phi \sub{el.}$,
+%
+\begin{equation} \label{Coulomb part of Eliashberg equation}
+    \phi \sub{el.} = -\mu \sub C \pi T \sum_m^{\mathclap{|\omega_m| < \omega_u}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
+\end{equation}
+%
+where $\omega_u$ is the (upper) cutoff frequency. The idea is to truncate the
+Coulomb part at a lower frequency $\omega_l$, above which $\phi \sub{ph.} (\I
+\omega_m) \approx 0$, $\phi \sub{el.} \ll \omega_m$ and $Z(\I \omega_m) \approx
+1$. Hence,
 %
 \begin{equation*}
-    \begin{split}
-        Z_i(n) &= 1 + \frac{\pi T}{\omega_n} \sum_{j m}^{(*)}
-        \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
-        \lambda_{i j}(n - m),
-        \\
-        \Delta_i(n) &= \frac{\pi T}{Z_i(n)} \sum_{j m}^{(*)}
-        \frac{\Delta_j(m)}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
-        [\lambda_{i j}(n - m) - \mu^*_{i j}(N)].
-    \end{split}
+    \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+    \approx \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
+    \frac{\phi \sub{el.}}{|\omega_m|}
 \end{equation*}
 %
-\dots and how they are implemented:
-%
-\begin{align}
-    \begin{split}
-        Z_i(n) &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
-        \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
-        [\lambda_{i j}(n - m) - \lambda_{i j}(n + m + 1)],
-        \\
-        \Delta_i(n) &= \frac{\pi T}{Z_i(n)} \sum_j \sum_{m = 0}^{N - 1}
-        \frac{\Delta_j(m)}{\sqrt{\omega_m^2 + \Delta_j^2(m)}}
-        [\lambda_{i j}(n - m) + \lambda_{i j}(n + m + 1) - 2 \mu^*_{i j}(N)].
-    \end{split}
-\end{align}
-%
-\dots linearized at $T \sub c$:
+Bringing this part to the left-hand side of Eq.~\ref{Coulomb part of Eliashberg
+equation} yields
 %
 \begin{equation*}
-    \begin{split}
-        Z_i(n) &= 1 + \frac{\pi T \sub c}{\omega_n} \sum_{j m}
-        \sgn(\omega_m) \, \lambda_{i j}(n - m),
-        \\
-        \Delta_i(n) &= \frac{\pi T \sub c}{Z_i(n)} \sum_{j m}
-        \frac{\Delta_j(m)}{|\omega_m|}
-        [\lambda_{i j}(n - m) - \mu^*_{i j}(N)].
-    \end{split}
+    \Big[
+        1 + \mu \sub C \pi T
+        \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}} |\omega_m|^{-1}
+    \Big]
+    \phi \sub{el.} = -\mu \sub C \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
 \end{equation*}
 %
-\dots and how they are implemented:
+or equivalently
 %
 \begin{equation*}
-    \begin{split}
-        Z_i(n) &= 1 + \frac{\pi T \sub c}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
-        [\lambda_{i j}(n - m) - \lambda_{i j}(n + m + 1)],
-        \\
-        \Delta_i(n) &= \frac{\pi T \sub c}{Z_i(n)} \sum_j \sum_{m = 0}^{N - 1}
-        \frac{\Delta_j(m)}{\omega_m}
-        [\lambda_{i j}(n - m) + \lambda_{i j}(n + m + 1) - 2 \mu^*_{i j}(N)].
-    \end{split}
+    \phi \sub{el.} = -\mu^* \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+    \quad \text{with} \quad
+    \mu^* = \frac{\mu \sub C}{1 + \mu \sub C \pi T
+    \sum_m^{\omega_l \leq |\omega_m| < \omega_u} |\omega_m|^{-1}},
+\end{equation*}
+%
+the \emph{\textsc{Anderson-Morel} \textsc{Coulomb} pseudo-potential}. One can
+further simplify
+%
+\begin{align*}
+    \pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
+    |\omega_m|^{-1}
+    &= \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
+    \frac 1 {|2 m + 1|}
+    = \sum_{m = l}^{u - 1} \frac 1 {m + \frac 1 2} \\
+    &= \psi(u + \tfrac 1 2) - \psi(l + \tfrac 1 2)
+    \approx \log \frac{u + \frac 1 2}{l + \frac 1 2}
+    = \log \frac{2 u + 1}{2 l + 1} = \ln \frac{\omega_u}{\omega_l},
+\end{align*}
+%
+where $\psi(x) = \varGamma'(x) / \varGamma(x)$ is the digamma function. The
+approximation becomes exact asymptotically for large arguments and is related to
+the \textsc{Stirling} formula \cite[Appendix~A]{AllenMitrovic82}. Hence,
+%
+\begin{equation*}
+    \mu^* = \frac{\mu \sub C}{1 + \mu \sub C \ln(\omega_u / \omega_l)}.
 \end{equation*}
 
-\subsection{Particle number}
+\section{Chemical potential}
+\label{chemical potential}
+
+If the chemical potential in the above equations is assumed to be constant, the
+particle number is not necessarily conserved. Following
+Ref.~\barecite{SchafrothRodriguezNunezBeck97}, with the help of
+\name{Dirichlet}'s theorem for \name{Fourier} series and
+Eq.~\ref{Matsubara-Green function} one finds
+%
+\begin{align*}
+    \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+    = 1 - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
+    &= \frac { 1
+        + \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+        - \av{\op c_{\vec k} \, \op c_{\vec k}^+}
+        } 2
+    \\
+    &= \frac {1 + G_{\vec k}(0^-) + G_{\vec k}(0^+)} 2
+    = \frac 1 2 + G_{\vec k}(0)
+    = \frac 1 2 + \frac 1 \beta \sum_{n \in \mathds Z} G_{\vec k}(\I \omega_n)
+\end{align*}
+%
+and thus the \emph{particle density} or \emph{occupation number} per unit cell
+%
+\begin{equation*}
+    n = \frac 1 N \sum_{\vec k \sigma} \av{\op c_{\vec k}^+ \, \op c_{\vec k}}
+    = 1 + \frac 2 {\beta N} \sum_{\vec k n} G_{\vec k}(\I \omega_n)
+    = 1 - \frac 2 {\beta N} \sum_{\vec k n} \frac
+        {\epsilon_{\vec k} - \mu + \chi_{\vec k}(\I \omega_n)}
+        {\Theta_{\vec k}(\I \omega_n)},
+\end{equation*}
+%
+where terms with $\I \omega_n Z_{\vec k}(\I \omega_n)$ have cancelled. Using
+Eq.~\ref{Matsubara sum} it can be shown that for $Z_{\vec k}(\I \omega_n) = 1$
+and $\phi_{\vec k}(\I \omega_n) = \chi_{\vec k}(\I \omega_n) = 0$ the
+free-particle occupation number is reproduced:
+%
+\begin{equation*}
+    1 - \frac 2 {\beta N} \sum_{\vec k n}
+    \frac
+        {\textcolor{gray}{\I \omega_n + {}} \epsilon_{\vec k} - \mu}
+        {\omega_n^2 + (\epsilon_{\vec k} - \mu)^2}
+    = 1 - \frac 2 {\beta N} \sum_{\vec k n}
+    \frac 1 {\epsilon_{\vec k} - \mu - \I \omega_n}
+    = \frac 2 N \sum_k f_+(\epsilon_k)
+    = 2 \int \from{-\infty} \till \infty \D \epsilon \,
+    n(\epsilon) \, f_+(\epsilon).
+\end{equation*}
+%
+In order to conserve the particle number, the chemical potential $\mu$ has to be
+determined self-consistently alongside the self-energy components.
 
 The calculation of the occupation number from the results of the imaginary-axis
 \name{Eliashberg} equations is complicated by the cutoff of the \name{Matsubara}
@@ -1383,4 +1310,39 @@ Does fixed-point iteration $x_{n + 1} = f(x_n)$ converge if $|f(x) - \bar x| <
 |x - \bar x|$ for all possible starting points $x$, where $\bar x$ is the fixed
 point?
 
-\subsection{\name{Padé} approximants}
+\section{Multiband \name{Eliashberg} equations}
+
+\dots
+
+\section{Critical point and normal state}
+
+At $T \sub c$, where the order parameter $\Delta(\I \omega_m)$ is infinitesimal,
+and in the normal state, where it is zero, it can be neglected relative to
+$\omega_m$. This yields the \emph{linearized \name{Eliashberg} equations},
+%
+\begin{subequations} \label{linearized Eliashberg equations}
+    \begin{align}
+        Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
+        \sgn(\omega_m) \, \lambda(n - m),
+        \\
+        \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_m
+        \frac{\Delta(\I \omega_m)}{|\omega_m|}
+        [\lambda(n - m) - \mu \sub C].
+    \end{align}
+\end{subequations}
+
+At this point the equation for $Z(\I \omega_n)$ is neither coupled to the
+equation of $\Delta(\I \omega)$ nor must it be solved self-consistently. One can
+further evaluate
+%
+\begin{equation} \label{normal-state renormalization}
+    Z(\I \omega_n) = 1 + \frac{\pi T}{\omega_n} \sum_{m=-n}^n \lambda(m)
+    = 1 + \frac{\pi T}{\omega_n}
+    \Big[ \lambda(0) + 2 \sum_{m=1}^n \lambda(m) \Big].
+\end{equation}
+
+\section{\name{Padé} approximants}
+
+Imaginary-axis resuls are generally just numerical values corresponding to a
+finite set of \name{Matsubara} frequencies rather than analytical expressions,
+which would allow for analytical continuation.
