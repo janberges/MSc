@@ -356,7 +356,7 @@ Using the definitions \cite{MargineGiustino13}
 \begin{align*}
     \mu \sub C = n(\mu_0) \, U,
         \quad
-    \lambda_{\vec q}(\I \nu_n) = -n(\mu_0) \, g^2 D_{\vec q}(\I \nu_n),
+    \lambda_{\vec q}(n) = -n(\mu_0) \, g^2 D_{\vec q}(\I \nu_n),
         \quad
     n(\epsilon) = \frac{N(\epsilon)} N,
         \quad
@@ -377,7 +377,7 @@ is the free-particle chemical potential, one can equivalently write
             - [\epsilon_{\vec q} - \mu + \chi_{\vec q}(\I \omega_m)]
             \vec \sigma_3
             \}
-        \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
+        \lambda_{\vec k - \vec q}(n - m)
         - \phi_{\vec q}(\I \omega_m) \vec \sigma_1 \mu \sub C
     \big \},
 \end{multline*}
@@ -390,21 +390,21 @@ which yields a more common formulation of the \name{Eliashberg} equations:
         \sum_{\vec q m} \frac
             {\omega_m Z_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
-        \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
+        \lambda_{\vec k - \vec q}(n - m),
         \\
         \phi_{\vec k}(\I \omega_n) &= \frac T {N(\mu_0)}
         \sum_{\vec q m} \frac
             {\phi_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
         \big[
-            \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m) - \mu \sub C
+            \lambda_{\vec k - \vec q}(n - m) - \mu \sub C
         \big],
         \\
         \chi_{\vec k}(\I \omega_n) &= -\frac T {N(\mu_0)}
         \sum_{\vec q m} \frac
             {\epsilon_{\vec q} - \mu + \chi_{\vec q}(\I \omega_m)}
             {\Theta_{\vec q}(\I \omega_m)}
-        \lambda_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
+        \lambda_{\vec k - \vec q}(n - m).
     \end{align}
 \end{subequations}
 
@@ -414,7 +414,7 @@ It is often convenient to work with the spectral representations
     D_{\vec q}(\I \nu_n) = -&\int \from 0 \till \infty \D \omega \,
         \frac{2 \omega \, B_{\vec q}(\omega)}{\nu_n^2 + \omega^2},
     \\
-    \lambda_{\vec q}(\I \nu_n) = &\int \from 0 \till \infty \D \omega \,
+    \lambda_{\vec q}(n) = &\int \from 0 \till \infty \D \omega \,
         \frac{2 \omega \, \alpha^2 F_{\vec q}(\omega)}{\nu_n^2 + \omega^2}
     \quad \text{with} \quad
     \alpha^2 F_{\vec q}(\omega) = n(\mu_0) \, g^2 B_{\vec q}(\omega).
@@ -484,12 +484,11 @@ therefore common to apply certain approximations.
 
 \subsection{Local self-energy}
 
-If the electron-phonon coupling strength $\lambda_{\vec q}(\I \nu_n) \equiv
-\lambda(\I \nu_n)$ is independent of $\vec q$, the self-energy $\vec
-\Sigma_{\vec k}(\I \omega_n) \equiv \vec \Sigma(\I \omega_n)$ and its components
-$Z$, $\phi$ and $\chi$ are independent of $\vec k$, i.e. \emph{local}. This is
-achieved, say, by taking a \name{Fermi}-surface average \cite[Eqs.~3.23,
-3.24]{AllenMitrovic82}
+If the electron-phonon coupling strength $\lambda_{\vec q}(n) \equiv \lambda(n)$
+is independent of $\vec q$, the self-energy $\vec \Sigma_{\vec k}(\I \omega_n)
+\equiv \vec \Sigma(\I \omega_n)$ and its components $Z$, $\phi$ and $\chi$ are
+independent of $\vec k$, i.e. \emph{local}. This is achieved, say, by taking a
+\name{Fermi}-surface average \cite[Eqs.~3.23, 3.24]{AllenMitrovic82}
 %
 \begin{equation*}
     B(\omega) = \av{B_{\vec q}(\omega)}_{\epsilon_{\vec q} = \mu}
@@ -507,7 +506,7 @@ case,
     D(\I \nu_n)
     = -\frac{2 \omega \sub E}{\nu_n^2 + \omega^2 \sub E}
     \quad \text{and} \quad
-    \lambda(\I \nu_n)
+    \lambda(n)
     = \frac{2 \omega \sub E \, n(\mu_0) \, g^2}{\nu_n^2 + \omega^2 \sub E},
 \end{equation*}
 %
@@ -535,8 +534,7 @@ It is now possible to replace the $\vec q$ summation by an energy integral:
             + \phi(\I \omega_m) \vec \sigma_1
             - [\epsilon - \mu + \chi(\I \omega_m)] \vec \sigma_3
             \}
-        \lambda(\I \omega_n - \I \omega_m)
-        - \phi(\I \omega_m) \vec \sigma_1 \mu \sub C
+        \lambda(n - m) - \phi(\I \omega_m) \vec \sigma_1 \mu \sub C
     \big \}
 \end{multline}
 %
@@ -550,19 +548,19 @@ with $\Theta_\epsilon(\I \omega_n) = [\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
         \int \from{-\infty} \till \infty \D \epsilon
         \frac{N(\epsilon)}{N(\mu_0)}
         \frac{\omega_m Z (\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-        \lambda(\I \omega_n - \I \omega_m),
+        \lambda(n - m),
         \\
         \phi(\I \omega_n) &= T \sum_m
         \int \from{-\infty} \till \infty \D \epsilon
         \frac{N(\epsilon)}{N(\mu_0)}
         \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-        [\lambda(\I \omega_n - \I \omega_m) - \mu \sub C],
+        [\lambda(n - m) - \mu \sub C],
         \\
         \chi(\I \omega_n) &= -T \sum_m
         \int \from{-\infty} \till \infty \D \epsilon
         \frac{N(\epsilon)}{N(\mu_0)}
         \frac{\epsilon - \mu + \chi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
-        \lambda(\I \omega_n - \I \omega_m).
+        \lambda(n - m).
     \end{align}
 \end{subequations}
 
@@ -583,15 +581,14 @@ be performed analytically. With the help of
 \end{equation}
 %
 where $\mathcal P$ denotes the \textsc{Cauchy} principal value, and using
-$\Delta(\I \omega) = \phi(\I \omega) / Z(\I \omega)$, this yields
+$\Delta(\I \omega_n) = \phi(\I \omega_n) / Z(\I \omega_n)$, this yields
 %
 \begin{equation*}
     \vec \Sigma(\I \omega_n)
     = \pi T \sum_m \frac{ \{
-        - \I \omega_m \vec \sigma_0
-        + \Delta(\I \omega_m) \vec \sigma_1 \}
-        \lambda(\I \omega_n - \I \omega_m)
-        - \Delta(\I \omega_m) \vec \sigma_1 \mu }
+        - \I \omega_m \vec \sigma_0 + \Delta(\I \omega_m) \vec \sigma_1
+        \} \lambda(n - m)
+        - \Delta(\I \omega_m) \vec \sigma_1 \mu \sub C }
         { \sqrt{\omega_m^2 + \Delta^2(\I \omega_m)} }
 \end{equation*}
 %
@@ -601,11 +598,11 @@ and thus the \emph{constant-DOS \name{Eliashberg} equations}
     \begin{align}
         Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
         \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
-        \lambda(\I \omega_n - \I \omega_m),
+        \lambda(n - m),
         \\
         \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_m
         \frac{\Delta(\I \omega_m)}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
-        [\lambda(\I \omega_n - \I \omega_m) - \mu \sub C].
+        [\lambda(n - m) - \mu \sub C].
     \end{align}
 \end{subequations}
 %
@@ -669,11 +666,11 @@ $\omega_m$. This yields the \emph{linearized \name{Eliashberg} equations},
 \begin{subequations} \label{linearized Eliashberg equations}
     \begin{align}
         Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
-        \sgn(\omega_m) \, \lambda(\I \omega_n - \I \omega_m),
+        \sgn(\omega_m) \, \lambda(n - m),
         \\
         \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_m
         \frac{\Delta(\I \omega_m)}{|\omega_m|}
-        [\lambda(\I \omega_n - \I \omega_m) - \mu \sub C].
+        [\lambda(n - m) - \mu \sub C].
     \end{align}
 \end{subequations}
 
@@ -682,19 +679,19 @@ equation of $\Delta(\I \omega)$ nor must it be solved self-consistently. One can
 further evaluate
 %
 \begin{equation} \label{normal-state renormalization}
-    Z(\I \omega_n) = 1 + \frac{\pi T}{\omega_n} \sum_{m=-n}^n \lambda(\I \nu_m)
+    Z(\I \omega_n) = 1 + \frac{\pi T}{\omega_n} \sum_{m=-n}^n \lambda(m)
     = 1 + \frac{\pi T}{\omega_n}
-    \Big[ \lambda(0) + 2 \sum_{m=1}^n \lambda(\I \nu_m) \Big].
+    \Big[ \lambda(0) + 2 \sum_{m=1}^n \lambda(m) \Big].
 \end{equation}
 
 \subsection{\name{Coulomb} pseudo-potential}
 
 Solving the above equations on a computer requires a truncation of the infinite
 summation over \textsc{Matsubara} frequencies. For the phonon part this is
-unproblematic since it has a natural cutoff through $\lambda(\I \nu_n)$, which
-decays rapidly with the magnitude of $\nu_n$. The \textsc{Coulomb} part,
-however, does not depend on frequency and thus couples all terms equally strong.
-As a consequence, the partial sum does not converge with increasing cutoff. The
+unproblematic since it has a natural cutoff through $\lambda(n)$, which decays
+rapidly with the magnitude of $\nu_n$. The \textsc{Coulomb} part, however, does
+not depend on frequency and thus couples all terms equally strong. As a
+consequence, the partial sum does not converge with increasing cutoff. The
 following procedure%
 %
 \footnote{Analogous derivations are given by \name{Schrieffer}
@@ -845,7 +842,7 @@ Using $\Im[\I \dots] = \Re[\,\dots]$, the phononic part of the self-energy reads
     \vec \Sigma \super{ph.} (\I \omega_n)
     = T \sum_m \int \from{-\infty} \till \infty \D \epsilon \,
     \vec \sigma_3 \, \vec G_\epsilon(\I \omega_m) \, \vec \sigma_3 \,
-    \lambda(\I \omega_n - \I \omega_m)
+    \lambda(n - m)
     \\
     = T \int \from{-\infty} \till \infty \D \omega' \, \Re \bigg[ \frac
         {\omega'_+ \vec \sigma_0 - \Delta(\omega'_+) \vec \sigma_1}
