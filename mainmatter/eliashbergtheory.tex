@@ -890,7 +890,11 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
 %
 \begin{enumerate}
     \item \textbf{Phononic contribution to \bm$\Delta(0)$ for \bm$\omega' <
-    \omega_0$.} Neglecting $\omega'$ relative to $\omega''$ yields
+    \omega_0$.} Neglecting $\omega'$ relative to $\omega''$ yields%
+    %
+    \footnote{Considering that $2 \arctan(x) \approx \pi \tanh(x / 2)$, the
+    integral approximation will be justified in Section~\ref{rectangular density
+    of states}}
     %
     \begin{gather*}
         \Omega(0, \omega', \omega'') - \Omega(0, -\omega', \omega'')
@@ -898,8 +902,7 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
         \\
         \Delta^{(1)}(0) \approx \frac{\Delta_0}{Z(0)}
         \hypo
-            {\int_0^{\omega_0} \frac{\D \omega'}{\omega'}
-            \hyper{[1 - 2 f_+(\omega')]}{\approx \Theta(\omega' - T \sub c)}}
+            {\int_0^{\omega_0} \frac{\D \omega'}{\omega'} [1 - 2 f_+(\omega')]}
             {\approx \ln(\omega_0 / T \sub c)} \
         \hypo
             {2 \int_0^{\omega_0} \frac{\D \omega''}{\omega''}
@@ -932,16 +935,14 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
     vanishes for $\Omega(\infty, \omega', \omega'') - \Omega(\infty, -\omega',
     \omega'') = 0$.
     %
-    \item \textbf{Electronic contribution to \bm$\Delta(0)$.} Approximating the
-    distributions as in $\Delta^{(1)}(0)$ and $\Delta^{(2)}(0)$,
+    \item \textbf{Electronic contribution to \bm$\Delta(0)$.} With the same
+    approximations as in $\Delta^{(1)}(0)$ and $\Delta^{(2)}(0)$,
     %
     \begin{equation*}
         \Delta^{(3)}(0) = -\frac{\mu \sub C}{Z(0)} \bigg[
             \Delta_0 \hypo
-                {\int_0^{\omega_0} \frac{\D \omega'}{\omega'}
-                \hyper
-                    {[1 - 2 f_+(\omega')]}
-                    {\approx \Theta(\omega' - T \sub c)}}
+                { \int_0^{\omega_0} \frac{\D \omega'}{\omega'}
+                [1 - 2 f_+(\omega')] }
                 {\approx \ln(\omega_0 / T \sub c)}
             + \Delta_\infty \hypo
                 {\int_{\omega_0}^{E \sub B}
@@ -1209,34 +1210,30 @@ and thus, removing the singularity at $\epsilon = \mu$,
 \end{equation*}
 
 \subsection{Rectangular density of states}
+\label{rectangular density of states}
 
 For the special case of a density of states which is constant on the interval
 $[-D, D]$ and zero elsewhere and assuming a chemical potential $\mu = 0$
 \cite[39]{AllenMitrovic82}, the formula for $\mu^*$ reduces to
 %
 \begin{equation*}
-    \frac 1 {\mu^*(N)} = \frac 1 {\mu \sub C}
-    + \frac 2 \pi \int_0^D \frac {\D \epsilon} \epsilon
+    \frac 1 {\mu^*(N)} = \frac 1 {\mu \sub C} + R(N)
+    \quad \text{with} \quad
+    R(N) = \frac 2 \pi \int_0^D \frac {\D \epsilon} \epsilon
     \arctan \frac \epsilon {\omega_N}.
 \end{equation*}
 %
 By means of substitution and partial integration one can further evaluate
 %
 \begin{equation*}
-    \frac 2 \pi \int_0^D \frac {\D \epsilon} \epsilon
-    \arctan \frac \epsilon {\omega_N}
-    = \frac 2 \pi \int_0^{\frac D {\omega_N}} \frac {\D x} x \arctan x
-    =
-    \frac{\arctan \tfrac D {\omega_N}}{\pi / 2} \ln \frac D {\omega_N}
+    R(N) = \frac 2 \pi \int_0^{\frac D {\omega_N}} \frac {\D x} x \arctan x
+    = \frac{\arctan \tfrac D {\omega_N}}{\pi / 2} \ln \frac D {\omega_N}
     - \hypo
         {\frac 2 \pi \int_0^{\frac D {\omega_N}} \frac{\D x \, \ln x}{1 + x^2}}
-        {
-        \mathllap{
-            \frac 2 \pi \int_{-\infty}^{\ln \frac D {\omega_N}}
-            \frac{x \, \D x}{\E^{-x} + \E^x} =
-            }
-        -\frac 1 \pi \int_{\ln \frac D {\omega_N}}^\infty
-        \frac{x \, \D x}{\cosh x}}
+        { \frac 2 \pi \int_{-\infty}^{\ln \frac D {\omega_N}}
+        \frac{x \, \D x}{\E^{-x} + \E^x}
+        = -\frac 1 \pi \int_{\ln \frac D {\omega_N}}^\infty
+        \frac{x \, \D x}{\cosh x} }
 \end{equation*}
 %
 Since the hyperbolic cosine growths exponentially with the magnitude of its
@@ -1244,9 +1241,7 @@ arguments while the arc tangents approaches $\pi / 2$, for the reasonable
 assumption $D \gg \omega_N$ one finds
 %
 \begin{equation} \label{rectangular-DOS mu*}
-\frac 2 \pi \int_0^D \frac {\D \epsilon} \epsilon
-\arctan \frac \epsilon {\omega_N}
-= \hyper{\frac{\arctan \tfrac D {\omega_N}}{\pi / 2}}{\approx 1}
+R(N) = \hyper{\frac{\arctan \tfrac D {\omega_N}}{\pi / 2}}{\approx 1}
 \ln \frac D {\omega_N}
 + \hyper{
     \frac 1 \pi \int_{\ln \frac D {\omega_N}}^\infty
@@ -1256,6 +1251,18 @@ assumption $D \gg \omega_N$ one finds
 \quad \text{so that} \quad
 \frac 1 {\mu^*(N)} = \frac 1 {\mu \sub C} + \ln \frac D {\omega_N}.
 \end{equation}
+
+For the sake of completeness it shall also be mentioned that an exact evaluation
+of $R(N)$ is possible in terms of dilogarithms:
+%
+\begin{equation*}
+    R(N) = \frac 1 {\I \pi} \int_0^{\I \frac D {\omega_N}} \frac {\D x} x
+    [\ln(1 + x) - \ln(1 - x)]
+    \equiv \frac
+        { \mathrm{Li}_2 \big(  \I \tfrac D {\omega_N} \big)
+        - \mathrm{Li}_2 \big( -\I \tfrac D {\omega_N} \big) }
+        {\I \pi}.
+\end{equation*}
 
 \subsection{Constant density of states}
 
