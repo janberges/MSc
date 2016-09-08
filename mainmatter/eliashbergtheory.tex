@@ -973,13 +973,13 @@ It is now required that $\Delta(0) \equiv \Delta_0$ and $\Delta(\infty) \equiv
 \Delta_\infty$. In the latter case is is possible to solve for $\Delta_\infty$,
 which yields
 %
-\begin{equation*}
+\begin{equation} \label{McMillan's Coulomb pseudo-potential}
     \Delta_\infty = -\mu^* \Delta_0 \ln \frac{\omega_0}{T \sub c}
     \quad \text{with} \quad
-    \mu^* = \frac{\mu \sub C}{1 + \mu \sub C \ln(E \sub B / \omega_0)},
-\end{equation*}
+    \frac 1 {\mu^*} = \frac 1 {\mu \sub C} + \ln \frac{E \sub B}{\omega_0},
+\end{equation}
 %
-where the \emph{\name{Coulomb} pseudo-potential} $\mu^*$ has been identified.
+where the \emph{\name{Coulomb} pseudo-potential} $\mu^*$ has been defined.
 Inserting this result,
 %
 \begin{equation*}
@@ -1067,8 +1067,10 @@ and under the additional assumption of a constant density of states
     \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
     \Lambda^-(n, m),
     \\
-    \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_{m = 0}^\infty
-    \frac{\Delta(\I \omega_m)}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
+    \phi(\I \omega_n) &= \pi T \sum_{m = 0}^\infty
+    \frac
+        {\phi(\I \omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
     [\Lambda^+(n, m) - 2 \mu \sub C].
 \end{align*}
 %
@@ -1081,10 +1083,10 @@ The occurring electron-phonon coupling matrices are defined as
 Solving the above equations on a computer requires a truncation of the infinite
 summation over \textsc{Matsubara} frequencies. For the phonon part this is
 unproblematic since it has a natural cutoff through $\lambda(n)$, which decays
-rapidly with the magnitude of $\nu_n$. The \textsc{Coulomb} part, however, does
-not depend on frequency and thus couples all terms equally strong. As a
-consequence, the partial sum does not converge with increasing cutoff. The
-following procedure%
+rapidly with growing magnitude of $\nu_n$. The \textsc{Coulomb} part, however,
+does not depend on frequency and thus couples terms regardless of the difference
+of their frequency arguments. As a consequence, the partial sum does converge
+very slowly -- or not at all -- with increasing cutoff. The following procedure%
 %
 \footnote{Analogous derivations are given by \name{Schrieffer}
 \cite[185-188]{Schrieffer83} and \name{Allen} and \name{Mitrovi\'{c}}
@@ -1096,83 +1098,247 @@ with reference to Ref.~\barecite{MorelAnderson62} from 1962.}
 %
 circumvents this.
 
+\subsection{Introduction of frequency cutoff}
+\label{introduction of frequency cutoff}
+
 Let $\phi(\I \omega_n) = \phi \sub{ph.} (\I \omega_n) + \phi \sub{el.}$ and
 consider the \textsc{Eliashberg} equation for $\phi \sub{el.}$,
 %
-\begin{equation} \label{Coulomb part of Eliashberg equation}
-    \phi \sub{el.} = -\mu \sub C \pi T \sum_m^{\mathclap{|\omega_m| < \omega_u}}
+\begin{equation} \label{constant Coulomb contribution}
+    \phi \sub{el.} = -2 \mu \sub C T \sum_{m = 0}^\infty
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)},
+\end{equation}
+%
+As can be seen from the results presented in Chapter ??, there is a cutoff
+frequency $\omega_N$ above which one can safely assume $\phi \sub{ph.} (\I
+\omega_m) \approx \chi(\I \omega_m) \approx 0$, $\phi \sub{el.} \ll \omega_m$
+and $Z(\I \omega_m) \approx 1$ such that
+%
+\begin{equation*}
+    -2 \mu \sub C T \sum_{m = N}^\infty
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    \approx -2 \mu \sub C T \sum_{m = N}^\infty
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac{\phi \sub{el.}}{\omega_m^2 + (\epsilon - \mu)^2}.
+\end{equation*}
+%
+Bringing this part to the left-hand side of Eq.~\ref{constant Coulomb contribution} yields
+%
+\begin{equation*}
+    \bigg[
+        1 + 2 \mu \sub C T \sum_{m = N}^\infty
+        \int \from{-\infty} \till \infty \D \epsilon
+        \frac{N(\epsilon)}{N(\mu_0)}
+        \frac 1 {\omega_m^2 + (\epsilon - \mu)^2}
+    \bigg]
+    \phi \sub{el.} =
+    -2 \mu \sub C T \sum_{m = 0}^{N - 1}
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+\end{equation*}
+%
+or equivalently, introducing a rescaled pseudo-potential $\mu^*(N)$,
+%
+\begin{equation*}
+    \phi \sub{el.} =
+    -2 \mu^*(N) T \sum_{m = 0}^{N - 1}
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)},
+    \quad
+    \frac 1 {\mu^*(N)} = \frac 1 {\mu \sub C}
+    + 2 T \sum_{m = N}^\infty
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \frac 1 {\omega_m^2 + (\epsilon - \mu)^2}.
+\end{equation*}
+%
+The truncation of the \name{Matsubara} sum has thus been compensated by
+rescaling the \name{Couloumb} interaction. For a computational solution for
+$\mu^*$ it is further convenient to replace the infinite sum by a closed form.
+This is done by means of the identity \cite[Eq.~A.14]{AllenMitrovic82}
+%
+\begin{equation*}
+    \sum_{n = 0}^{N - 1} \frac x {(n + \tfrac 1 2)^2 + x^2}
+    = \Im[\psi(\tfrac 1 2 + \I x) - \psi(N + \tfrac 1 2 + \I x)],
+\end{equation*}
+%
+where $\psi(x) = \varGamma'(x) / \varGamma(x)$ is the digamma function which
+asymptotically approaches the natural logarithm for large arguments, as found
+via the \textsc{Stirling} formula \cite[Appendix~A]{AllenMitrovic82}.
+Consequently,
+%
+\begin{align*}
+    \smash[b]{\sum_{n = N}^\infty \frac x {(n + \tfrac 1 2)^2 + x^2}}
+    &= \lim_{M \rightarrow \infty}
+    \big\{
+        \Im[\psi(N + \tfrac 1 2 + \I x) - \psi(M + \tfrac 1 2 + \I x)]
+    \big\}
+    \\
+    &\approx \lim_{M \rightarrow \infty}
+    \big\{
+        \Im[\log(N + \tfrac 1 2 + \I x) - \log(M + \tfrac 1 2 + \I x)]
+    \big\}
+    \\
+    &= \lim_{M \rightarrow \infty}
+    \big\{
+        \arg(N + \tfrac 1 2 + \I x) - \smash[b]
+        {\hypo{\arg(M + \tfrac 1 2 + \I x)}{\rightarrow 0}}
+    \big\}
+    = \smash{\arctan \frac x {N + \tfrac 1 2}}.
+\end{align*}
+%
+and thus, removing the singularity at $\epsilon = \mu$,
+%
+\begin{equation*}
+    \frac 1 {\mu^*(N)} = \frac 1 {\mu \sub C}
+    + \frac 1 \pi \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N(\epsilon)}{N(\mu_0)}
+    \begin{cases}
+        \frac 1 {\epsilon - \mu} \arctan \frac{\epsilon - \mu}{\omega_N}
+            & \text{for $\epsilon \neq \mu$,} \\
+        \frac 1 {\omega_N}
+            & \text{otherwise.}
+    \end{cases}
+\end{equation*}
+
+\subsection{Rectangular density of states}
+
+For the special case of a density of states which is constant on the interval
+$[-D, D]$ and zero elsewhere and assuming a chemical potential $\mu = 0$
+\cite[39]{AllenMitrovic82}, the formula for $\mu^*$ reduces to
+%
+\begin{equation*}
+    \frac 1 {\mu^*(N)} = \frac 1 {\mu \sub C}
+    + \frac 2 \pi \int_0^D \frac {\D \epsilon} \epsilon
+    \arctan \frac \epsilon {\omega_N}.
+\end{equation*}
+%
+By means of substitution and partial integration one can further evaluate
+%
+\begin{equation*}
+    \frac 2 \pi \int_0^D \frac {\D \epsilon} \epsilon
+    \arctan \frac \epsilon {\omega_N}
+    = \frac 2 \pi \int_0^{\frac D {\omega_N}} \frac {\D x} x \arctan x
+    =
+    \frac{\arctan \tfrac D {\omega_N}}{\pi / 2} \ln \frac D {\omega_N}
+    - \hypo
+        {\frac 2 \pi \int_0^{\frac D {\omega_N}} \frac{\D x \, \ln x}{1 + x^2}}
+        {
+        \mathllap{
+            \frac 2 \pi \int_{-\infty}^{\ln \frac D {\omega_N}}
+            \frac{x \, \D x}{\E^{-x} + \E^x} =
+            }
+        -\frac 1 \pi \int_{\ln \frac D {\omega_N}}^\infty
+        \frac{x \, \D x}{\cosh x}}
+\end{equation*}
+%
+Since the hyperbolic cosine growths exponentially with the magnitude of its
+arguments while the arc tangents approaches $\pi / 2$, for the reasonable
+assumption $D \gg \omega_N$ one finds
+%
+\begin{equation} \label{rectangular-DOS mu*}
+\frac 2 \pi \int_0^D \frac {\D \epsilon} \epsilon
+\arctan \frac \epsilon {\omega_N}
+= \hyper{\frac{\arctan \tfrac D {\omega_N}}{\pi / 2}}{\approx 1}
+\ln \frac D {\omega_N}
++ \hyper{
+    \frac 1 \pi \int_{\ln \frac D {\omega_N}}^\infty
+    \frac{x \, \D x}{\cosh x}
+    }
+    {\approx 0}
+\quad \text{so that} \quad
+\frac 1 {\mu^*(N)} = \frac 1 {\mu \sub C} + \ln \frac D {\omega_N}.
+\end{equation}
+
+\subsection{Constant density of states}
+
+One ought to think that the latest results should be directly applicable to the
+case of a constant density of states which extends over the whole energy domain.
+The problem is, however, that within the approximations made $\mu^*$ would
+vanish as $D \rightarrow \infty$, regardless of the chosen cutoff.
+
+A well-defined rescaling prescription can be found by applying the steps carried
+out in Section~\ref{introduction of frequency cutoff} directly to the
+approximate \name{Eliashberg} equation
+%
+\begin{equation} \label{approximate constant Coulomb contribution}
+    \phi \sub{el.} = -2 \mu^*(M) \pi T \sum_{m = 0}^{N - 1}
     \frac
         {\phi(\I \omega_m)}
         {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
 \end{equation}
 %
-where $\omega_u$ is the (upper) cutoff frequency. The idea is to truncate the
-Coulomb part at a lower frequency $\omega_l$, above which $\phi \sub{ph.} (\I
+where an upper cutoff at $\omega_M$ has been introduced in the first place and
+the appropriate yet unknown $\mu^*(M)$ is used. The idea is to truncate the
+Coulomb part at a lower frequency $\omega_N$, above which $\phi \sub{ph.} (\I
 \omega_m) \approx 0$, $\phi \sub{el.} \ll \omega_m$ and $Z(\I \omega_m) \approx
-1$. Hence,
+1$ is still a valid assumption. One has
 %
 \begin{equation*}
-    \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
+    -2 \mu^*(M) \pi T \sum_{m = N}^{M - 1}
     \frac
         {\phi(\I \omega_m)}
         {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
-    \approx \sum_m^{\mathclap{|\omega_m| \geq \omega_l}}
-    \frac{\phi \sub{el.}}{|\omega_m|}
+    \approx -2 \mu^*(M) \pi T \sum_{m = N}^{M - 1}
+    \frac{\phi \sub{el.}}{\omega_m}
 \end{equation*}
 %
-Bringing this part to the left-hand side of Eq.~\ref{Coulomb part of Eliashberg
-equation} yields
+which leads to
 %
 \begin{equation*}
-    \Big[
-        1 + \mu \sub C \pi T
-        \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}} |\omega_m|^{-1}
-    \Big]
-    \phi \sub{el.} = -\mu \sub C \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
+    \phi \sub{el.} = -2 \mu^*(N) \pi T \sum_{m = 0}^{N - 1}
     \frac
         {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
+    \quad
+    \mu^*(N) = \frac{\mu^*(M)}{1 + 2 \mu^*(M) \pi T
+    \sum_{m = N}^{M - 1} \omega_m^{-1}},
 \end{equation*}
 %
-or equivalently
+As above, one can further simplify
 %
 \begin{equation*}
-    \phi \sub{el.} = -\mu^* \pi T \sum_m^{\mathclap{|\omega_m| < \omega_l}}
-    \frac
-        {\phi(\I \omega_m)}
-        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
-    \quad \text{with} \quad
-    \mu^* = \frac{\mu \sub C}{1 + \mu \sub C \pi T
-    \sum_m^{\omega_l \leq |\omega_m| < \omega_u} |\omega_m|^{-1}},
+    2 \pi T \sum_{m = N}^{M - 1} |\omega_m|^{-1}
+    = \sum_{m = N}^{M - 1} \frac 1 {m + \frac 1 2}
+    = \psi(M + \tfrac 1 2) - \psi(N + \tfrac 1 2)
+    \approx \log \frac{N + \frac 1 2}{N + \frac 1 2}
+    = \ln \frac{\omega_M}{\omega_N},
 \end{equation*}
 %
-the \emph{\textsc{Anderson-Morel} \textsc{Coulomb} pseudo-potential}. One can
-further simplify
-%
-\begin{align*}
-    \pi T \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
-    |\omega_m|^{-1}
-    &= \sum_m^{\mathclap{\omega_l \leq |\omega_m| < \omega_u}}
-    \frac 1 {|2 m + 1|}
-    = \sum_{m = l}^{u - 1} \frac 1 {m + \frac 1 2} \\
-    &= \psi(u + \tfrac 1 2) - \psi(l + \tfrac 1 2)
-    \approx \log \frac{u + \frac 1 2}{l + \frac 1 2}
-    = \log \frac{2 u + 1}{2 l + 1} = \ln \frac{\omega_u}{\omega_l},
-\end{align*}
-%
-where $\psi(x) = \varGamma'(x) / \varGamma(x)$ is the digamma function. The
-approximation becomes exact asymptotically for large arguments and is related to
-the \textsc{Stirling} formula \cite[Appendix~A]{AllenMitrovic82}. Hence,
+where Eq.~A.7 of Ref.~\barecite{AllenMitrovic82} has been used. Hence,
 %
 \begin{equation*}
-    \mu^* = \frac{\mu \sub C}{1 + \mu \sub C \ln(\omega_u / \omega_l)}.
+    \frac 1 {\mu^*(N)} = \frac 1 {\mu^*(M)} + \ln \frac{\omega_M}{\omega_N}.
+\end{equation*}
+%
+From comparison with Eq.~\ref{rectangular-DOS mu*} it follows that the cDOS
+approach reproduces the expected results if the non-rescaled $\mu \sub C$ is
+used in combination with a cutoff frequency equal to the virtual band-width $D$.
+The cDOS approximation thus \emph{requires} a frequency cutoff.
+
+Since $D$ is theoretically infinite and practically unknown it is eliminated by
+the assumption that it be equal to the band-width from the derivation of
+\name{McMillan's} equation. Combination of the results from Eqs.~\ref{McMillan's
+Coulomb pseudo-potential} and \ref{rectangular-DOS mu*} yields the formula to be
+used within the imaginary-axis cDOS \name{Eliashberg} equations
+\cite[Eq.~13]{AllenDynes75}:
+%
+\begin{equation*}
+    \frac 1 {\mu^*(N)} = \frac 1 {\mu^*} + \ln \frac{\omega_0}{\omega_N}.
 \end{equation*}
 
 \section{Chemical potential}
 \label{chemical potential}
 
-If the chemical potential in the above equations is assumed to be constant, the
-particle number is not necessarily conserved. Following
+If the chemical potential in the \name{Eliashberg} equations is assumed to be
+constant, the particle number is not necessarily conserved. Following
 Ref.~\barecite{SchafrothRodriguezNunezBeck97}, with the help of
 \name{Dirichlet}'s theorem for \name{Fourier} series and
 Eq.~\ref{Matsubara-Green function} one finds
@@ -1200,156 +1366,38 @@ and thus the \emph{particle density} or \emph{occupation number} per unit cell
         {\Theta_{\vec k}(\I \omega_n)},
 \end{equation*}
 %
-where terms with $\I \omega_n Z_{\vec k}(\I \omega_n)$ have cancelled. Using
-Eq.~\ref{Matsubara sum} it can be shown that for $Z_{\vec k}(\I \omega_n) = 1$
-and $\phi_{\vec k}(\I \omega_n) = \chi_{\vec k}(\I \omega_n) = 0$ the
+where terms with $\I \omega_n Z_{\vec k}(\I \omega_n)$ have cancelled.
+
+\subsection{Free particles}
+
+Using Eq.~\ref{Matsubara sum} it can be shown that for $Z_{\vec k}(\I \omega_n)
+= 1$ and $\phi_{\vec k}(\I \omega_n) = \chi_{\vec k}(\I \omega_n) = 0$ the
 free-particle occupation number is reproduced:
 %
-\begin{equation*}
-    1 - \frac 2 {\beta N} \sum_{\vec k n}
+\begin{multline*}
+    n = 1 - \frac 2 {\beta N} \sum_{\vec k n}
     \frac
         {\textcolor{gray}{\I \omega_n + {}} \epsilon_{\vec k} - \mu}
         {\omega_n^2 + (\epsilon_{\vec k} - \mu)^2}
     = 1 - \frac 2 {\beta N} \sum_{\vec k n}
     \frac 1 {\epsilon_{\vec k} - \mu - \I \omega_n}
     = \frac 2 N \sum_k f_+(\epsilon_k)
+    \\
     = 2 \int \from{-\infty} \till \infty \D \epsilon \,
-    n(\epsilon) \, f_+(\epsilon).
-\end{equation*}
+    n(\epsilon) \, f_+(\epsilon)
+    = 1 - \int \from{-\infty} \till \infty \D \epsilon \,
+    n(\epsilon) \tanh \frac{\epsilon - \mu}{2 T}.
+\end{multline*}
 %
-In order to conserve the particle number, the chemical potential $\mu$ has to be
-determined self-consistently alongside the self-energy components.
-
-The calculation of the occupation number from the results of the imaginary-axis
-\name{Eliashberg} equations is complicated by the cutoff of the \name{Matsubara}
-sums. A reasonable approximation consists of replacing the unknown part by the
-corresponding free-particle expression, where $Z_i(n) = 1$ and $\phi_i(n) =
-\chi_i(n) = 0$. This yields
-%
-\begin{equation*}
-    n \approx 1 - 4 T \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
-    n_i(\epsilon)
-    \Bigg[
-        \sum_{n = 0}^{N - 1} \frac
-            {\epsilon - \mu + \chi_i(n)}
-            {[\omega_n Z_i(n)]^2 + \phi_i^2(n) + [\epsilon - \mu + \chi_i(n)]^2}
-        + \sum_{n = N}^\infty \frac
-            {\epsilon - \mu}
-            {\omega_n^2 + (\epsilon - \mu)^2}
-    \Bigg].
-\end{equation*}
-%
-For a computational solution it is further convenient to replace the infinite
-sum by a closed form. This is done by means of the identity
-\cite[Eq.~A.14]{AllenMitrovic82}
-%
-\begin{equation*}
-    \sum_{n = 0}^{N - 1} \frac x {(n + \tfrac 1 2)^2 + x^2}
-    = \Im[\psi(\tfrac 1 2 + \I x) - \psi(N + \tfrac 1 2 + \I x)]
-\end{equation*}
-%
-from which follows that
-%
-\begin{align*}
-    \smash[b]{\sum_{n = N}^\infty \frac x {(n + \tfrac 1 2)^2 + x^2}}
-    &= \lim_{M \rightarrow \infty}
-    \Big\{
-        \Im[\psi(N + \tfrac 1 2 + \I x) - \psi(M + \tfrac 1 2 + \I x)]
-    \Big\}
-    \\
-    &\approx \lim_{M \rightarrow \infty}
-    \Big\{
-        \Im[\log(N + \tfrac 1 2 + \I x) - \log(M + \tfrac 1 2 + \I x)]
-    \Big\}
-    \\
-    &= \lim_{M \rightarrow \infty}
-    \Big\{
-        \arg(N + \tfrac 1 2 + \I x) - \smash[b]
-        {\hypo{\arg(M + \tfrac 1 2 + \I x)}{\rightarrow 0}}
-    \Big\}
-    \\
-    &= \arctan \frac x {N + \tfrac 1 2}.
-\end{align*}
-%
-The occupation number is thus given by
-%
-\begin{equation} \label{occupation number}
-    n \approx 1 - 4 T \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
-    n_i(\epsilon)
-    \Bigg[
-        \sum_{n = 0}^{N - 1}
-        \frac{\epsilon - \mu + \chi_i(n)}{\Theta_i(\epsilon, n)}
-        + \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}
-    \Bigg].
-\end{equation}
-%
-With the help of the trigamma function
-%
-\begin{align*}
-    \frac{\D \psi}{\D z} = \sum_{n = 0}^\infty \frac 1 {(z + n)^2}
-    \approx \frac 1 z,
-\end{align*}
-%
-which is the derivative of the digamma function, one can furthermore deduce that
-%
-\begin{equation*}
-    \sum_{n = N}^\infty \frac 1 {(n + \tfrac 1 2)^2 + x^2}
-    \approx
-    \begin{cases}
-        \frac 1 x \arctan \frac x {N + \frac 1 2}
-            & \text{for $x \neq 0$,} \\
-        \frac 1 {N + \frac 1 2}
-            & \text{otherwise,}
-    \end{cases}
-\end{equation*}
-%
-which allows transform Eq.~\ref{occupation number} into a fixed-point equation
-for the chemical potential:
-%
-\begin{align*}
-    \mu &\approx \frac
-    {
-        \frac{n - 1}{4 T}
-        + \sum_i \int_{-\infty}^\infty \D \epsilon \, n_i(\epsilon)
-        \big[
-            \epsilon R(\epsilon) + \sum_{n = 0}^{N - 1}
-            \frac{\epsilon + \chi_i(n)}{\Theta_i(\epsilon, n)}
-        \big]
-    }
-    {
-        \sum_i \int_{-\infty}^\infty \D \epsilon \, n_i(\epsilon)
-        \big[
-            R(\epsilon) + \sum_{n = 0}^{N - 1} \frac 1 {\Theta_i(\epsilon, n)}
-        \big]
-    },
-    \\
-    R(\epsilon) &= \frac 1 {2 \pi T}
-    \begin{cases}
-        \frac 1 {\epsilon - \mu} \arctan \frac{\epsilon - \mu}{\omega_N}
-            & \text{for $\epsilon \neq \mu$,} \\
-        \frac 1 {\omega_N}
-            & \text{otherwise.}
-    \end{cases}
-\end{align*}
-%
-In the non-interacting case, no approximations have to be made. The occupation
-number reads
-%
-\begin{equation*}
-    n = 2 \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
-    n_i(\epsilon) f_+(\epsilon)
-    = 1 - \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
-    n_i(\epsilon) \tanh \frac{\epsilon - \mu}{2 T}
-\end{equation*}
-%
-and the corresponding fixed-point equation for the chemical potential
+This equation could be solved for $\mu$ using a bisection method or the
+fixed-point equation
 %
 \begin{equation*}
     \mu = \frac
         {n - 1 + \int_{-\infty}^\infty \D \epsilon \, \epsilon \, w(\epsilon)}
         {\int_{-\infty}^\infty \D \epsilon \, w(\epsilon)}
     \quad \text{with} \quad
-    w(\epsilon) = \sum_i n_i(\epsilon)
+    w(\epsilon) = n(\epsilon)
     \begin{cases}
        \frac 1 {\epsilon - \mu} \tanh \frac{\epsilon - \mu}{2 T}
           & \text{for $\epsilon \neq \mu$,} \\
@@ -1358,8 +1406,58 @@ and the corresponding fixed-point equation for the chemical potential
     \end{cases}
 \end{equation*}
 %
-For half-filling, i.e. $n = 1$, this is simply the \emph{center of mass} of the
-weight function $w(\epsilon)$.
+For half-filling, i.e. $n = 1$, this gives simply the \emph{center of mass} of
+the weight function $w(\epsilon)$.
+
+\subsection{Interacting particles}
+
+The calculation of the occupation number from the results of the imaginary-axis
+\name{Eliashberg} equations is complicated by the cutoff of the \name{Matsubara}
+sums. A reasonable approximation consists of replacing the unknown part by the
+corresponding free-particle expression:
+%
+\begin{equation*}
+    n \approx 1 - 4 T \int \from{-\infty} \till \infty \D \epsilon \,
+    n(\epsilon)
+    \Bigg[
+        \sum_{n = 0}^{N - 1} \frac
+            {\epsilon - \mu + \chi(n)}
+            {[\omega_n Z_i(n)]^2 + \phi^2(n) + [\epsilon - \mu + \chi(n)]^2}
+        + \sum_{n = N}^\infty \frac
+            {\epsilon - \mu}
+            {\omega_n^2 + (\epsilon - \mu)^2}
+    \Bigg].
+\end{equation*}
+%
+With the help of the intermediate results from Section \ref{introduction of frequency cutoff} one may further approximate:
+%
+\begin{equation*}
+    n \approx 1 - 4 T \int \from{-\infty} \till \infty \D \epsilon \,
+    n(\epsilon)
+    \Bigg[
+        \sum_{n = 0}^{N - 1}
+        \frac{\epsilon - \mu + \chi_i(n)}{\Theta(\epsilon, n)}
+        + \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}
+    \Bigg].
+\end{equation*}
+%
+Solving this for the left appearance of $\mu$ yields a manageable fixed-point
+equation, namely
+%
+\begin{align*}
+    \mu &\approx \frac
+    {
+        \frac{n - 1}{4 T} + \int_{-\infty}^\infty \D \epsilon \, n(\epsilon)
+        \big[
+            \sum_{n = 0}^{N - 1} \frac{\epsilon + \chi(n)}{\Theta(\epsilon, n)}
+            + \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}
+        \big]
+    }
+    {
+        \int_{-\infty}^\infty \D \epsilon \, n(\epsilon)
+        \sum_{n = 0}^{N - 1} \frac 1 {\Theta(\epsilon, n)}
+    }.
+\end{align*}
 
 Does fixed-point iteration $x_{n + 1} = f(x_n)$ converge if $|f(x) - \bar x| <
 |x - \bar x|$ for all possible starting points $x$, where $\bar x$ is the fixed

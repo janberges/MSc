@@ -3,21 +3,21 @@
 + Use chemical potential/grand canonical ensemble for Eliashberg theory
 + Explain where the symmetry Sigma[i omega(n)] = Sigma[-i omega(n)] comes from
 - Introduce spectral representation, explain reintroduction of energy integral
-- Explain why cDOS approach requires rescaling the Coulomb interaction
++ Explain why cDOS approach requires rescaling the Coulomb interaction
 - Write more about linearized Eliashberg equations:
     - Show equivalence of Rainer-Bergmann formulation of Eliashberg eigenvalue
       problem and maybe explain why it leads to a slower convergence.
 - Use only one summand of Omega(omega, omega', omega") + Omega(omega, -omega',
   omega'') in integral by returning to int[-inf, +inf] domega'?
 - McMillan's equation:
-    - Reference Allen/Dynes with respect to rescaled and McMillan's mu*
+    + Reference Allen/Dynes with respect to rescaled and McMillan's mu*
     - McMillan, Rowell in Superconductivity, ed. by Parks: mu* from measurement?
 
 
 06  Apply for PhD position.
 
 + Write motivation letter and curriculum vitae.
-- Send it.
++ Send it.
 
 
 07  Numerical results:
@@ -57,6 +57,7 @@
 
 - Introduce meaning of k, q, sigma only once
 - Write time argument (0) or not?
+- Decide between title and sentence case in references
 
 
 20  Anomalous perturbation theory:
