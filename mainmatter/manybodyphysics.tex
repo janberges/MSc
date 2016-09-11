@@ -301,14 +301,14 @@ $(2 \pi)^{-1}$, yields
     \int \from{-\infty} \till \infty \D \omega' \,
     \frac{A(\omega')}{\omega - \omega' + \I 0^+}.
 \end{equation}
-
-For completeness one also defines the \emph{advanced \name{Green} function}.
-Using Eq.~\ref{int- dt exp(i omega t)},
 %
-\begin{equation} \label{G_adv}
-    G \sub{adv.} (t) = \I \Theta(-t) \, A(t)
-    \quad \text{and} \quad
-    G \sub{adv.} (\omega) = \frac{A(\omega')}{\omega - \omega' - \I 0^+}.
+The \textsc{Sokhotski–Plemelj} theorem leads to a useful expression for the
+spectral function:
+%
+\begin{equation} \label{spectral representation}
+	\Im \frac 1 {\omega + \I 0^+} = -\pi \delta(\omega),
+    \quad \Rightarrow \quad
+    A(\omega) = -\frac 1 \pi \Im G \sub{ret.} (\omega).
 \end{equation}
 
 \subsection{Imaginary-time formalism}
@@ -416,10 +416,9 @@ with the \emph{\name{Matsubara} frequencies}
 \end{equation*}
 
 With the help of Eq.~\ref{C(t) in energy basis} and comparing with
-Eqs.~\ref{G_ret(omega)} and \ref{G_adv} one finds that both $G \sub{ret.}
-(\omega)$ and $G \sub{adv.} (\omega)$ can be obtained from $G(\I \omega)$
-through \emph{analytic continuation} $\I \omega \rightarrow \omega \pm \I 0^+$,
-since
+Eqs.~\ref{G_ret(omega)} one finds that $G \sub{ret.} (\omega)$ can be obtained
+from $G(\I \omega)$ through \emph{analytic continuation} $\I \omega \rightarrow
+\omega + \I 0^+$, since
 %
 \begin{equation} \label{G(i omega_n)}
     \begin{split}

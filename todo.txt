@@ -2,7 +2,7 @@
 
 + Use chemical potential/grand canonical ensemble for Eliashberg theory
 + Explain where the symmetry Sigma[i omega(n)] = Sigma[-i omega(n)] comes from
-- Introduce spectral representation, explain reintroduction of energy integral
++ Introduce spectral representation, explain reintroduction of energy integral
 + Explain why cDOS approach requires rescaling the Coulomb interaction
 - Write more about linearized Eliashberg equations:
     - Show equivalence of Rainer-Bergmann formulation of Eliashberg eigenvalue
