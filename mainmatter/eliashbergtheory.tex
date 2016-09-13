@@ -885,11 +885,7 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
 %
 \begin{enumerate}
     \item \textbf{Phononic contribution to \bm$\Delta(0)$ for \bm$\omega' <
-    \omega_0$.} Neglecting $\omega'$ relative to $\omega''$ yields%
-    %
-    \footnote{Considering that $2 \arctan(x) \approx \pi \tanh(x / 2)$, the
-    integral approximation will be justified in Section~\ref{rectangular density
-    of states}}
+    \omega_0$.} Neglecting $\omega'$ relative to $\omega''$ yields
     %
     \begin{gather*}
         \Omega(0, \omega', \omega'') - \Omega(0, -\omega', \omega'')
@@ -905,7 +901,10 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
     \end{gather*}
     %
     where the \emph{electron-phonon coupling strength} $\lambda$ has been
-    defined.
+    defined. The integral approximation will be justified in
+    Section~\ref{rectangular density of states}, considering that $1 - 2
+    f_+(\omega) = \tanh \frac \omega {2 T} \approx \frac 2 \pi \arctan \frac
+    \omega T$.
     %
     \item \textbf{Phononic contribution to \bm$\Delta(0)$ for \bm$\omega' \geq
     \omega_0$.} Neglecting $\omega''$ relative to $\omega'$ yields
@@ -957,16 +956,11 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
     \end{equation*}
 \end{enumerate}
 
-The renormalization at zero frequencies is assumed to be $Z(0) = Z(\I
-\omega_0)$, which will be derived in Eq.~\ref{normal-state renormalization},
-whereas for the case of infinite frequency is trivial. Thus
-%
-\begin{equation*}
-    Z(0) = 1 + \lambda, \quad Z(\infty) = 1.
-\end{equation*}
-
-It is now required that $\Delta(0) \equiv \Delta_0$ and $\Delta(\infty) \equiv
-\Delta_\infty$. In the latter case is is possible to solve for $\Delta_\infty$,
+The renormalization at low frequencies is assumed to be $Z(0) = Z(\I \omega_0) =
+1 + \lambda$, a result which will be derived in Eq.~\ref{normal-state
+renormalization}, whereas for high frequencies one trivially has $Z(\infty) =
+1$. It is further required that $\Delta(0) \equiv \Delta_0$ and $\Delta(\infty)
+\equiv \Delta_\infty$. The latter equation may be solved for $\Delta_\infty$,
 which yields
 %
 \begin{equation} \label{McMillan's Coulomb pseudo-potential}
@@ -976,7 +970,7 @@ which yields
 \end{equation}
 %
 where the \emph{\name{Coulomb} pseudo-potential} $\mu^*$ has been defined.
-Inserting this result,
+Hence,
 %
 \begin{equation*}
     \Delta_0 = \Delta^{(1)}(0) + \Delta^{(2)}(0) + \Delta^{(3)}(0)
@@ -985,10 +979,10 @@ Inserting this result,
     \ln \frac{\omega_0}{T \sub c}.
 \end{equation*}
 %
-This can be solved for $T \sub c$. The resulting formula is then generalized by
-the introduction of three fit parameters $A$, $B$ and $C$, in the course of
-which the the maximum frequency $\omega_0$ is replaced by the \name{Debye}
-frequency $\Theta$:
+This equation can be solved for $T \sub c$. The resulting formula is then
+generalized by the introduction of three fit parameters $A$, $B$ and $C$, in the
+course of which the the maximum frequency $\omega_0$ is replaced by the
+\name{Debye} frequency $\Theta$:
 %
 \begin{equation*}
     T \sub c = \omega_0 \exp \bigg[ {-\frac
@@ -1002,25 +996,28 @@ frequency $\Theta$:
 \end{equation*}
 
 For several fixed $T \sub c$ and $\mu^*$ the linearized Eliashberg equations are
-solved in order to get the appropriate value of $\lambda$. $F(\omega'')$ is
-chosen to be the phonon density of states of niobium \cite{NakagawaWoods63} cut
-off below $100\,\mathrm{K}$ and $\alpha^2$, which then determines $\lambda$,
-adjusted to obtain self-consistency.
+now solved for $\lambda$. Thereby, $F(\omega'')$ is chosen to be the phonon
+density of states of niobium \cite{NakagawaWoods63} cut off below
+$100\,\mathrm{K}$ and $\alpha^2$, which then determines $\lambda$, adjusted to
+obtain self-consistency.
 
-$A$ and $B$ are determined for $\mu^* = 0$ via linear regression of
+These results are used to determine $A$, $B$ and in a second step $C$ via linear
+regression:
 %
 \begin{equation*}
-    \ln \frac \Theta {T \sub c} = \ln A + \frac
-        {B \, (1 + \lambda)}
-        {\lambda \textcolor{gray}{{} - C \lambda \mu^* - \mu^*}}.
+    \ln \frac \Theta {T \sub c} \overset{\mu^* = 0}
+    = \ln A + B \frac{1 + \lambda}{\lambda},
+    \quad
+    \frac 1 {\mu^*} \bigg[
+        \lambda + \frac{B \, (1 + \lambda)}{\ln (A T \sub c / \Theta)}
+    \bigg] = 1 + C \lambda.
 \end{equation*}
-
-$C$ is found via linear regression of
 %
-\begin{equation*}
-    1 + C \lambda = \frac \lambda {\mu^*}
-    + \frac{B \, (1 + \lambda)}{\mu^* \ln (A T \sub c / \Theta)}
-\end{equation*}
+The values found by \name{McMillan} read $A = 1.45$, $B = 1.04$ and $C = 0.62$.
+He also states that for niobium $\Theta = 277\,\unit K$ and $\av \omega =
+230\,\unit K$, which allows the alternative pre-factor $\av \omega / 1.20$ in
+place of $\Theta / 1.45$, which should be preferred according to \name{Dynes}
+\cite{Dynes72} for a more universal validity.
 
 \section{\name{Coulomb} pseudo-potential}
 

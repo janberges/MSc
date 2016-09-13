@@ -9,9 +9,7 @@
       problem and maybe explain why it leads to a slower convergence.
 + Use only one summand of Omega(omega, omega', omega") + Omega(omega, -omega',
   omega'') in integral by returning to int[-inf, +inf] domega'?
-- McMillan's equation:
-    + Reference Allen/Dynes with respect to rescaled and McMillan's mu*
-    - McMillan, Rowell in Superconductivity, ed. by Parks: mu* from measurement?
++ Reference Allen/Dynes with respect to rescaled and McMillan's mu*
 
 
 06  Apply for PhD position.
@@ -91,6 +89,7 @@
 If there is time left:
 
 - Create symbols for repeated use with TikZ?
+- McMillan, Rowell in Superconductivity, ed. by Parks: mu* from measurement?
 
 
 If there is even more time left:
