@@ -1419,29 +1419,17 @@ corresponding free-particle expression:
     n \approx 1 - 4 T \int \from{-\infty} \till \infty \D \epsilon \,
     n(\epsilon)
     \Bigg[
-        \sum_{n = 0}^{N - 1} \frac
-            {\epsilon - \mu + \chi(n)}
-            {[\omega_n Z_i(n)]^2 + \phi^2(n) + [\epsilon - \mu + \chi(n)]^2}
-        + \sum_{n = N}^\infty \frac
-            {\epsilon - \mu}
-            {\omega_n^2 + (\epsilon - \mu)^2}
-    \Bigg].
-\end{equation*}
-%
-With the help of the intermediate results from Section \ref{introduction of frequency cutoff} one may further approximate:
-%
-\begin{equation*}
-    n \approx 1 - 4 T \int \from{-\infty} \till \infty \D \epsilon \,
-    n(\epsilon)
-    \Bigg[
         \sum_{n = 0}^{N - 1}
-        \frac{\epsilon - \mu + \chi_i(n)}{\Theta(\epsilon, n)}
-        + \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}
+        \frac{\epsilon - \mu + \chi(n)}{\Theta(\epsilon, n)}
+        + \hypo { \sum_{n = N}^\infty
+            \frac{\epsilon - \mu}{\omega_n^2 + (\epsilon - \mu)^2} }
+            {\approx \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}}
     \Bigg].
 \end{equation*}
 %
-Solving this for the left appearance of $\mu$ yields a manageable fixed-point
-equation, namely
+where the intermediate results from Section \ref{introduction of frequency
+cutoff} have been used. Solving this equation for the left appearance of $\mu$
+yields a manageable fixed-point equation, namely
 %
 \begin{align*}
     \mu &\approx \frac
@@ -1458,9 +1446,12 @@ equation, namely
     }.
 \end{align*}
 
-Does fixed-point iteration $x_{n + 1} = f(x_n)$ converge if $|f(x) - \bar x| <
-|x - \bar x|$ for all possible starting points $x$, where $\bar x$ is the fixed
-point?
+A fixed-point iteration $x_{n + 1} = f(x_n)$ converges towards a sole fixed
+point $\bar x$ if $|f(x) - \bar x| < |x - \bar x|$ for all intermediate values
+$x$. At this point it shall not be resolved if the above equations guarantees
+convergence for all possible densities of states, self-energies and starting
+points. However, in all cases studied convergence at a sufficient rate has been
+observed.
 
 \section{Multiband \name{Eliashberg} equations}
 
