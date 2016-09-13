@@ -7,7 +7,7 @@
 - Write more about linearized Eliashberg equations:
     - Show equivalence of Rainer-Bergmann formulation of Eliashberg eigenvalue
       problem and maybe explain why it leads to a slower convergence.
-- Use only one summand of Omega(omega, omega', omega") + Omega(omega, -omega',
++ Use only one summand of Omega(omega, omega', omega") + Omega(omega, -omega',
   omega'') in integral by returning to int[-inf, +inf] domega'?
 - McMillan's equation:
     + Reference Allen/Dynes with respect to rescaled and McMillan's mu*

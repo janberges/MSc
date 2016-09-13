@@ -582,12 +582,14 @@ visualized in Fig.~\ref{constant-DOS approximation}, so that the integration can
 be performed analytically. With the help of
 %
 \begin{equation} \label{integrals}
-    \int_{-\infty}^\infty \frac{\D x}{x^2 + z} = \frac \pi {\sqrt z}
+    \frac 1 \pi \int \from{-\infty} \till \infty \D x \frac z {x^2 + z^2}
+    = \sgn \Re z
     \quad \text{and} \quad
-    \mathcal P \int \from{-\infty} \till \infty \D x \, \frac x {x^2 + z} = 0,
+    \int \from{-\infty} \till \infty \D x \frac x {x^2 + z^2} = 0,
 \end{equation}
 %
-where $\mathcal P$ denotes the \textsc{Cauchy} principal value, and using
+where vanishing and non-vanishing integrals are understood as \textsc{Cauchy}
+principal values or follow from the residue theorem, respectively, and writing
 $\Delta(\I \omega_n) = \phi(\I \omega_n) / Z(\I \omega_n)$, this yields
 %
 \begin{equation*}
@@ -668,14 +670,12 @@ Ref.~\barecite{ScalapinoSchriefferWilkins66},
         {\sqrt[*]{\omega^2 - \Delta^2(\omega)}}.
 \end{equation*}
 %
-Let $\varphi$ represent the complex arguments of the above square roots. The
-first square root is the principal one defined by $-\frac \pi 2 < \varphi \leq
-\frac \pi 2$. Since a multiplication with $\I$ corresponds to a rotation by
-$\frac \pi 2$ in the complex plane, the second square root must be taken from
-the upper half-plane such that $0 < \varphi \leq \pi$
-\cite[Eq.~2.19b]{ScalapinoSchriefferWilkins66}. Clockwise rotation by the
-complex argument of $Z(\omega)$ yields the domain of the third square root for
-which $-\arg[Z(\omega)] < \varphi \leq \pi - \arg[Z(\omega)]$.
+For the integral to be correct, the first square must have a positive real part.
+Since a multiplication with $\I$ corresponds to a rotation by $\frac \pi 2$ in
+the complex plane, the second square root must be taken from the upper
+half-plane \cite[Eq.~2.19b]{ScalapinoSchriefferWilkins66}. Accordingly the
+domain of the third square root is the upper half-plane rotated clockwise by the
+complex argument of $Z(\omega)$.
 
 Using $\Im[\I \dots] = \Re[\,\dots]$, the phononic part of the self-energy reads
 %
@@ -765,7 +765,7 @@ Noting that $\lambda(n) = \lambda(-n)$, one can easily verify that even
 functions $Z(\I \omega_n)$ and $\Delta(\I \omega_n)$ are perfectly compatible
 with Eqs.~\ref{cDOS Eliashberg equations}. This property is inherited by the
 corresponding real-axis quantities. More general: Let $f(\omega)$ represent any
-of the functions $\omega^2$, $Z(\omega)$ and $\phi(\omega)$. They all have in
+of the functions $\omega^2$, $Z(\omega)$ and $\Delta(\omega)$. They all have in
 common that they transform into their complex conjugate if the sign of either
 the real or imaginary part of their argument changes
 \cite[Eq.~A5]{AmbegaokarTewordt64}. Formally,
@@ -775,16 +775,13 @@ the real or imaginary part of their argument changes
 \end{equation}
 %
 The same applies to functions which are derived by means of the four basic
-arithmetical operations, such as $\Delta(\omega) = \phi(\omega) / Z(\omega)$,
-$\omega^2 + \Delta^2(\omega)$ or $\omega^2 Z^2(\omega) + \phi^2(\omega)$.
-Complex conjugation reflects a number across the real axis and its square roots
-across any of the axes which span the complex plane, i.e. from odd- to
-even-numbered quadrants or vice versa if the number is not real. As a
-consequence, sign changes of $\Im[\omega^2 + \Delta^2(\omega)]$ and
-$\Re[\sqrt[*]{\omega^2 + \Delta^2(\omega)}]$ are coupled. Note that the domain
-of $\sqrt[*] \cdots$ changes with $Z(\omega)$.
+arithmetical operations, such as $\omega^2 - \Delta^2(\omega)$. Besides, complex
+conjugation of a number reflects its possible square roots across the axes of
+the complex plane. As a consequence, if $\omega$ is reflected across the real
+axis, the same is true for the $Z(\omega)$-dependent domain of $\sqrt[*] \cdots$
+and thus for $\sqrt[*]{\omega^2 - \Delta^2(\omega)}$.
 
-These symmetries are now used to fold the negative half of the range of the
+This symmetry is now used to fold the negative half of the range of the
 $\omega'$ integral onto the positive one, which yields the final form of the
 real-axis \name{Eliashberg} equations:
 %
@@ -823,20 +820,16 @@ real-axis \name{Eliashberg} equations:
 The $\omega$ in the denominator of Eq.~\ref{Z(omega)} is cancelled since, where
 braces enclose alternatives,
 %
-\begin{equation*}
-    \frac {
-        \Omega(\omega,  \omega', \omega'') \pm
-        \Omega(\omega, -\omega', \omega'')
-        } 2
-    = \begin{Bmatrix} \omega \\ \omega' + \omega'' \end{Bmatrix}
-    \frac
-        {f_+(-\omega') + f_-(\omega'')}
-        {\omega^2 -(\omega' + \omega'')^2}
-    + \begin{Bmatrix} \omega \\ \omega' - \omega'' \end{Bmatrix}
-    \frac
-        {f_+(\omega') + f_-(\omega'')}
-        {\omega^2 -(\omega' - \omega'')^2}.
-\end{equation*}
+\begin{align*}
+    \Omega    (\omega,  \omega', \omega'') \pm
+    \Omega    (\omega, -\omega', \omega'') &=
+    \Omega_\pm(\omega,  \omega', \omega'') \pm
+    \Omega_\pm(\omega, -\omega', \omega''),
+    \\
+    \Omega_\pm(\omega,  \omega', \omega'') &=
+    2 \begin{Bmatrix} \omega \\ \omega' + \omega'' \end{Bmatrix}
+    \frac{f_+(-\omega') + f_-(\omega'')}{\omega^2 -(\omega' + \omega'')^2}.
+\end{align*}
 
 \section{\name{McMillan}'s formula}
 
@@ -850,7 +843,9 @@ pseudo-potential $\mu^*$. This section provides a review of the original work
 The starting point is a linearized form of the real-axis \name{Eliashberg}
 equations, which emerges at $T \sub c$ where $\Delta(\omega)$ is infinitesimal
 and negligible relative to $\omega$. Introducing two cutoff energies, the
-maximum phonon frequency $\omega_0$ and the electronic bandwidth $E \sub B$,
+maximum phonon frequency $\omega_0$ and the electronic bandwidth $E \sub B$, and
+assuming that $Z(\omega'_+)$ lies in the upper half-plane or on the positive
+real axis so that $\smash{\sqrt[\ast]{\omega'^2_+}} = \omega'_+$,
 Eq.~\ref{real-axis Eliashberg equations} becomes
 %
 \begin{align*}
