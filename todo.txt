@@ -55,7 +55,7 @@
 
 - Introduce meaning of k, q, sigma only once
 - Write time argument (0) or not?
-- Decide between title and sentence case in references
++ Decide between title and sentence case in references
 
 
 20  Anomalous perturbation theory:
