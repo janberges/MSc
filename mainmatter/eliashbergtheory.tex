@@ -1537,6 +1537,55 @@ further evaluate
     \Big[ \lambda(0) + 2 \sum_{m=1}^n \lambda(m) \Big].
 \end{equation}
 
+\subsection{Spectra of direct products}
+
+The \emph{direct product} or \emph{\name{Kronecker} product} $\vec A \otimes
+\vec B$ of the $r \times c$ matrix $\vec A$ and the $R \times C$ matrix $\vec B$
+is the $r c \times R C$ matrix defined by
+%
+\begin{equation*}
+    (\vec A \otimes \vec B)_{i j, n m} = A_{i n} B_{j m},
+\end{equation*}
+%
+where $i j, n m$ can be interpreted e.g. as $i R + j, n C + m$ if all indices
+are zero-based. This definition also holds for column vectors if these are
+considered as, say, $N \times 1$ matrices.
+
+With the help of the identity
+%
+\begin{equation*}
+    (\vec A \otimes \vec B) \cdot (\vec C \otimes \vec D)
+    = (\vec A \cdot \vec C) \otimes (\vec B \cdot \vec D)
+\end{equation*}
+%
+which is easily proved component-wise,
+%
+\begin{multline*}
+    [(\vec A \otimes \vec B) \cdot (\vec C \otimes \vec D)]_{i j, p q}
+    = \sum_{n m}
+        (\vec A \otimes \vec B)_{i j, n m} \,
+        (\vec C \otimes \vec D)_{n m, p q}
+    = \sum_{n m} A_{i n} B_{j m} C_{n p} D_{m q}
+    \\
+    = \sum_n A_{i n} C_{n p} \sum_m B_{j m} D_{m q}
+    = (\vec A \cdot \vec C)_{i p} \, (\vec B \cdot \vec D)_{j q}
+    = [(\vec A \cdot \vec C) \otimes (\vec B \cdot \vec D)]_{i j, p q},
+\end{multline*}
+%
+one can show that, if the eigenvalue equations $\vec A \vec \alpha = a \vec
+\alpha$ and $\vec B \cdot \vec \beta = b \vec \beta$ hold,
+%
+\begin{equation*}
+    (\vec A \otimes \vec B) \cdot (\vec \alpha \otimes \vec \beta)
+    = (\vec A \cdot \vec \alpha) \otimes (\vec B \cdot \vec \beta)
+    = (a \vec \alpha) \otimes (b \vec \beta)
+    = a b (\vec \alpha \otimes \vec \beta).
+\end{equation*}
+%
+The eigenvectors and -values of the direct product of two matrix are thus the
+direct and normal products of the respective eigenvectors and -values of the
+individual matrices.
+
 \section{\name{Padé} approximants}
 
 Imaginary-axis resuls are generally just numerical values corresponding to a
