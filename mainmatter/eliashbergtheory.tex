@@ -201,14 +201,14 @@ functions}, the \textsc{Dyson} equation reads
 Inversion yields
 %
 \begin{align*}
-    \vec G_{\vec k}(\I \omega_n) &= -\Theta_{\vec k}^{-1}(\I \omega_n) \{
+    \vec G_{\vec k}(\I \omega_n) &= -\Theta_{\vec k}^{-1}(n) \{
         \I \omega_n Z_{\vec k}(\I \omega_n) \vec \sigma_0
         + \phi _{\vec k}(\I \omega_n) \vec \sigma_1
         + \phi'_{\vec k}(\I \omega_n) \vec \sigma_2
         + [\epsilon_{\vec k} - \mu + \chi_{\vec k}(\I \omega_n)] \vec \sigma_3
         \}
     \\
-    &= -\frac 1 {\Theta_{\vec k}(\I \omega_n)}
+    &= -\frac 1 {\Theta_{\vec k}(n)}
     \begin{bmatrix}
         \I \omega_n Z_{\vec k}(\I \omega_n)
         + \epsilon_{\vec k} - \mu + \chi_{\vec k}(\I \omega_n) &
@@ -222,7 +222,7 @@ Inversion yields
 where the denominator is given by
 %
 \begin{equation*}
-    \Theta_{\vec k}(\I \omega_n) = -\det \vec G_{\vec k}^{-1}(\I \omega_n)
+    \Theta_{\vec k}(n) = -\det \vec G_{\vec k}^{-1}(\I \omega_n)
     = [\omega_n Z_{\vec k}(\I \omega_n)]^2
     + [\epsilon_{\vec k} - \mu + \chi_{\vec k}(\I \omega_n)]^2
     + \phi ^2_{\vec k}(\I \omega_n)
@@ -230,7 +230,7 @@ where the denominator is given by
 \end{equation*}
 %
 The excitation energies are the poles of $\vec G_{\vec k}(\I \omega_n)$, i.e.
-the zeros of $\Theta_{\vec k}(\I \omega_n)$, which satisfy
+the zeros of $\Theta_{\vec k}(n)$, which satisfy
 %
 \begin{align*}
     (\I \omega_n)^2 = \left[ \frac
@@ -250,7 +250,7 @@ $\chi_{\vec k}(\I \omega_n)$ as an energy shift and $\phi^{(\prime)}_{\vec k}(\I
 superconducting state turns out to be
 %
 \begin{align*}
-    \Delta_{\vec k}(\I \omega) = \frac
+    \Delta_{\vec k}(\I \omega_n) = \frac
         {\phi_{\vec k}(\I \omega_n) - \I \phi'_{\vec k}(\I \omega_n)}
         {Z_{\vec k}(\I \omega_n)}.
 \end{align*}
@@ -286,7 +286,7 @@ single-particle energies $\epsilon_{\vec k}$ and therewith into the bare
     = -\frac{U}{N \beta} &\sum_{\vec q m} \frac
         { \phi _{\vec q}(\I \omega_m) \vec \sigma_1
         + \phi'_{\vec q}(\I \omega_m) \vec \sigma_2 }
-        {\Theta_{\vec q}(\I \omega_m)},
+        {\Theta_{\vec q}(m)},
 \end{align*}
 %
 where \q{n.} denotes the normal-state \name{Green} function and \q{od.}
@@ -312,7 +312,7 @@ since vertex corrections can be neglected according to \name{Migdal}'s theorem
         - \phi _{\vec q}(\I \omega_m) \vec \sigma_1
         - \phi'_{\vec q}(\I \omega_m) \vec \sigma_2
         + [\epsilon_{\vec q} - \mu + \chi_{\vec q}(\I \omega_m)] \vec \sigma_3 }
-        {\Theta_{\vec q}(\I \omega_m)}
+        {\Theta_{\vec q}(m)}
     D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
 \end{multline*}
 %
@@ -329,19 +329,19 @@ comparison with Eq.~\ref{self-energy matrix} yields the
         \I \omega_n [1 - Z_{\vec k}(\I \omega_n)] &= \frac T N
         \sum_{\vec q m} \frac
             {\I \omega_m Z_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(m)}
         g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m),
         \\
         \phi^{(\prime)}_{\vec k}(\I \omega_n) &= -\frac T N
         \sum_{\vec q m} \frac
             {\phi^{(\prime)}_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(m)}
         \big[ g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m) + U \big],
         \\
         \chi_{\vec k}(\I \omega_n) &= \frac T N
         \sum_{\vec q m} \frac
             {\epsilon_{\vec q} - \mu + \chi_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(m)}
         g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m).
     \end{align}
 \end{subequations}
@@ -372,7 +372,7 @@ is the free-particle chemical potential, one can equivalently write
 \begin{multline*}
     \vec \Sigma_{\vec k} (\I \omega_n)
     = \frac T {N(\mu_0)} \sum_{\vec q m}
-    \Theta_{\vec q}^{-1}(\I \omega_m) \big \{ \dots
+    \Theta_{\vec q}^{-1}(m) \big \{ \dots
         \\
         \dots \{
             - \I \omega_m Z_{\vec q}(\I \omega_m) \vec \sigma_0
@@ -392,13 +392,13 @@ which yields a more common formulation of the \name{Eliashberg} equations:
         Z_{\vec k}(\I \omega_n) &= 1 + \frac T {N(\mu_0)} \frac 1 {\omega_n}
         \sum_{\vec q m} \frac
             {\omega_m Z_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(m)}
         \lambda_{\vec k - \vec q}(n - m),
         \\
         \phi_{\vec k}(\I \omega_n) &= \frac T {N(\mu_0)}
         \sum_{\vec q m} \frac
             {\phi_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(m)}
         \big[
             \lambda_{\vec k - \vec q}(n - m) - \mu \sub C
         \big],
@@ -406,7 +406,7 @@ which yields a more common formulation of the \name{Eliashberg} equations:
         \chi_{\vec k}(\I \omega_n) &= -\frac T {N(\mu_0)}
         \sum_{\vec q m} \frac
             {\epsilon_{\vec q} - \mu + \chi_{\vec q}(\I \omega_m)}
-            {\Theta_{\vec q}(\I \omega_m)}
+            {\Theta_{\vec q}(m)}
         \lambda_{\vec k - \vec q}(n - m).
     \end{align}
 \end{subequations}
@@ -486,7 +486,7 @@ It is now possible to replace the $\vec q$ summation by an energy integral:
     \vec \Sigma(\I \omega_n)
     = T \sum_m \int \from{-\infty} \till \infty \D \epsilon \,
     \frac{N(\epsilon)}{N(\mu_0)}
-    \Theta_\epsilon^{-1}(\I \omega_m) \big \{ \dots
+    \Theta^{-1}(\epsilon, m) \big \{ \dots
         \\
         \dots \{
             - \I \omega_m Z(\I \omega_m) \vec \sigma_0
@@ -497,28 +497,28 @@ It is now possible to replace the $\vec q$ summation by an energy integral:
     \big \}
 \end{multline}
 %
-with $\Theta_\epsilon(\I \omega_n) = [\omega_n Z(\I \omega_n)]^2 + \phi^2(\I
-\omega_n) + [\epsilon - \mu + \chi(\I \omega_n)]^2$. The \emph{local
-\name{Eliashberg} equations} read
+with $\Theta(\epsilon, n) = [\omega_n Z(\I \omega_n)]^2 + \phi^2(\I \omega_n) +
+[\epsilon - \mu + \chi(\I \omega_n)]^2$. The \emph{local \name{Eliashberg}
+equations} read
 %
 \begin{subequations} \label{local Eliashberg equations}
     \begin{align}
         Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_m
         \int \from{-\infty} \till \infty \D \epsilon
         \frac{N(\epsilon)}{N(\mu_0)}
-        \frac{\omega_m Z (\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+        \frac{\omega_m Z(\I \omega_m)}{\Theta(\epsilon, m)}
         \lambda(n - m),
         \\
         \phi(\I \omega_n) &= T \sum_m
         \int \from{-\infty} \till \infty \D \epsilon
         \frac{N(\epsilon)}{N(\mu_0)}
-        \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+        \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)}
         [\lambda(n - m) - \mu \sub C],
         \\
         \chi(\I \omega_n) &= -T \sum_m
         \int \from{-\infty} \till \infty \D \epsilon
         \frac{N(\epsilon)}{N(\mu_0)}
-        \frac{\epsilon - \mu + \chi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+        \frac{\epsilon - \mu + \chi(\I \omega_m)}{\Theta(\epsilon, m)}
         \lambda(n - m).
     \end{align}
 \end{subequations}
@@ -1037,19 +1037,19 @@ Exploiting this symmetry it is possible to fold the negative half of the
     Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_{m = 0}^\infty
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
-    \frac{\omega_m Z (\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    \frac{\omega_m Z(\I \omega_m)}{\Theta(\epsilon, m)}
     \Lambda^-(n, m),
     \\
     \phi(\I \omega_n) &= T \sum_{m = 0}^\infty
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
-    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)}
     [\Lambda^+(n, m) - 2 \mu \sub C],
     \\
     \chi(\I \omega_n) &= -T \sum_{m = 0}^\infty
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
-    \frac{\epsilon - \mu + \chi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    \frac{\epsilon - \mu + \chi(\I \omega_m)}{\Theta(\epsilon, m)}
     \Lambda^+(n, m)
 \end{align*}
 %
@@ -1057,7 +1057,9 @@ and under the additional assumption of a constant density of states
 %
 \begin{align*}
     Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_{m = 0}^\infty
-    \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
+    \frac
+        {\omega_m Z(\omega_m)}
+        {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}}
     \Lambda^-(n, m),
     \\
     \phi(\I \omega_n) &= \pi T \sum_{m = 0}^\infty
@@ -1101,7 +1103,7 @@ consider the \textsc{Eliashberg} equation for $\phi \sub{el.}$,
     \phi \sub{el.} = -2 \mu \sub C T \sum_{m = 0}^\infty
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
-    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)},
+    \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)},
 \end{equation}
 %
 As can be seen from the results presented in Chapter ??, there is a cutoff
@@ -1113,7 +1115,7 @@ and $Z(\I \omega_m) \approx 1$ such that
     -2 \mu \sub C T \sum_{m = N}^\infty
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
-    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)}
     \approx -2 \mu \sub C T \sum_{m = N}^\infty
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
@@ -1133,7 +1135,7 @@ Bringing this part to the left-hand side of Eq.~\ref{constant Coulomb contributi
     -2 \mu \sub C T \sum_{m = 0}^{N - 1}
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
-    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)}
+    \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)}
 \end{equation*}
 %
 or equivalently, introducing a rescaled pseudo-potential $\mu^*(N)$,
@@ -1143,7 +1145,7 @@ or equivalently, introducing a rescaled pseudo-potential $\mu^*(N)$,
     -2 \mu^*(N) T \sum_{m = 0}^{N - 1}
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
-    \frac{\phi(\I \omega_m)}{\Theta_\epsilon(\I \omega_m)},
+    \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)},
     \quad
     \frac 1 {\mu^*(N)} = \frac 1 {\mu \sub C}
     + 2 T \sum_{m = N}^\infty
@@ -1362,7 +1364,7 @@ and thus the \emph{particle density} or \emph{occupation number} per unit cell
     = 1 + \frac 2 {\beta N} \sum_{\vec k n} G_{\vec k}(\I \omega_n)
     = 1 - \frac 2 {\beta N} \sum_{\vec k n} \frac
         {\epsilon_{\vec k} - \mu + \chi_{\vec k}(\I \omega_n)}
-        {\Theta_{\vec k}(\I \omega_n)},
+        {\Theta_{\vec k}(n)},
 \end{equation*}
 %
 where terms with $\I \omega_n Z_{\vec k}(\I \omega_n)$ have cancelled.
@@ -1420,7 +1422,7 @@ corresponding free-particle expression:
     n(\epsilon)
     \Bigg[
         \sum_{n = 0}^{N - 1}
-        \frac{\epsilon - \mu + \chi(n)}{\Theta(\epsilon, n)}
+        \frac{\epsilon - \mu + \chi(\I \omega_n)}{\Theta(\epsilon, n)}
         + \hypo { \sum_{n = N}^\infty
             \frac{\epsilon - \mu}{\omega_n^2 + (\epsilon - \mu)^2} }
             {\approx \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}}
@@ -1436,7 +1438,8 @@ yields a manageable fixed-point equation, namely
     {
         \frac{n - 1}{4 T} + \int_{-\infty}^\infty \D \epsilon \, n(\epsilon)
         \big[
-            \sum_{n = 0}^{N - 1} \frac{\epsilon + \chi(n)}{\Theta(\epsilon, n)}
+            \sum_{n = 0}^{N - 1}
+            \frac{\epsilon + \chi(\I \omega_n)}{\Theta(\epsilon, n)}
             + \frac 1 {2 \pi T} \arctan \frac{\epsilon - \mu}{\omega_N}
         \big]
     }
@@ -1453,9 +1456,59 @@ convergence for all possible densities of states, self-energies and starting
 points. However, in all cases studied convergence at a sufficient rate has been
 observed.
 
-\section{Multiband \name{Eliashberg} equations}
+\section{Multi-band \name{Eliashberg} equations}
 
-\dots
+At this point the most important aspects of \name{Eliashberg} theory for local
+self-energies at arbitrary temperatures have been introduced. A straightforward
+generalization of the involved equations is with respect to multiple electronic
+bands which will turn out to be equivalent to allowing for \name{Fermi}-pocket
+resolved anisotropy.
+
+Since a band index is a quantum number just as the wave number, both can be
+treated on the same footing.
+%
+\begin{align*}
+    Z_i(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_j \sum_{m = 0}^{N - 1}
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N_j(\epsilon)}{N_j(\mu_0)}
+    \frac{\omega_m Z_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
+    \Lambda_{i j}^-(n, m),
+    \\
+    \phi_i(\I \omega_n) &= T \sum_j \sum_{m = 0}^{N - 1}
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N_j(\epsilon)}{N_j(\mu_0)}
+    \frac{\phi_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
+    [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)],
+    \\
+    \chi_i(\I \omega_n) &= -T \sum_j \sum_{m = 0}^{N - 1}
+    \int \from{-\infty} \till \infty \D \epsilon
+    \frac{N_j(\epsilon)}{N_j(\mu_0)}
+    \frac{\epsilon - \mu + \chi_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
+    \Lambda_{i j}^+(n, m),
+    \\
+    \Theta_i(\epsilon, n) &= [\omega_n Z_i(\I \omega_n)]^2
+    + \phi_i^2(\I \omega_n) + [\epsilon - \mu + \chi_i(\I \omega_n)]^2.
+\end{align*}
+%
+Constant density of states:
+%
+\begin{align*}
+    Z_i(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
+    \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(\I \omega_m)}}
+    \Lambda^-(n, m),
+    \\
+    \Delta_i(\I \omega_n) &= \pi T \sum_j \sum_{m = 0}^{N - 1}
+    \frac
+        {\Delta_j(\I \omega_m)}
+        {\sqrt{\omega_m^2 + \Delta_j^2(\I \omega_m)}}
+    [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)].
+\end{align*}
+%
+Electron-phonon coupling matrices:
+%
+\begin{equation*}
+    \Lambda_{i j}^\pm(n, m) = \lambda_{i j}(n - m) \pm \lambda_{i j}(n + m + 1).
+\end{equation*}
 
 \section{Critical point and normal state}
 
