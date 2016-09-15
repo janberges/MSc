@@ -1471,9 +1471,11 @@ Since a band index is a quantum number just as the wave number, both can be
 treated on the same footing. Thus, in \ref{Eliashberg equations} one simply has
 to complement the natural occurrences of the wave numbers $\vec k$ and $\vec q$,
 even though they have been averaged out as in the case of the \name{Coulomb}
-interaction, with band indices $i$ and $j$, respectively. The corresponding
-local \name{Eliashberg} equations, where the band-structure only enters through
-the density of states, read
+interaction, with band indices $i$ and $j$, respectively. In doing so the
+self-energy components searched for are defined for each band separately and
+scalar coupling strengths become matrices describing intra- and inter-band
+interactions. The corresponding local \name{Eliashberg} equations, where the
+band-structure only enters through the density of states, read
 %
 \begin{subequations} \label{local multi-band Eliashberg equations}
     \begin{align}
@@ -1673,18 +1675,43 @@ which is easily proved component-wise,
 one can show that, if the eigenvalue equations $\vec A \cdot \vec \alpha = a
 \vec \alpha$ and $\vec B \cdot \vec \beta = b \vec \beta$ hold,
 %
-\begin{equation*}
+\begin{equation} \label{eigenvalues direct product}
     (\vec A \otimes \vec B) \cdot (\vec \alpha \otimes \vec \beta)
     = (\vec A \cdot \vec \alpha) \otimes (\vec B \cdot \vec \beta)
     = (a \vec \alpha) \otimes (b \vec \beta)
     = a b (\vec \alpha \otimes \vec \beta).
-\end{equation*}
+\end{equation}
 %
 The eigenvectors and -values of the direct product of two matrix are thus the
 direct and normal products of the respective eigenvectors and -values of the
 individual matrices.
 
-\subsection{Effective coupling constant}
+\subsection{Effective coupling constants}
+
+Assuming that the matrices $\vec \lambda$ and $\vec \mu^*(N)$ describing the
+intra- and inter-band electron-phonon coupling strengths and rescaled
+\name{Coulomb} pseudo-potentials are proportional, i.e. $\lambda_{i j} = c \,
+\mu^*_{i j}(N)$ with $c \ge 0$, one finds the quotient $Q(n, m) \equiv K_{i
+j}(n, m) / \lambda_{i j}$ to be independent of band indices. For the
+corresponding matrices it follows that
+%
+\begin{equation*}
+    \vec K = \vec Q \otimes \vec \lambda
+\end{equation*}
+%
+and thus, applying Eq.~\ref{eigenvalues direct product}, the largest eigenvalue
+of $\vec K$ to be the product of the largest eigenvalues of $\vec Q$ and $\vec
+\lambda$ (in magnitude). As a consequence, if there exists a single-band system
+with positive coupling strengths $\lambda$ and $\mu^*(N)$ which exhibits the
+same critical temperature as a multi-band system with coupling matrices $\vec
+\lambda$ and $\vec \mu^*(N)$, then the further are given by the greatest
+eigenvalues of the latter.
+
+If $\vec \lambda$ is not proportional to $\vec \mu^*(N)$ there are still
+innumerable sets of effective scalar parameters which yield the same critical
+temperature, but the presented rule will no longer work.
+
+\subsection{Non-constant densities of states}
 
 $\Theta_i(\epsilon, n) = [\omega_n Z_i(\I \omega_n)]^2 + [\epsilon - \mu + \chi_j(\I \omega_m)]^2$
 
