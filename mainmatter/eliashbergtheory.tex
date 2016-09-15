@@ -1459,7 +1459,7 @@ convergence for all possible densities of states, self-energies and starting
 points. However, in all cases studied convergence at a sufficient rate has been
 observed.
 
-\section{Multi-band \name{Eliashberg} equations}
+\section{Multi-band equations}
 
 At this point the most important aspects of \name{Eliashberg} theory for local
 self-energies at arbitrary temperatures have been introduced. A straightforward
@@ -1475,25 +1475,27 @@ interaction, with band indices $i$ and $j$, respectively. The corresponding
 local \name{Eliashberg} equations, where the band-structure only enters through
 the density of states, read
 %
-\begin{align*}
-    Z_i(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_j \sum_{m = 0}^{N - 1}
-    \int \from{-\infty} \till \infty \D \epsilon
-    \frac{n_j(\epsilon)}{n_j(\mu_0)}
-    \frac{\omega_m Z_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
-    \Lambda_{i j}^-(n, m),
-    \\
-    \phi_i(\I \omega_n) &= T \sum_j \sum_{m = 0}^{N - 1}
-    \int \from{-\infty} \till \infty \D \epsilon
-    \frac{n_j(\epsilon)}{n_j(\mu_0)}
-    \frac{\phi_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
-    [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)],
-    \\
-    \chi_i(\I \omega_n) &= -T \sum_j \sum_{m = 0}^{N - 1}
-    \int \from{-\infty} \till \infty \D \epsilon
-    \frac{n_j(\epsilon)}{n_j(\mu_0)}
-    \frac{\epsilon - \mu + \chi_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
-    \Lambda_{i j}^+(n, m).
-\end{align*}
+\begin{subequations} \label{local multi-band Eliashberg equations}
+    \begin{align}
+        Z_i(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_j \sum_{m = 0}^{N - 1}
+        \int \from{-\infty} \till \infty \D \epsilon
+        \frac{n_j(\epsilon)}{n_j(\mu_0)}
+        \frac{\omega_m Z_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
+        \Lambda_{i j}^-(n, m),
+        \\
+        \phi_i(\I \omega_n) &= T \sum_j \sum_{m = 0}^{N - 1}
+        \int \from{-\infty} \till \infty \D \epsilon
+        \frac{n_j(\epsilon)}{n_j(\mu_0)}
+        \frac{\phi_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
+        [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)],
+        \\
+        \chi_i(\I \omega_n) &= -T \sum_j \sum_{m = 0}^{N - 1}
+        \int \from{-\infty} \till \infty \D \epsilon
+        \frac{n_j(\epsilon)}{n_j(\mu_0)}
+        \frac{\epsilon - \mu + \chi_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
+        \Lambda_{i j}^+(n, m).
+    \end{align}
+\end{subequations}
 %
 The common denominator and the electron-phonon coupling matrices are defined as
 %
@@ -1513,17 +1515,21 @@ j} / \lambda_{j i} = n_j(\mu_0) / n_i(\mu_0)$.
 
 Analogously, for constant band densities of states one finds
 %
-\begin{align*}
-    Z_i(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
-    \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(\I \omega_m)}}
-    \Lambda^-(n, m),
-    \\
-    \Delta_i(\I \omega_n) &= \pi T \sum_j \sum_{m = 0}^{N - 1}
-    \frac
-        {\Delta_j(\I \omega_m)}
-        {\sqrt{\omega_m^2 + \Delta_j^2(\I \omega_m)}}
-    [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)].
-\end{align*}
+\begin{subequations} \label{cDOS multi-band Eliashberg equations}
+    \begin{align}
+        Z_i(\I \omega_n)
+        &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
+        \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(\I \omega_m)}}
+        \Lambda^-(n, m),
+        \\
+        \Delta_i(\I \omega_n) &= \frac{\pi T}{Z_i(\I \omega_n)}
+        \sum_j \sum_{m = 0}^{N - 1}
+        \frac
+            {\Delta_j(\I \omega_m)}
+            {\sqrt{\omega_m^2 + \Delta_j^2(\I \omega_m)}}
+        [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)].
+    \end{align}
+\end{subequations}
 %
 $\mu^*_{i j}(N)$ is assumed to be rescaled appropriately for the respective set
 of equations.
@@ -1569,34 +1575,67 @@ Thus the new quantum numbers may also indicate subdomains of the reciprocal
 space. This procedure may in turn be generalized with respect to further quantum
 numbers such as real band indices.
 
-\section{Critical point and normal state}
+\section{Linearized equations}
 
 At $T \sub c$, where the order parameter $\Delta(\I \omega_m)$ is infinitesimal,
 and in the normal state, where it is zero, it can be neglected relative to
-$\omega_m$. This yields the \emph{linearized \name{Eliashberg} equations},
+$\omega_m$. Analogous to the derivation of the real-axis \name{Eliashberg}
+equations (Eqs.~\ref{real-axis Eliashberg equations}) the cDOS multi-band
+imaginary-axis \name{Eliashberg} equations (Eqs.~\ref{cDOS multi-band Eliashberg
+equations}) assume the following linearized form:
 %
-\begin{subequations} \label{linearized Eliashberg equations}
+\begin{subequations} \label{linearized cDOS multi-band Eliashberg equations}
     \begin{align}
-        Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
-        \sgn(\omega_m) \, \lambda(n - m),
+        Z_i(\I \omega_n)
+        &= 1 + \frac 1 {2 n + 1} \sum_j \sum_{m = 0}^{N - 1}
+        \Lambda^-(n, m),
         \\
-        \Delta(\I \omega_n) &= \frac{\pi T}{Z(\I \omega_n)} \sum_m
-        \frac{\Delta(\I \omega_m)}{|\omega_m|}
-        [\lambda(n - m) - \mu \sub C].
+        \Delta_i(\I \omega_n) &= \frac 1 {Z_i(\I \omega_n)}
+        \sum_j \sum_{m = 0}^{N - 1}
+        \frac{\Delta_j(\I \omega_m)}{2 m + 1}
+        [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)].
     \end{align}
 \end{subequations}
-
-At this point the equation for $Z(\I \omega_n)$ is neither coupled to the
-equation of $\Delta(\I \omega)$ nor must it be solved self-consistently. One can
-further evaluate
+%
+At this point the equation for $Z_i(\I \omega_n)$ is neither coupled to the
+equation of $\Delta_i(\I \omega)$ nor must it be solved self-consistently. For $N \rightarrow \infty$ can further evaluate
 %
 \begin{equation} \label{normal-state renormalization}
-    Z(\I \omega_n) = 1 + \frac{\pi T}{\omega_n} \sum_{m=-n}^n \lambda(m)
-    = 1 + \frac{\pi T}{\omega_n}
-    \Big[ \lambda(0) + 2 \sum_{m=1}^n \lambda(m) \Big].
+    Z_i(\I \omega_n) = 1 + \frac 1 {2 n + 1} \sum_j \sum_{m = -n}^n
+    \lambda_{i j}(m)
+    = 1 + \frac 1 {2 n + 1} \sum_j
+    \Big[ \lambda_{i j} + 2 \sum_{m = 1}^n \lambda_{i j}(m) \Big].
 \end{equation}
+%
+This yields the matrix equation $\vec \Delta \cdot \vec K = \vec \Delta$,
+component-wise written as
+%
+\begin{equation}
+   \begin{split}
+      \Delta_i(\I \omega_n) &= \sum_j \sum_{m = 0}^{N - 1}
+      K_{i j}(n, m) \, \Delta_j(\I \omega_m),
+      \\
+      K_{i j}(n, m) &= \frac 1 {2 m + 1}
+      [\Lambda_{i j}^+(n, m) - \delta_{n m} D_{i j}^N(n) - 2 \mu^*_{i j}(N)],
+      \\
+      D_{i j}^N(n) &=
+      \sum_{m = 0}^{N - 1} \Lambda_{i j}^-(n, m) \overset{N = \infty} =
+      \lambda_{i j} + 2 \sum_{m = 1}^n \lambda_{i j}(m).
+   \end{split}
+   \label{linearized gap equation}
+\end{equation}
+%
+Since at temperatures greater than, equal to or less than $T \sub c$
+multiplication with the \emph{kernel} $\vec K$ ought to or diminish, maintain or
+amplify the magnitude of the order parameter $\vec \Delta$, respectively, $T
+\sub c$ is defined as the temperature at which the greatest eigenvalue of $\vec
+K$ crosses unity \cite[47]{AllenMitrovic82}.
 
-\subsection{Spectra of direct products}
+Before the analysis can go more into detail it necessary to introduce the direct
+matrix product and its spectral properties, which will be done in the following
+section.
+
+\subsection{Direct product}
 
 The \emph{direct product} or \emph{\name{Kronecker} product} $\vec A \otimes
 \vec B$ of the $r \times c$ matrix $\vec A$ and the $R \times C$ matrix $\vec B$
@@ -1644,6 +1683,10 @@ one can show that, if the eigenvalue equations $\vec A \cdot \vec \alpha = a
 The eigenvectors and -values of the direct product of two matrix are thus the
 direct and normal products of the respective eigenvectors and -values of the
 individual matrices.
+
+\subsection{Effective coupling constant}
+
+$\Theta_i(\epsilon, n) = [\omega_n Z_i(\I \omega_n)]^2 + [\epsilon - \mu + \chi_j(\I \omega_m)]^2$
 
 \section{\name{Padé} approximants}
 
