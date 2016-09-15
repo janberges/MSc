@@ -466,11 +466,14 @@ case,
     = -\frac{2 \omega \sub E}{\nu_n^2 + \omega^2 \sub E}
     \quad \text{and} \quad
     \lambda(n)
-    = \frac{2 \omega \sub E \, n(\mu_0) \, g^2}{\nu_n^2 + \omega^2 \sub E},
+    = \frac{2 \omega \sub E \, n(\mu_0) \, g^2}{\nu_n^2 + \omega^2 \sub E}
+    \equiv \frac \lambda {1 + \big[ \frac{\nu_n}{\omega \sub E} \big]^2},
 \end{equation*}
 %
-where $D(\I \nu_n)$ resembles the bare phonon \name{Green} function $D_0(\I
-\nu_n)$ for the \name{Hamilton} operator
+where $\lambda \equiv \lambda(0) = 2 n(\mu_0) \, g^2 / \omega \sub E$ is the
+parameter which will subsequently be used to define the electron-phonon coupling
+strength and $D(\I \nu_n)$ resembles the bare phonon \name{Green} function
+$D_0(\I \nu_n)$ for the \name{Hamilton} operator
 %
 \begin{equation*}
     \op H_0
@@ -900,8 +903,8 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
             \alpha^2 F(\omega'')}{\equiv \lambda},
     \end{gather*}
     %
-    where the \emph{electron-phonon coupling strength} $\lambda$ has been
-    defined. The integral approximation will be justified in
+    where the \emph{electron-phonon coupling strength} $\lambda \equiv
+    \lambda(0)$ has reappeared. The integral approximation will be justified in
     Section~\ref{rectangular density of states}, considering that $1 - 2
     f_+(\omega) = \tanh \frac \omega {2 T} \approx \frac 2 \pi \arctan \frac
     \omega T$.
@@ -1465,32 +1468,50 @@ bands which will turn out to be equivalent to allowing for \name{Fermi}-pocket
 resolved anisotropy.
 
 Since a band index is a quantum number just as the wave number, both can be
-treated on the same footing.
+treated on the same footing. Thus, in \ref{Eliashberg equations} one simply has
+to complement the natural occurrences of the wave numbers $\vec k$ and $\vec q$,
+even though they have been averaged out as in the case of the \name{Coulomb}
+interaction, with band indices $i$ and $j$, respectively. The corresponding
+local \name{Eliashberg} equations, where the band-structure only enters through
+the density of states, read
 %
 \begin{align*}
     Z_i(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_j \sum_{m = 0}^{N - 1}
     \int \from{-\infty} \till \infty \D \epsilon
-    \frac{N_j(\epsilon)}{N_j(\mu_0)}
+    \frac{n_j(\epsilon)}{n_j(\mu_0)}
     \frac{\omega_m Z_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
     \Lambda_{i j}^-(n, m),
     \\
     \phi_i(\I \omega_n) &= T \sum_j \sum_{m = 0}^{N - 1}
     \int \from{-\infty} \till \infty \D \epsilon
-    \frac{N_j(\epsilon)}{N_j(\mu_0)}
+    \frac{n_j(\epsilon)}{n_j(\mu_0)}
     \frac{\phi_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
     [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)],
     \\
     \chi_i(\I \omega_n) &= -T \sum_j \sum_{m = 0}^{N - 1}
     \int \from{-\infty} \till \infty \D \epsilon
-    \frac{N_j(\epsilon)}{N_j(\mu_0)}
+    \frac{n_j(\epsilon)}{n_j(\mu_0)}
     \frac{\epsilon - \mu + \chi_j(\I \omega_m)}{\Theta_j(\epsilon, m)}
-    \Lambda_{i j}^+(n, m),
-    \\
-    \Theta_i(\epsilon, n) &= [\omega_n Z_i(\I \omega_n)]^2
-    + \phi_i^2(\I \omega_n) + [\epsilon - \mu + \chi_i(\I \omega_n)]^2.
+    \Lambda_{i j}^+(n, m).
 \end{align*}
 %
-Constant density of states:
+The common denominator and the electron-phonon coupling matrices are defined as
+%
+\begin{align*}
+    \Theta_i(\epsilon, n) &= [\omega_n Z_i(\I \omega_n)]^2
+    + \phi_i^2(\I \omega_n) + [\epsilon - \mu + \chi_i(\I \omega_n)]^2,
+    \\
+    \Lambda_{i j}^\pm(n, m)
+    &= \lambda_{i j}(n - m) \pm \lambda_{i j}(n + m + 1).
+\end{align*}
+%
+$n_j(\epsilon)$ denotes the density of states for the $j$-th band which is also
+part of the definition of the electron-phonon coupling parameter $\lambda_{i j}
+\equiv \lambda_{i j}(0) = -n_j(\mu_0) \, g_{i j}^2 \, D(0)$. For symmetric
+electron-phonon matrix elements $g_{i j} = g_{j i}$ it follows that $\lambda_{i
+j} / \lambda_{j i} = n_j(\mu_0) / n_i(\mu_0)$.
+
+Analogously, for constant band densities of states one finds
 %
 \begin{align*}
     Z_i(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
@@ -1504,11 +1525,49 @@ Constant density of states:
     [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)].
 \end{align*}
 %
-Electron-phonon coupling matrices:
+$\mu^*_{i j}(N)$ is assumed to be rescaled appropriately for the respective set
+of equations.
+
+\subsection{Alternate interpretation}
+
+In the multi-band case the summations over band indices are already part of the
+underlying interaction \name{Hamilton} operators and find their way through the
+\name{Feynman-Dyson} perturbation theory into the \name{Eliashberg} equations.
+However, it is also possible to yield formally identical equations within the
+single-band formalism.
+
+The basic idea of the local approximation is to reduce the dependence on wave numbers to a mere energy-dependence. Essentially,
 %
 \begin{equation*}
-    \Lambda_{i j}^\pm(n, m) = \lambda_{i j}(n - m) \pm \lambda_{i j}(n + m + 1).
+    \sum_{\vec k} f(\vec k) \approx
+    \int \from{-\infty} \till \infty \D \epsilon \,
+    \hyper{\sum_{\vec k} \delta(\epsilon - \epsilon_{\vec k})}{N(\epsilon)} \,
+    f(\epsilon).
 \end{equation*}
+%
+If the special case where $f(\vec k)$ is a function of $\epsilon_{\vec k}$ only
+the above equation becomes exact. Otherwise $f(\epsilon)$ is an appropriate
+constant-energy average.
+
+The alternate idea is now to split the domain of the band-structure, for example
+the first \name{Brillouin} zone, into subdomains for which separate densities of
+states are determined \cite{Entel76} and the corresponding averages taken.
+Formally,
+%
+\begin{equation*}
+    \sum_{\vec k} f(\vec k) \approx
+    \sum_i \int \from{-\infty} \till \infty \D \epsilon \,
+    \hyper
+        {\sum_{\vec k \in D_i} \delta(\epsilon - \epsilon_{\vec k})}
+        {N_i(\epsilon)} \,
+    f_i(\epsilon)
+    \quad \text{where} \quad
+    \bigcup_i D_i = \text{\name{Brillouin} zone}.
+\end{equation*}
+%
+Thus the new quantum numbers may also indicate subdomains of the reciprocal
+space. This procedure may in turn be generalized with respect to further quantum
+numbers such as real band indices.
 
 \section{Critical point and normal state}
 
@@ -1572,8 +1631,8 @@ which is easily proved component-wise,
     = [(\vec A \cdot \vec C) \otimes (\vec B \cdot \vec D)]_{i j, p q},
 \end{multline*}
 %
-one can show that, if the eigenvalue equations $\vec A \vec \alpha = a \vec
-\alpha$ and $\vec B \cdot \vec \beta = b \vec \beta$ hold,
+one can show that, if the eigenvalue equations $\vec A \cdot \vec \alpha = a
+\vec \alpha$ and $\vec B \cdot \vec \beta = b \vec \beta$ hold,
 %
 \begin{equation*}
     (\vec A \otimes \vec B) \cdot (\vec \alpha \otimes \vec \beta)
