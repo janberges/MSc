@@ -1713,7 +1713,30 @@ temperature, but the presented rule will no longer work.
 
 \subsection{Non-constant densities of states}
 
-$\Theta_i(\epsilon, n) = [\omega_n Z_i(\I \omega_n)]^2 + [\epsilon - \mu + \chi_j(\I \omega_m)]^2$
+If the band densities of states are not considered to be constant,
+Eqs.~\ref{local multi-band Eliashberg equations} have to be solved. The only
+simplification emerging at $T \sub c$ is that the order parameter can be
+neglected in the common denominator which becomes $\Theta_i(\epsilon, n) =
+[\omega_n Z_i(\I \omega_n)]^2 + [\epsilon - \mu + \chi_i(\I \omega_n)]^2$. As a
+consequence, renormalization function and energy shift become decoupled from the
+order parameter and may thus be determined independently. Having done so, these
+normal-state properties, together with the self-consistent chemical potential,
+are inserted into the remaining equation which yields
+%
+\begin{align*}
+    \phi_i(\I \omega_n) &= \sum_j \sum_{m = 0}^{N - 1}
+    K_{i j}(n, m) \, \phi_j(\I \omega_m),
+    \\
+    K_{i j}(n, m) &= T \sub c \int \from{-\infty} \till \infty \D \epsilon
+    \frac{n_j(\epsilon)}{n_j(\mu_0)}
+    \frac {\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)}
+    {[\omega_m Z_j(\I \omega_m)]^2 + [\epsilon - \mu + \chi_j(\I \omega_m)]^2}.
+\end{align*}
+%
+Again, $T \sub c$ may be defined via the largest eigenvalue of $\vec K$ being
+unity. However, the mapping onto effective scalar coupling strengths is
+complicated by the presence of the density of states which differs from band to
+band.
 
 \section{\name{Padé} approximants}
 
