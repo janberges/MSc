@@ -1740,6 +1740,76 @@ band.
 
 \section{\name{Padé} approximants}
 
-Imaginary-axis resuls are generally just numerical values corresponding to a
-finite set of \name{Matsubara} frequencies rather than analytical expressions,
-which would allow for analytical continuation.
+The imaginary-axis \name{Eliashberg} equations are more convenient for a
+computational implementation than the real-axis complements since they involve
+sums over already discrete \name{Matsubara} frequencies rather than integrals
+the domains of which are yet be be discretized, which is always accompanied by
+some loss of accuracy. In addition, no complex quantities are involved.
+
+Since real-axis results can be obtained imaginary-axis results via analytic
+continuation (see Eq.~\ref{G(i omega_n)}), being interested in the former it may
+still be worth it to take a detour via the latter. Hereby the problem arises,
+that an \emph{analytic} continuation can only be applied to some analytic
+expression, whereas the numerical results are generally just a finite set of
+sample points. In the following a solution proposed by \name{Vidberg} and
+\name{Serene} in 1977 \cite{VidbergSerene77} is presented.
+
+Let $\Sigma(\I \omega_n)$ with $n \in \{ 0 \dots N - 1 \}$ act as a placeholder
+for any of the self-energy components resulting from the \name{Eliashberg}
+equations and derived quantities. The idea is to interpolate this numerical
+result by a rational function to which the analytic continuation can then be
+applied. This \emph{\name{Padé} approximant} may be written as a continued
+fraction
+%
+\begin{equation} \label{continued fraction}
+    \Sigma(\omega) = \dfrac{c_0 \, \phantom{(\omega - \I \omega_0)}}
+    {1 + \dfrac{c_1 \, (\omega - \I \omega_0)}
+    {1 + \dfrac{c_2 \, (\omega - \I \omega_1)} \dots}}
+    \quad \text{with} \quad c_n = 0 \quad \text{for} \quad n \ge N,
+\end{equation}
+%
+where the non-zero coefficients have to be determined so that all imaginary-axis
+results are reproduced. For this purpose, \name{Vidberg} and \name{Serene}
+propose the following algorithm:
+%
+\begin{align*}
+    & g_0(\I \omega_m)
+        \leftarrow \Sigma(\I \omega_m) \quad \text{for all $m$.} \\[10pt]
+    & \text{For $n = 0 \dots N - 2$:} \\
+    & \qquad g_{n + 1}(\I \omega_m) \leftarrow \frac
+        {g_n(\I \omega_n) - g_n(\I \omega_m)}
+        {(\I \omega_m - \I \omega_n) g_n(\I \omega_m)}
+        \quad \text{for $m > n$.} \\[10pt]
+    & c_n \leftarrow g_n(\I \omega_n) \quad \text{for all n.} \\[10pt]
+    & \text{For each $\omega \in \mathds R$ of interest:} \\
+    & \qquad \vec x_0(\omega) \leftarrow (\rlap 0 \phantom{c_0} \ 1). \\
+    & \qquad \vec x_1(\omega) \leftarrow (c_0 \ 1). \\[10pt]
+    & \qquad \text{For $n = 1 \dots N - 1$:} \\
+    & \qquad \qquad \vec x_{n + 1}(\omega)
+        \leftarrow \vec x_n(\omega) + c_n (\omega - \I \omega_{n - 1}) \,
+        \vec x_{n - 1}(\omega). \\[10pt]
+    & \qquad \Sigma(\omega)
+        \leftarrow \frac{[\vec x_N(\omega)]_1}{[\vec x_N(\omega)]_2}. \\
+    \intertext{%
+        Having determined the coefficients, this algorithm does not calculate
+        the continued fraction as stated in Eq.~\ref{continued fraction} but
+        rather its representation as a fraction of two polynomials via a
+        forward-recurrence formula. This would be favorable if not only the
+        final but also intermediate approximants $[\vec x_n(\omega)]_1 / [\vec
+        x_n(\omega)]_2$ taking only $n < N$ points into account were needed.
+        However, being only interested in the $N$-point \name{Padé} approximant,
+        a backward-recurrence algorithm which simply calculates the continued
+        fraction successively from \q{tail to head} is preferable for both
+        requiring less operations and being numerically more stable
+        \cite{JonesThron74}:
+        }
+    & \text{For each $\omega \in \mathds R$ of interest:} \\
+    & \qquad \Sigma(\omega) \leftarrow 1. \\[10pt]
+    & \qquad \text{For $n = 1 \dots N - 1$ reversed:} \\
+    & \qquad \qquad \Sigma(\omega) \leftarrow 1
+        + \frac{c_n \, (\omega - \I \omega_{n - 1})}{\Sigma(\omega)}. \\[10pt]
+    & \qquad \Sigma(\omega) \leftarrow \frac{c_0}{\Sigma(\omega)}.
+\end{align*}
+%
+The actual implementation for this work can be consulted in
+Section~\ref{real_axis}.
