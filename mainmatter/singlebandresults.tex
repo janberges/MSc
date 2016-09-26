@@ -2,19 +2,22 @@
 
 \chapter{Single-band results}
 
-Having presented the most important analytical relations, the following chapters
-will be dedicated to the presentation of numerical results. For now, only a
-single electronic band is taken into account.
-
-\section{Self-energy on real and imaginary axis}
+Having presented most of the analytic framework, the following chapters will be
+dedicated to the presentation of more specific, mostly numerical results. For
+now, only a single electronic band is taken into account.
 
 To make a start, the self-energy components which constitute the solution of the
 \name{Eliashberg} equations will be presented as functions of both
 \name{Matsubara} and real frequencies. Before that, however, the analytic
-continuation by mean of \name{Padé} approximants shall be validated using the
-example of the only self-energy component of interest for which an analytic
-expression is available, namely the renormalization function in the normal state
-within the cDOS approximation.
+continuation by means of \name{Padé} approximants shall be validated and an
+exemplary density of states to work with introduced. Next, several convergence
+tests are performed which guarantee the accuracy of the following results:
+\name{McMillan}'s equation is adapted to the special case of \name{Einstein}
+phonon spectra and subsequently tested as part of a series of
+critical-temperature benchmarks. Finally, the influence of density of states and
+particle number is discussed in detail.
+
+\section{Preliminary considerations}
 
 \subsection{Validation of \name{Padé} approximant}
 
@@ -26,6 +29,12 @@ within the cDOS approximation.
     \label{validation Pade}
 \end{figure}
 %
+In this section the suitability of \name{Padé} approximants to perform an
+analytic continuation of numerical data is tested using the example of the only
+self-energy component of interest for which an analytic expression is available,
+namely the renormalization function in the normal state within the cDOS
+approximation.
+
 With the help of Eq.~A.7 of Ref.~\barecite{AllenMitrovic82} one can easily
 extend the domain of Eq.~\ref{normal-state renormalization} from the
 \name{Matsubara} frequencies on the imaginary axis to the whole complex plane.
@@ -58,3 +67,45 @@ towards unity and zero, respectively.
 It turns out that the quality of the \name{Padé} approximant increases with
 $\omega \sub{max.}$, as expected. Already for small multiples of $\omega \sub E$
 the exact and approximate curves coincide to a high degree.
+
+\subsection{Density of states of the square lattice}
+
+\section{Self-energy on real and imaginary axis}
+
+\begin{itemize}
+    \item Magnitude of order parameter changes with temperature as opposed to
+          invariant shape (\name{Vidberg/Serene}).
+    \begin{itemize}
+        \item[$\rightarrow$] common position of zero-crossing
+    \end{itemize}
+\end{itemize}
+
+\subsection{Temperature dependence of the order parameter}
+
+\section{Convergence tests}
+
+\subsection{Cutoff-induced errors of the self-energy}
+
+\begin{itemize}
+    \item numeric: $Z(\I \omega_n)$, $\Delta(\I \omega_n)$, $\chi(\I \omega_n)$
+    \item analytic: $Z(\I \omega_n)$
+\end{itemize}
+
+\subsection{Convergence of critical temperature}
+
+\section{\name{McMillan}'s equation for \name{Einstein} spectra}
+
+\section{Critical-temperature benchmarks}
+
+\section{Dependence on density of states and occupancy}
+
+\begin{itemize}
+    \item energy shift and chemical potential as function of the initial value
+          of the latter
+    \item non-well-defined coupling constants because of:
+    %
+    \begin{itemize}
+        \item steep slope of the density of states
+        \item non-representative density of states at \name{Fermi} level
+    \end{itemize}
+\end{itemize}
