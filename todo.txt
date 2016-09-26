@@ -4,9 +4,7 @@
 + Explain where the symmetry Sigma[i omega(n)] = Sigma[-i omega(n)] comes from
 + Introduce spectral representation, explain reintroduction of energy integral
 + Explain why cDOS approach requires rescaling the Coulomb interaction
-- Write more about linearized Eliashberg equations:
-    - Show equivalence of Rainer-Bergmann formulation of Eliashberg eigenvalue
-      problem and maybe explain why it leads to a slower convergence.
++ Write more about linearized Eliashberg equations:
 + Use only one summand of Omega(omega, omega', omega") + Omega(omega, -omega',
   omega'') in integral by returning to int[-inf, +inf] domega'?
 + Reference Allen/Dynes with respect to rescaled and McMillan's mu*
@@ -38,7 +36,7 @@
 
 15  Multi-band self-energy and Tc:
 
-- effective lambda: Show that eigenvalues of Kronecker product of matrices are
++ effective lambda: Show that eigenvalues of Kronecker product of matrices are
   products of eigenvalues of its factors and that the maximum eigenvalue of
   lambda determines Tc.
     - Why are the asymptotes of lambda(1,2) = lambda^2 / lambda(2,1) moved
@@ -95,3 +93,5 @@ If there is time left:
 If there is even more time left:
 
 - Dynamical Mean-Field Theory (DMFT) and Dynamical Vertex Approximation (DGA)?
+- Show equivalence of Rainer-Bergmann formulation of Eliashberg eigenvalue
+  problem and maybe explain why it leads to a slower convergence.
