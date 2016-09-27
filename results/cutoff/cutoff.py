@@ -45,7 +45,7 @@ for cutoff in np.linspace(1, 20, 39):
 plot = storylines.Plot(4.666, 6, lower='purple', upper='teal')
 
 plot.ylabel = r'$\omega / \omega \sub E$'
-plot.zlabel = r'$\omega \sub N / \omega \sub E$'
+plot.zlabel = r'$\omega_N / \omega \sub E$'
 
 plot.ymin = 0; plot.ymax = 20
 plot.zmin = 0; plot.zmax = 20
