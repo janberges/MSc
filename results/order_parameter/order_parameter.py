@@ -5,6 +5,7 @@ import storylines
 import numpy as np
 
 para = {
+    'file': 'order_parameter.dat',
     'tell': False,
 
     'error': 0.0001,

@@ -5,6 +5,7 @@ import storylines
 import numpy as np
 
 para = {
+    'file': 'self-energy.dat',
     'tell': False,
 
     'error': 0.001,

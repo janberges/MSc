@@ -128,12 +128,21 @@ the exact and approximate curves coincide to a high degree.
 \begin{figure}
     \small
     \begin{subfigure}{7cm}
-        \input{results/convergence/integration_points.sl}
+        \input{results/convergence/cutoff_frequency.sl}
+        \caption{non-cDOS}
     \end{subfigure}%
     \begin{subfigure}{7cm}
-        \input{results/convergence/cutoff_frequency.sl}
+        \input{results/convergence/cutoff_frequency_cdos.sl}
+        \caption{cDOS}
     \end{subfigure}
-    \caption{Convergence tests}
+    \caption{Convergence with cutoff frequency}
+\end{figure}
+
+\begin{figure}
+    \small
+    \centering
+    \input{results/convergence/integration_points.sl}
+    \caption{Convergence with number of integration points}
 \end{figure}
 
 \section{\name{McMillan}'s equation for \name{Einstein} spectra}
