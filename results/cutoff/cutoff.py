@@ -42,7 +42,7 @@ for cutoff in np.linspace(1, 20, 39):
 
     data.append(results)
 
-plot = storylines.Plot(4.666, 6, margin=0, lower='purple', upper='teal')
+plot = storylines.Plot(4.666, 6, lower='purple', upper='teal')
 
 plot.ylabel = r'$\omega / \omega \sub E$'
 plot.zlabel = r'$\omega \sub N / \omega \sub E$'
