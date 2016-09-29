@@ -1522,7 +1522,7 @@ Analogously, for constant band densities of states one finds
         Z_i(\I \omega_n)
         &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
         \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta_j^2(\I \omega_m)}}
-        \Lambda^-(n, m),
+        \Lambda_{i j}^-(n, m),
         \\
         \Delta_i(\I \omega_n) &= \frac{\pi T}{Z_i(\I \omega_n)}
         \sum_j \sum_{m = 0}^{N - 1}
@@ -1544,7 +1544,8 @@ underlying interaction \name{Hamilton} operators and find their way through the
 However, it is also possible to yield formally identical equations within the
 single-band formalism.
 
-The basic idea of the local approximation is to reduce the dependence on wave numbers to a mere energy-dependence. Essentially,
+The basic idea of the local approximation is to reduce the dependence on wave
+numbers to a mere energy-dependence. Essentially,
 %
 \begin{equation*}
     \sum_{\vec k} f(\vec k) \approx
@@ -1590,7 +1591,7 @@ equations}) assume the following linearized form:
     \begin{align}
         Z_i(\I \omega_n)
         &= 1 + \frac 1 {2 n + 1} \sum_j \sum_{m = 0}^{N - 1}
-        \Lambda^-(n, m),
+        \Lambda_{i j}^-(n, m),
         \\
         \Delta_i(\I \omega_n) &= \frac 1 {Z_i(\I \omega_n)}
         \sum_j \sum_{m = 0}^{N - 1}
@@ -1614,18 +1615,18 @@ This yields the matrix equation $\vec \Delta \cdot \vec K = \vec \Delta$,
 component-wise written as
 %
 \begin{equation}
-   \begin{split}
-      \Delta_i(\I \omega_n) &= \sum_j \sum_{m = 0}^{N - 1}
-      K_{i j}(n, m) \, \Delta_j(\I \omega_m),
-      \\
-      K_{i j}(n, m) &= \frac 1 {2 m + 1}
-      [\Lambda_{i j}^+(n, m) - \delta_{n m} D_{i j}^N(n) - 2 \mu^*_{i j}(N)],
-      \\
-      D_{i j}^N(n) &=
-      \sum_{m = 0}^{N - 1} \Lambda_{i j}^-(n, m) \overset{N = \infty} =
-      \lambda_{i j} + 2 \sum_{m = 1}^n \lambda_{i j}(m).
-   \end{split}
-   \label{linearized gap equation}
+    \begin{split}
+        \Delta_i(\I \omega_n) &= \sum_j \sum_{m = 0}^{N - 1}
+        K_{i j}(n, m) \, \Delta_j(\I \omega_m),
+        \\
+        K_{i j}(n, m) &= \frac 1 {2 m + 1} [\Lambda_{i j}^+(n, m)
+        - \delta_{i j} \delta_{n m} D_i^N(n) - 2 \mu^*_{i j}(N)],
+        \\
+        D_i^N(n) &= \sum_j \sum_{m = 0}^{N - 1} \Lambda_{i j}^-(n, m)
+        \overset{N = \infty} =
+        \sum_j \Big[ \lambda_{i j} + 2 \sum_{m = 1}^n \lambda_{i j}(m) \Big].
+    \end{split}
+    \label{linearized gap equation}
 \end{equation}
 %
 Since at temperatures greater than, equal to or less than $T \sub c$
@@ -1633,84 +1634,6 @@ multiplication with the \emph{kernel} $\vec K$ ought to or diminish, maintain or
 amplify the magnitude of the order parameter $\vec \Delta$, respectively, $T
 \sub c$ is defined as the temperature at which the greatest eigenvalue of $\vec
 K$ crosses unity \cite[47]{AllenMitrovic82}.
-
-Before the analysis can go more into detail it necessary to introduce the direct
-matrix product and its spectral properties, which will be done in the following
-section.
-
-\subsection{Direct product}
-
-The \emph{direct product} or \emph{\name{Kronecker} product} $\vec A \otimes
-\vec B$ of the $r \times c$ matrix $\vec A$ and the $R \times C$ matrix $\vec B$
-is the $r c \times R C$ matrix defined by
-%
-\begin{equation*}
-    (\vec A \otimes \vec B)_{i j, n m} = A_{i n} B_{j m},
-\end{equation*}
-%
-where $i j, n m$ can be interpreted e.g. as $i R + j, n C + m$ if all indices
-are zero-based. This definition also holds for column vectors if these are
-considered as, say, $N \times 1$ matrices.
-
-With the help of the identity
-%
-\begin{equation*}
-    (\vec A \otimes \vec B) \cdot (\vec C \otimes \vec D)
-    = (\vec A \cdot \vec C) \otimes (\vec B \cdot \vec D)
-\end{equation*}
-%
-which is easily proved component-wise,
-%
-\begin{multline*}
-    [(\vec A \otimes \vec B) \cdot (\vec C \otimes \vec D)]_{i j, p q}
-    = \sum_{n m}
-        (\vec A \otimes \vec B)_{i j, n m} \,
-        (\vec C \otimes \vec D)_{n m, p q}
-    = \sum_{n m} A_{i n} B_{j m} C_{n p} D_{m q}
-    \\
-    = \sum_n A_{i n} C_{n p} \sum_m B_{j m} D_{m q}
-    = (\vec A \cdot \vec C)_{i p} \, (\vec B \cdot \vec D)_{j q}
-    = [(\vec A \cdot \vec C) \otimes (\vec B \cdot \vec D)]_{i j, p q},
-\end{multline*}
-%
-one can show that, if the eigenvalue equations $\vec A \cdot \vec \alpha = a
-\vec \alpha$ and $\vec B \cdot \vec \beta = b \vec \beta$ hold,
-%
-\begin{equation} \label{eigenvalues direct product}
-    (\vec A \otimes \vec B) \cdot (\vec \alpha \otimes \vec \beta)
-    = (\vec A \cdot \vec \alpha) \otimes (\vec B \cdot \vec \beta)
-    = (a \vec \alpha) \otimes (b \vec \beta)
-    = a b (\vec \alpha \otimes \vec \beta).
-\end{equation}
-%
-The eigenvectors and -values of the direct product of two matrix are thus the
-direct and normal products of the respective eigenvectors and -values of the
-individual matrices.
-
-\subsection{Effective coupling constants}
-
-Assuming that the matrices $\vec \lambda$ and $\vec \mu^*(N)$ describing the
-intra- and inter-band electron-phonon coupling strengths and rescaled
-\name{Coulomb} pseudo-potentials are proportional, i.e. $\lambda_{i j} = c \,
-\mu^*_{i j}(N)$ with $c \ge 0$, one finds the quotient $Q(n, m) \equiv K_{i
-j}(n, m) / \lambda_{i j}$ to be independent of band indices. For the
-corresponding matrices it follows that
-%
-\begin{equation*}
-    \vec K = \vec Q \otimes \vec \lambda
-\end{equation*}
-%
-and thus, applying Eq.~\ref{eigenvalues direct product}, the largest eigenvalue
-of $\vec K$ to be the product of the largest eigenvalues of $\vec Q$ and $\vec
-\lambda$ (in magnitude). As a consequence, if there exists a single-band system
-with positive coupling strengths $\lambda$ and $\mu^*(N)$ which exhibits the
-same critical temperature as a multi-band system with coupling matrices $\vec
-\lambda$ and $\vec \mu^*(N)$, then the further are given by the greatest
-eigenvalues of the latter.
-
-If $\vec \lambda$ is not proportional to $\vec \mu^*(N)$ there are still
-innumerable sets of effective scalar parameters which yield the same critical
-temperature, but the presented rule will no longer work.
 
 \subsection{Non-constant densities of states}
 
@@ -1735,9 +1658,7 @@ are inserted into the remaining equation which yields
 \end{align*}
 %
 Again, $T \sub c$ may be defined via the largest eigenvalue of $\vec K$ being
-unity. However, the mapping onto effective scalar coupling strengths is
-complicated by the presence of the density of states which differs from band to
-band.
+unity.
 
 \section{\name{Padé} approximants}
 
