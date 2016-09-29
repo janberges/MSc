@@ -24,14 +24,14 @@
 08  Non-cDOS self-energy and Tc:
 
 - Derive square-lattice dispersion and DOS which is used as example
-- How does effective lambda change with energy shift and associated change of
++ How does effective lambda change with energy shift and associated change of
   the density of states? What happens for 0.001 % (two electrons) and 99.999 %
   of half-filling for square lattice?
 
 
 09  Convergence tests:
 
-- How does cutoff change normal-state Z(i omega_n) (exact analytical results)?
++ How does cutoff change normal-state Z(i omega_n) (analytical results)?
 
 
 15  Multi-band self-energy and Tc:
