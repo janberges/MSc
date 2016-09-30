@@ -1635,6 +1635,131 @@ amplify the magnitude of the order parameter $\vec \Delta$, respectively, $T
 \sub c$ is defined as the temperature at which the greatest eigenvalue of $\vec
 K$ crosses unity \cite[47]{AllenMitrovic82}.
 
+Before the analysis can go more into detail it necessary to introduce the direct
+matrix product and its spectral properties, which will be done in the following
+section.
+
+\subsection{Direct product}
+
+The \emph{direct product} or \emph{\name{Kronecker} product} $\vec A \otimes
+\vec B$ of the $r \times c$ matrix $\vec A$ and the $R \times C$ matrix $\vec B$
+is the $r c \times R C$ matrix defined by
+%
+\begin{equation*}
+    (\vec A \otimes \vec B)_{i j, n m} = A_{i n} B_{j m},
+\end{equation*}
+%
+where $i j, n m$ can be interpreted e.g. as $i R + j, n C + m$ if all indices
+are zero-based. This definition also holds for column vectors if these are
+considered as, say, $N \times 1$ matrices.
+
+With the help of the identity
+%
+\begin{equation*}
+    (\vec A \otimes \vec B) \cdot (\vec C \otimes \vec D)
+    = (\vec A \cdot \vec C) \otimes (\vec B \cdot \vec D)
+\end{equation*}
+%
+which is easily proved component-wise,
+%
+\begin{multline*}
+    [(\vec A \otimes \vec B) \cdot (\vec C \otimes \vec D)]_{i j, p q}
+    = \sum_{n m}
+        (\vec A \otimes \vec B)_{i j, n m} \,
+        (\vec C \otimes \vec D)_{n m, p q}
+    = \sum_{n m} A_{i n} B_{j m} C_{n p} D_{m q}
+    \\
+    = \sum_n A_{i n} C_{n p} \sum_m B_{j m} D_{m q}
+    = (\vec A \cdot \vec C)_{i p} \, (\vec B \cdot \vec D)_{j q}
+    = [(\vec A \cdot \vec C) \otimes (\vec B \cdot \vec D)]_{i j, p q},
+\end{multline*}
+%
+one can show that, if the eigenvalue equations $\vec A \cdot \vec \alpha = a
+\vec \alpha$ and $\vec B \cdot \vec \beta = b \vec \beta$ hold,
+%
+\begin{equation} \label{eigenvalues direct product}
+    (\vec A \otimes \vec B) \cdot (\vec \alpha \otimes \vec \beta)
+    = (\vec A \cdot \vec \alpha) \otimes (\vec B \cdot \vec \beta)
+    = (a \vec \alpha) \otimes (b \vec \beta)
+    = a b (\vec \alpha \otimes \vec \beta).
+\end{equation}
+%
+The eigenvectors and -values of the direct product of two matrix are thus the
+direct and normal products of the respective eigenvectors and -values of the
+individual matrices.
+
+\subsection{Effective coupling constants}
+
+In the following, two approximations are presented which allow to map the
+matrices describing multi-band coupling strengths onto scalar values which lead
+to similar critical temperatures. It shall be noted that for all non-scalar
+couplings there are always innumerable sets of effective scalar parameters which
+yield exactly the same critical temperature -- it is just that there are no
+simple rules to generate them.
+
+\subsubsection{Non-renormalized energies}
+
+Supposing that there is no energy renormalization, i.e. $Z_i(\I \omega_n) = 1$
+for all bands and frequencies, which constitutes a very rough approximation, the
+kernel reduces to
+%
+\begin{equation*}
+   K_{i j}(n, m) = \frac 1 {2 m + 1} [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)],
+\end{equation*}
+%
+Assuming further that the matrices $\vec \lambda$ and $\vec \mu^*(N)$ describing
+the intra- and inter-band electron-phonon coupling strengths and rescaled
+\name{Coulomb} pseudo-potentials are proportional, i.e. $\lambda_{i j} = c \,
+\mu^*_{i j}(N)$ with $c \ge 0$, one finds the quotient $Q(n, m) \equiv K_{i
+j}(n, m) / \lambda_{i j}$ to be independent of band indices. For the
+corresponding matrices it follows that
+%
+\begin{equation*}
+    \vec K = \vec Q \otimes \vec \lambda
+\end{equation*}
+%
+and thus, applying Eq.~\ref{eigenvalues direct product}, the largest eigenvalue
+of $\vec K$ to be the product of the largest eigenvalues of $\vec Q$ and $\vec
+\lambda$ (in magnitude). As a consequence, if there exists a single-band system
+with positive coupling strengths $\lambda$ and $\mu^*(N)$ which exhibits the
+same critical temperature as a multi-band system with coupling matrices $\vec
+\lambda$ and $\vec \mu^*(N)$, then the further would be given by the greatest
+eigenvalues of the latter if the renormalization were unity.
+
+\subsubsection{Cutoff-independent mapping}
+
+Another approach takes the mapping searched for as independent of the cutoff
+frequency $\omega_N$. This allows to derive it for the most simple case where
+$N = 1$. Consequently, for $n = m = 1$
+%
+\begin{equation*}
+   K_{i j} = \lambda_{i j} + \hypo{\lambda_{i j}(1)}{\approx \lambda_{i j}}
+   - \delta_{i j} \sum_j \lambda_{i j} - 2 \mu^*_{i j}
+\end{equation*}
+%
+For a two-band system with $\mu^*_{i j} = 0$, which is only assumed for
+simplicity, one has
+%
+\begin{equation*}
+   \vec K = \begin{bmatrix}
+      \lambda_{1 1} - \lambda_{1 2} & 2 \lambda_{1 2} \\
+      2 \lambda_{2 1} & \lambda_{2 2} - \lambda_{2 1}
+   \end{bmatrix}
+\end{equation*}
+%
+the greatest eigenvalue of which gives the desired approximate effective
+couplings strength:
+%
+\begin{equation*}
+   \lambda = \frac 1 2 \bigg[
+      \lambda_{1 1} - \lambda_{1 2} + \lambda_{2 2} - \lambda_{2 1}
+      + \sqrt{
+         (\lambda_{1 1} - \lambda_{1 2} - \lambda_{2 2} + \lambda_{2 1})^2
+         + 16 \lambda_{1 2} \lambda_{2 1}
+         }
+   \bigg].
+\end{equation*}
+
 \subsection{Non-constant densities of states}
 
 If the band densities of states are not considered to be constant,
@@ -1696,20 +1821,20 @@ propose the following algorithm:
 %
 \begin{align*}
     & g_0(\I \omega_m)
-        \leftarrow \Sigma(\I \omega_m) \quad \text{for all $m$.} \\[10pt]
+        \leftarrow \Sigma(\I \omega_m) \quad \text{for all $m$.} \\[4pt]
     & \text{For $n = 0 \dots N - 2$:} \\
     & \qquad g_{n + 1}(\I \omega_m) \leftarrow \frac
         {g_n(\I \omega_n) - g_n(\I \omega_m)}
         {(\I \omega_m - \I \omega_n) g_n(\I \omega_m)}
-        \quad \text{for $m > n$.} \\[10pt]
-    & c_n \leftarrow g_n(\I \omega_n) \quad \text{for all n.} \\[10pt]
+        \quad \text{for $m > n$.} \\[4pt]
+    & c_n \leftarrow g_n(\I \omega_n) \quad \text{for all n.} \\[4pt]
     & \text{For each $\omega \in \mathds R$ of interest:} \\
     & \qquad \vec x_0(\omega) \leftarrow (\rlap 0 \phantom{c_0} \ 1). \\
-    & \qquad \vec x_1(\omega) \leftarrow (c_0 \ 1). \\[10pt]
+    & \qquad \vec x_1(\omega) \leftarrow (c_0 \ 1). \\[4pt]
     & \qquad \text{For $n = 1 \dots N - 1$:} \\
     & \qquad \qquad \vec x_{n + 1}(\omega)
         \leftarrow \vec x_n(\omega) + c_n (\omega - \I \omega_{n - 1}) \,
-        \vec x_{n - 1}(\omega). \\[10pt]
+        \vec x_{n - 1}(\omega). \\[4pt]
     & \qquad \Sigma(\omega)
         \leftarrow \frac{[\vec x_N(\omega)]_1}{[\vec x_N(\omega)]_2}. \\
     \intertext{%
@@ -1726,10 +1851,10 @@ propose the following algorithm:
         \cite{JonesThron74}:
         }
     & \text{For each $\omega \in \mathds R$ of interest:} \\
-    & \qquad \Sigma(\omega) \leftarrow 1. \\[10pt]
+    & \qquad \Sigma(\omega) \leftarrow 1. \\[4pt]
     & \qquad \text{For $n = 1 \dots N - 1$ in reversed order:} \\
     & \qquad \qquad \Sigma(\omega) \leftarrow 1
-        + \frac{c_n \, (\omega - \I \omega_{n - 1})}{\Sigma(\omega)}. \\[10pt]
+        + \frac{c_n \, (\omega - \I \omega_{n - 1})}{\Sigma(\omega)}. \\[4pt]
     & \qquad \Sigma(\omega) \leftarrow \frac{c_0}{\Sigma(\omega)}.
 \end{align*}
 %
