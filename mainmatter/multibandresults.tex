@@ -9,7 +9,35 @@
    \input{results/order_parameter/connect.sl}
    \input{results/order_parameter/connect_back.sl}
    \input{results/order_parameter/connect_forth.sl}
-   \caption{Slowly switching on inter-band coupling\dots \cite{NicolCarbotte05}}
+   \captionsetup{singlelinecheck=off}
+   \caption[Incrementally switching on inter-band coupling]{
+       Incrementally switching on inter-band coupling. In analogy to Fig.~11 of
+       Ref.~\barecite{NicolCarbotte05}, the temperature dependence of the
+       leading \name{Matsubara} gaps of a two-band system with a phonon
+       frequency $\omega \sub E = 20 \, \unit{meV}$ and no explicit
+       \name{Coulomb} interaction is shown for different electron-phonon
+       coupling matrices
+       %
+       \begin{equation*}
+           \vec \lambda \sub{top} =
+           \begin{bmatrix}
+               1 & x \\
+               x & 2
+           \end{bmatrix},
+           \quad
+           \vec \lambda \sub{left} =
+           \begin{bmatrix}
+               1 & 0 \\
+               x & 2
+           \end{bmatrix}
+           \quad \text{and} \quad
+           \vec \lambda \sub{right} =
+           \begin{bmatrix}
+               1 & x \\
+               0 & 2
+           \end{bmatrix}.
+       \end{equation*}
+       }
 \end{figure}
 
 \section{Effective electron-phonon coupling}
@@ -30,12 +58,34 @@
    \input{results/2-band/intra_inter.sl}
    \input{results/2-band/inter_askew.sl}
    \input{results/2-band/intra_askew.sl}
+   \caption{
+       Hyperbolas of constant $T \sub c$. For the parameters $\omega \sub E = 20
+       \, \unit{meV}$, $\omega_N = 25 \, \omega \sub E$ and $\mu^* = 0$,
+       hyperbolas are shown, along which either intra- or inter-band
+       electron-phonon coupling strengths in a two-band system may be jointly
+       varied without changing the critical temperature. They intersect the
+       bisector or the odd quadrants at $\lambda \sub{d.} = \lambda_{1 1} =
+       \lambda_{2 2}$ and $\lambda \sub{od.} = \lambda_{1 2} = \lambda_{2 1}$,
+       respectively. Note that the matrix $\vec \lambda = \lambda \sub{d.} \vec
+       \sigma_0 + \lambda \sub{od.} \vec \sigma_1$ and the scalar $\lambda =
+       \lambda \sub{d.} + \lambda \sub{od.}$ yield the same critical
+       temperature.}
 \end{figure}
 
 \begin{figure}
    \small
    \input{results/2-band/lamda_inf.sl}
    \input{results/2-band/lamda_inf_hyperbola.sl}
+   \caption{
+       Position of the asymptotes $\lambda_\infty$ of the constant-$T \sub c$
+       hyperbola for inter-band coupling only, i.e. $\lambda_{1 1} = \lambda_{2
+       2} = 0$, as a function of the coupling strengh $\lambda \sub{od.}$. Not
+       only exact results of the cDOS \name{Eliashberg} theory but also the
+       behavior within the approximations of a cutoff-independent mapping onto
+       effective scalar coupling constants (Section~\ref{cutoff-independent})
+       and a renormalization of unity (Section~\ref{non-renormalized}) are
+       presented. Phonon and cutoff frequency are chosen to be $\omega \sub E =
+       20 \, \unit{meV}$ and $\omega_N = 15 \, \omega \sub E$, respectively.}
 \end{figure}
 
 \begin{figure}
@@ -48,6 +98,14 @@
       \input{results/2-band/tc_non-renormalized.sl}
       \caption{non-renormalized}
    \end{subfigure}%
+   \caption{
+       Visualization of the quality of the introduced approximate mappings onto
+       effective scalar coupling strengths. For 500 two-band electron-phonon
+       coupling matrices, the elements of which are random samples from a
+       uniform distribution over $[0, 1)$, and their corresponding scalar
+       couplings strengths, critical temperatures are calculated and plotted
+       against each other. Again, $\omega \sub E = 20 \, \unit{meV}$ and
+       $\omega_N = 15 \, \omega \sub E$.}
 \end{figure}
 
 \subsection{Subdomain-resolved density of states}
