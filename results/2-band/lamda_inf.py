@@ -26,7 +26,7 @@ lamda = np.linspace(0.3, lmax, 50)
 lamda_inf = np.empty(len(lamda))
 
 plot = storylines.Plot(7, 7, right=0.5, corner=4,
-    xmin=0, ymin=-1, xmax=2, ymax=1, xstep=2, ystep=1)
+    xmin=0, ymin=-1, xmax=2, ymax=1, xstep=1, ystep=1)
 
 plot.xlabel = r'$\lambda$'
 plot.ylabel = r'$\lambda_\infty$'
