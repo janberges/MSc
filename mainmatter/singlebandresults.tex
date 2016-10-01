@@ -24,8 +24,11 @@ particle number is discussed in detail.
 \begin{figure}
     \input{results/renormalization/imaginary-axis.sl}
     \input{results/renormalization/real-axis.sl}
-    \caption{Exact normal-state cDOS renormalization together with selected
-             \name{Padé} approximants}
+    \caption{
+        Exact normal-state cDOS renormalization together with selected
+        \name{Padé} approximants for an electron-phonon coupling strength
+        $\lambda = 1$, a phonon frequency $\omega \sub E = 20\,\unit{meV}$ and a
+        temperature $T = 1\,\unit K$.}
     \label{validation Pade}
 \end{figure}
 %
@@ -88,7 +91,7 @@ the exact and approximate curves coincide to a high degree.
         \caption{density of states}
         \label{square-lattice dos}
     \end{subfigure}
-    \caption{Square lattice}
+    \caption{Properties of the tight-binding square lattice.}
 \end{figure}
 %
 In order to perform calculations beyond the approximation of a constant density
@@ -100,7 +103,7 @@ arrows represent the allowed electronic transitions. The defining
 \name{Hamilton} operator in first quantization reads
 %
 \begin{equation*}
-	\op H = -t \sum_{\vec R}
+    \op H = -t \sum_{\vec R}
          [ \ket{\vec R + \vec t_1}
          + \ket{\vec R - \vec t_1}
          + \ket{\vec R + \vec t_2}
@@ -125,7 +128,7 @@ where the integration is e.g. over the first \name{Brillouin} zone, leads to the
 dispersion relation
 %
 \begin{equation*}
-	\epsilon(\vec k) = -2 t [\cos(k_x a) + \cos(k_y a)]
+    \epsilon(\vec k) = -2 t [\cos(k_x a) + \cos(k_y a)]
 \end{equation*}
 %
 a contour plot of which is given in Fig.~\ref{square-lattice dispersion}.
@@ -134,7 +137,7 @@ Finally, the corresponding density of states per spin and unit cell, shown in
 Fig.~\ref{square-lattice dos}, reads
 %
 \begin{equation*}
-	n(\epsilon) = \frac{K \big(1 - (\tfrac \epsilon {4 t})^2 \big)}{2 \pi^2 t}
+    n(\epsilon) = \frac{K \big(1 - (\tfrac \epsilon {4 t})^2 \big)}{2 \pi^2 t}
     \quad \text{where} \quad
     K(x) = \int \from 0 \till{\frac \pi 2} \D \varphi \,
     \big[ 1 - x \sin^2(\varphi) \big]^{-\frac 1 2}
@@ -153,13 +156,21 @@ chosen.
 
 \begin{figure}
     \small
-	\input{results/self-energy/Delta(iomega).sl}
-	\input{results/self-energy/Delta(omega).sl}
-	\input{results/self-energy/chi(iomega).sl}
-	\input{results/self-energy/chi(omega).sl}
-	\input{results/self-energy/Z(iomega).sl}
-	\input{results/self-energy/Z(omega).sl}
-	\caption{Imaginary- and real-axis self-energy components}
+    \input{results/self-energy/Delta(iomega).sl}
+    \input{results/self-energy/Delta(omega).sl}
+    \input{results/self-energy/chi(iomega).sl}
+    \input{results/self-energy/chi(omega).sl}
+    \input{results/self-energy/Z(iomega).sl}
+    \input{results/self-energy/Z(omega).sl}
+    \caption{
+        Imaginary- and real-axis self-energy components at different
+        temperatures for a square-lattice density of states with an electronic
+        bandwidth of $2 \, \unit{eV}$ at quarter-filling, a phonon frequency
+        $\omega \sub E = 20 \, \unit{meV}$, an electron-phonon coupling strength
+        $\lambda = 1$, a \name{Coulomb} pseudo-potential $\mu^* = 0.1$ and a
+        cutoff frequency $\omega_N = 100 \, \omega \sub E$. Note that the
+        displayed frequency ranges do not correspond to the cutoff.}
+    \label{imaginary- and real-axis self-energy components}
 \end{figure}
 
 \begin{itemize}
@@ -176,7 +187,14 @@ chosen.
     \small
     \centering
     \input{results/order_parameter/order_parameter.sl}
-    \caption{Temperature dependence of order parameter and measurable gap}
+    \caption{
+        Order parameters. The temperature dependence of leading \name{Matsubara}
+        and measurable gap is shown for the same parameter set as in
+        Fig.~\ref{imaginary- and real-axis self-energy components}, except for a
+        lower cutoff frequency $\omega_N = 15 \, \omega \sub E$. The phase
+        transition in characterized by a diverging number of iterations needed
+        to reach self-consistency.}
+    \label{order parameter}
 \end{figure}
 
 \section{Convergence tests}
@@ -186,15 +204,19 @@ chosen.
 \begin{figure}
     \small
     \begin{minipage}{4.666cm}
-	    \input{results/cutoff/Delta_N(iomega).sl}
+        \input{results/cutoff/Delta_N(iomega).sl}
     \end{minipage}%
     \begin{minipage}{4.666cm}
-	    \input{results/cutoff/chi_N(iomega).sl}
+        \input{results/cutoff/chi_N(iomega).sl}
     \end{minipage}%
     \begin{minipage}{4.666cm}
-	    \input{results/cutoff/Z_N(iomega).sl}
+        \input{results/cutoff/Z_N(iomega).sl}
     \end{minipage}%
-	\caption{Cutoff-dependence of self-energy components}
+    \caption{
+        Dependence of the shape of the self-energy components on the
+        \name{Matsubara} cutoff frequency. Except for the latter, the settings
+        are as for the results displayed in Figs.~\ref{imaginary- and real-axis
+        self-energy components} and \ref{order parameter}.}
 \end{figure}
 
 \begin{itemize}
@@ -208,20 +230,27 @@ chosen.
     \small
     \begin{subfigure}{7cm}
         \input{results/convergence/cutoff_frequency.sl}
-        \caption{non-cDOS}
+        \caption{square lattice at quarter-filling}
     \end{subfigure}%
     \begin{subfigure}{7cm}
         \input{results/convergence/cutoff_frequency_cdos.sl}
-        \caption{cDOS}
+        \caption{constant density of states}
     \end{subfigure}
-    \caption{Convergence with cutoff frequency}
+    \caption{
+        Convergence with cutoff for a phonon frequency $\omega \sub E = 20 \,
+        \unit{meV}$, an electron-phonon coupling strength $\lambda = 1$ and a
+        \name{Coulomb} pseudo-potential $\mu^* = 0.1$. In each panel, the latter
+        is rescaled differently.}
 \end{figure}
 
 \begin{figure}
     \small
     \centering
     \input{results/convergence/integration_points.sl}
-    \caption{Convergence with number of integration points}
+    \caption{
+        Convergence with the number of integration points for two different
+        phonon frequencies. Constants are defined as in Fig.~\ref{order
+        parameter}.}
 \end{figure}
 
 \section{\name{McMillan}'s equation for \name{Einstein} spectra}
@@ -229,8 +258,9 @@ chosen.
 \begin{table}
     \centering
     \input{results/mcmillan/mcmillan.dat}
-    \caption{$T \sub c \pm 0.001\,\unit K$ for different values of $\lambda$ and
-             $\mu^*$}
+    \caption{
+        $T \sub c \pm 0.001\,\unit K$ for different $\lambda$ and $\mu^*$ with
+        $\omega \sub E = 20 \, \unit{meV}$.}
 \end{table}
 
 \begin{figure}
@@ -243,7 +273,10 @@ chosen.
         \input{results/mcmillan/mcmillan_2nd.sl}
         \caption{$\mu^* > 0$}
     \end{subfigure}
-    \caption{\name{McMillan}'s fits}
+    \caption{
+        Combined representation of \name{McMillan}'s original data and lines of
+        best fit together with their newly calculated counterparts for an
+        \name{Einstein} phonon spectrum.}
 \end{figure}
 
 \section{Critical-temperature benchmarks}
@@ -254,7 +287,18 @@ chosen.
     \input{results/benchmark/tc_lamda_2.sl}
     \input{results/benchmark/tc_omegaE.sl}
     \input{results/benchmark/tc_muStar.sl}
-    \caption{\name{McMillan}'s fits}
+    \caption{
+        Comparison of the critical temperatures according to \name{McMillan}'s
+        formula in its original form and with its constants adjusted to an
+        \name{Einstein} phonon spectrum as well as the local \name{Eliashberg}
+        equations, either within the approximation of a constant density of
+        states or for a square lattice with an electronic bandwidth of $2 \,
+        \unit{eV}$ at quarter-filling. As constants, an \name{Einstein}
+        frequency $\omega \sub E = 20 \, \unit{meV}$, an electron-phonon
+        coupling $\lambda = 1$ and a \name{Coulomb} pseudo-potential $\mu^* =
+        0.15$ are chosen. The \name{Matsubara} sum is cut off at $\omega_N = 15
+        \, \omega \sub E$. 2001 points were used for the numerical solution of
+        the energy integral.}
 \end{figure}
 
 \section{Dependence on density of states and occupancy}
@@ -265,7 +309,11 @@ chosen.
     \input{results/energy/energy_dos.sl}
     \input{results/energy/energy_shift.sl}
     \input{results/energy/energy_tc.sl}
-    \caption{Energy dependence}
+    \caption{
+        Energy dependence. It is shown how the critical temperature, the
+        self-consistent chemical potential and the leading energy shift change
+        with the chemical potential of the non-interacting system. Again, the
+        parameters are the same as in Fig.~\ref{order parameter}.}
 \end{figure}
 
 \begin{itemize}
