@@ -68,21 +68,86 @@ It turns out that the quality of the \name{Padé} approximant increases with
 $\omega \sub{max.}$, as expected. Already for small multiples of $\omega \sub E$
 the exact and approximate curves coincide to a high degree.
 
-\subsection{Density of states of the square lattice}
+\subsection{Square lattice}
 
 \begin{figure}
     \small
-    \centering
-    \input{tikzin/square-lattice.tex}
-    \caption{Unit cell of the square lattice}
+    \begin{subfigure}[b]{4.666cm}
+        \centering
+        \input{tikzin/square-lattice.tex}
+        \caption{unit cell}
+        \label{square-lattice unit cell}
+    \end{subfigure}%
+    \begin{subfigure}[b]{4.666cm}
+        \input{results/square_lattice/square_lattice_dispersion.sl}
+        \caption{dispersion}
+        \label{square-lattice dispersion}
+    \end{subfigure}%
+    \begin{subfigure}[b]{4.666cm}
+        \input{results/square_lattice/square_lattice_dos.sl}
+        \caption{density of states}
+        \label{square-lattice dos}
+    \end{subfigure}
+    \caption{Square lattice}
 \end{figure}
+%
+In order to perform calculations beyond the approximation of a constant density
+of states, some kind of model or experimental data which provides the necessary
+electronic structure is required. Throughout the present work, a tight-binding
+model of a square lattice will be applied for thus purpose. The unit cell with a
+single basis atom is depicted in Fig.~\ref{square-lattice unit cell}, where
+arrows represent the allowed electronic transitions. The defining
+\name{Hamilton} operator in first quantization reads
+%
+\begin{equation*}
+	\op H = -t \sum_{\vec R}
+         [ \ket{\vec R + \vec t_1}
+         + \ket{\vec R - \vec t_1}
+         + \ket{\vec R + \vec t_2}
+         + \ket{\vec R - \vec t_2} ]
+    \bra{\vec R},
+\end{equation*}
+%
+where the sum goes over all lattice sites $\vec R = n_1 \vec t_1 + n_2 \vec t_2$
+with $n_1, n_2 \in \mathds Z$ at which the \name{Wannier} states $\ket{\vec R}$
+are localized. $t$ is the nearest-neighbor coupling parameter, $\vec t_1 = (a \
+0)$ and $\vec t_2 = (0 \ a)$ are the translation vectors of length $a$, the
+lattice constant.
 
-\begin{itemize}
-    \item Show square lattice
-    \item Display dispersion
-    \item Reference \name{Czycholl} for analytical expression of DOS and
-          properties like divergence behavior and \name{van Hove} singularities.
-\end{itemize}
+An expansion into \textsc{Bloch} states $\ket{\vec k}$ with $\vec k = (k_x \
+k_y)$ via the \name{Fourier} transform
+%
+\begin{equation*}
+    \ket{\vec R} = \int \D \vec k \, \E^{-\I \vec k \vec R} \ket{\vec k},
+\end{equation*}
+%
+where the integration is e.g. over the first \name{Brillouin} zone, leads to the
+dispersion relation
+%
+\begin{equation*}
+	\epsilon(\vec k) = -2 t [\cos(k_x a) + \cos(k_y a)]
+\end{equation*}
+%
+a contour plot of which is given in Fig.~\ref{square-lattice dispersion}.
+
+Finally, the corresponding density of states per spin and unit cell, shown in
+Fig.~\ref{square-lattice dos}, reads
+%
+\begin{equation*}
+	n(\epsilon) = \frac{K \big(1 - (\tfrac \epsilon {4 t})^2 \big)}{2 \pi^2 t}
+    \quad \text{where} \quad
+    K(x) = \int \from 0 \till{\frac \pi 2} \D \varphi \,
+    \big[ 1 - x \sin^2(\varphi) \big]^{-\frac 1 2}
+\end{equation*}
+%
+is the complete elliptic integral of the first kind \cite[Eq.~4.146 and
+4.147]{Czycholl08}. It features a \textsc{van Hove} singularity at the
+\textsc{Fermi} level $\epsilon = 0$ at half-filling, at which is diverges
+logarithmically \cite[Eq.~7]{Szczesniak06}. Since the density of states at the
+chemical potential of the non-interacting system enters in the definition of the
+coupling strengths in Eq.~\ref{coupling strengths}, which have to be finite,
+well-defined quantities, a reduced particle number, e.g. quarter-filling, is
+chosen.
 
 \section{Self-energy on real and imaginary axis}
 
