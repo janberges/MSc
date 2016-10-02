@@ -257,7 +257,13 @@ rates at $T \sub c$ and any other temperature.
 
 \section{Convergence tests}
 
-\subsection{Cutoff-induced errors of the self-energy}
+It is now investigated how the results are influenced by the choices of, first,
+the cutoff frequency for the \name{Matsubara} sums and, secondly, the number of
+points used for the quadrature of the energy integrals, which are both mandatory
+for a computational implementation of the \name{Eliashberg} equations. This
+knowledge is necessary to obtain confidence in all subsequent results.
+
+\subsection{Convergence of the self-energy with the cutoff frequency}
 
 \begin{figure}
     \small
@@ -270,19 +276,35 @@ rates at $T \sub c$ and any other temperature.
     \begin{minipage}{4.666cm}
         \input{results/cutoff/Z_N(iomega).sl}
     \end{minipage}%
-    \caption[Cutoff dependence of the self-energy]{
-        Dependence of the shape of the self-energy components on the
-        \name{Matsubara} cutoff frequency. Except for the latter, the settings
-        are as for the results displayed in Figs.~\ref{imaginary- and real-axis
-        self-energy components} and \ref{order parameter}.}
+    \caption[Cutoff-induced errors of the self-energy]{
+        Comparison to expose cutoff-induced errors in the components of the
+        self-energy. Except for the cutoff and a temperature $T = 1 \, \unit K$,
+        the settings are as for the results displayed in Figs.~\ref{imaginary-
+        and real-axis self-energy components} and \ref{order parameter}.}
+    \label{cutoff dependence of the self-energy}
 \end{figure}
+%
+In Fig.~\ref{cutoff dependence of the self-energy} the self-energy components
+on the imaginary axis are shown for different cutoff frequencies. Since a low
+temperature has been chosen, the \name{Matsubara} frequencies lie sufficiently
+close together to use line rather than scatter plots.
 
-\begin{itemize}
-    \item numeric: $Z(\I \omega_n)$, $\Delta(\I \omega_n)$, $\chi(\I \omega_n)$
-    \item analytic: $Z(\I \omega_n)$
-\end{itemize}
+It turns out that the sensitivities of different quantities to the cutoff
+frequency differ. The energy shift proves to be affected most, especially near
+the cutoff itself where it decays spontaneously. A similar behavior, but much
+less pronounced, is found for the renormalization, in contrast to the energy gap
+which exhibits the correct asymptotes. Regarding the magnitude it becomes
+evident that the energy gap is favored by a low cutoff whereas renormalization
+and energy shift are suppressed.
 
-\subsection{Convergence of critical temperature}
+With the above results in mind one could argue that an application of the
+imaginary-axis \name{Eliashberg} equations at low frequencies, where the
+computational workload is small, is pointless, at least being interested in more
+than qualitative tendencies. Nevertheless, when determining the critical
+temperature, the artifacts of the cutoff in the frequency dependence of the
+self-energy will be of minor importance.
+
+\subsection{Convergence of the critical temperature with the cutoff frequency}
 
 \begin{figure}
     \small
@@ -299,7 +321,42 @@ rates at $T \sub c$ and any other temperature.
         \unit{meV}$, an electron-phonon coupling strength $\lambda = 1$ and a
         \name{Coulomb} pseudo-potential $\mu^* = 0.1$. In each panel, the latter
         is rescaled differently.}
+    \label{convergence with cutoff frequency}
 \end{figure}
+%
+The quantity to be handled with most care regarding the cutoff is the
+\name{Coulomb} pseudo-potential already discussed in Section~\ref{introduction
+of frequency cutoff}, which led to the introduction of a rescaled quantity. In
+order to point out the benefits of the latter, in Fig.~\ref{convergence with
+cutoff frequency} the critical temperature is shown as a function of the cutoff
+frequency for both a constant and a rescaled \name{Coulomb} pseudo-potential.
+
+Depending on whether the density of states is assumed to be constant or not,
+different rescaling prescriptions have to be used. For the cDOS approximation,
+Eq.~\ref{cDOS rescaled Coulomb pseudo-potential} can be directly applied.
+Otherwise one has to resort to Eq.~\ref{rescaled Coulomb pseudo-potential} which
+unfortunately involves the original coupling constant $\mu \sub C$ rather than
+\name{McMillan}'s \name{Coulomb} pseudo-potential $\mu^*$. Hence, in order to
+obtain roughly comparable results in both cases, whenever the density of states
+is taken into account the first step is to estimate $\mu \sub C$ from $\mu^*$
+which is done via Eq.~\ref{McMillan's Coulomb pseudo-potential}, where $E \sub
+B$ is assumed to be half the electronic bandwidth.
+
+It is confirmed that within the cDOS approximation the rescaling is required in
+order to yield convergent results. This does not apply to the \name{Eliashberg}
+equations in general since within nothing but the local approximation one has
+convergence in any case; it is just considerably faster if an appropriate
+rescaling is performed. The cDOS convergence rate is not reached though.
+
+An enhancement of the critical temperature with increasing cutoff frequency for
+a constant \name{Coulomb} pseudo-potential is in accordance with the fact that
+an appropriately rescaled \name{Coulomb} pseudo-potential behaves similarly,
+since the \name{Coulomb} interaction opposes superconductivity
+\cite[1038]{Carbotte90}. Having performed the rescaling, one is left with a
+decreasing curve which may be ascribed to results for the order parameter
+presented in Fig.~\ref{cutoff dependence of the self-energy}.
+
+\subsection{Convergence of the critical temperature with the energy resolution}
 
 \begin{figure}
     \small
@@ -309,7 +366,29 @@ rates at $T \sub c$ and any other temperature.
         Convergence with the number of integration points for two different
         phonon frequencies. Constants are defined as in Fig.~\ref{order
         parameter}.}
+    \label{convergence with energy resolution}
 \end{figure}
+%
+The remaining quantity by which the accuracy of numerical solutions is limited,
+is the number of points used for discretizing the integrands in Eqs.~\ref{local
+Eliashberg equations}. The quadrature is performed using the trapezoidal rule
+and the energy points chosen equally spaced.
+
+As can be seen in Fig.~\ref{convergence with energy resolution}, the occurring
+errors are not as predictable as in Fig.~\ref{convergence with cutoff
+frequency}, where the critical temperature was shown to converge with the cutoff
+frequency following continuous curves. Instead, the resulting critical
+temperatures are scattered apparently at random (of cause each calculation alone
+is deterministic) around the correct value, loosely bounded by a radii with
+shrink with an increasing resolution.
+
+As already anticipated in the caption of Fig.~\ref{cDOS at low frequencies} the
+errors are larger for lower phonon frequencies, which correspond to lower
+temperatures, where the \name{Lorentz} functions to be integrated over are
+sharper and thus only resolved accurately if neighboring sample points are very
+close. Theoretically, it is also possible to guarantee the same precision for
+all temperatures with a constant number of points. But therefor an intelligent,
+non-equidistant sampling is necessary.
 
 \section{\name{McMillan}'s equation for \name{Einstein} spectra}
 
