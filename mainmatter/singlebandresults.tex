@@ -387,8 +387,8 @@ errors are larger for lower phonon frequencies, which correspond to lower
 temperatures, where the \name{Lorentz} functions to be integrated over are
 sharper and thus only resolved accurately if neighboring sample points are very
 close. Theoretically, it is also possible to guarantee the same precision for
-all temperatures with a constant number of points. But therefor an intelligent,
-non-equidistant sampling is necessary.
+all temperatures with a constant number of points. But this requires an
+intelligent, non-equidistant sampling.
 
 \section{\name{McMillan}'s equation for \name{Einstein} spectra}
 
@@ -398,8 +398,9 @@ non-equidistant sampling is necessary.
     \caption{
         $T \sub c \pm 0.001\,\unit K$ for different $\lambda$ and $\mu^*$ with
         $\omega \sub E = 20 \, \unit{meV}$.}
+    \label{Tc table}
 \end{table}
-
+%
 \begin{figure}
     \small
     \begin{subfigure}{7cm}
@@ -414,7 +415,44 @@ non-equidistant sampling is necessary.
         Combined representation of \name{McMillan}'s original data and lines of
         best fit together with their newly calculated counterparts for an
         \name{Einstein} phonon spectrum.}
+    \label{McMillan's fits}
 \end{figure}
+%
+Having shown that the numerical results are stable and satisfy the qualitative
+expectations, the next step is a direct comparison with established results,
+namely \name{McMillan}'s equation for the critical temperature. It was derived
+starting from the cDOS \name{Eliashberg} theory, so that the latter should
+reproduce the results of the former at least approximately.
+
+If there is any justifiable discrepancy between the original and the present
+work it is due to the electron-phonon spectral function or, more precisely, the
+phonon density of states. Whereas \name{McMillan} performed his calculations for
+niobium, now a simple \name{Einstein} spectrum is assumed. Interestingly, in
+place of the peak at the \name{Einstein} frequency in the real-axis self-energy
+displayed in Fig.~\ref{imaginary- and real-axis self-energy components}, the
+analogous result of \name{McMillan} \cite[Fig.~4]{McMillan68} features two peaks
+which also appear in the phonon density of states of niobium.
+
+Back on topic, the aim of this section is to derive an alternative $T \sub c$
+formula which differs from \name{McMillan}'s only by the three fit parameters
+which are adjusted to an \name{Einstein} spectrum, i.e. a single phonon
+frequency, $\omega \sub E = 20 \, \unit{meV}$ in this case.
+
+To that end, the first step is to determined the critical temperature for
+different electron-phonon coupling strengths and \name{Coulomb}
+pseudo-potentials. (\name{McMillan} calculated $\lambda$ for different $T \sub
+c$ and $\mu^*$.) The results are listed in Table~\ref{Tc table}. The second step
+is to perform the linear regressions for Eqs.~\ref{linear regression formulas}
+applying the usual least-squares method. This is visualized in
+Fig.~\ref{McMillan's fits}. The fit parameters turn out to be $A = 0.94 \pm
+0.03$, $B = 1.11 \pm 0.01$ and $C = 0.74 \pm 0.01$. Hence,
+%
+\begin{equation*}
+    T \sub c \super E = \frac{\omega \sub E}{0.94} \exp \bigg[ {-\frac
+        {1.11 \, (1 + \lambda)}
+        {\lambda - 0.74 \lambda \mu^* - \mu^*}}
+    \bigg].
+\end{equation*}
 
 \section{Critical-temperature benchmarks}
 
