@@ -149,8 +149,8 @@ is the complete elliptic integral of the first kind \cite[Eq.~4.146 and
 logarithmically \cite[Eq.~7]{Szczesniak06}. Since the density of states at the
 chemical potential of the non-interacting system enters in the definition of the
 coupling strengths in Eq.~\ref{coupling strengths}, which have to be finite,
-well-defined quantities, a reduced particle number, e.g. quarter-filling, is
-chosen.
+well-defined quantities, a reduced particle number, namely quarter-filling, is
+chosen in the following.
 
 \section{Self-energy on real and imaginary axis}
 
@@ -172,14 +172,48 @@ chosen.
         displayed frequency ranges do not correspond to the cutoff.}
     \label{imaginary- and real-axis self-energy components}
 \end{figure}
+%
+In Fig.~\ref{imaginary- and real-axis self-energy components} numerical
+solutions of the local \name{Eliashberg} equations stated in Eqs.~\ref{local
+Eliashberg equations} are shown together with the their \name{Padé} approximants
+as presented in Section~\ref{Pade approximants}, analytically continued to the
+real axis, for different temperatures. For all parameters sets used in this
+work, the qualitative appearance of the resulting curves is the same:
 
-\begin{itemize}
-    \item Magnitude of order parameter changes with temperature as opposed to
-          invariant shape (\name{Vidberg/Serene}).
-    \begin{itemize}
-        \item[$\rightarrow$] common position of zero-crossing
-    \end{itemize}
-\end{itemize}
+On the imaginary-axis not only the renormalization $Z(\I \omega_n)$, in
+accordance with Fig.~\ref{validation Pade}, but also the energy gap $\Delta(\I
+\omega_n)$ and shift $\chi(\I \omega_n)$ are bell-shaped and centered at the
+origin. The first-mentioned are always concave functions whereas the sign of
+the latter may change, resulting in a convex curve as in the example.
+
+Asymptotically, the energy gap approaches the negative or vanishing constant
+\name{Coulomb} contribution given in Eq.~\ref{constant Coulomb contribution},
+the renormalization goes to unity and the energy shift vanishes, but much more
+slowly than the former two.
+
+The maybe most characteristic property of the energy gap is its temperature
+dependence, further discussed in the subsequent section, through which it is
+qualified as an order parameter for the superconducting state. With rising
+temperature it decreases with increasing speed towards zero, which is reached,
+by definition, at the critical temperature. In principal, this process affects
+the magnitude rather than the shape of the curve, resulting in a common zero of
+the displayed family of curves or, more precisely, of their analytic
+continuations, since naturally only discrete values over the imaginary axis are
+taken which in general do not include this very point. Over the same temperature
+range, the other two quantities barely change.
+
+On the real axis the shapes turn out to be more complicated. The renormalization
+$Z(\omega)$ basically resembles the analytic one, shown in Fig.~\ref{validation
+Pade}, the properties of which have already been discussed. One of them, namely
+the vanishing imaginary part at frequencies below the renormalized phonon
+frequency, are recognized in the energy gap $\Delta(\omega)$ and shift
+$\chi(\omega)$ as well. The former even features the aforementioned peaks, in
+the vincinity of which the exact behavior of the \name{Padé} approximants is
+untrustworthy for being very sensitive to parameter changes. Beyond the peak,
+the real and imaginary parts of the energy gap describe arches of opposite
+orientation. The asymptotes of all quantities are the same as on the
+imaginary-axis, although in the case of the energy shift this does not become
+apparent from the depicted detail.
 
 \subsection{Temperature dependence of the order parameter}
 
@@ -196,6 +230,30 @@ chosen.
         to reach self-consistency.}
     \label{order parameter}
 \end{figure}
+%
+Leaving the invariant shape of the energy gap on the imaginary frequency axis
+out of account, the temperature dependence of its magnitude, represented by its
+value at the first \name{Matsubara} frequency, is shown in Fig.~\ref{order
+parameter}. It is supplemented by the corresponding curve for the energy gap
+which is actually measurable in experiments and defined by the following
+fixed-point equation \cite[Eq.~3a]{VidbergSerene77}:
+%
+\begin{equation*}
+    \Delta_0 = \Re[\Delta(\Delta_0)].
+\end{equation*}
+%
+Both curves turn out to be very similar: Starting at absolute zero, they remain
+nearly constant at first and subsequently become ever steeper approaching the
+critical temperature at which they vanish. They resemble the well-known BCS
+result for which changes exponentially and like a square root near $T = 0$ and
+$T \sub c$, respectively \cite[Eq.~11.60]{Czycholl08}.
+
+Fig.~\ref{order parameter} also shows how the number of iterations needed to
+obtain a self-consistent solution of the \name{Eliashberg} equations increases
+drastically at the critical temperature. This is due to the magnitude of the
+energy gap converging much slower than its shape \cite[185]{VidbergSerene77}.
+Enforcing the normal-state property $\Delta = 0$ yields a similar convergence
+rates at $T \sub c$ and any other temperature.
 
 \section{Convergence tests}
 
