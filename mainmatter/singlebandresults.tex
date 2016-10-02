@@ -356,6 +356,14 @@ since the \name{Coulomb} interaction opposes superconductivity
 decreasing curve which may be ascribed to results for the order parameter
 presented in Fig.~\ref{cutoff dependence of the self-energy}.
 
+Until now is has been takes for granted that the cutoff is defined in terms of
+frequency rather than a specific number of \name{Matsubara} frequencies. The
+latter is thus defined by the cutoff frequency and the temperature together.
+Hence, in Fig.~\ref{convergence with cutoff frequency} it varies both along the
+horizontal and the vertical axis. The reason for this definition of the cutoff
+is that, as stated above, the shape of the self-energy as a function of
+frequency does not change much with temperature.
+
 \subsection{Convergence of the critical temperature with the energy resolution}
 
 \begin{figure}
@@ -474,7 +482,52 @@ Fig.~\ref{McMillan's fits}. The fit parameters turn out to be $A = 0.94 \pm
         0.15$ are chosen. The \name{Matsubara} sum is cut off at $\omega_N = 15
         \, \omega \sub E$. 2001 points were used for the numerical solution of
         the energy integral.}
+    \label{critical-temperature benchmarks}
 \end{figure}
+%
+At this point a comparison of local and cDOS \name{Eliashberg} theory as well as
+\name{McMillan}'s formula, both original and adjusted, can be performed.
+Therefor, $T \sub c$ is calculated for different $\omega \sub E$, $\lambda$ and
+$\mu^*$ whereby only one parameter is varied at a time and the others are held
+constant. The results are presented in Fig.~\ref{critical-temperature
+benchmarks}.
+
+Altogether, a very good agreement can be reported. As expected, the adjusted
+version of \name{McMillan}'s formula does best in reproducing the critical
+temperature according to cDOS \name{Eliashberg} theory for \name{Einstein}
+spectra. The original formula works comparably good but it slightly
+underestimates the dependence on the \name{Coulomb} pseudo-potential and already
+fails at lower electron-phonon coupling strengths. In this regard it is well
+known that \name{McMillan}'s formula intrinsically underestimates the critical
+temperature for large values of the latter \cite{AllenDynes75}. It predicts the
+upper bound
+%
+\begin{equation*}
+    \lim_{\lambda \rightarrow \inf} T \sub c = \frac {\av \omega} A
+    \exp \bigg[ -\frac B {1 - C \mu^*} \bigg],
+\end{equation*}
+%
+whereas \name{Eliashberg} theory states an asymptotic behavior proportional to
+$\sqrt \lambda$ \cite[Eq.~3.56]{Galasso05}.
+
+The differences between the results of the \name{Eliashberg} theory for constant
+and square-lattice densities of states are acceptable, especially if the
+heuristic mapping from $\mu^*$ to $\mu \sub C$ is taken into account. There is
+no general solution to resolve this ambiguity. However, it still remains unclear
+to what extend the critical temperature is determined by the shape of the
+density of states in the vicinity of the chemical potential, since the square
+lattice at quarter filling, which has been analyzed so far, is rather benign in
+this regard. This question is further investigated in the following section.
+
+Apart from the comparison of the different theories,
+Fig.~\ref{critical-temperature benchmarks} gives a good overview of the general
+dependence of the critical temperature on the characteristic variables. Large
+values of $\lambda$ and $\omega \sub E$ favor superconductivity, while $\mu^*$
+opposes it. In the case of $\omega \sub E$, the proportionality which is
+immanent in \name{McMillan}'s formula is perfectly confirmed. It may be
+explained by the fact that $\omega \sub E$ enters the \name{Eliashberg}
+equations only through $\lambda(n)$ or the phononic \name{Green} function, the
+\q{broadening} of which is determined by $\frac T {\omega \sub E}$.
 
 \section{Dependence on density of states and occupancy}
 

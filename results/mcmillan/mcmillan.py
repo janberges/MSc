@@ -64,7 +64,7 @@ scatter = dict(omit=False, mark='*', only_marks=True)
 plot1 = storylines.Plot(7, 7, right=0.5, ymin=0, corner=2)
 
 plot1.xlabel = r'$x = (1 + \lambda) / \lambda$'
-plot1.ylabel = r'$y = \ln(\langle \omega \rangle / T \sub c) = \ln(A) + B x$'
+plot1.ylabel = r'$y = \ln(\av \omega / T \sub c) = \ln(A) + B x$'
 
 X1 = np.array([0.0, 13.0])
 
@@ -81,7 +81,7 @@ plot2 = storylines.Plot(7, 7, left=1.2, right=0.3,
 
 plot2.xlabel = r'$x = \lambda$'
 plot2.ylabel = r'$y = \big[ \lambda +' \
-    r' \frac{A (1 + \lambda)}{\ln(B T \sub c / \langle \omega \rangle)}' \
+    r' \frac{A (1 + \lambda)}{\ln(B T \sub c / \av \omega)}' \
     r' \big] \big/ \mu^* = 1 + C x$'
 
 X2 = np.array([0.0, 1.7])
