@@ -1716,16 +1716,23 @@ j}(n, m) / \lambda_{i j}$ to be independent of band indices. For the
 corresponding matrices it follows that
 %
 \begin{equation*}
-    \vec K = \vec Q \otimes \vec \lambda
+    \vec K = \vec Q \otimes \vec \lambda.
 \end{equation*}
 %
-and thus, applying Eq.~\ref{eigenvalues direct product}, the largest eigenvalue
-of $\vec K$ to be the product of the largest eigenvalues of $\vec Q$ and $\vec
+Hence, applying Eq.~\ref{eigenvalues direct product}, the largest eigenvalue of
+$\vec K$ is the product of the largest eigenvalues of $\vec Q$ and $\vec
 \lambda$ (in magnitude). As a consequence, if there exists a single-band system
 with positive coupling strengths $\lambda$ and $\mu^*(N)$ which exhibits the
 same critical temperature as a multi-band system with coupling matrices $\vec
 \lambda$ and $\vec \mu^*(N)$, then the further would be given by the greatest
-eigenvalues of the latter if the renormalization were unity.
+eigenvalues of the latter if the renormalization were unity. For two bands and
+$\mu^*(N) = 0$,
+%
+\begin{equation*}
+    \lambda = \lambda_{11} + \lambda_{22} + \sqrt{
+        (\lambda_{1 1} - \lambda_{2 2})^2 + 4 \lambda_{1 2} \lambda_{2 1}
+        }.
+\end{equation*}
 
 \subsubsection{Cutoff-independent mapping}
 \label{cutoff-independent}
@@ -1735,12 +1742,12 @@ frequency $\omega_N$. This allows to derive it for the most simple case where
 $N = 1$. Consequently, for $n = m = 1$
 %
 \begin{equation*}
-   K_{i j} = \lambda_{i j} + \hypo{\lambda_{i j}(1)}{\approx \lambda_{i j}}
-   - \delta_{i j} \sum_j \lambda_{i j} - 2 \mu^*_{i j}
+   K_{i j} = 2 \lambda_{i j} - \delta_{i j} \sum_j \lambda_{i j}
+   - 2 \mu^*_{i j}(N),
 \end{equation*}
 %
-For a two-band system with $\mu^*_{i j} = 0$, which is only assumed for
-simplicity, one has
+where $\lambda_{i j}(1) \approx \lambda_{i j}$ has been assumed additionally.
+For two bands and $\mu^*_{i j}(N) = 0$,
 %
 \begin{equation*}
    \vec K = \begin{bmatrix}
@@ -1783,9 +1790,6 @@ are inserted into the remaining equation which yields
     \frac {\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)}
     {[\omega_m Z_j(\I \omega_m)]^2 + [\epsilon - \mu + \chi_j(\I \omega_m)]^2}.
 \end{align*}
-%
-Again, $T \sub c$ may be defined via the largest eigenvalue of $\vec K$ being
-unity.
 
 \section{\name{Padé} approximants}
 
