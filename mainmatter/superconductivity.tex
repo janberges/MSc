@@ -140,7 +140,172 @@ attractive, i.e. negative, for $|\epsilon_{\vec k + \vec q} - \epsilon_{\vec k}|
 
 \section{BCS theory}
 
-\name{Cooper} pairs
+In 1957, \name{Bardeen}, \name{Cooper} and \name{Schrieffer} developed, on the
+basis of the results presented in the previous chapter, a model \name{Hamilton}
+operator to describe superconductivity. It is reduced to the essentials, namley
+a local coupling constant $V$ with a negative sign prepended to it in order to
+indicate the attractive nature of the interaction, which is limited to electrons
+which form a \name{Cooper} pair. Their energy difference is restricted to a
+\name{Fermi} shell with the same width as a typical phonon energy, in this case
+the \name{Debye} frequency $\omega \sub D$. The model reads
+%
+\begin{gather*}
+    \op H = \sum_{\vec k \sigma}
+    \epsilon_{\vec k} \op c_{\vec k \sigma}^+ \op c_{\vec k \sigma}
+    -V \sum_{\vec k \vec k'}^{
+        \mathclap{|\epsilon_{\vec k'} - \epsilon_{\vec k}| < \omega \sub D}
+        }
+    \op C_{\vec k'}^+ \op C_{\vec k},
+    \quad \text{where} \quad
+    \op C_{\vec k} = \op c_{-\vec k \down} \op c_{\vec k \up}
+\end{gather*}
+%
+represents a \name{Cooper}-pair annihilator, which does \emph{not} satisfy
+\name{Bose} commutation relations:
+%
+\begin{gather*}
+    [\op C_{\vec k}, \op C_{\vec k}^+]
+    = 1 - \op n_{\vec k \up} - \op n_{\vec k \down}
+    \quad \text{with} \quad
+    \op n_{\vec k \sigma} = \op c_{\vec k \sigma}^+ \op c_{\vec k \sigma}
+\end{gather*}
+%
+In order to promote the solution of the \name{Hamilton} operator, the
+interaction term it is usually factorized into anomalous expectation values:
+%
+\begin{align*}
+	\op C_{\vec k'}^+ \op C_{\vec k}
+    = \hypo{
+        (\op C_{\vec k'}^+ - \av{\op C_{\vec k'}^+})
+        (\op C_{\vec k} - \av{\op C_{\vec k}})
+        }{\Cov[C_{\vec k'}^+, C_{\vec k}]}
+    + \av{\op C_{\vec k'}^+} \op C_{\vec k}
+    + \av{\op C_{\vec k}} \op C_{\vec k'}^+
+    - \av{\op C_{\vec k'}^+} \av{\op C_{\vec k}},
+\end{align*}
+%
+whereby the covariance in neglected from now on. The averages of either two
+creation or annihilation operator do not vanish, as one might expect, because
+the factorized \name{Hamilton} operator which respect to which they are
+evaluated no longer conserves the particle number. Thus a self-consistently
+problem has emerged. The factorized \name{Hamilton} may be written as
+%
+\begin{gather*}
+    \op H = \sum_{\vec k \sigma}
+    \epsilon_{\vec k} \op c_{\vec k \sigma}^+ \op c_{\vec k \sigma} -
+    \sum_{\vec k} [\Delta^* \op C_{\vec k} + \Delta \op C_{\vec k}^+]
+    + \frac {|\Delta|^2} V,
+    \quad \text{where} \quad
+    \Delta = V \sum_{\vec k} \av{\op C_{\vec k}}
+\end{gather*}
+%
+will turn out to be a suitable order parameter for the superconducting phase.
+The \name{Hamilton} operator is still not diagonal. This may be accomplished
+with the help of the \name{Bogoliubov} quasi-particles,
+%
+\begin{align*}
+    \upalpha_{\vec k} &=
+        u_{\vec k} \op c_{\vec k \up} - v_{\sub k} \op c_{-\vec k \down}^+, \\
+    \upbeta_{\vec k} &=
+        u_{\vec k} \op c_{-\vec k \down} + v_{\sub k} \op c_{\vec k \up}^+,
+\end{align*}
+%
+to which no picturesque meaning can be ascribed. It is desirable that the new
+operators obey \name{Fermi} commutation relations. Except with their own
+adjoints they anti-commute so that the only further requirement is
+%
+\begin{gather*}
+    \Bigg \{
+        \begin{Bmatrix} \upalpha_{\vec k}   \\ \upbeta_{\vec k}   \end{Bmatrix},
+        \begin{Bmatrix} \upalpha_{\vec k}^+ \\ \upbeta_{\vec k}^+ \end{Bmatrix}
+    \Bigg \}
+    = |u_{\vec k}|^2 + |v_{\vec k}|^2 \equiv 1,
+\end{gather*}
+%
+where the inner braces enclose alternatives. A choice of $u_{\vec k}$ and
+$v_{\vec k}$ which both satisfies the above relation and diagonalized the
+\name{Hamilton} operator is given by
+%
+\begin{gather*}
+    \begin{Bmatrix} u_{\vec k}^2 \\ v_{\vec k}^2 \end{Bmatrix} = \frac 1 2
+    \Big[ 1 \pm \frac{\epsilon_{\vec k}}{E_{\vec k}} \Big]
+    \quad \text{where} \quad
+    E_{\vec k} = \sqrt{\epsilon_{\vec k}^2 + |\Delta|^2}.
+\end{gather*}
+%
+Interpreting $E_{\vec k}$ as the new, renormalized single-particle energy,
+$|\Delta|$ is identified as half of a band gap which has opened in the spectrum.
+The diagonal \name{Hamilton} operator reads
+%
+\begin{gather*}
+    \op H =
+    \sum_{\vec k} \{ E_{\vec k} [
+        \upalpha_{\vec k}^+ \upalpha_{\vec k}
+        + \upbeta_{\vec k}^+ \upbeta_{\vec k} - 1
+        ]
+    + \epsilon_{\vec k} \} + \frac {|\Delta|^2} V.
+\end{gather*}
+%
+The order parameter or energy gap remains to be determined self-consistently:
+%
+\begin{gather*}
+    \Delta = \dots
+    = V \sum_{\vec k} [
+        u_{\vec k} v_{\vec k} - v_{\vec k} u_{\vec k}
+        \av{\upalpha_{\vec k}^+ \upalpha_{\vec k}} - u_{\vec k} v_{\vec k}
+        \av{\upbeta_{\vec k}^+ \upbeta_{\vec k}}
+        ]
+    = V \sum_{\vec k} \frac \Delta {E_{\vec k}} [1 - f(E_{\vec k})].
+\end{gather*}
+%
+In the last step it has been used that the \name{Bogoliubov} quasi-particles are
+the fermions with respect to which the \name{Hamiton} operator is diagonal. In
+Section~\ref{free particles} it will be derived that in this case the occurring
+averages are simply \name{Fermi} functions $f(\epsilon)$.
+
+The trivial solution $\Delta = 0$ to the above equations always exists and
+represents the normal state. Division by $\Delta \neq 0$ and expression of the
+\name{Fermi} function in terms of the hyperbolic tangent yields the famous
+\emph{BCS self-consistency equation}
+%
+\begin{gather*}
+    1 = \frac V 2 \sum_{\vec k}
+    \frac{\tanh(\frac{E_{\vec k}}{2 k T})}{E_{\vec k}}
+\end{gather*}
+%
+for the \emph{order parameter of the superconducting state}, a designation which
+is justified by having a look at its temperature dependence, displayed in Fig.~0
+
+In order to solve the equation, the $\vec k$-summation has been replaced by an
+integral over the energy range $[-\omega \sub D, \omega \sub D]$, where the
+emerging density of states is assumed to a constant $N_0$:
+%
+\begin{gather*}
+    1 = \frac {V N_0} 2
+    \int \from{-\omega \sub D} \till{\omega \sub D} \D \epsilon \,
+    \frac{\tanh(\frac{E_{\vec k}}{2 k T})}{E_{\vec k}}.
+\end{gather*}
+%
+For $T = 0$ one can further approximate
+%
+\begin{gather*}
+    |\Delta(T = 0)| = \Delta_0 \approx 2 \omega \sub D \E^{-\frac 1 {V \rho_0}}.
+\end{gather*}
+%
+The \emph{critical temperature} $T \sub c$ is determined by setting $\Delta =
+0$:
+%
+\begin{gather*}
+    k T \sub c = \frac {\E^\gamma} \pi \Delta_0
+    \quad \text{with} \quad \gamma \approx 0.57,
+\end{gather*}
+%
+\name{Euler}'s constant. An indication of the underlying electron-phonon
+interaction is given by the isotope effect:
+%
+\begin{gather*}
+    T \sub c \propto \omega \sub D \propto \frac 1 {\sqrt M}.
+\end{gather*}
 
 \section{Off-diagonal long-range order}
 
