@@ -1735,9 +1735,9 @@ eigenvalues of the latter if the renormalization were unity. For two bands and
 $\mu^*(N) = 0$,
 %
 \begin{equation*}
-    \lambda = \lambda_{11} + \lambda_{22} + \sqrt{
+    \lambda = \frac 1 2 \Big[ \lambda_{11} + \lambda_{22} + \sqrt{
         (\lambda_{1 1} - \lambda_{2 2})^2 + 4 \lambda_{1 2} \lambda_{2 1}
-        }.
+        } \Big].
 \end{equation*}
 
 \subsubsection{Cutoff-independent mapping}
@@ -1748,31 +1748,30 @@ frequency $\omega_N$. This allows to derive it for the most simple case where
 $N = 1$. Consequently, for $n = m = 1$
 %
 \begin{equation*}
-   K_{i j} = 2 \lambda_{i j} - \delta_{i j} \sum_j \lambda_{i j}
-   - 2 \mu^*_{i j}(N),
+    K_{i j} = 2 \lambda_{i j} - \delta_{i j} \sum_j \lambda_{i j}
+    - 2 \mu^*_{i j}(N),
 \end{equation*}
 %
 where $\lambda_{i j}(1) \approx \lambda_{i j}$ has been assumed additionally.
 For two bands and $\mu^*_{i j}(N) = 0$,
 %
 \begin{equation*}
-   \vec K = \begin{bmatrix}
-      \lambda_{1 1} - \lambda_{1 2} & 2 \lambda_{1 2} \\
-      2 \lambda_{2 1} & \lambda_{2 2} - \lambda_{2 1}
-   \end{bmatrix}
+    \vec K = \begin{bmatrix}
+        \lambda_{1 1} - \lambda_{1 2} & 2 \lambda_{1 2} \\
+        2 \lambda_{2 1} & \lambda_{2 2} - \lambda_{2 1}
+    \end{bmatrix}
 \end{equation*}
 %
 the greatest eigenvalue of which gives the desired approximate effective
 couplings strength:
 %
 \begin{equation*}
-   \lambda = \frac 1 2 \bigg[
-      \lambda_{1 1} - \lambda_{1 2} - \lambda_{2 1} + \lambda_{2 2}
-      + \sqrt{
-         (\lambda_{1 1} - \lambda_{1 2} + \lambda_{2 1} - \lambda_{2 2})^2
-         + 16 \lambda_{1 2} \lambda_{2 1}
-         }
-   \bigg].
+    \lambda = \frac 1 2 \Big[
+        \lambda_{1 1} - \lambda_{1 2} - \lambda_{2 1} + \lambda_{2 2} + \sqrt{
+            (\lambda_{1 1} - \lambda_{1 2} + \lambda_{2 1} - \lambda_{2 2})^2
+            + 16 \lambda_{1 2} \lambda_{2 1}
+            }
+    \Big].
 \end{equation*}
 
 \subsection{Non-constant densities of states}

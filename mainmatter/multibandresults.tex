@@ -116,13 +116,12 @@ of any element and so does the critical temperature.
 
 \section{Effective electron-phonon coupling}
 
-\subsection{CDOS approximation}
+Now the dependence of the critical temperature on the electron-phonon coupling
+matrix shall be analyzed in more detail. Only few exacts results will be stated
+but rather the approximations proposed in Section~\ref{effective coupling
+constants} tested with respect to their accuracy.
 
-\begin{itemize}
-    \item Mathematically, it is proved that the maximum eigenvalue of the
-          coupling matrix is the effective coupling constant. So just show some
-          graphs \dots
-\end{itemize}
+\subsection{Hyperbolas of constant $T \sub c$}
 
 \begin{figure}
     \small
@@ -144,7 +143,94 @@ of any element and so does the critical temperature.
         \sigma_0 + \lambda \sub{od.} \vec \sigma_1$ and the scalar $\lambda =
         \lambda \sub{d.} + \lambda \sub{od.}$ yield the same critical
         temperature.}
+    \label{hyperbolas of constant Tc}
 \end{figure}
+%
+To divide the problem into manageable parts the following question is proposed:
+How must either the intra- or the inter-band coupling strengths change
+\emph{simultaneously}, with the respective other pair of elements held constant,
+so that the corresponding critical temperature is conserved?
+
+The outcome for some representative parameter sets is displayed in
+Fig.~\ref{hyperbolas of constant Tc}. The numerical results, illustrated as
+scatter plots, immediately suggest the following dependency: The matching intra-
+and inter-band coupling strengths lie on convex and concave sections of
+hyperbolas, respectively. This assumption is confirmed by comparison with a
+guess for the analytic dependence, which will be developed subsequently.
+
+Let $x$ and $y$ represent the variable and dependent elements of the
+electron-phonon coupling matrix, respectively. A possible equation defining a
+hyperbola through $x = y = \lambda$ reads
+%
+\begin{equation*}
+    y = \frac {\lambda^2} x.
+\end{equation*}
+%
+However, the asymptotes would coincide with the $x$- and $y$-axes which is
+definitely not always the case in Fig.~\ref{hyperbolas of constant Tc}. The
+hyperbola is thus compressed by the factors $\alpha$ and $\beta$ in $x$- and
+$y$-direction, respectively, with $x = y = \lambda$ as the fixed point. This
+yields
+%
+\begin{equation*}
+    y = \frac
+        {\frac{\lambda^2} {\alpha (x - \lambda) + \lambda} - \lambda}
+        \beta
+    + \lambda
+    = \frac 1 \beta \frac
+        {\lambda^2 - \lambda [\alpha (x - \lambda) + \lambda]}
+        {\alpha (x - \lambda) + \lambda}
+    + \lambda
+    = \lambda - \frac \alpha \beta \frac
+        {\lambda (x - \lambda)}
+        {\alpha (x - \lambda) + \lambda}
+    = \lambda - \frac \alpha \beta \frac
+        \lambda
+        {\alpha + \frac \lambda {x - \lambda}}.
+\end{equation*}
+%
+The new asymptotes are at $x = x_\infty = \lambda (1 - \alpha^{-1})$ and $y =
+y_\infty = \lambda (1 - \beta^{-1})$. Thus
+%
+\begin{equation*}
+    y = \lambda - \frac{\lambda - y_\infty}{\lambda - x_\infty} \frac
+        \lambda
+        {\frac \lambda {\lambda - x_\infty} + \frac \lambda {x - \lambda}}
+    = \lambda - \frac{\lambda - y_\infty}{x - x_\infty} (x - \lambda).
+\end{equation*}
+%
+This formula describes the desired relation of the intra-band coupling strengths
+for $x_\infty$ and $y_\infty$ less than or equal to $\lambda$. In contrast,
+$x_\infty$ and $y_\infty$ greater than or equal to $\lambda$ are required for
+the description of intra-band coupling. The asymptotes may also be expressed in
+terms of the $x$- and $y$-intercepts $x_0$ and $y_0$:
+%
+\begin{align*}
+    x_0 &= \lambda \Big[ 1 - \frac{\lambda - x_\infty}{y_\infty} \Big], &
+    x_\infty &= \frac{\lambda^2 x_0}{\lambda (x_0 + y_0) - x_0 y_0}, \\
+    y_0 &= \lambda \Big[ 1 - \frac{\lambda - y_\infty}{x_\infty} \Big], &
+    y_\infty &= \frac{\lambda^2 y_0}{\lambda (x_0 + y_0) - x_0 y_0}.
+\end{align*}
+%
+For each parameter set the asymptotes are determined numerically. For the
+inter-band coupling, $x_\infty$ and $y_\infty$ are calculated directly by
+assigning a very large value, $10^{15}$ say, to either of $\lambda_{1 2}$ or
+$\lambda_{2 1}$ and solving for the other element. In the intra-band case the
+asymptotes are excluded from the domain of possible values. Hence, the
+intercepts are calculated, where either $\lambda_{1 1}$ or $\lambda_{2 2}$ is
+nullified. The position of the asymptotes is then concluded by means of the
+above equations.
+
+The determined hyperbolas are plotted together with the numerical data points,
+which reveals a very good agreement. The choice of the correct asymptotes
+depends not only on $\lambda$ but also on the two matrix elements which are held
+constant. If an analytic expression of these dependencies were known, a closed
+set of equations would be obtained which could be solved for the scalar
+complement of the whole coupling matrix. This task is not accomplished within
+the present work, but in the following section some predictions of the
+approximate mappings regarding this matter are presented.
+
+\subsection{Asymptotic behavior for inter-band coupling}
 
 \begin{figure}
     \small
@@ -153,14 +239,55 @@ of any element and so does the critical temperature.
     \caption[Asymptotes of inter-band hyperbola of constant $T \sub c$]{
         Position of the asymptotes $\lambda_\infty$ of the constant-$T \sub c$
         hyperbola for inter-band coupling only, i.e. $\lambda_{1 1} = \lambda_{2
-        2} = 0$, as a function of the coupling strengh $\lambda \sub{od.}$. Not
-        only exact results of the CDOS \name{Eliashberg} theory but also the
-        behavior within the approximations of a cutoff-independent mapping onto
-        effective scalar coupling constants (Section~\ref{cutoff-independent})
-        and a renormalization of unity (Section~\ref{non-renormalized}) are
-        presented. Phonon and cutoff frequency are chosen to be $\omega \sub E =
-        20 \, \unit{meV}$ and $\omega_N = 15 \, \omega \sub E$, respectively.}
+        2} = 0$, as a function of the coupling strengh $\lambda$. Not only exact
+        results of the CDOS \name{Eliashberg} theory but also the behavior
+        within the approximations of a cutoff-independent mapping onto effective
+        scalar coupling constants (Section~\ref{cutoff-independent}) and a
+        renormalization of unity (Section~\ref{non-renormalized}) are presented.
+        Phonon and cutoff frequency are chosen to be $\omega \sub E = 20 \,
+        \unit{meV}$ and $\omega_N = 15 \, \omega \sub E$, respectively.}
+    \label{inter-band hyperbola of constant Tc}
 \end{figure}
+%
+In this section the approximate mappings onto effective scalar coupling
+strengths which were introduced in Section~\ref{effective coupling constants}
+are visualized for the special case of inter-band coupling alone, i.e.
+$\lambda_{1 1} = \lambda_{2 2} = 0$. Because of the following symmetry of the
+off-diagonal elements, $\lambda_{1 2}$ as a function of $\lambda_{2 1}$ is an
+involution, i.e. its own inverse. Subsequently, both asymptotes are have the
+same distance to their corresponding axes.
+
+The latter is determined both numerically and analytically according to
+Eqs.~\ref{non-renormalized} and \ref{cutoff-independent}. In the case studied,
+the latter reduce to
+%
+\begin{equation*}
+    \lambda = \sqrt{\lambda_{1 2} \lambda_{2 1}}
+    \quad \text{and} \quad
+    \lambda = -\frac 1 2 \Big[ \lambda_{1 2} + \lambda_{2 1} + \sqrt{
+        (\lambda_{2 1} + \lambda_{1 2})^2
+        + 12 \lambda_{1 2} \lambda_{2 1}
+        }
+    \Big].
+\end{equation*}
+%
+Solving for $\lambda_{2 1}$ and taking the limit $\lambda_{1 2} \rightarrow
+\infty$ yields the corresponding asymptotes:
+%
+\begin{equation*}
+    \lambda_{2 1} = \frac{\lambda^2}{\lambda_{1 2}} \rightarrow 0
+    \quad \text{and} \quad
+    \lambda_{2 1} = \frac{\lambda + \lambda_{1 2}}{3 \lambda_{1 2} - \lambda}
+    \lambda \rightarrow \frac \lambda 3.
+\end{equation*}
+%
+The results are presented in Fig.~\ref{inter-band hyperbola of constant Tc}. For
+all values of $\lambda$, the approximation of a cutoff-independent mapping
+yields better results than the assumption of a renormalization of unity.
+Especially for $\lambda \approx 1$, the agreement is satisfactory; for larger
+$\lambda$ is worsens continuously.
+
+\section{Critical temperatures for single-band approximations}
 
 \begin{figure}
     \small
@@ -181,10 +308,3 @@ of any element and so does the critical temperature.
         against each other. Again, $\omega \sub E = 20 \, \unit{meV}$ and
         $\omega_N = 15 \, \omega \sub E$.}
 \end{figure}
-
-\subsection{Subdomain-resolved density of states}
-
-\begin{itemize}
-    \item Show differences between maximum eigenvalue and effective coupling
-          constant for different densities of states
-\end{itemize}
