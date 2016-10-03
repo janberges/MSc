@@ -23,11 +23,12 @@ different bands is investigated in analogy to Section~\ref{temperature
 dependence of the order parameter}. Next, it presented how intra- and inter-band
 coupling strengths can be varied independently without altering the critical
 temperature. Based on this, the approximate mappings onto scalar coupling
-constants proposed in Section~\ref{effective coupling constants} are validated
+constants proposed in Section~\ref{effective coupling constants} are visualized
 using the example of inter-band coupling alone. Finally, the same approximations
 are tested with respect to the critical temperature.
 
-\section{Temperature dependence of order parameter}
+\section{Temperature dependence of order parameters}
+\label{temperature dependence of order parameters}
 
 \begin{figure}
     \small
@@ -301,10 +302,36 @@ $\lambda$ is worsens continuously.
     \end{subfigure}%
     \caption[Quality of the effective scalar coupling strengths]{
         Visualization of the quality of the introduced approximate mappings onto
-        effective scalar coupling strengths. For 500 two-band electron-phonon
-        coupling matrices, the elements of which are random samples from a
-        uniform distribution over $[0, 1)$, and their corresponding scalar
+        effective scalar coupling strengths. For a random sample of
+        electron-phonon coupling matrices and their corresponding scalar
         couplings strengths, critical temperatures are calculated and plotted
-        against each other. Again, $\omega \sub E = 20 \, \unit{meV}$ and
-        $\omega_N = 15 \, \omega \sub E$.}
+        against each other. The temperatures corresponding to integer scalar
+        coupling strengths are marked for a better orientation. The continuous
+        line is the quadrant bisector. Again, $\omega \sub E = 20 \, \unit{meV}$
+        and $\omega_N = 15 \, \omega \sub E$.}
+    \label{quality of the effective scalar coupling strengths}
 \end{figure}
+%
+Finally, the two mappings shall also be tested with respect to the critical
+temperatures they predict. To that end a sample of 500 electron-phonon coupling
+matrices is generated, the elements of which are random samples from a uniform
+distribution over $[0, 1)$, preselected by the criterion that their maximum
+eigenvalue is not less then $\frac 1 2$ in order to circumvent very low
+temperatures which are accompanied by a high computational workload caused by
+considering many \name{Matsubara} frequencies. For each matrix and their
+corresponding scalar couplings strengths, critical temperatures are calculated
+and plotted against each other. The resulting scatter plots are given in
+Fig.~\ref{quality of the effective scalar coupling strengths}. It shall be
+noted, that on average, random coupling matrices may not represent those
+representing real materials very well.
+
+The approximation of a cutoff-independent mapping turns out to be considerably
+more accurate that the assumption of a renormalization of unity, in accordance
+with the results of the previous section. Again, the former approach yields best
+results for coupling strengths in the vicinity of unity. Below and above it
+tends to under- and overestimate the critical temperature. The average absolute
+error is found to be \input{results/2-band/error1.dat}\,K. Also, the statement
+made at the end of Section~\ref{temperature dependence of order parameters} is
+confirmed: Neglecting the renormalization does never lead to an underestimate of
+the critical temperature -- on the contrary in most of the cases. Here, the
+average absolute error is \input{results/2-band/error2.dat}\,K.

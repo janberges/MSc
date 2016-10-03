@@ -57,6 +57,12 @@ line    = dict(thick=True, color='gray')
 
 plot = storylines.Plot(7, 7, right=0.5, xstep=20, ystep=20)
 
+plot.xticks = [
+    (ebmb.get('critical', lamda=lamda, **settings), r'$\lambda = %d$' % lamda)
+        for lamda in (1, 2)]
+
+plot.xticks.extend([0, 10, 60])
+
 plot.xlabel = r'$T \sub c / \unit K$'
 plot.ylabel = r'$\widetilde T \sub c / \unit K$'
 
@@ -71,3 +77,9 @@ plot.line(lim, lim, **line)
 plot.line(Tc, Tc2, color='magenta', **scatter)
 
 plot.save('tc_non-renormalized.sl', external=True)
+
+with open('error1.dat', 'w') as dat:
+    dat.write('%.1f%%\n' % (sum(abs(Tc - Tc1)) / size))
+
+with open('error2.dat', 'w') as dat:
+    dat.write('%.1f%%\n' % (sum(abs(Tc - Tc2)) / size))
