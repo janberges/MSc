@@ -5,7 +5,7 @@ import storylines
 import numpy as np
 
 kB = 8.61733e-5
-inf = 1e15
+inf = 1e10
 
 settings = {
     'file': 'lamda_inf.dat',

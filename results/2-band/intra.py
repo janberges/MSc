@@ -5,7 +5,7 @@ import storylines
 import numpy as np
 
 kB = 8.61733e-5
-inf = 1e15
+inf = 1e10
 
 def math(string):
     string = string.replace('0.5', r'\phantom 1 \mathllap{\tfrac 1 2}')
