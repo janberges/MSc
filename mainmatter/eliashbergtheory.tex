@@ -540,7 +540,7 @@ equations} read
         \input{results/cdos/cdos2.sl}
         \caption{$\omega = t / 10$. At lower frequencies, points for numerical
                  integration must be chosen carefully.}
-        \label{cDOS at low frequencies}
+        \label{CDOS at low frequencies}
     \end{subfigure}
     \captionsetup{singlelinecheck=off}
     \caption[Constant-DOS approximation]{ %
@@ -605,10 +605,10 @@ $\Delta(\I \omega_n) = \phi(\I \omega_n) / Z(\I \omega_n)$, this yields
         { \sqrt{\omega_m^2 + \Delta^2(\I \omega_m)} }
 \end{equation*}
 %
-and thus the \emph{cDOS \name{Eliashberg} equations} for a constant density of
+and thus the \emph{CDOS \name{Eliashberg} equations} for a constant density of
 states
 %
-\begin{subequations} \label{cDOS Eliashberg equations}
+\begin{subequations} \label{CDOS Eliashberg equations}
     \begin{align}
         Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_m
         \frac{\omega_m}{\sqrt{\omega_m^2 + \Delta^2(\I \omega_m)}}
@@ -767,7 +767,7 @@ are actually defined for the whole complex plane, read
 
 Noting that $\lambda(n) = \lambda(-n)$, one can easily verify that even
 functions $Z(\I \omega_n)$ and $\Delta(\I \omega_n)$ are perfectly compatible
-with Eqs.~\ref{cDOS Eliashberg equations}. This property is inherited by the
+with Eqs.~\ref{CDOS Eliashberg equations}. This property is inherited by the
 corresponding real-axis quantities. More general: Let $f(\omega)$ represent any
 of the functions $\omega^2$, $Z(\omega)$ and $\Delta(\omega)$. They all have in
 common that they transform into their complex conjugate if the sign of either
@@ -1028,8 +1028,8 @@ place of $\Theta / 1.45$, which should be preferred according to \name{Dynes}
 The introduction of the \name{Coulomb} pseudo-potential in the preceding section
 requires a more detailed analysis of the \name{Coulomb} interaction as occurring
 in the \name{Eliashberg} theory. Before that, however, it is convenient to put
-the local and cDOS \name{Eliashberg} equations (Eqs.~\ref{local Eliashberg
-equations} and \ref{cDOS Eliashberg equations}) into a form which is more
+the local and CDOS \name{Eliashberg} equations (Eqs.~\ref{local Eliashberg
+equations} and \ref{CDOS Eliashberg equations}) into a form which is more
 suitable for both further analysis and computational implementation.
 
 As already stated in Eq.~\ref{frequency symmetries}, one can assume the
@@ -1326,19 +1326,19 @@ where Eq.~A.7 of Ref.~\barecite{AllenMitrovic82} has been used. Hence,
     \frac 1 {\mu^*(N)} = \frac 1 {\mu^*(M)} + \ln \frac{\omega_M}{\omega_N}.
 \end{equation*}
 %
-From comparison with Eq.~\ref{rectangular-DOS mu*} it follows that the cDOS
+From comparison with Eq.~\ref{rectangular-DOS mu*} it follows that the CDOS
 approach reproduces the expected results if the non-rescaled $\mu \sub C$ is
 used in combination with a cutoff frequency equal to the virtual band-width $D$.
-The cDOS approximation thus \emph{requires} a frequency cutoff.
+The CDOS approximation thus \emph{requires} a frequency cutoff.
 
 Since $D$ is theoretically infinite and practically unknown it is eliminated by
 the assumption that it be equal to the band-width from the derivation of
 \name{McMillan's} equation. Combination of the results from Eqs.~\ref{McMillan's
 Coulomb pseudo-potential} and \ref{rectangular-DOS mu*} yields the formula to be
-used within the imaginary-axis cDOS \name{Eliashberg} equations
+used within the imaginary-axis CDOS \name{Eliashberg} equations
 \cite[Eq.~13]{AllenDynes75}:
 %
-\begin{equation} \label{cDOS rescaled Coulomb pseudo-potential}
+\begin{equation} \label{CDOS rescaled Coulomb pseudo-potential}
     \frac 1 {\mu^*(N)} = \frac 1 {\mu^*} + \ln \frac{\omega_0}{\omega_N}.
 \end{equation}
 
@@ -1522,7 +1522,7 @@ j} / \lambda_{j i} = n_j(\mu_0) / n_i(\mu_0)$.
 
 Analogously, for constant band densities of states one finds
 %
-\begin{subequations} \label{cDOS multi-band Eliashberg equations}
+\begin{subequations} \label{CDOS multi-band Eliashberg equations}
     \begin{align}
         Z_i(\I \omega_n)
         &= 1 + \frac{\pi T}{\omega_n} \sum_j \sum_{m = 0}^{N - 1}
@@ -1588,11 +1588,11 @@ numbers such as real band indices.
 At $T \sub c$, where the order parameter $\Delta(\I \omega_m)$ is infinitesimal,
 and in the normal state, where it is zero, it can be neglected relative to
 $\omega_m$. Analogous to the derivation of the real-axis \name{Eliashberg}
-equations (Eqs.~\ref{real-axis Eliashberg equations}) the cDOS multi-band
-imaginary-axis \name{Eliashberg} equations (Eqs.~\ref{cDOS multi-band Eliashberg
+equations (Eqs.~\ref{real-axis Eliashberg equations}) the CDOS multi-band
+imaginary-axis \name{Eliashberg} equations (Eqs.~\ref{CDOS multi-band Eliashberg
 equations}) assume the following linearized form:
 %
-\begin{subequations} \label{linearized cDOS multi-band Eliashberg equations}
+\begin{subequations} \label{linearized CDOS multi-band Eliashberg equations}
     \begin{align}
         Z_i(\I \omega_n)
         &= 1 + \frac 1 {2 n + 1} \sum_j \sum_{m = 0}^{N - 1}

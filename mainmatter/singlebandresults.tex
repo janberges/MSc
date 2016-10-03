@@ -24,8 +24,8 @@ particle number is discussed in detail.
 \begin{figure}
     \input{results/renormalization/imaginary-axis.sl}
     \input{results/renormalization/real-axis.sl}
-    \caption[Exact normal-state cDOS renormalization on both complex axes]{
-        Exact normal-state cDOS renormalization together with selected
+    \caption[Exact normal-state CDOS renormalization on both complex axes]{
+        Exact normal-state CDOS renormalization together with selected
         \name{Padé} approximants for an electron-phonon coupling strength
         $\lambda = 1$, a phonon frequency $\omega \sub E = 20\,\unit{meV}$ and a
         temperature $T = 1\,\unit K$.}
@@ -35,7 +35,7 @@ particle number is discussed in detail.
 In this section the suitability of \name{Padé} approximants to perform an
 analytic continuation of numerical data is tested using the example of the only
 self-energy component of interest for which an analytic expression is available,
-namely the renormalization function in the normal state within the cDOS
+namely the renormalization function in the normal state within the CDOS
 approximation.
 
 With the help of Eq.~A.7 of Ref.~\barecite{AllenMitrovic82} one can easily
@@ -333,8 +333,8 @@ cutoff frequency} the critical temperature is shown as a function of the cutoff
 frequency for both a constant and a rescaled \name{Coulomb} pseudo-potential.
 
 Depending on whether the density of states is assumed to be constant or not,
-different rescaling prescriptions have to be used. For the cDOS approximation,
-Eq.~\ref{cDOS rescaled Coulomb pseudo-potential} can be directly applied.
+different rescaling prescriptions have to be used. For the CDOS approximation,
+Eq.~\ref{CDOS rescaled Coulomb pseudo-potential} can be directly applied.
 Otherwise one has to resort to Eq.~\ref{rescaled Coulomb pseudo-potential} which
 unfortunately involves the original coupling constant $\mu \sub C$ rather than
 \name{McMillan}'s \name{Coulomb} pseudo-potential $\mu^*$. Hence, in order to
@@ -343,11 +343,11 @@ is taken into account the first step is to estimate $\mu \sub C$ from $\mu^*$
 which is done via Eq.~\ref{McMillan's Coulomb pseudo-potential}, where $E \sub
 B$ is assumed to be half the electronic bandwidth.
 
-It is confirmed that within the cDOS approximation the rescaling is required in
+It is confirmed that within the CDOS approximation the rescaling is required in
 order to yield convergent results. This does not apply to the \name{Eliashberg}
 equations in general since within nothing but the local approximation one has
 convergence in any case; it is just considerably faster if an appropriate
-rescaling is performed. The cDOS convergence rate is not reached though.
+rescaling is performed. The CDOS convergence rate is not reached though.
 
 An enhancement of the critical temperature with increasing cutoff frequency for
 a constant \name{Coulomb} pseudo-potential is in accordance with the fact that
@@ -391,7 +391,7 @@ temperatures are scattered apparently at random (of cause each calculation alone
 is deterministic) around the correct value, loosely bounded by a radii with
 shrink with an increasing resolution.
 
-As already anticipated in the caption of Fig.~\ref{cDOS at low frequencies} the
+As already anticipated in the caption of Fig.~\ref{CDOS at low frequencies} the
 errors are larger for lower phonon frequencies, which correspond to lower
 temperatures, where the \name{Lorentz} functions to be integrated over are
 sharper and thus only resolved accurately if neighboring sample points are very
@@ -430,7 +430,7 @@ intelligent, non-equidistant sampling.
 Having shown that the numerical results are stable and satisfy the qualitative
 expectations, the next step is a direct comparison with established results,
 namely \name{McMillan}'s equation for the critical temperature. It was derived
-starting from the cDOS \name{Eliashberg} theory, so that the latter should
+starting from the CDOS \name{Eliashberg} theory, so that the latter should
 reproduce the results of the former at least approximately.
 
 If there is any justifiable discrepancy between the original and the present
@@ -486,7 +486,7 @@ Fig.~\ref{McMillan's fits}. The fit parameters turn out to be $A = 0.94 \pm
     \label{critical-temperature benchmarks}
 \end{figure}
 %
-At this point a comparison of local and cDOS \name{Eliashberg} theory as well as
+At this point a comparison of local and CDOS \name{Eliashberg} theory as well as
 \name{McMillan}'s formula, both original and adjusted, can be performed.
 Therefor, $T \sub c$ is calculated for different $\omega \sub E$, $\lambda$ and
 $\mu^*$ whereby only one parameter is varied at a time and the others are held
@@ -495,7 +495,7 @@ benchmarks}.
 
 Altogether, a very good agreement can be reported. As expected, the adjusted
 version of \name{McMillan}'s formula does best in reproducing the critical
-temperature according to cDOS \name{Eliashberg} theory for \name{Einstein}
+temperature according to CDOS \name{Eliashberg} theory for \name{Einstein}
 spectra. The original formula works comparably good but it slightly
 underestimates the dependence on the \name{Coulomb} pseudo-potential and already
 fails at lower electron-phonon coupling strengths. In this regard it is well
