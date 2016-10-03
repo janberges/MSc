@@ -53,9 +53,12 @@ for i, para['mu'] in enumerate(mu):
     dmu[i] = para['mu'] - data['mu']
     chi[i] = data['chi'][0]
 
+width = 14
+height = 3.6
+
 # critical temperature:
 
-plot = storylines.Plot(14, 4, right=0.5)
+plot = storylines.Plot(width, height, right=0.5, ystep=1)
 
 plot.xlabel = r'$\mu_0 / \unit{eV}$'
 plot.ylabel = r'$T \sub c / \unit K$'
@@ -67,7 +70,7 @@ plot.save('energy_tc.sl', external=True)
 
 # energy shift:
 
-plot.clear()
+plot = storylines.Plot(width, height, right=0.5, ystep=0.05)
 
 plot.xlabel = r'$\mu_0 / \unit{eV}$'
 plot.ylabel = r'$\textcolor{teal}{\chi(\I \omega_0) / \unit{eV}} \quad ' \
@@ -81,8 +84,7 @@ plot.save('energy_shift.sl', external=True)
 
 # density of states:
 
-plot.clear()
-plot.ymin = 0
+plot = storylines.Plot(width, height, right=0.5, ymin = 0, ystep=1)
 
 plot.xlabel = r'$\epsilon / \unit{eV}$'
 plot.ylabel = r'$n / \unit{eV^{-1}}$'
