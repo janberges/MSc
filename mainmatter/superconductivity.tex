@@ -223,7 +223,7 @@ adjoints they anti-commute so that the only further requirement is
 \end{gather*}
 %
 where the inner braces enclose alternatives. A choice of $u_{\vec k}$ and
-$v_{\vec k}$ which both satisfies the above relation and diagonalized the
+$v_{\vec k}$ which both satisfies the above relation and diagonalizes the
 \name{Hamilton} operator is given by
 %
 \begin{gather*}
@@ -283,7 +283,9 @@ emerging density of states is assumed to a constant $N_0$:
 \begin{gather*}
     1 = \frac {V N_0} 2
     \int \from{-\omega \sub D} \till{\omega \sub D} \D \epsilon \,
-    \frac{\tanh(\frac{E_{\vec k}}{2 k T})}{E_{\vec k}}.
+    \frac
+        {\tanh(\frac{\sqrt{\epsilon^2 + \Delta^2}}{2 k T})}
+        {\sqrt{\epsilon^2 + \Delta^2}}.
 \end{gather*}
 %
 For $T = 0$ one can further approximate
@@ -306,6 +308,10 @@ interaction is given by the isotope effect:
 \begin{gather*}
     T \sub c \propto \omega \sub D \propto \frac 1 {\sqrt M}.
 \end{gather*}
+
+\begin{figure}
+    \input{results/bcs/bcs.sl}
+\end{figure}
 
 \section{Off-diagonal long-range order}
 
