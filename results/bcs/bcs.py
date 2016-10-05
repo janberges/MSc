@@ -15,11 +15,11 @@ T     = np.linspace(1, 110, 500)
 V     = np.linspace(1.0, 0.1, 10)
 Delta = np.ones(len(T))
 
-plot = storylines.Plot(14, 6, xmax=T[-1])
+plot = storylines.Plot(14, 6, xmax=T[-1], xstep=10, ymin=0, ystep=5)
 
 plot.xlabel = r'$T / \unit K$'
 plot.ylabel = r'$\Delta / \unit{meV}$'
-plot.zlabel = r'$V / \unit{eV}$'
+plot.zlabel = r'$V N(\epsilon)$'
 
 for v in V:
     n0 = 0
