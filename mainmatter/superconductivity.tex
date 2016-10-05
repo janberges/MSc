@@ -19,11 +19,11 @@ formation of \name{Cooper} pairs. Thereafter, the theory of \name{Bardeen},
 \name{Cooper} and \name{Schrieffer} is presented, followed by a description of
 the concept of \q{off-diagonal long-range order}.
 
-\section{History of superconductivity}
+\section{Early history of superconductivity}
 
-In 1911 the dutch physicist H. \name{Kamerlingh Onnes} finds that mercury ceases
-to resist electric current completely when cooled down to temperatures below
-$4\,^\circ \mathrm K$ with the help of liquid helium.%
+In 1911 the dutch physicist \name{Kamerlingh Onnes} finds that mercury ceases to
+resist electric current completely when cooled down below a critical temperature
+of about $4\,^\circ \mathrm K$ with the help of liquid helium.%
 %
 \footnote{According to Ref.~\barecite{vanDelftKes10}, on April 8, 1911
 \name{Kamerlingh Onnes} writes \qq{Kwik nagenoeg nul} in his notebook, which
@@ -37,6 +37,44 @@ This is the first time a manifestation of superconductivity is observed. In the
 years that follow, similar observations are made for other metals and the
 fundamental properties of the novel state are exposed.
 
+In 1933 the misconception of superconductors which obey \name{Ohm}'s law is
+overcome, when \name{Meißner} and \name{Ochsenfeld} find them to be perfect
+diamagnets \cite{MeissnerOchsenfeld33}: Up to a critical strength an external
+magnetic field is expelled from a superconductor -- even if it was there
+\emph{before} the critical temperature has been reached. On the basis of this
+observation the \name{London} brothers formulated a first macroscopic theory
+of superconductivity in 1935 \cite{LondonLondon35}.
+
+However, not only have the characteristics of a phase transition been left out
+of consideration -- some of these are addressed by the phenomenological theory
+of \name{Ginzburg} and \name{Landau} from about 1950, which introduces an order
+parameter for the superconducting state --, but also the underlying physical
+mechanisms remain unclear.
+
+An important hint towards the right direction is given by the discovery of the
+isotope effect in 1950 by \name{Maxwell} \cite{Maxwell50} and \name{Reynolds} et
+al. \cite{ReynoldsSerinWrightNesbitt50}: The critical temperature depends on the
+nuclear mass just as the phononic behavior. At that time, \name{Fröhlich} starts
+to successfully use field-theoretical methods to describe the interaction
+between electrons and phonons, which is gradually accepted as causing
+superconductivity. In 1952, his electron-phonon \name{Hamilton} operator is
+established and mapped onto an effective interaction between electrons which
+turns out to be attractive.
+
+It was not until 1957 that on this basis the first microscopic theory of
+superconductivity was formulated by \name{Bardeen}, \name{Cooper} and
+\name{Schrieffer} \cites {BardeenCooperSchrieffer57a}
+{BardeenCooperSchrieffer57b}. Its principal idea is the formation of a
+condensate of \name{Cooper} pairs which opens up an energy gap at the
+\name{Fermi} level the width of which turns out to be a suitable order
+parameter.
+
+Since the modeled interaction in the BCS theory is instantaneous as opposed to
+the underlying electron-phonon interaction which is retarded, discrepancies
+between theory and experiment emerge, especially when the coupling is strong. In
+1960, \name{Eliashberg} established a theory which accounts for this retarded
+nature of the interaction.
+
 \section{Canonical transformation}
 
 It is now shown that the electron-phonon interaction can involve an effective
@@ -48,13 +86,13 @@ The presentation at hand is rather guided by \name{Czycholl} \cite{Czycholl08}.}
 To that end the \name{Fröhlich-Hamilton} operator
 %
 \begin{gather*}
-    \op H = \overbrace{
+    \op H = \hyper{
         \sum_{\vec k} \epsilon_{\vec k} \op c_{\vec k}^+ \op c_{\vec k} +
         \sum_{\vec q} \omega_{\vec q} \op b_{\vec q}^+ \op b_{\vec q}
-    }^{\op H_0} + \overbrace{
+    }{\op H_0} + \hyper{
         \sum_{\vec k \vec q} g_{\vec q} \op c_{\vec k + \vec q}^+ \op c_{\vec k}
         [\op b_{\vec q} + \op b_{-\vec q}^+]
-    }^{\op V}
+    }{\op V}
 \end{gather*}
 %
 is considered, which describes the interaction between electrons with wave
@@ -66,7 +104,7 @@ is given by $g_{\vec q}$. The spin is of no importance here and thus omitted.
 
 The idea is to apply a canonical transformation to the \name{Hamilton} operator
 by means of the unitary operator $\E^{\I \op S}$, where $\op S$ is self-adjoint.
-With the help of \name{Hadamard}'s lemma,
+Expanding the exponential functions,
 %
 \begin{align*}
     \op H \sub T
@@ -77,9 +115,9 @@ With the help of \name{Hadamard}'s lemma,
     &\approx \op H_0 + \frac \I 2 [\op V, \op S] \equiv \op H_0 + \op V',
 \end{align*}
 %
-choosing $[\op H_0, \op S] = \I \op V$, which implies a linear dependence of
-$\op S$ on $\op V$. Thus all terms with are at least quadratic in the
-interaction are neglected. Making use of the commutation relations
+where $[\op H_0, \op S] = \I \op V$ has been chosen, which implies a linear
+dependence of $\op S$ on $\op V$. Thus all terms which are at least quadratic in
+the interaction are neglected. Using the commutation relations
 %
 \begin{align*}
     [\op b_{\vec q'}^+ \op b_{\vec q'}, \ \op b_{\vec q \phantom +}]
@@ -349,8 +387,8 @@ otherwise. Hence, dividing by $\Delta \neq 0$
 %
 where $N(\epsilon)$ is the density of states, usually assumed to be constant
 over the range of integration. This is the famous \emph{BCS gap equation}. The
-temperature dependence of the order parameter for different coupling strengths
-is displayed in Fig.~\ref{BCS gap}.
+resulting temperature dependence of the order parameter for different coupling
+strengths is displayed in Fig.~\ref{BCS gap}.
 
 \section{Off-diagonal long-range order}
 
