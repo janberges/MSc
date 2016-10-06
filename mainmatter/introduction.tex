@@ -1,0 +1,64 @@
+% !TEX root = ../thesis.tex
+
+\chapter{Introduction}
+
+Since \name{McMillan}'s formula has been published in 1968 \cite{McMillan68}, it
+has been widely used to obtain estimates of the critical temperature of
+superconductivity as a function of three effective material parameters, namely an
+average phonon frequency $\av \omega$, the electron-phonon coupling strength
+$\lambda$ and the \name{Coulomb} pseudo-potential $\mu^*$, which can be
+extracted from first-principles calculations or experiment.%
+%
+\footnote{Today, the American Physical Society alone lists 3\,203 references to
+the original paper by \name{McMillan}, to be complemented by 1\,326 citations of
+a closely related publication by \name{Allen} and \name{Dynes}
+\cite{AllenDynes75}.}
+%
+It constitutes an approximation to the more general \name{Eliashberg} theory of
+superconductivity \cite{Eliashberg60} from which it was derived by fitting
+analytic approximations of the underlying equations to exact numerical results.
+Although for the latter the special phononic density of states of niobium has
+been assumed, which was simply at hand at that time \cite{NakagawaWoods63}, the
+validity of the resulting formula turned out to be much more general.
+
+The aim of the present work is to trace the steps that lead from the theory of
+the fundamental interactions between electrons and phonons to the handy formula
+for the critical temperature and to perform further tests on its scope, many of
+them, supposedly, have already been carried out somewhere in its past of almost
+half a century and fallen into oblivion or, more probably, just overlooked this
+time. Special attention is paid to possible discrepancies emerging from both
+non-uniform coupling strengths within and between different subsets of
+electronic states and exceptional densities of the latter. Notwithstanding that
+in the course of the investigations no references to specific materials are made
+but rather simple models applied, it is indented that the results be of use for
+the understanding of novel, especially two-dimensional materials.
+
+For this purpose, an appropriate software is developed which may be used not
+only to obtain electronic self-energies on the imaginary and real frequency axes
+as solutions of the multi-band \name{Eliashberg} equations and analytically
+continued by means of \name{Padé} approximants \cite{VidbergSerene77},
+respectively, but also to solve the corresponding critical-state equations for a
+parameter of choice, which may be either the critical temperature itself, the
+phonon frequency or any element of the matrices defining the coupling strengths,
+for the respective other quantities fixed.
+
+To make a start, the following Chapter~\ref{superconductivity} gives a very
+brief introduction to the field of superconductivity, including an outline of
+its early history and the presentation of the prominent BCS theory \cites
+{BardeenCooperSchrieffer57a} {BardeenCooperSchrieffer57b}. Before this subject
+can be discussed in more detail it is necessary to extend the theoretical
+framework, namely to present the fundamentals of many-body physics such as
+\name{Green} functions and diagrammatical perturbation theory, which will be
+done in Chapter~\ref{many-body physics}. On this basis, the different
+formulations and special cases of the \name{Eliashberg} theory of
+superconductivity are dealt with in Chapter~\ref{Eliashberg theory}, which
+completes the preparative part of the thesis. Subsequently, the actual numerical
+results are demonstrated in Chapters~\ref{single-band results} and
+\ref{multi-band results} which are dedicated to results for single- and
+muli-band systems, respectively, where \emph{bands} stand in place for any
+chosen subsets of electronic states. Finally, in Chapter.~\ref{conclusions} the
+most important results are summarized and the pending questions brought up for
+future discussion. A good deal of the work falls under the scope of the
+Appendix~\ref{source code} where, following a short formulary on \name{Fourier}
+analysis in Appendix~\ref{Fourier analysis}, the source code of the employed
+programs is exposed and commented, supplemented with a short user manual.
