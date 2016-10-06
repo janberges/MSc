@@ -1620,7 +1620,7 @@ $N \rightarrow \infty$ can further evaluate
 This yields the matrix equation $\vec \Delta \cdot \vec K = \vec \Delta$,
 component-wise written as
 %
-\begin{equation}
+\begin{equation} \label{CDOS linearized gap equation}
     \begin{split}
         \Delta_i(\I \omega_n) &= \sum_j \sum_{m = 0}^{N - 1}
         K_{i j}(n, m) \, \Delta_j(\I \omega_m),
@@ -1632,7 +1632,6 @@ component-wise written as
         \overset{N = \infty} =
         \sum_j \Big[ \lambda_{i j} + 2 \sum_{m = 1}^n \lambda_{i j}(m) \Big].
     \end{split}
-    \label{linearized gap equation}
 \end{equation}
 %
 Since at temperatures greater than, equal to or less than $T \sub c$
@@ -1787,15 +1786,17 @@ order parameter and may thus be determined independently. Having done so, these
 normal-state properties, together with the self-consistent chemical potential,
 are inserted into the remaining equation which yields
 %
-\begin{align*}
-    \phi_i(\I \omega_n) &= \sum_j \sum_{m = 0}^{N - 1}
-    K_{i j}(n, m) \, \phi_j(\I \omega_m),
-    \\
-    K_{i j}(n, m) &= T \sub c \int \from{-\infty} \till \infty \D \epsilon
-    \frac{n_j(\epsilon)}{n_j(\mu_0)}
-    \frac {\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)}
-    {[\omega_m Z_j(\I \omega_m)]^2 + [\epsilon - \mu + \chi_j(\I \omega_m)]^2}.
-\end{align*}
+\begin{equation} \label{linearized gap equation}
+    \begin{split}
+        \phi_i(\I \omega_n) &= \sum_j \sum_{m = 0}^{N - 1}
+        K_{i j}(n, m) \, \phi_j(\I \omega_m),
+        \\
+        K_{i j}(n, m) &= T \sub c \int \from{-\infty} \till \infty \D \epsilon
+        \frac{n_j(\epsilon)}{n_j(\mu_0)}
+        \frac {\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)}
+        {[\omega_m Z_j(\I \omega_m)]^2 + [\epsilon - \mu + \chi_j(\I \omega_m)]^2}.
+    \end{split}
+\end{equation}
 
 \section{\name{Padé} approximants}
 \label{Pade approximants}
