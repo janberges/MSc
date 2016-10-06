@@ -1,12 +1,6 @@
 % !TEX root = ../thesis.tex
 
-
-% JUST TEMPORARY
-
-\usepackage{lipsum}
-
-
-% GENERAL APPEARANCE
+% GENERAL
 
 \usepackage[margin=3cm, bindingoffset=1cm]{geometry}
 
@@ -16,20 +10,17 @@
 
 \usepackage[math]{iwona}
 \usepackage[T1]{fontenc}
+
 \usepackage[scaled=0.92]{inconsolata}
 
 \usepackage{microtype, slantsc}
 
-\usepackage[font=small, labelfont=bf, parindent=5mm]{caption, subcaption}
-
-\usepackage[perpage]{footmisc}
-
+\usepackage[font=small, labelfont=bf]{caption, subcaption}
 
 % MATH
 
 \usepackage{mathtools, upgreek}
 \usepackage[sans]{dsfont}
-
 
 % GRAPHICS
 
@@ -137,7 +128,7 @@
 \fancyhead[OR]\thepage
 \fancyhead[EL]\thepage
 
-\def\headrulewidth{0.1mm}
+\def\headrulewidth{0.4pt}
 \def\footrulewidth{0pt}
 
 
@@ -172,11 +163,11 @@
     sensitive = true,
     }
 
-\definecolor{basiccolor}{rgb}{0.1, 0.3, 0.5}
-\definecolor{keywordcolor}{rgb}{0.0, 0.4, 0.8}
+\definecolor     {basiccolor}{rgb}{0.1, 0.3, 0.5}
+\definecolor   {keywordcolor}{rgb}{0.0, 0.4, 0.8}
 \definecolor{identifiercolor}{rgb}{0.2, 0.2, 0.2}
-\definecolor{commentcolor}{rgb}{0.5, 0.5, 0.5}
-\definecolor{numbercolor}{rgb}{0.5, 0.5, 0.5}
+\definecolor   {commentcolor}{rgb}{0.5, 0.5, 0.5}
+\definecolor    {numbercolor}{rgb}{0.5, 0.5, 0.5}
 
 \lstset{
 	basicstyle = \color{basiccolor} \ttfamily \small,
@@ -193,7 +184,6 @@
 	aboveskip = 4mm,
 	belowskip = 4mm,
     }
-
 
 % BIBLIOGRAPHY
 
@@ -226,7 +216,6 @@
     \usebibmacro{pageref}%
     \usebibmacro{finentry}%
     }
-
 
 % HYPERLINKS
 
