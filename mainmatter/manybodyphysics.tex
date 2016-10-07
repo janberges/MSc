@@ -787,9 +787,8 @@ values as well, thus
     \end{equation}
     %
     which indicates the existence of \name{Cooper} pairs in analogy to the BCS
-    gap in Eq.~\ref{BCS order parameter}, is needed. For convenience, one
-    introduces two additional functions, as well as the phonon \name{Green}
-    function
+    gap in Eq.~\ref{BCS order parameter}, is needed. Solely for convenience, one
+    introduces two additional functions
     %
     \begin{align}
         \smash{\widetilde G_{\vec k \sigma}}(\tau) &= -\av{\op T \,
@@ -799,11 +798,15 @@ values as well, thus
         \smash{\widetilde F_{\vec k \sigma}}(\tau) &= -\av{\op T \,
         \op c_{-\vec k -\sigma}^+(\tau) \,
         \op c_{\vec k \sigma}^+(0)} = [F_{\vec k \sigma}(\tau)]^*,
-        \\
-        D_{\vec q}(\tau) &= -\av{\op T \,
+    \end{align}
+    %
+    as well as the phonon \name{Green} function
+    %
+    \begin{equation}
+        D_{\vec q}(\tau) = -\av{\op T \,
         \op \upphi_{\vec q}(\tau) \,
         \op \upphi_{\vec q}(0)} = D_{-\vec q}(-\tau) \in \mathds R.
-    \end{align}
+    \end{equation}
 \end{subequations}
 
 In the following, leading terms of the electronic \name{Green} functions are
@@ -827,7 +830,7 @@ dropped.
 \label{Holstein model}
 
 In real space, the interaction term of the \emph{\name{Holstein-Hamilton}
-operator} reads
+operator} reads \cite{vonderLindenBergerValasek95}
 %
 \begin{equation*}
     \op V = g \sum_{\vec R \sigma}
@@ -843,18 +846,17 @@ A discrete \name{Fourier} transform of the creation and annihilation operators
 with the help of Eq.~\ref{DFT orthogonality relation} yields the momentum-space
 representation
 %
-\begin{align*}
-    \op V &= \frac g {\sqrt N} \sum_{\vec k \vec k' \sigma \vec q}
+\begin{equation*}
+    \op V = \frac g {\sqrt N} \sum_{\vec k \vec k' \sigma \vec q}
     \frac 1 N \sum_{\vec R} \E^{\I (\vec k' - \vec k) \vec R}
     \op c_{\vec k' \sigma}^+ \op c_{\vec k \sigma} [
         \E^{-\I \vec q \vec R} \op b_{\vec q} +
         \E^{\I \vec q \vec R} \op b_{\vec q}^+
-    ] \\ &= \frac g {\sqrt N} \sum_{\vec k \sigma \vec q}
+        ]
+    = \frac g {\sqrt N} \sum_{\vec k \sigma \vec q}
     \op c_{\vec k + \vec q \sigma}^+ \op c_{\vec k \sigma}
-    \upphi_{\vec q}
-    \quad \text{with} \quad
-    \upphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+.
-\end{align*}
+    \upphi_{\vec q}.
+\end{equation*}
 
 \subsubsection{Normal \name{Green} function}
 
@@ -1020,15 +1022,13 @@ part $\av{\text{el.}}_0$ yields
     \caption[\name{Feynman} diagrams: 2nd-order electron-phonon interaction]
         {Second-order processes that occur in the \textsc{Feynman-Dyson}
          perturbation series of $G_{\vec k \sigma}$ and $F_{\vec k \sigma}$ in
-         the \textsc{Holstein} model. Diagrams with anomalous in- or outgoing
-         lines vanish and are omitted. The quantum numbers $\vec k'$, $\vec
-         k''$, $\sigma'$, $\sigma''$ and $\vec q$ of internal lines are summed,
-         time parameters $\tau'$ and $\tau''$ of internal vertices integrated
-         over. Solid and wavy lines represent electrons and phonons,
-         respectively. The convention is followed that the arrows point from
-         from the creation towards the annihilation event. Thus out- or inward
-         double arrows stand for \name{Cooper} pairs of unspecified origin or
-         destiny.}
+         the \textsc{Holstein} model. The quantum numbers $\vec k'$, $\vec k''$,
+         $\sigma'$, $\sigma''$ and $\vec q$ of internal lines are summed, time
+         parameters $\tau'$ and $\tau''$ of internal vertices integrated over.
+         Solid and wavy lines represent electrons and phonons, respectively. The
+         convention is followed that arrows point from creation towards
+         annihilation. Thus out- or inward double arrows stand for \name{Cooper}
+         pairs of unspecified origin or destiny.}
     \label{Feynman diagrams}
 \end{figure}
 
@@ -1115,9 +1115,10 @@ disconnected diagrams. Hence,
     \super{c.}.
 \end{equation*}
 
-In the following, all terms with $D^0_0$ are neglected since phonons with $\vec
-q = 0$ are no actual phonons but rather translations of the crystal as a whole
-\cite[p.~82]{Mahan00}, which shall not be considered.
+In the following, all terms with $D^0_0(\tau' - \tau'')$ are neglected since
+phonons with $\vec q = 0$ are no actual phonons but rather translations of the
+crystal as a whole or a permanent strain \cite[p.~82]{Mahan00}, which shall not
+be considered.
 
 Performing the integrals, the remaining two terms turn out to be equivalent
 since $\tau'$ and $\tau''$ occur in exchangeable positions. Transforming to
@@ -1147,7 +1148,7 @@ since $\tau'$ and $\tau''$ occur in exchangeable positions. Transforming to
     \frac 1 \beta \int \from 0 \till \beta \D \tau' \,
     \E^{\I (\omega_i - \omega_m - \nu_k) \tau'} \,
     \frac 1 \beta \int \from 0 \till \beta \D \tau'' \,
-    \E^{\I (\omega_m - \omega_j + \nu_k) \tau''}
+    \E^{\I (\omega_m - \omega_j + \nu_k) \tau''}.
 \end{align*}
 %
 Noting that differences of \name{Matsubara} frequencies of mixed and equal type
@@ -1336,7 +1337,7 @@ $G_{\vec k \sigma}(\tau)$ is thus
         \op c_{\vec k'' - \vec q \sigma''}^+[\tau'] \,
         \op c_{\vec k'' \sigma''}[\tau'] \,
         \op c_{\vec k \sigma}^+[0]
-    }_0
+    }_0.
 \end{align*}
 %
 A comparison with Eq.~\ref{Holstein 2nd}, the corresponding formula for the
@@ -1386,7 +1387,7 @@ As a function of \name{Matsubara} frequencies one has
     \frac 1 \beta \int \from 0 \till \beta \D \tau \,
     \E^{\I (\omega_n - \omega_i) \tau} \,
     \frac 1 \beta \int \from 0 \till \beta \D \tau' \,
-    \E^{\I (\omega_i - \omega_j) \tau'}.
+    \E^{\I (\omega_i - \omega_j) \tau'}
     \\
     &= G^0_{\vec k \sigma}(\I \omega_n) \,
     \Sigma^0_{\vec k \sigma} \,
@@ -1441,6 +1442,7 @@ The \textsc{Hubbard} model further restricts the \textsc{Coulomb} interaction to
 occur only between electrons at the same site, which must consequently have
 opposite spins because of the \name{Pauli} principle. With the on-site
 \textsc{Coulomb} repulsion $U$, the corresponding operator in real space reads
+\cite{vonderLindenBergerValasek95}
 %
 \begin{equation*}
     \op V = U \sum_{\vec R}
@@ -1523,7 +1525,7 @@ usual anomalous \name{Fock} contribution
 The full \name{Green} function is found by adding \emph{all} diagrams, that are
 properly connected. But which are valid connections? In Fig.~\ref{Feynman
 diagrams}, each diagram features three fermion lines, a single boson line and
-two vertices at each of which one fermion is annihilated and another one created
+two vertices at each of which one fermion is annihilated and another created
 under the influence of one boson. This process is simultaneous and conserves
 both momentum and spin. Leaving the anomalous lines
 %
@@ -1637,7 +1639,7 @@ possible subsets of all irreducible parts and join them with fermion lines:
 
 Eqs.~\ref{Hedin equations}, known as \name{Hedin}'s equations \cites[Appendix
 A]{Hedin65}[Eqs.~13.19]{HedinLundqvist69}, are all coupled among themselves,
-which makes their solution a non-trivial task. In practice of often applies
+which makes their solution a non-trivial task. In practice one often applies
 certain approximations, which are presented in the following.
 
 \subsection{GW approximation}
@@ -1654,9 +1656,9 @@ reads:
 \end{equation}
 %
 Since the dressed boson line is often denoted as $W$, this is known as the
-\emph{GW approximation} with reference to the resulting formula for the exchange
-part of the $\Sigma$. With focus on $\Pi$ and for historical reasons it is also
-referred to as the \emph{random-phase approximation} (RPA).
+\emph{GW approximation} with reference to the resulting formula for the
+\name{Fock} part of $\Sigma$. With focus on $\Pi$ and for historical reasons it
+is also referred to as the \emph{random-phase approximation} (RPA).
 
 \subsection{HF approximation}
 
