@@ -22,19 +22,18 @@ this chapter.%
 %
 \footnote{Physical concepts that are very well established nowadays will be
 stated without reference to their specific origins. They are covered in most
-textbooks such as the one by \name{Mahan} \cite{Mahan00} on the present
-subject.}
+textbooks on this subject such as the one by \name{Mahan} \cite{Mahan00}.}
 
 Initially, the possible ways of handling time dependence in quantum mechanics
 are presented, focussing on the interaction picture. On this basis \name{Green}
 functions are defined, including their imaginary-axis formulation. Next, not
-only to exemplify what was stated so far but also because it will provide the
-fundamental building block for what follows, the special case of non-interacting
-particles is discussed. Subsequently, the perturbation series and \name{Wick}'s
-theorem for non-zero temperatures are derived, which prepare the ground for
-\name{Feynman}'s diagrammatical perturbation theory. For some model interactions
-the most important diagrams are deduced explicitly. Finally, the self-energy and
-its most common approximations are introduced.
+only to exemplify what has been stated so far but also because it will provide
+the fundamental building block for what follows, the special case of
+non-interacting particles is discussed. Subsequently, the perturbation series
+and \name{Wick}'s theorem for non-zero temperatures are derived, which prepare
+the ground for \name{Feynman}'s diagrammatical perturbation theory. For some
+model interactions the most important diagrams are deduced explicitly. Finally,
+the self-energy and its most common approximations are introduced.
 
 In some places where no ambiguity arises, different quantities are represented
 by the same symbol and only distinguished by the name of their formal argument.
@@ -107,10 +106,10 @@ respectively:
 
 \subsection{\name{Dyson} series}
 
-According to Eq.~\ref{Dirac state}, the unitary time-evolution operator $\op
-S(t, t_0)$ for arbitrary initial times $t_0$,%
+According to Eq.~\ref{Dirac state}, the unitary \emph{time-evolution operator}
+$\op S(t, t_0)$ for arbitrary initial times $t_0$,%
 %
-\footnote{\name{Dirac} introduced such operator in §\,44 \qq{The perturbation
+\footnote{\name{Dirac} introduces this operator in §\,44 \qq{The perturbation
 considered as causing transitions} of his textbook on quantum mechanics
 \cite{Dirac58}.}
 %
@@ -181,8 +180,8 @@ Eq.~\ref{Dyson series} can be written as
         -\I \int \from{t_0} \till t \D t' \, \op V[t'] \right].
 \end{equation*}
 %
-But even if the operators do not commute it is common practice to write a
-symbolic exponential function with the time-ordering operator placed in front.
+But even if the operators do not commute it is common practice to use a symbolic
+exponential function with the time-ordering operator placed in front.
 
 \section{\name{Green} functions}
 \label{Green functions}
@@ -287,9 +286,9 @@ with a factor $-\I$, which is solely introduced for convenience, this yields the
     -\I \Theta(t) \, \av{[\op A(t), \op B]_\pm}.
 \end{equation}
 %
-With the help of Eqs.~\ref{A(t)} and \ref{int+ dt exp(i omega t)} another
-\name{Fourier} transform to the energy domain, by convention without a factor of
-$(2 \pi)^{-1}$, yields
+With the help of Eqs.~\ref{A(t)} and \ref{int+ dt exp(i omega t)}, yet another
+\name{Fourier} transform back to the energy domain, by convention without a
+factor of $(2 \pi)^{-1}$, yields
 %
 \begin{equation} \label{G_ret(omega)}
     G \sub{ret.} (\omega) = \int \from{-\infty} \till \infty \D t \,
@@ -300,7 +299,7 @@ $(2 \pi)^{-1}$, yields
     \frac{A(\omega')}{\omega - \omega' + \I 0^+}.
 \end{equation}
 %
-The \textsc{Sokhotski–Plemelj} theorem leads to a useful expression for the
+The \name{Sokhotski–Plemelj} theorem leads to a useful expression for the
 spectral function:
 %
 \begin{equation} \label{spectral representation}
@@ -413,10 +412,10 @@ with the \emph{\name{Matsubara} frequencies}
     \end{cases}
 \end{equation*}
 
-With the help of Eq.~\ref{C(t) in energy basis} and comparing with
-Eqs.~\ref{G_ret(omega)} one finds that $G \sub{ret.} (\omega)$ can be obtained
-from $G(\I \omega)$ through \emph{analytic continuation} $\I \omega \rightarrow
-\omega + \I 0^+$, since
+The latter are denoted $\nu_n$ in the future. Using Eq.~\ref{C(t) in energy
+basis} and comparing with Eqs.~\ref{G_ret(omega)} one finds that $G \sub{ret.}
+(\omega)$ can be obtained from $G(\I \omega)$ through \emph{analytic
+continuation} $\I \omega \rightarrow \omega + \I 0^+$, since
 %
 \begin{equation} \label{G(i omega_n)}
     \begin{split}
@@ -444,15 +443,15 @@ every quasi-particle which diagonalizes a single-particle \name{Hamilton}
 operator. In second quantization the latter is quadratic in the particle
 operators and diagonalized it reads
 %
-\begin{equation} \label{H_0}
+\begin{equation*}
     \op H_0 = \sum_k \epsilon_k \op n_k
     \quad \text{with} \quad
     \op n_k = \op a_k^+ \op a_k.
-\end{equation}
+\end{equation*}
 %
-where $\op a_k^{(+)}$ annihilates (creates) a fermion or boson with quantum
-number $k$ and energy $\epsilon_k$ and the operator $\op n_k$ gives the
-corresponding occupation number.
+where $\op a_k$ annihilates a fermion or boson with arbitrary, possibly
+combined, quantum number $k$, while $\epsilon_k$ and the operator $\op n_k$
+represent the corresponding energy and occupation number.
 
 First, the time-dependence of the creation and annihilation operators is
 presented. Using Eq.~\ref{Dirac operator} as well as the canonical (anti-)
@@ -475,11 +474,10 @@ picture.
 Next, the \emph{\name{Fermi-Dirac}} and the \emph{\name{Bose-Einstein}
 distribution} $f_\pm$ are derived, which give the average number of fermions and
 bosons, respectively, with the same quantum number as a function of their
-energy. Each eigenstate $\ket n$ of the \name{Hamilton} operator in
-Eq.~\ref{H_0} is a \name{Fock} state, thus an (anti-) symmetric product of the
-occupied single-particle states, and the corresponding energy $E_n = \sum_k
-\epsilon_k n_k$, where $n_k$ are occupation numbers, is a sum of single-particle
-energies.
+energy. Each eigenstate $\ket n$ of the free \name{Hamilton} operator $\op H_0$
+is a \name{Fock} state, thus an (anti-) symmetric product of the occupied
+single-particle states, and the corresponding energy $E_n = \sum_k \epsilon_k
+n_k$, where $n_k$ are occupation numbers, is a sum of single-particle energies.
 %
 \begin{equation*}
     f(\epsilon_k) = \av{\op n_k}_0
@@ -496,16 +494,16 @@ partial sum of the denominator for which $\bra n \op n_k \ket n = 0$.
 
 For fermions $N = 1$ and thus
 %
-\begin{equation} \label{Fermi function}
+\begin{equation*}
     f_+(\epsilon_k) = \frac{\E^{-\beta \epsilon_k}}{1 + \E^{-\beta \epsilon_k}}
     = \frac 1 {\E^{\beta \epsilon_k} + 1}.
-\end{equation}
+\end{equation*}
 
 For bosons $N = \infty$ and, recognizing that $0 + (n_k - 1) + 1, 1 + (n_k - 2)
 + 1 \dots (n_k - 1) + 0 + 1$ are $n_k$ ways to express $n_k$ as well as a
 geometric series, one finds
 %
-\begin{equation} \label{Bose function}
+\begin{equation*}
     f_-(\epsilon_k)
     = \frac {\sum_{n = 0}^\infty \sum_{m = 0}^\infty
         \E^{-\beta \epsilon_k (n + m + 1)}}
@@ -513,40 +511,48 @@ geometric series, one finds
     = \sum_{m = 0}^\infty \E^{-\beta \epsilon_k (m + 1)}
     = \frac{\E^{-\beta \epsilon_k}}{1 - \E^{-\beta \epsilon_k}}
     = \frac 1 {\E^{\beta \epsilon_k} - 1}.
-\end{equation}
+\end{equation*}
 
-Finally, the \name{Matsubara-Green} function on the imaginary-axis as defined in
-Eq.~\ref{Matsubara-Green function} is determined. The operators $\op A$ and $\op
-B$ are simply $\op a_k$ and $\op a_k^+$. Applying Eqs.~\ref{time-dependent
-ladder operators}, \ref{Fermi function} and \ref{Bose function} one can
-formulate correlation functions $\av{\op a_k[\tau] \, \op a_k^+}_0 =
-\E^{-\epsilon_k \tau} [1 \mp f_\pm(\epsilon_k)]$ and therewith
+Finally, the \name{Green} functions on the imaginary-axis as defined in
+Eq.~\ref{Matsubara-Green function} are determined.
+
+For electrons, the operators $\op A$ and $\op B$ are simply $\op c_{\vec k
+\sigma}$ and $\op c_{\vec k \sigma}^+$. One can formulate correlation functions
+$\av{\op c_{\vec k \sigma}[\tau] \, \op c_{\vec k \sigma}^+}_0 =
+\E^{-\epsilon_{\vec k} \tau} [1 - f_+(\epsilon_{\vec k})]$ and therewith
 %
 \begin{equation} \label{G_0(i omega_n)}
-    G_k^0(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
-    \E^{\I \omega_n \tau} \av{\op a_k[\tau] \, \op a_k^+}_0
-    = \frac{1 \pm \E^{-\beta \epsilon_k}}{\I \omega_n - \epsilon_k}
-        [1 \mp f_\pm(\epsilon_k)]
-    = \frac 1 {\I \omega_n - \epsilon_k},
+    G_{\vec k \sigma}^0(\I \omega_n)
+    = -\int \from 0 \till \beta \D \tau \, \E^{\I \omega_n \tau}
+    \av{\op c_{\vec k \sigma}[\tau] \, \op c_{\vec k \sigma}^+}_0
+    = \frac
+        {1 + \E^{-\beta \epsilon_{\vec k}}}
+        {\I \omega_n - \epsilon_{\vec k}}
+        [1 - f_+(\epsilon_{\vec k})]
+    = \frac 1 {\I \omega_n - \epsilon_{\vec k}},
 \end{equation}
 %
 which corresponds to a spectral function $A(\omega) = \delta(\omega -
-\epsilon_k)$ as follows from Eq.~\ref{G(i omega_n)}.
+\epsilon_{\vec k})$ as follows from Eq.~\ref{G(i omega_n)}.
 
-Although the above formula formally holds for all kinds of particles, in the
-bosonic case one usually applies a different definition using the operator
-$\upphi_k = \op a_k + \op a_{-k}^+$. This yields
+For phonons one usually applies a different notation with symmetric operators
+$\upphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+$. Analogously, this yields
+$\av{\upphi_{\vec q}[\tau] \, \upphi_{\vec q}^+}_0 = \E^{-\omega_{\vec q} \tau}
+[1 + f_-(\omega_{\vec q})] + \E^{\omega_{-\vec q} \tau} f_-(\omega_{-\vec q})$
+and thus
 %
 \begin{equation} \label{D_0(i omega_n)}
-    G_k^0(\I \omega_n) = -\int \from 0 \till \beta \D \tau \,
-    \E^{\I \omega_n \tau} \av{\upphi_k[\tau] \, \upphi_k^+}_0
-    = \frac 1 {\I \omega_n - \epsilon_k} - \frac 1 {\I \omega_n + \epsilon_{-k}}
-    \overset{\epsilon_k = \epsilon_{-k}} =
-    -\frac{2 \epsilon_k}{\omega_n^2 + \epsilon_k^2}
+    D_{\vec q}^0(\I \nu_n)
+    = -\int \from 0 \till \beta \D \tau \, \E^{\I \nu_n \tau}
+    \av{\upphi_{\vec q}[\tau] \, \upphi_{\vec q}^+}_0
+    = \frac 1 {\I \nu_n - \omega_{\vec q}}
+    - \frac 1 {\I \nu_n + \omega_{-\vec q}}
+    \overset{\omega_{\vec q} = \omega_{-\vec q}} =
+    -\frac{2 \omega_{\vec q}}{\nu_n^2 + \omega_{\vec q}^2}
 \end{equation}
 %
-and thus the spectral function $A(\omega) = \delta(\omega - \epsilon_k) -
-\delta(\omega + \epsilon_{-k})$.
+as well as the spectral function $B(\omega) = \delta(\omega - \omega_{\vec q}) -
+\delta(\omega + \omega_{-\vec q})$.
 
 \section{Perturbation series}
 
@@ -828,8 +834,8 @@ operator} reads
 \end{equation*}
 %
 where $g$ is the local electron-phonon coupling strength and $\op c_{\vec R
-\sigma}^{(+)}$ and $\op b_{\vec R}^{(+)}$ annihilate (create) electronic and
-phononic excitations, respectively, localized at the lattice sites $\vec R$.
+\sigma}$ and $\op b_{\vec R}$ annihilate electronic and phononic excitations,
+respectively, localized at the lattice sites $\vec R$.
 
 A discrete \name{Fourier} transform of the creation and annihilation operators
 with the help of Eq.~\ref{DFT orthogonality relation} yields the momentum-space
@@ -1148,9 +1154,8 @@ since $\tau'$ and $\tau''$ occur in exchangeable positions. Transforming to
     \E^{\I (\omega_m - \omega_j + \nu_k) \tau''}
 \end{align*}
 %
-where lower- and uppercase omegas denote fermionic and bosonic \name{Matsubara}
-frequencies. Noting that differences of \name{Matsubara} frequencies of mixed
-and equal type are fermionic and bosonic, respectively, and that for bosons the
+Noting that differences of \name{Matsubara} frequencies of mixed and equal type
+are fermionic and bosonic, respectively, and that for bosons the
 \name{Matsubara-Fourier} series is defined as an ordinary \name{Fourier} series,
 one can apply the orthogonality relation given in Eq.~\ref{Fourier series
 orthogonality relation}. Thus
