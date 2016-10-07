@@ -14,7 +14,7 @@ presented in the first section. With that, the general form of the
 \name{Eliashberg} equations on the imaginary frequency axis is derived, followed
 by two common approximations which assume (1) a local self-energy and (2) a
 constant density of states. Next, it is shown how the corresponding real-axis
-equations can be obtained through analytical continuation. On this basis
+equations can be obtained through analytic continuation. On this basis
 \name{McMillan}'s formula for the critical temperature is derived, whereby the
 \name{Coulomb} pseudo-potential is introduced. This requires a more detailed
 discussion of rescaling of the \name{Coulomb} interaction, leading to results
@@ -92,9 +92,11 @@ vanish, so does each term of the perturbation series of
 \tikz [baseline=-0.5ex] \draw [outward, double] (0, 0) -- (0.8, 0);.
 %
 However, a non-zero self-consistent solution of the above integral equations may
-also exist \cite[before Eq.~2.14]{Nambu60}. This is exactly the case in the
-superconducting state. The critical temperature is accordingly defined as the
-highest temperature which allows the off-diagonal components to be non-zero
+still exist \cite[before Eq.~2.14]{Nambu60}, which is exactly the case in the
+superconducting state. It implies that the number of electrons is not
+necessarily conserved, but this becomes insignificant in the macroscopic limit
+\cite[423]{Czycholl08}. The critical temperature may be defined as the highest
+temperature which allows the off-diagonal components to be non-zero
 \cite[37]{AllenMitrovic82}.
 
 Giving names to the involved matrices, the \name{Dyson} equation may be written
@@ -257,7 +259,7 @@ superconducting state turns out to be
 
 Considering the \name{Hubbard} (\name{Holstein}) model, the approximation made
 in Eq.~\ref{Nambu-Dyson equation} is correct up to the first (second) order of
-the perturbation series. From the analytical expressions derived in
+the perturbation series. From the analytic expressions derived in
 Section~\ref{Hubbard model} (\ref{Holstein model}) on can thus derive the
 self-energy for the \emph{\name{Hubbard-Holstein} model},
 %
@@ -294,9 +296,9 @@ valid below \cite[38]{AllenMitrovic82} since the diagonal components are not
 very sensitive to changes in temperature.
 
 For the phononic part the GW approximation defined in Eq.~\ref{GW approximation}
-is used. For the electron-phonon interaction this is a rather good approximation
-since vertex corrections can be neglected according to \name{Migdal}'s theorem
-\cite{Migdal58}. Thus
+is used. In the case of the electron-phonon interaction this is a rather good
+approximation since vertex corrections can be neglected according to
+\name{Migdal}'s theorem \cite{Migdal58}. Thus
 %
 \begin{multline*}
     \vec \Sigma_{\vec k} \super{ph.} (\I \omega_n)
@@ -426,7 +428,7 @@ $B_{\vec q}(\omega)$ and $\alpha^2 F_{\vec q}(\omega)$ are \emph{phonon} and
 is composed of the traditional names $\alpha$ for the matrix element $g$ of the
 electron-phonon coupling \cite[Eq.~1, e.g.]{Migdal58} and $F(\omega)$ for the
 phonon density of states \cite[16]{AllenMitrovic82}, which is basically the
-$\vec q$ average of the spectral function $B_{\vec q}(\omega)$.
+$\vec q$-average of the spectral function $B_{\vec q}(\omega)$.
 
 In order to conserve the particle number, the chemical potential $\mu$ has to be
 determined self-consistently alongside the self-energy components. This is
@@ -541,11 +543,11 @@ equations} read
         \label{CDOS at low frequencies}
     \end{subfigure}
     \captionsetup{singlelinecheck=off}
-    \caption[Constant-DOS approximation]{ %
-        The constant-DOS approximation is exemplified by its application to the
-        scalar product of the density of states $n(\epsilon)$ of a square
-        tight-binding lattice (compare Section $n$) and a \name{Lorentz}
-        function:
+    \caption[CDOS approximation]{ %
+        The CDOS approximation is exemplified by its application to the scalar
+        product of the density of states $n(\epsilon)$ of a square tight-binding
+        lattice, to be discussed in Section~\ref{square lattice}, and a
+        \name{Lorentz} function:
         %
         \begin{align*}
             \frac 1 \pi \int \from{-\infty} \till \infty \D \epsilon \,
@@ -570,18 +572,18 @@ equations} read
         \end{align*}
         %
         The exact integral bears a close resemblance to those which occur in the
-        local self energy (Eq.~\ref{local self-energy}).
+        local self energy in Eq.~\ref{local self-energy}.
         }
-    \label{constant-DOS approximation}
+    \label{CDOS approximation}
 \end{figure}
 %
 Save for the factor $N(\epsilon)$, which is unspecified at this point, the
 integrands in Eq.~\ref{local self-energy} converge towards zero as $\epsilon$
 diverges from $\mu - \chi(\I \omega_m) \approx \mu_0$. Therefore it may be
 acceptable to approximate $N(\epsilon)$ by a constant $N(\mu_0)$ \cites [below
-Eq.~26]{Allen76} [17]{AllenMitrovic82} [Sec.~B]{MargineGiustino13}, which is
-visualized in Fig.~\ref{constant-DOS approximation}, so that the integration can
-be performed analytically. With the help of
+Eq.~26]{Allen76} [17]{AllenMitrovic82} [Section~II.B]{MargineGiustino13}, which
+is visualized in Fig.~\ref{CDOS approximation}, so that the integration can be
+performed analytically. With the help of
 %
 \begin{equation} \label{integrals}
     \frac 1 \pi \int \from{-\infty} \till \infty \D x \frac z {x^2 + z^2}
@@ -603,8 +605,7 @@ $\Delta(\I \omega_n) = \phi(\I \omega_n) / Z(\I \omega_n)$, this yields
         { \sqrt{\omega_m^2 + \Delta^2(\I \omega_m)} }
 \end{equation*}
 %
-and thus the \emph{CDOS \name{Eliashberg} equations} for a constant density of
-states
+and thus the \emph{CDOS \name{Eliashberg} equations}
 %
 \begin{subequations} \label{CDOS Eliashberg equations}
     \begin{align}
@@ -619,14 +620,13 @@ states
 \end{subequations}
 %
 The chemical potential and the energy shift have disappeared from the equations
-and the density of states enters through the coupling strengths only.
+and the density of states only enters through the coupling strengths.
 
 \section{Real-axis equations}
 
-In this section the analytic continuation of the self-energy or the
+In this section the analytic continuation of the self-energy and the
 corresponding \name{Eliashberg} equations, which is complicated by the summation
-over \name{Matsubara} frequencies, is performed within the constant-DOS
-approximation.
+over \name{Matsubara} frequencies, is performed within the CDOS approximation.
 
 The first step is to withdraw the dependence on \name{Matsubara} frequencies
 from the \name{Green} function using a spectral representation. Undoing the
@@ -768,8 +768,8 @@ functions $Z(\I \omega_n)$ and $\Delta(\I \omega_n)$ are perfectly compatible
 with Eqs.~\ref{CDOS Eliashberg equations}. This property is inherited by the
 corresponding real-axis quantities. More general: Let $f(\omega)$ represent any
 of the functions $\omega^2$, $Z(\omega)$ and $\Delta(\omega)$. They all have in
-common that they transform into their complex conjugate if the sign of either
-the real or imaginary part of their argument changes
+common that they turn into their complex conjugate if the sign of either the
+real or imaginary part of their argument changes
 \cite[Eq.~A5]{AmbegaokarTewordt64}. Formally,
 %
 \begin{equation} \label{frequency symmetries}
@@ -835,8 +835,8 @@ braces enclose alternatives,
 
 \section{\name{McMillan}'s formula}
 
-In 1968, William L. \name{McMillan} established a formula to estimate the
-transition temperature $T \sub c$ of the superconducting state from only three
+In 1968, William L. \name{McMillan} establishes a formula to estimate the
+transition temperature $T \sub c$ of superconductors as a function of only three
 characteristic parameters: an average phonon frequency $\av \omega$, the
 electron-phonon coupling strength $\lambda$ and the \name{Coulomb}
 pseudo-potential $\mu^*$. This section provides a review of the original work
@@ -850,30 +850,33 @@ assuming that $Z(\omega'_+)$ lies in the upper half-plane or on the positive
 real axis so that $\smash{\sqrt[\ast]{\omega'^2_+}} = \omega'_+$,
 Eq.~\ref{real-axis Eliashberg equations} becomes
 %
-\begin{align*}
-    Z(\omega) = 1 - \frac 1 \omega
-    \int \from 0 \till \infty \D \omega'
-    &\int \from 0 \till{\omega_0} \D \omega'' \, \alpha^2 F(\omega'') \,
-    [\Omega(\omega, \omega', \omega'') + \Omega(\omega, -\omega', \omega'')],
-    \\
-    \Delta(\omega) = -\frac 1 {Z(\omega)}
-    \int \from 0 \till \infty \D \omega' \,
-    \!&\,\frac{\Re[\Delta(\omega')]}{\omega'}
-    \Big \{
-        \Theta(E \sub B - \omega') \, [1 - 2 f_+(\omega')] \, \mu \sub C
-        + \dots
-        \\
-        \dots +
+\begin{subequations} \label{linearized real-axis equations}
+    \begin{align}
+        Z(\omega) = 1 - \frac 1 \omega
+        \int \from 0 \till \infty \D \omega'
         &\int \from 0 \till{\omega_0} \D \omega'' \, \alpha^2 F(\omega'') \,
-        [\Omega(\omega, \omega', \omega'') - \Omega(\omega, -\omega', \omega'')]
-    \Big \}.
-\end{align*}
+        [ \Omega(\omega,  \omega', \omega'')
+        + \Omega(\omega, -\omega', \omega'') ],
+        \\
+        \Delta(\omega) = -\frac 1 {Z(\omega)}
+        \int \from 0 \till \infty \D \omega' \,
+        \!&\,\frac{\Re[\Delta(\omega')]}{\omega'}
+        \Big \{
+            \Theta(E \sub B - \omega') \, [1 - 2 f_+(\omega')] \, \mu \sub C
+            + \dots
+            \\
+            \dots +
+            &\int \from 0 \till{\omega_0} \D \omega'' \, \alpha^2 F(\omega'') \,
+            [ \Omega(\omega,  \omega', \omega'')
+            - \Omega(\omega, -\omega', \omega'') ]
+        \Big \}.
+    \end{align}
+\end{subequations}
 
-The idea is to find an analytical expression which roughly approximates $T \sub
-c$ and can be used to fit numerical results. To that end, a simple trial
-function for $\Delta(\omega)$ is introduced, which shall solve the
-\name{Eliashberg} equations, i.e. be self-consistent, at least at low and high
-frequencies:
+The idea is to find an analytic expression which roughly approximates $T \sub c$
+and can be used to fit numerical results. To that end, a simple trial function
+for $\Delta(\omega)$ is introduced, which shall solve the \name{Eliashberg}
+equations, i.e. be self-consistent, at least at low and high frequencies:
 %
 \begin{equation*}
     \Delta(\omega) = \begin{cases}
@@ -904,7 +907,7 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
     %
     where the \emph{electron-phonon coupling strength} $\lambda \equiv
     \lambda(0)$ has reappeared. The integral approximation will be justified in
-    Section~\ref{rectangular density of states}, considering that $1 - 2
+    Section~\ref{rectangular density of states}, observing that $1 - 2
     f_+(\omega) = \tanh \frac \omega {2 T} \approx \frac 2 \pi \arctan \frac
     \omega T$.
     %
@@ -960,8 +963,8 @@ to $\Delta(0)$ and $\Delta(\infty)$ are taken into account.
 
 The renormalization at low frequencies is assumed to be $Z(0) = Z(\I \omega_0) =
 1 + \lambda$, a result which will be derived in Eq.~\ref{normal-state
-renormalization}, whereas for high frequencies one trivially has $Z(\infty) =
-1$. It is further required that $\Delta(0) \equiv \Delta_0$ and $\Delta(\infty)
+renormalization}, whereas for high frequencies one simply has $Z(\infty) = 1$.
+It is further required that $\Delta(0) \equiv \Delta_0$ and $\Delta(\infty)
 \equiv \Delta_\infty$. The latter equation may be solved for $\Delta_\infty$,
 which yields
 %
@@ -982,9 +985,9 @@ Hence,
 \end{equation*}
 %
 This equation can be solved for $T \sub c$. The resulting formula is then
-generalized by the introduction of three fit parameters $A$, $B$ and $C$, in the
-course of which the the maximum frequency $\omega_0$ is replaced by the
-\name{Debye} frequency $\Theta$:
+generalized by introducing three fit parameters, $A$, $B$ and $C$ say, in the
+course of which the the maximum phonon frequency $\omega_0$ is replaced by the,
+essentially synonymous, \name{Debye} frequency $\Theta$:
 %
 \begin{equation*}
     T \sub c = \omega_0 \exp \bigg[ {-\frac
@@ -998,18 +1001,18 @@ course of which the the maximum frequency $\omega_0$ is replaced by the
 \end{equation*}
 
 For several fixed $T \sub c$ and $\mu^*$ the linearized Eliashberg equations are
-now solved for $\lambda$. Thereby, $F(\omega'')$ is chosen to be the phonon
+now solved for $\lambda$. De facto, $F(\omega'')$ is chosen to be the phonon
 density of states of niobium \cite{NakagawaWoods63} cut off below
-$100\,\mathrm{K}$ and $\alpha^2$, which then determines $\lambda$, adjusted to
-obtain self-consistency.
+$100\,\mathrm{K}$ and $\alpha^2$, which determines $\lambda$, adjusted to obtain
+self-consistency.
 
 These results are used to determine $A$, $B$ and in a second step $C$ via linear
 regression:
 %
 \begin{equation} \label{linear regression formulas}
     \ln \frac \Theta {T \sub c} \overset{\mu^* = 0}
-    = \ln A + B \frac{1 + \lambda}{\lambda},
-    \quad
+    = \ln A + B \frac{1 + \lambda}{\lambda}
+    \quad \text{and} \quad
     \frac 1 {\mu^*} \bigg[
         \lambda + \frac{B \, (1 + \lambda)}{\ln (A T \sub c / \Theta)}
     \bigg] = 1 + C \lambda.
@@ -1021,19 +1024,30 @@ He also states that for niobium $\Theta = 277\,\unit K$ and $\av \omega =
 place of $\Theta / 1.45$, which should be preferred according to \name{Dynes}
 \cite{Dynes72} for a more universal validity.
 
-\section{\name{Coulomb} pseudo-potential}
+\section{Rescaled \name{Coulomb} pseudo-potential}
 
-The introduction of the \name{Coulomb} pseudo-potential in the preceding section
-requires a more detailed analysis of the \name{Coulomb} interaction as occurring
-in the \name{Eliashberg} theory. Before that, however, it is convenient to put
-the local and CDOS \name{Eliashberg} equations (Eqs.~\ref{local Eliashberg
-equations} and \ref{CDOS Eliashberg equations}) into a form which is more
-suitable for both further analysis and computational implementation.
+The introduction of the \name{Coulomb} pseudo-potential%
+%
+\footnote{According to \name{Schrieffer} \cite[187]{Schrieffer83} the formula
+for $\mu^*$ was first given in 1959 by \name{Bogoliubov}, \name{Tolmachev} and
+\name{Shirkov} \cite[83]{BogoliubovTolmachevShirkov59}. Nevertheless, the
+quantity is sometimes referred to as the \emph{\name{Morel-Anderson}
+pseudo-potential} with reference to Ref.~\barecite{MorelAnderson62} from 1962.}
+%
+in the preceding section requires a more detailed analysis of the \name{Coulomb}
+interaction as occurring in the \name{Eliashberg} theory. Before that, however,
+it is convenient to put the local and CDOS \name{Eliashberg} equations
+(Eqs.~\ref{local Eliashberg equations} and \ref{CDOS Eliashberg equations}) into
+a form which is more suitable for both further analysis and computational
+implementation.
 
 As already stated in Eq.~\ref{frequency symmetries}, one can assume the
 solutions of the Eliashberg equations to be even function of frequency.
 Exploiting this symmetry it is possible to fold the negative half of the
-\name{Matsubara} sum onto the positive one. For local self-energies this yields
+\name{Matsubara} sum onto the positive one, just like it was done with the
+integrals in Eq.~\ref{real-axis Eliashberg equations}.
+
+For local self-energies this yields
 %
 \begin{align*}
     Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_{m = 0}^\infty
@@ -1055,7 +1069,7 @@ Exploiting this symmetry it is possible to fold the negative half of the
     \Lambda^+(n, m)
 \end{align*}
 %
-and under the additional assumption of a constant density of states
+and, under the additional assumption of a constant density of states,
 %
 \begin{align*}
     Z(\I \omega_n) &= 1 + \frac{\pi T}{\omega_n} \sum_{m = 0}^\infty
@@ -1083,17 +1097,12 @@ unproblematic since it has a natural cutoff through $\lambda(n)$, which decays
 rapidly with growing magnitude of $\nu_n$. The \textsc{Coulomb} part, however,
 does not depend on frequency and thus couples terms regardless of the difference
 of their frequency arguments. As a consequence, the partial sum does converge
-very slowly -- or not at all -- with increasing cutoff. The following procedure%
+very slowly -- or not at all -- with increasing cutoff. The following procedures
+circumvents this.%
 %
-\footnote{Analogous derivations are given by \name{Schrieffer}
+\footnote{Similar derivations are given by \name{Schrieffer}
 \cite[185-188]{Schrieffer83} and \name{Allen} and \name{Mitrovi\'{c}}
-\cite[Sec.~9]{AllenMitrovic82}. According to the former, the formula for $\mu^*$
-was first given in 1959 by \name{Bogoliubov}, \name{Tolmachev} and
-\name{Shirkov} \cite[83]{BogoliubovTolmachevShirkov59}. Nevertheless, the
-quantity is named after Pierre \textsc{Morel} and Philip W. \textsc{Anderson}
-with reference to Ref.~\barecite{MorelAnderson62} from 1962.}
-%
-circumvents this.
+\cite[Section~9]{AllenMitrovic82}}
 
 \subsection{Introduction of frequency cutoff}
 \label{introduction of frequency cutoff}
@@ -1108,10 +1117,11 @@ consider the \textsc{Eliashberg} equation for $\phi \sub{el.}$,
     \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)},
 \end{equation}
 %
-As can be seen from the results presented in Chapter ??, there is a cutoff
-frequency $\omega_N$ above which one can safely assume $\phi \sub{ph.} (\I
-\omega_m) \approx \chi(\I \omega_m) \approx 0$, $\phi \sub{el.} \ll \omega_m$
-and $Z(\I \omega_m) \approx 1$ such that
+As will be seen from the results presented in Fig.~\ref{imaginary- and real-axis
+self-energy components}, there is a cutoff frequency $\omega_N$ above which one
+can safely assume $\phi \sub{ph.} (\I \omega_m) \approx \chi(\I \omega_m)
+\approx 0$, $\phi \sub{el.} \ll \omega_m$ and $Z(\I \omega_m) \approx 1$ such
+that
 %
 \begin{equation*}
     -2 \mu \sub C T \sum_{m = N}^\infty
@@ -1141,7 +1151,8 @@ contribution} yields
     \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)}
 \end{equation*}
 %
-or equivalently, introducing a rescaled pseudo-potential $\mu^*(N)$,
+or equivalently, introducing a \emph{rescaled \name{Coulomb} pseudo-potential}
+$\mu^*(N)$,
 %
 \begin{equation*}
     \phi \sub{el.} =
@@ -1189,10 +1200,10 @@ Consequently,
         \arg(N + \tfrac 1 2 + \I x)
         - \hypo{\arg(M + \tfrac 1 2 + \I x)}{\rightarrow 0}
     \big\}
-    = \smash{\arctan \frac x {N + \tfrac 1 2}}.
+    = \smash{\arctan \frac x {N + \tfrac 1 2}}
 \end{align*}
 %
-and thus, removing the singularity at $\epsilon = \mu$ which not known in
+and thus, removing the singularity at $\epsilon = \mu$, which is not known in
 advance and approximated by $\mu_0$ to obtain a formula which can be applied
 \emph{before} the \name{Eliashberg} equations are solved,
 %
@@ -1232,11 +1243,11 @@ By means of substitution and partial integration one can further evaluate
         { \frac 2 \pi \int_{-\infty}^{\ln \frac D {\omega_N}}
         \frac{x \, \D x}{\E^{-x} + \E^x}
         = -\frac 1 \pi \int_{\ln \frac D {\omega_N}}^\infty
-        \frac{x \, \D x}{\cosh x} }
+        \frac{x \, \D x}{\cosh x} }.
 \end{equation*}
 %
 Since the hyperbolic cosine growths exponentially with the magnitude of its
-arguments while the arc tangents approaches $\pi / 2$, for the reasonable
+arguments while the arc tangent approaches $\pi / 2$, for the reasonable
 assumption $D \gg \omega_N$ one finds
 %
 \begin{equation} \label{rectangular-DOS mu*}
@@ -1268,11 +1279,11 @@ of $R(N)$ is possible in terms of dilogarithms:
 One ought to think that the latest results should be directly applicable to the
 case of a constant density of states which extends over the whole energy domain.
 The problem is, however, that within the approximations made $\mu^*$ would
-vanish as $D \rightarrow \infty$, regardless of the chosen cutoff.
+vanish as $D \rightarrow \infty$, regardless of the cutoff chosen.
 
 A well-defined rescaling prescription can be found by applying the steps carried
-out in Section~\ref{introduction of frequency cutoff} directly to the
-approximate \name{Eliashberg} equation
+out in Section~\ref{introduction of frequency cutoff} directly to the CDOS
+\name{Eliashberg} equation
 %
 \begin{equation} \label{approximate constant Coulomb contribution}
     \phi \sub{el.} = -2 \mu^*(M) \pi T \sum_{m = 0}^{N - 1}
@@ -1305,7 +1316,7 @@ which leads to
         {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
     \quad
     \mu^*(N) = \frac{\mu^*(M)}{1 + 2 \mu^*(M) \pi T
-    \sum_{m = N}^{M - 1} \omega_m^{-1}},
+    \sum_{m = N}^{M - 1} \omega_m^{-1}}.
 \end{equation*}
 %
 As above, one can further simplify
@@ -1318,7 +1329,8 @@ As above, one can further simplify
     = \ln \frac{\omega_M}{\omega_N},
 \end{equation*}
 %
-where Eq.~A.7 of Ref.~\barecite{AllenMitrovic82} has been used. Hence,
+where Eq.~A.7 of Ref.~\barecite{AllenMitrovic82} has been used. Hence
+\cite[Eq.~9.14]{AllenMitrovic82},
 %
 \begin{equation*}
     \frac 1 {\mu^*(N)} = \frac 1 {\mu^*(M)} + \ln \frac{\omega_M}{\omega_N}.
@@ -1330,11 +1342,11 @@ used in combination with a cutoff frequency equal to the virtual band-width $D$.
 The CDOS approximation thus \emph{requires} a frequency cutoff.
 
 Since $D$ is theoretically infinite and practically unknown it is eliminated by
-the assumption that it be equal to the band-width from the derivation of
-\name{McMillan's} equation. Combination of the results from Eqs.~\ref{McMillan's
-Coulomb pseudo-potential} and \ref{rectangular-DOS mu*} yields the formula to be
-used within the imaginary-axis CDOS \name{Eliashberg} equations
-\cite[Eq.~13]{AllenDynes75}:
+the assumption that it be equal to the band-width $E \sub B$ in the derivation
+of \name{McMillan's} equation. Combination of the results from
+Eqs.~\ref{McMillan's Coulomb pseudo-potential} and \ref{rectangular-DOS mu*}
+yields the formula to be used within the imaginary-axis CDOS \name{Eliashberg}
+equations \cite[Eq.~13]{AllenDynes75}:
 %
 \begin{equation} \label{CDOS rescaled Coulomb pseudo-potential}
     \frac 1 {\mu^*(N)} = \frac 1 {\mu^*} + \ln \frac{\omega_0}{\omega_N}.
@@ -1398,7 +1410,7 @@ free-particle occupation number is reproduced:
 This equation could be solved for $\mu$ using a bisection method or the
 fixed-point equation
 %
-\begin{equation*}
+\begin{equation} \label{fixed point free}
     \mu = \frac
         {n - 1 + \int_{-\infty}^\infty \D \epsilon \, \epsilon \, w(\epsilon)}
         {\int_{-\infty}^\infty \D \epsilon \, w(\epsilon)}
@@ -1410,7 +1422,7 @@ fixed-point equation
        \frac 1 {2 T}
           & \text{otherwise.}
     \end{cases}
-\end{equation*}
+\end{equation}
 %
 For half-filling, i.e. $n = 1$, this gives simply the \emph{center of mass} of
 the weight function $w(\epsilon)$.
@@ -1419,7 +1431,7 @@ the weight function $w(\epsilon)$.
 
 The calculation of the occupation number from the results of the imaginary-axis
 \name{Eliashberg} equations is complicated by the cutoff of the \name{Matsubara}
-sums. A reasonable approximation consists of replacing the unknown part by the
+sums. A reasonable approximation consists in replacing the unknown part by the
 corresponding free-particle expression:
 %
 \begin{equation*}
@@ -1438,8 +1450,8 @@ where the intermediate results from Section \ref{introduction of frequency
 cutoff} have been used. Solving this equation for the left appearance of $\mu$
 yields a manageable fixed-point equation, namely
 %
-\begin{align*}
-    \mu &\approx \frac
+\begin{equation} \label{fixed point interacting}
+    \mu \approx \frac
     {
         \frac{n - 1}{4 T} + \int_{-\infty}^\infty \D \epsilon \, n(\epsilon)
         \big[
@@ -1452,14 +1464,12 @@ yields a manageable fixed-point equation, namely
         \int_{-\infty}^\infty \D \epsilon \, n(\epsilon)
         \sum_{n = 0}^{N - 1} \frac 1 {\Theta(\epsilon, n)}
     }.
-\end{align*}
+\end{equation}
 
-A fixed-point iteration $x_{n + 1} = f(x_n)$ converges towards a sole fixed
-point $\bar x$ if $|f(x) - \bar x| < |x - \bar x|$ for all intermediate values
-$x$. At this point it shall not be resolved if the above equations guarantees
-convergence for all possible densities of states, self-energies and starting
-points. However, in all cases studied convergence at a sufficient rate has been
-observed.
+Within this work it shall not be resolved if Eqs.~\ref{fixed point free} and
+\ref{fixed point interacting} guarantee convergence for all possible densities
+of states, self-energies and starting points. However, in all cases studied
+convergence at a sufficient rate has been observed.
 
 \section{Multi-band equations}
 \label{multi-band equations}
@@ -1471,10 +1481,10 @@ bands which will turn out to be equivalent to allowing for \name{Fermi}-pocket
 resolved anisotropy.
 
 Since a band index is a quantum number just as the wave number, both can be
-treated on the same footing. Thus, in \ref{Eliashberg equations} one simply has
-to complement the natural occurrences of the wave numbers $\vec k$ and $\vec q$,
-even though they have been averaged out as in the case of the \name{Coulomb}
-interaction, with band indices $i$ and $j$, respectively. In doing so the
+treated on the same footing. Thus, in Eqs.~\ref{Eliashberg equations} one simply
+has to complement the natural occurrences of the wave numbers $\vec k$ and $\vec
+q$, even though they have been averaged out as in the case of the \name{Coulomb}
+interaction, with band indices $i$ and $j$, respectively. In doing so, the
 self-energy components searched for are defined for each band separately and
 scalar coupling strengths become matrices describing intra- and inter-band
 interactions. The corresponding local \name{Eliashberg} equations, where the
@@ -1512,11 +1522,13 @@ The common denominator and the electron-phonon coupling matrices are defined as
     &= \lambda_{i j}(n - m) \pm \lambda_{i j}(n + m + 1).
 \end{align*}
 %
-$n_j(\epsilon)$ denotes the density of states for the $j$-th band which is also
-part of the definition of the electron-phonon coupling parameter $\lambda_{i j}
-\equiv \lambda_{i j}(0) = -n_j(\mu_0) \, g_{i j}^2 \, D(0)$. For symmetric
-electron-phonon matrix elements $g_{i j} = g_{j i}$ it follows that $\lambda_{i
-j} / \lambda_{j i} = n_j(\mu_0) / n_i(\mu_0)$.
+$n_j(\epsilon)$ denotes the density of states for the $j$-th band, normalized
+with respect to integration over $\epsilon$ and summation over $j$, which is
+also part of the definition of the electron-phonon coupling strength $\lambda_{i
+j} \equiv \lambda_{i j}(0) = -n_j(\mu_0) \, g_{i j}^2 \, D(0)$. For symmetric
+electron-phonon matrix elements $g_{i j} = g_{j i}$, which can be taken for
+granted, it follows that $\lambda_{i j} / \lambda_{j i} = n_j(\mu_0) /
+n_i(\mu_0)$ \cite[Eq.~3.64]{Galasso05}.
 
 Analogously, for constant band densities of states one finds
 %
@@ -1557,8 +1569,8 @@ numbers to a mere energy-dependence. Essentially,
     f(\epsilon).
 \end{equation*}
 %
-If the special case where $f(\vec k)$ is a function of $\epsilon_{\vec k}$ only
-the above equation becomes exact. Otherwise $f(\epsilon)$ is an appropriate
+In the special case where $f(\vec k)$ is a function of $\epsilon_{\vec k}$ only,
+the above equation becomes exact. Otherwise $f(\epsilon)$ must be an appropriate
 constant-energy average.
 
 The alternate idea is now to split the domain of the band-structure, for example
@@ -1577,18 +1589,20 @@ Formally,
     \bigcup_i D_i = \text{\name{Brillouin} zone}.
 \end{equation*}
 %
-Thus the new quantum numbers may also indicate subdomains of the reciprocal
-space. This procedure may in turn be generalized with respect to further quantum
-numbers such as real band indices.
+In this case, $i$ indicates subdomains of the reciprocal space rather than
+bands. This procedure may in turn be generalized with respect to further quantum
+numbers such as \emph{real} band indices. Most generally, the indices $i$ number
+arbitrary disjoint subsets of electronic states.
 
 \section{Linearized equations}
 
 At $T \sub c$, where the order parameter $\Delta(\I \omega_m)$ is infinitesimal,
 and in the normal state, where it is zero, it can be neglected relative to
-$\omega_m$. Analogous to the derivation of the real-axis \name{Eliashberg}
-equations (Eqs.~\ref{real-axis Eliashberg equations}) the CDOS multi-band
-imaginary-axis \name{Eliashberg} equations (Eqs.~\ref{CDOS multi-band Eliashberg
-equations}) assume the following linearized form:
+$\omega_m$. Analogous to Eqs.~\ref{linearized real-axis equations}, the
+real-axis equations used by \name{McMillan}, the CDOS \name{Eliashberg}
+equations on the imaginary axis and for multiple electronic bands, as given in
+Eqs.~\ref{CDOS multi-band Eliashberg equations}, assume the following linear
+form:
 %
 \begin{subequations} \label{linearized CDOS multi-band Eliashberg equations}
     \begin{align}
@@ -1637,9 +1651,9 @@ amplify the magnitude of the order parameter $\vec \Delta$, respectively, $T
 \sub c$ is defined as the temperature at which the greatest eigenvalue of $\vec
 K$ crosses unity \cite[47]{AllenMitrovic82}.
 
-Before the analysis can go more into detail it necessary to introduce the direct
-matrix product and its spectral properties, which will be done in the following
-section.
+Before the analysis can go more into detail, it necessary to introduce the
+direct matrix product and its spectral properties, which will be done in the
+following section.
 
 \subsection{Direct product}
 
@@ -1690,17 +1704,18 @@ The eigenvectors and -values of the direct product of two matrix are thus the
 direct and normal products of the respective eigenvectors and -values of the
 individual matrices.
 
-\subsection{Effective coupling constants}
-\label{effective coupling constants}
+\subsection{Effective scalar coupling strengths}
+\label{effective scalar coupling strengths}
 
-In the following, two approximations are presented which allow to map the
-matrices describing multi-band coupling strengths onto scalar values which lead
-to similar critical temperatures. It shall be noted that for all non-scalar
-couplings there are always innumerable sets of effective scalar parameters which
-yield exactly the same critical temperature -- it is just that there are no
-simple rules to generate them.
+Below, two approximations are presented which allow to map the matrices
+describing multi-band coupling strengths onto scalar values which lead to
+similar critical temperatures and, above all, may also be inserted into
+\name{McMillan}'s equation. It shall be noted that for all non-scalar couplings
+there are always innumerable sets of effective scalar parameters which yield
+exactly the same critical temperature -- it is just that there are no simple
+rules to generate them.
 
-\subsubsection{Non-renormalized energies}
+\subsubsection{Non-renormalized}
 \label{non-renormalized}
 
 Supposing that there is no energy renormalization, i.e. $Z_i(\I \omega_n) = 1$
@@ -1708,7 +1723,7 @@ for all bands and frequencies, which constitutes a very rough approximation, the
 kernel reduces to
 %
 \begin{equation*}
-   K_{i j}(n, m) = \frac 1 {2 m + 1} [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)],
+   K_{i j}(n, m) = \frac 1 {2 m + 1} [\Lambda_{i j}^+(n, m) - 2 \mu^*_{i j}(N)].
 \end{equation*}
 %
 Assuming further that the matrices $\vec \lambda$ and $\vec \mu^*(N)$ describing
@@ -1737,19 +1752,19 @@ $\mu^*(N) = 0$,
         } \Big].
 \end{equation*}
 
-\subsubsection{Cutoff-independent mapping}
+\subsubsection{Cutoff-independent}
 \label{cutoff-independent}
 
 Another approach takes the mapping searched for as independent of the cutoff
 frequency $\omega_N$. This allows to derive it for the most simple case where
-$N = 1$. Consequently, for $n = m = 1$
+$N = 1$. Consequently, $n = m = 1$ and
 %
 \begin{equation*}
     K_{i j} = 2 \lambda_{i j} - \delta_{i j} \sum_j \lambda_{i j}
     - 2 \mu^*_{i j}(N),
 \end{equation*}
 %
-where $\lambda_{i j}(1) \approx \lambda_{i j}$ has been assumed additionally.
+where $\lambda_{i j}(1) \approx \lambda_{i j}$ has been assumed in addition.
 For two bands and $\mu^*_{i j}(N) = 0$,
 %
 \begin{equation*}
@@ -1771,14 +1786,14 @@ couplings strength:
     \Big].
 \end{equation*}
 
-\subsection{Non-constant densities of states}
+\subsection{Beyond CDOS}
 
 If the band densities of states are not considered to be constant,
 Eqs.~\ref{local multi-band Eliashberg equations} have to be solved. The only
 simplification emerging at $T \sub c$ is that the order parameter can be
 neglected in the common denominator which becomes $\Theta_i(\epsilon, n) =
 [\omega_n Z_i(\I \omega_n)]^2 + [\epsilon - \mu + \chi_i(\I \omega_n)]^2$. As a
-consequence, renormalization function and energy shift become decoupled from the
+consequence, renormalization function and energy shift are decoupled from the
 order parameter and may thus be determined independently. Having done so, these
 normal-state properties, together with the self-consistent chemical potential,
 are inserted into the remaining equation which yields
@@ -1799,18 +1814,19 @@ are inserted into the remaining equation which yields
 \label{Pade approximants}
 
 The imaginary-axis \name{Eliashberg} equations are more convenient for a
-computational implementation than the real-axis complements since they involve
-sums over already discrete \name{Matsubara} frequencies rather than integrals
-the domains of which are yet be be discretized, which is always accompanied by
-some loss of accuracy. In addition, no complex quantities are involved.
+computational implementation than their real-axis counterparts since they
+involve sums over already discrete \name{Matsubara} frequencies rather than
+integrals the domains of which are yet be be discretized, which is always
+accompanied by some loss of accuracy. In addition, no complex quantities are
+involved.
 
-Since real-axis results can be obtained imaginary-axis results via analytic
-continuation (see Eq.~\ref{G(i omega_n)}), being interested in the former it may
-still be worth it to take a detour via the latter. Hereby the problem arises,
-that an \emph{analytic} continuation can only be applied to some analytic
-expression, whereas the numerical results are generally just a finite set of
-sample points. In the following a solution proposed by \name{Vidberg} and
-\name{Serene} in 1977 \cite{VidbergSerene77} is presented.
+Because real-axis results can be obtained from imaginary-axis results via
+analytic continuation as per Eq.~\ref{G(i omega_n)}, being interested in the
+former it may still be worth it to take a detour via the latter. Hereby the
+problem arises, that an \emph{analytic} continuation can only be applied to some
+analytic expression, whereas the numerical results are generally just a finite
+set of sample points. In the following, a solution proposed by \name{Vidberg}
+and \name{Serene} in 1977 \cite{VidbergSerene77} is presented.
 
 Let $\Sigma(\I \omega_n)$ with $n \in \{ 0 \dots N - 1 \}$ act as a placeholder
 for any of the self-energy components resulting from the \name{Eliashberg}

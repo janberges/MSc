@@ -31,7 +31,7 @@
 
 09  Convergence tests:
 
-+ How does cutoff change normal-state Z(i omega_n) (analytical results)?
++ How does cutoff change normal-state Z(i omega_n) (analytic results)?
 
 
 15  Multi-band self-energy and Tc:
