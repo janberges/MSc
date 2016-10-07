@@ -4,21 +4,25 @@
 \label{superconductivity}
 
 This chapter gives an introduction to the field of superconductivity and is not
-intended to be exhaustive. The theory that will actually be applied in this work
-is presented the following two chapters.
+at all intended to be exhaustive. The theory that will actually be applied in
+this work is presented the following two chapters.
 
 In the first section the earlier history of superconductivity is briefly
-reviewed up to the point when the interaction of electrons and phonons is
-identified as causing the phenomenon.%
+reviewed, loosely following a presentation by \name{Fröhlich}
+\cite{Froehlich82}. Next, a canonical transformation introduced by the latter is
+performed, which reveals that the interaction between electrons and phonons can
+lead to an effective attraction between electrons and consequently to the
+formation of \name{Cooper} pairs. Finally, the corresponding microscopic theory
+of superconductivity by \name{Bardeen}, \name{Cooper} and \name{Schrieffer} is
+presented.%
 %
-\footnote{The history is retold following H. \name{Fröhlich}
-\cite{Froehlich82}.}
-%
-Next, a canonical transformation is presented which reveals how this interaction
-can lead to an effective attraction between electrons and consequently to the
-formation of \name{Cooper} pairs. Thereafter, the theory of \name{Bardeen},
-\name{Cooper} and \name{Schrieffer} is presented, followed by a description of
-the concept of \q{off-diagonal long-range order}.
+\footnote{Both derivations in this chapter are guided by \name{Czycholl}
+\cite{Czycholl08}.}
+
+Throughout this work units are chosen in which the \name{Boltzmann} and the
+reduced \name{Planck} constant are unity, i.e. $k \sub B = \hbar = 1$.
+Consequently, the same dimension is attributed to energy and both temperature
+and frequency.
 
 \section{Early history of superconductivity}
 
@@ -28,7 +32,7 @@ of about $4\,^\circ \mathrm K$ with the help of liquid helium.%
 %
 \footnote{According to Ref.~\barecite{vanDelftKes10}, on April 8, 1911
 \name{Kamerlingh Onnes} writes \qq{Kwik nagenoeg nul} in his notebook, which
-means \qq{[resistance of] mercury near-enough zero}. In Communication No. 122b
+means \qq{[resistance of] mercury near enough zero}. In Communication No. 122b
 from the Physical Laboratory at Leiden he states more precisely: \qq{At
 $3\,^\circ \mathrm K$, the resistance was found to have fallen below [\dots] one
 ten-millionth of the value which it would have at $0\,^\circ \mathrm C$}
@@ -36,36 +40,36 @@ ten-millionth of the value which it would have at $0\,^\circ \mathrm C$}
 %
 This is the first time a manifestation of superconductivity is observed. In the
 years that follow, similar observations are made for other metals and the
-fundamental properties of the novel state are exposed.
+fundamental properties of the novel state exposed.
 
-In 1933 the misconception of superconductors which obey \name{Ohm}'s law is
-overcome, when \name{Meißner} and \name{Ochsenfeld} find them to be perfect
+The misconception of superconductors which obey \name{Ohm}'s law is overcome in
+1933, when \name{Meißner} and \name{Ochsenfeld} find them to be perfect
 diamagnets \cite{MeissnerOchsenfeld33}: Up to a critical strength an external
-magnetic field is expelled from a superconductor -- even if it was there
-\emph{before} the critical temperature has been reached. On the basis of this
-observation the \name{London} brothers formulated a first macroscopic theory
-of superconductivity in 1935 \cite{LondonLondon35}.
+magnetic field is expelled from a superconductor -- even if it was already there
+\emph{before} the critical temperature has been undercut. On the basis of this
+observation the \name{London} brothers formulated a first macroscopic theory of
+superconductivity in 1935 \cite{LondonLondon35}.
 
 However, not only have the characteristics of a phase transition been left out
-of consideration -- some of these are addressed by the phenomenological theory
-of \name{Ginzburg} and \name{Landau} from about 1950, which introduces an order
-parameter for the superconducting state --, but also the underlying physical
-mechanisms remain unclear.
+of consideration, but also the underlying physical mechanisms remain unclear.
+Some of the further are addressed by the phenomenological theory of
+\name{Ginzburg} and \name{Landau} published in 1950 \cite{GinzburgLandau50},
+which introduces an order parameter for the superconducting state.
 
-An important hint towards the right direction is given by the discovery of the
-isotope effect in 1950 by \name{Maxwell} \cite{Maxwell50} and \name{Reynolds} et
-al. \cite{ReynoldsSerinWrightNesbitt50}: The critical temperature depends on the
-nuclear mass just as the phononic behavior. At that time, \name{Fröhlich} starts
-to successfully use field-theoretical methods to describe the interaction
+An important hint towards the right direction is the discovery of the isotope
+effect by \name{Maxwell} \cite{Maxwell50} and \name{Reynolds} et al.
+\cite{ReynoldsSerinWrightNesbitt50} in 1950: The critical temperature depends on
+the nuclear mass just as the phononic behavior. At that time, \name{Fröhlich}
+starts to successfully use field-theoretical methods to describe the interaction
 between electrons and phonons, which is gradually accepted as causing
 superconductivity. In 1952, his electron-phonon \name{Hamilton} operator is
 established and mapped onto an effective interaction between electrons which
-turns out to be attractive.
+turns out to be attractive \cite{Froehlich52}.
 
-It was not until 1957 that on this basis the first microscopic theory of
-superconductivity was formulated by \name{Bardeen}, \name{Cooper} and
+It is not until 1957 that on this basis the first microscopic theory of
+superconductivity is formulated by \name{Bardeen}, \name{Cooper} and
 \name{Schrieffer} \cites {BardeenCooperSchrieffer57a}
-{BardeenCooperSchrieffer57b}. Its principal idea is the formation of a
+{BardeenCooperSchrieffer57b}. The principal idea is the formation of a
 condensate of \name{Cooper} pairs which opens up an energy gap at the
 \name{Fermi} level the width of which turns out to be a suitable order
 parameter.
@@ -73,18 +77,14 @@ parameter.
 Since the modeled interaction in the BCS theory is instantaneous as opposed to
 the underlying electron-phonon interaction which is retarded, discrepancies
 between theory and experiment emerge, especially when the coupling is strong. In
-1960, \name{Eliashberg} established a theory which accounts for this retarded
-nature of the interaction.
+1960, \name{Eliashberg} establishes a theory which accounts for this retarded
+nature of the interaction \cite{Eliashberg60}.
 
 \section{Canonical transformation}
 
 It is now shown that the electron-phonon interaction can involve an effective
-electron-electron interaction which is attractive.%
-%
-\footnote{The original derivation is due to \name{Fröhlich} \cite{Froehlich52}.
-The presentation at hand is rather guided by \name{Czycholl} \cite{Czycholl08}.}
-%
-To that end the \name{Fröhlich-Hamilton} operator
+electron-electron interaction which is attractive \cite{Froehlich52}. To that
+end the \name{Fröhlich-Hamilton} operator
 %
 \begin{gather*}
     \op H = \hyper{
@@ -113,27 +113,31 @@ Expanding the exponential functions,
     &= \op H + \I [\op H, \op S] - \frac 1 2 [[\op H, \op S], \op S] + \dots \\
     &= \op H_0 + \op V + \I [\op H_0, \op S] + \I [\op V, \op S]
     - \frac 1 2 [[\op H_0, \op S], \op S] + \dots \\
-    &\approx \op H_0 + \frac \I 2 [\op V, \op S] \equiv \op H_0 + \op V',
+    &\approx \op H_0 + \frac \I 2 [\op V, \op S] \equiv \op H_0 + \op V \sub T,
 \end{align*}
 %
 where $[\op H_0, \op S] = \I \op V$ has been chosen, which implies a linear
 dependence of $\op S$ on $\op V$. Thus all terms which are at least quadratic in
-the interaction are neglected. Using the commutation relations
+the interaction are neglected. Using the commutators
 %
 \begin{align*}
-    [\op b_{\vec q'}^+ \op b_{\vec q'}, \ \op b_{\vec q \phantom +}]
+    \big[ \op b_{\vec q'}^+ \op b_{\vec q'}, \ \op b_{\vec q \phantom +} \big]
     &= -\op b_{\vec q \phantom +} \delta_{\vec q'}^{\vec q},
     &
-    [ \op c_{\vec k' \phantom{+ \vec q'}}^+ \op c_{\vec k'},
-    \ \op c_{\vec k + \vec q}^+ \op c_{\vec k} ]
+    \big[
+        \op c_{\vec k' \phantom{+ \vec q'}}^+ \op c_{\vec k'}, \
+        \op c_{\vec k + \vec q}^+ \op c_{\vec k}
+    \big]
     &= \op c_{\vec k + \vec q}^+ \op c_{\vec k}
     \big[ \delta_{\vec k'}^{\vec k + \vec q} - \delta_{\vec k'}^{\vec k} \big],
     \\
-    [\op b_{\vec q'}^+ \op b_{\vec q'}, \ \op b_{-\vec q}^+]
+    \big[ \op b_{\vec q'}^+ \op b_{\vec q'}, \ \op b_{-\vec q}^+ \big]
     &= \phantom + \op b_{-\vec q}^+ \delta_{\vec q'}^{-\vec q},
     &
-    [ \op c_{\vec k' + \vec q'}^+ \op c_{\vec k'},
-    \  \op c_{\vec k  + \vec q }^+ \op c_{\vec k } ]
+    \big[
+        \op c_{\vec k' + \vec q'}^+ \op c_{\vec k'}, \
+        \op c_{\vec k  + \vec q }^+ \op c_{\vec k }
+    \big]
     &= \op c_{\vec k + \vec q + \vec q'}^+ \op c_{\vec k}
     \delta_{\vec k'}^{\vec k + \vec q}
     - \op c_{\vec k + \vec q}^+ \op c_{\vec k - \vec q'}
@@ -156,13 +160,13 @@ and, assuming $g_{\vec q}^* = g_{\vec - q}$ and $\omega_{\vec q} = \omega_{-\vec
 q}$, that the renormalized interaction is given by
 %
 \begin{align*}
-    \op V' = &\sum_{\vec k \vec k' \vec q}
+    \op V \sub T = &\sum_{\vec k \vec k' \vec q}
     \frac {|g_{\vec q}|^2 \omega_{\vec q}}
     {(\epsilon_{\vec k + \vec q} - \epsilon_{\vec k})^2 - \omega_{\vec q}^2}
     \op c_{\vec k  + \vec q}^+ \op c_{\vec k }
-    \op c_{\vec k' - \vec q}^+ \op c_{\vec k'} + \dots
+    \op c_{\vec k' - \vec q}^+ \op c_{\vec k'} + \cdots
     \\
-    \dots - \frac 1 2 &\sum_{\vec k \vec q \vec q'} g_{\vec q} g_{\vec q'}
+    \cdots - \frac 1 2 &\sum_{\vec k \vec q \vec q'} g_{\vec q} g_{\vec q'}
     \big[ \op c_{\vec k + \vec q + \vec q'}^+ \op c_{\vec k}
     - \op c_{\vec k + \vec q}^+ \op c_{\vec k - \vec q'} \big]
     \big[ \op b_{\vec q'} + \op b_{-\vec q'}^+ \big] \left[
@@ -202,32 +206,33 @@ pairs}, bound by the attractive interaction.
 \end{figure}
 %
 In 1957, \name{Bardeen}, \name{Cooper} and \name{Schrieffer} developed, on the
-basis of the results presented in the previous chapter, a model \name{Hamilton}
+basis of the results presented in the previous section, a model \name{Hamilton}
 operator to describe superconductivity \cites {BardeenCooperSchrieffer57a}
 {BardeenCooperSchrieffer57b}. It is reduced to the essential, namely an
 attractive interaction of uniform strength $V$ between electrons which form a
 \name{Cooper} pair and are no further away from the \name{Fermi} surface than a
 typical phonon frequency, typically \name{Debye}'s $\omega \sub D$. Since the
-total momentum of a \name{Cooper} pairs remains zero, the intern momentum
-transfer corresponds to a rotation in momentum space. The model reads
+total momentum of a \name{Cooper} pair is zero, the internal momentum transfer
+corresponds to a rotation in $\vec k$-space. The model reads
 %
 \begin{equation*}
     \op H = \sum_{\vec k \sigma} \epsilon_{\vec k} \op n_{\vec k \sigma}
-    - \sum_{\vec k \vec k'} V_{\vec k \vec k'} \op C_{\vec k'}^+ \op C_{\vec k}.
+    - \sum_{\vec k \vec k'} V_{\vec k \vec k'} \op C_{\vec k'}^+ \op C_{\vec k}
+    \quad \text{with} \quad
+    \op n_{\vec k \sigma} = \op c_{\vec k \sigma}^+ \op c_{\vec k \sigma}.
 \end{equation*}
 %
 $\op C_{\vec k} = \op c_{-\vec k \down} \op c_{\vec k \up}$ is a
 \name{Cooper}-pair annihilator, which does \emph{not} satisfy \name{Bose}
-commutation relations,
+commutation relations:
 %
 \begin{equation*}
     [\op C_{\vec k}, \op C_{\vec k'}^+]
-    = (1 - \op n_{\vec k \up} - \op n_{-\vec k \down}) \delta_{\vec k \vec k'},
+    = (1 - \op n_{\vec k \up} - \op n_{-\vec k \down}) \delta_{\vec k \vec k'}.
 \end{equation*}
 %
-$\op n_{\vec k \sigma} = \op c_{\vec k \sigma}^+ \op c_{\vec k \sigma}$ gives
-the electronic occupation number and, measuring energies relative to the
-\name{Fermi} level, the interaction strength is given by
+Measuring energies relative to the \name{Fermi} level, the interaction strength
+is given by
 %
 \begin{equation*}
     V_{\vec k \vec k'} = \begin{cases}
@@ -239,8 +244,8 @@ the electronic occupation number and, measuring energies relative to the
 \end{equation*}
 
 In order to promote the solution of the \name{Hamilton} operator, the
-interaction term it is usually factorized into anomalous expectation values, i.e.
-in the exact identity \cite[Eq.~4.20]{Nolting15}
+interaction term it is usually factorized into anomalous expectation values.
+Hence, in the exact identity \cite[Eq.~4.20]{Nolting15}
 %
 \begin{equation*}
 	\op C_{\vec k'}^+ \op C_{\vec k} =
@@ -251,24 +256,23 @@ in the exact identity \cite[Eq.~4.20]{Nolting15}
     - \av{\op C_{\vec k'}^+} \av{\op C_{\vec k}}
 \end{equation*}
 %
-leading and trailing summands, which represent the fluctuations of the
-\name{Cooper} pair operators and a constant energy shift, respectively, are
-neglected from now on. The averages of either two creation or annihilation
-operator do not vanish, as one might expect, because the resulting
-\name{Hamilton} operator,
+leading and trailing summands, which represent fluctuations of the \name{Cooper}
+pair operators and a constant energy shift, respectively, are neglected from now
+on. The averages of either two creation or annihilation operator do not vanish,
+as one might expect, because the \name{Hamilton} operator with respect to which
+they are evaluated no longer conserves the particle number:
 %
 \begin{equation*}
     \op H = \sum_{\vec k \sigma} \epsilon_{\vec k} \op n_{\vec k \sigma}
     - \sum_{\vec k} \Delta_{\vec k} [\op C_{\vec k} + \op C_{\vec k}^+]
     \quad \text{with} \quad
-    \Delta_{\vec k} = \sum_{\vec k'} V_{\vec k \vec k'} \av{\op C_{\vec k'}},
+    \Delta_{\vec k} = \sum_{\vec k'} V_{\vec k \vec k'} \av{\op C_{\vec k'}}.
 \end{equation*}
 %
-with respect to which they are evaluated no longer conserves the particle
-number. Thus a self-consistently problem has emerged. $\Delta_{\vec k}$ will
-turn out to be a suitable order parameter for the superconducting phase. Being
-not interested in its phase, which would be important to describe e.g. tunneling
-effects, it is assumed to be real.
+A self-consistently problem has emerged. $\Delta_{\vec k}$ will turn out to be a
+suitable order parameter for the superconducting phase. Being not interested in
+its phase, which would be important to describe e.g. tunneling effects, it is
+assumed to be real.
 
 At this point, the \name{Hamilton} operator is still not diagonal. This may be
 accomplished with the help of the \emph{\name{Bogoliubov} quasi-particles}
@@ -344,8 +348,8 @@ of which constants will again be neglected. Altogether, the diagonal
 \end{equation*}
 %
 This identifies $E_{\vec k}$ as the new single-particle energy and $\Delta_{\vec
-k}$ as half of a band gap which has opened up in the spectrum. The order
-parameter or energy gap remains to be determined self-consistently:
+k}$ as half of a band gap which has opened up in the spectrum. The latter
+remains to be determined self-consistently:
 %
 \begin{align*}
     \Delta_{\vec k} &= \sum_{\vec k'} V_{\vec k \vec k'} [
@@ -372,7 +376,7 @@ The presence of a non-zero solution characterizes the superconducting state.
 
 From the definition of $V_{\vec k \vec k'}$ its follows that also $\Delta_{\vec
 k}$ is a constant $\Delta$ for $\vec k$ within the \name{Fermi} shell and zero
-otherwise. Hence, dividing by $\Delta \neq 0$
+otherwise. Hence, dividing by $\Delta \neq 0$,
 %
 \begin{equation*}
     1 = \frac V 2
