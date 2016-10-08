@@ -9,7 +9,7 @@ quantity, momentum or energy. This applies especially to solid state physics,
 where one often has spatial periodicity in addition to conservation of energy.
 
 The mathematical tools to switch between such related representations are given
-by the \name{Fourier} analysis. Despite its prominence the different
+by the \name{Fourier} analysis. Despite its prominence, the different
 transformations for the possible combinations of discrete and continuous domains
 shall be briefly presented, together with the underlying orthogonality
 relations.
@@ -35,10 +35,10 @@ orthogonality relation
 %
 \begin{equation} \label{DFT orthogonality relation}
     \smashoperator{\sum_{n = n_0}^{n_0 + N - 1}} \E^{2 \pi \I n \nu / N} =
-    \sum_{n \in \mathds Z} \delta_{\nu, n N},
+    \sum_{n \in \mathds Z} \delta_\nu^{n N}
 \end{equation}
 %
-which is proven recognizing the partial sum of a geometrical series:
+which is proved recognizing the partial sum of a geometrical series:
 %
 \begin{equation*}
     \sum_{n = 0}^{N - 1} \E^{2 \pi \I n \nu / N} =
@@ -68,7 +68,7 @@ are two orthogonality relations,
     \begin{align}
         \label{Fourier series orthogonality relation}
         \int \from{t_0} \till{t_0 + T} \D t \, \E^{2 \pi \I n t T}
-        &= T \delta_{n, 0},
+        &= T \delta_n^0,
         \\
         \label{Dirac comb}
         \sum_{n \in \mathds Z} \E^{2 \pi \I n t / T}
@@ -78,7 +78,7 @@ are two orthogonality relations,
 %
 The second equation is just mentioned for completeness since the left-hand side
 is the \name{Fourier} series of the right-hand side. The first equation is
-proven by simply carrying out the integral:
+proved by simply carrying out the integral:
 %
 \begin{equation*}
     \int \from 0 \till T \D t \, \E^{2 \pi \I n t / T} =
@@ -110,7 +110,7 @@ where $\hat y(f)$ and $y(t) \in \mathds C$ are defined for all $f$ and $t \in
 \end{equation*}
 %
 With $\omega = 2 \pi f$ and $\eta \in \mathds R$ introduced to generate
-convergence it is proven in three steps:
+convergence it is proved in three steps:
 %
 \begin{subequations}
     \begin{align}
