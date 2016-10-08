@@ -47,12 +47,12 @@ For a single band,
 \begin{equation*}
     Z(\omega) = 1 + \frac {\pi \I T} \omega \lambda \bigg \{
         1 + \frac{\omega \sub E}{2 \pi \I T} \Big[
-              \psi(\tfrac 1 2 + \tfrac{\omega \sub E + \omega}{2 \pi \I T})
-            - \psi(\tfrac 1 2 - \tfrac{\omega \sub E - \omega}{2 \pi \I T})
+              \psi(\tfrac 1 2 + \tfrac{\omega + \omega \sub E}{2 \pi \I T})
+            - \psi(\tfrac 1 2 + \tfrac{\omega - \omega \sub E}{2 \pi \I T})
             + \psi(1 - \tfrac{\omega \sub E}{2 \pi \I T})
             - \psi(1 + \tfrac{\omega \sub E}{2 \pi \I T})
         \Big]
-    \bigg \}
+    \bigg \}.
 \end{equation*}
 %
 In Fig.~\ref{validation Pade}, $Z(\omega)$ is plotted on both the real and the
@@ -65,8 +65,8 @@ On the imaginary axis the renormalization is real and bell-shaped with the
 center at the origin. On the real axis it is more complicated: There is a peak
 with an imaginary discontinuity at the phonon frequency $\pm \omega \sub E$.
 Below that, the imaginary part vanishes and the real part increases with
-frequency starting at $1 + \lambda$. Beyond that, real and imaginary parts decay
-towards unity and zero, respectively.
+frequency starting slightly above $1 + \lambda$. Beyond that, real and imaginary
+parts decay towards unity and zero, respectively.
 
 It turns out that the quality of the \name{Padé} approximant increases with
 $\omega \sub{max.}$, as expected. Already for small multiples of $\omega \sub E$
@@ -115,12 +115,12 @@ arrows represent the allowed electronic transitions. The defining
 %
 where the sum goes over all lattice sites $\vec R = n_1 \vec t_1 + n_2 \vec t_2$
 with $n_1, n_2 \in \mathds Z$ at which the \name{Wannier} states $\ket{\vec R}$
-are localized. $t$ is the nearest-neighbor coupling parameter, $\vec t_1 = (a \
-0)$ and $\vec t_2 = (0 \ a)$ are the translation vectors of length $a$, the
+are localized. $t$ is the nearest-neighbor coupling parameter, $\vec t_1 = [a \
+0]$ and $\vec t_2 = [0 \ a]$ are the translation vectors of length $a$, the
 lattice constant.
 
-An expansion into \textsc{Bloch} states $\ket{\vec k}$ with $\vec k = (k_x \
-k_y)$ via the \name{Fourier} transform
+An expansion into \textsc{Bloch} states $\ket{\vec k}$ with $\vec k = [k_x \
+k_y]$ via the \name{Fourier} transform
 %
 \begin{equation*}
     \ket{\vec R} = \int \D \vec k \, \E^{-\I \vec k \vec R} \ket{\vec k},
@@ -130,7 +130,7 @@ where the integration is e.g. over the first \name{Brillouin} zone, leads to the
 dispersion relation
 %
 \begin{equation*}
-    \epsilon(\vec k) = -2 t [\cos(k_x a) + \cos(k_y a)]
+    \epsilon(\vec k) = -2 t \, [\cos(k_x a) + \cos(k_y a)]
 \end{equation*}
 %
 a contour plot of which is given in Fig.~\ref{square-lattice dispersion}.
@@ -179,7 +179,7 @@ In Fig.~\ref{imaginary- and real-axis self-energy components} numerical
 solutions of the local \name{Eliashberg} equations stated in Eqs.~\ref{local
 Eliashberg equations} are shown together with the their \name{Padé} approximants
 as presented in Section~\ref{Pade approximants}, analytically continued to the
-real axis, for different temperatures. For all parameters sets used in this
+real axis, for different temperatures. For all parameter sets used in this
 work, the qualitative appearance of the resulting curves is the same:
 
 On the imaginary-axis not only the renormalization $Z(\I \omega_n)$, in
@@ -200,15 +200,15 @@ temperature it decreases with increasing speed towards zero, which is reached,
 by definition, at the critical temperature. In principal, this process affects
 the magnitude rather than the shape of the curve, resulting in a common zero of
 the displayed family of curves or, more precisely, of their analytic
-continuations, since naturally only discrete values over the imaginary axis are
-taken which in general do not include this very point. Over the same temperature
+continuations, since naturally the solution is discrete on the imaginary axis
+and does not include this very point in general. Over the same temperature
 range, the other two quantities barely change.
 
 On the real axis the shapes turn out to be more complicated. The renormalization
 $Z(\omega)$ basically resembles the analytic one, shown in Fig.~\ref{validation
 Pade}, the properties of which have already been discussed. One of them, namely
 the vanishing imaginary part at frequencies below the renormalized phonon
-frequency, are recognized in the energy gap $\Delta(\omega)$ and shift
+frequency, is recognized in the energy gap $\Delta(\omega)$ and shift
 $\chi(\omega)$ as well. The former even features the aforementioned peaks, in
 the vincinity of which the exact behavior of the \name{Padé} approximants is
 untrustworthy for being very sensitive to parameter changes. Beyond the peak,
@@ -237,9 +237,9 @@ apparent from the depicted detail.
 Leaving the invariant shape of the energy gap on the imaginary frequency axis
 out of account, the temperature dependence of its magnitude, represented by its
 value at the first \name{Matsubara} frequency, is shown in Fig.~\ref{order
-parameter}. It is supplemented by the corresponding curve for the energy gap
-which is actually measurable in experiments and defined by the following
-fixed-point equation \cite[Eq.~3a]{VidbergSerene77}:
+parameter}, supplemented by the corresponding curve for the energy gap which is
+actually measurable in experiments and defined by the fixed-point equation
+\cite[Eq.~3a]{VidbergSerene77}
 %
 \begin{equation} \label{measurable gap}
     \Delta_0 = \Re[\Delta(\Delta_0)].
@@ -248,25 +248,26 @@ fixed-point equation \cite[Eq.~3a]{VidbergSerene77}:
 Both curves turn out to be very similar: Starting at absolute zero, they remain
 nearly constant at first and subsequently become ever steeper approaching the
 critical temperature at which they vanish. They resemble the well-known BCS
-result for which changes exponentially and like a square root near $T = 0$ and
-$T \sub c$, respectively \cite[Eq.~11.60]{Czycholl08}.
+result, exemplified in Fig.~\ref{BCS gap}, which changes exponentially and like
+a square root near $T = 0$ and $T \sub c$, respectively
+\cite[Eq.~11.60]{Czycholl08}.
 
 Fig.~\ref{order parameter} also shows how the number of iterations needed to
 obtain a self-consistent solution of the \name{Eliashberg} equations increases
 drastically at the critical temperature. This is due to the magnitude of the
 energy gap converging much slower than its shape \cite[185]{VidbergSerene77}.
-Enforcing the normal-state property $\Delta = 0$ yields a similar convergence
-rates at $T \sub c$ and any other temperature.
+Enforcing the normal-state property $\Delta = 0$ yields similar convergence
+rates at all temperatures, $T \sub c$ included.
 
 \section{Convergence tests}
 
 It is now investigated how the results are influenced by the choices of, first,
-the cutoff frequency for the \name{Matsubara} sums and, secondly, the number of
+the cutoff frequency of the \name{Matsubara} sums and, secondly, the number of
 points used for the quadrature of the energy integrals, which are both mandatory
 for a computational implementation of the \name{Eliashberg} equations. This
 knowledge is necessary to obtain confidence in all subsequent results.
 
-\subsection{Convergence of the self-energy with the cutoff frequency}
+\subsection{Convergence of self-energy with cutoff frequency}
 
 \begin{figure}
     \small
@@ -307,7 +308,7 @@ than qualitative tendencies. Nevertheless, when determining the critical
 temperature, the artifacts of the cutoff in the frequency dependence of the
 self-energy will be of minor importance.
 
-\subsection{Convergence of the critical temperature with the cutoff frequency}
+\subsection{Convergence of \bm$T \sub c$ with cutoff frequency}
 
 \begin{figure}
     \small
@@ -359,7 +360,7 @@ since the \name{Coulomb} interaction opposes superconductivity
 decreasing curve which may be ascribed to results for the order parameter
 presented in Fig.~\ref{cutoff dependence of the self-energy}.
 
-Until now is has been takes for granted that the cutoff is defined in terms of
+Until now is has been taken for granted that the cutoff is defined in terms of
 frequency rather than a specific number of \name{Matsubara} frequencies. The
 latter is thus defined by the cutoff frequency and the temperature together.
 Hence, in Fig.~\ref{convergence with cutoff frequency} it varies both along the
@@ -367,7 +368,7 @@ horizontal and the vertical axis. The reason for this definition of the cutoff
 is that, as stated above, the shape of the self-energy as a function of
 frequency does not change much with temperature.
 
-\subsection{Convergence of the critical temperature with the energy resolution}
+\subsection{Convergence of \bm$T \sub c$ with energy resolution}
 
 \begin{figure}
     \small
@@ -390,12 +391,12 @@ errors are not as predictable as in Fig.~\ref{convergence with cutoff
 frequency}, where the critical temperature was shown to converge with the cutoff
 frequency following continuous curves. Instead, the resulting critical
 temperatures are scattered apparently at random (of cause each calculation alone
-is deterministic) around the correct value, loosely bounded by a radii with
-shrink with an increasing resolution.
+is deterministic) around the correct value, loosely bounded by radii with shrink
+with increasing resolution.
 
-As already anticipated in the caption of Fig.~\ref{CDOS at low frequencies} the
+As already anticipated in the caption of Fig.~\ref{CDOS at low frequencies}, the
 errors are larger for lower phonon frequencies, which correspond to lower
-temperatures, where the \name{Lorentz} functions to be integrated over are
+temperatures at which the \name{Lorentz} functions to be integrated over are
 sharper and thus only resolved accurately if neighboring sample points are very
 close. Theoretically, it is also possible to guarantee the same precision for
 all temperatures with a constant number of points. But this requires an
@@ -430,10 +431,10 @@ intelligent, non-equidistant sampling.
 \end{figure}
 %
 Having shown that the numerical results are stable and satisfy the qualitative
-expectations, the next step is a direct comparison with established results,
-namely \name{McMillan}'s equation for the critical temperature. It was derived
-starting from the CDOS \name{Eliashberg} theory, so that the latter should
-reproduce the results of the former at least approximately.
+expectations, the next step is a direct comparison with a well-established
+result, namely \name{McMillan}'s equation for the critical temperature. It was
+derived starting from the CDOS \name{Eliashberg} theory, so that the latter
+should reproduce the results of the former at least approximately.
 
 If there is any justifiable discrepancy between the original and the present
 work it is due to the electron-phonon spectral function or, more precisely, the
@@ -449,14 +450,14 @@ formula which differs from \name{McMillan}'s only by the three fit parameters
 which are adjusted to an \name{Einstein} spectrum, i.e. a single phonon
 frequency, $\omega \sub E = 20 \, \unit{meV}$ in this case.
 
-To that end, the first step is to determined the critical temperature for
-different electron-phonon coupling strengths and \name{Coulomb}
-pseudo-potentials. (\name{McMillan} calculated $\lambda$ for different $T \sub
-c$ and $\mu^*$.) The results are listed in Table~\ref{Tc table}. The second step
-is to perform the linear regressions for Eqs.~\ref{linear regression formulas}
-applying the usual least-squares method. This is visualized in
-Fig.~\ref{McMillan's fits}. The fit parameters turn out to be $A = 0.94 \pm
-0.03$, $B = 1.11 \pm 0.01$ and $C = 0.74 \pm 0.01$. Hence,
+To that end, the first step is to determine critical temperatures for different
+electron-phonon coupling strengths and \name{Coulomb} pseudo-potentials.
+(\name{McMillan} calculated $\lambda$ for different $T \sub c$ and $\mu^*$.) The
+results are listed in Table~\ref{Tc table}. The second step is to perform the
+linear regressions for Eqs.~\ref{linear regression formulas} applying the usual
+least-squares method. This is visualized in Fig.~\ref{McMillan's fits}. The fit
+parameters turn out to be $A = 0.94 \pm 0.03$, $B = 1.11 \pm 0.01$ and $C = 0.74
+\pm 0.01$. Hence,
 %
 \begin{equation*}
     T \sub c \super E = \frac{\omega \sub E}{0.94} \exp \bigg[ {-\frac
@@ -500,13 +501,12 @@ version of \name{McMillan}'s formula does best in reproducing the critical
 temperature according to CDOS \name{Eliashberg} theory for \name{Einstein}
 spectra. The original formula works comparably good but it slightly
 underestimates the dependence on the \name{Coulomb} pseudo-potential and already
-fails at lower electron-phonon coupling strengths. In this regard it is well
-known that \name{McMillan}'s formula intrinsically underestimates the critical
-temperature for large values of the latter \cite{AllenDynes75}. It predicts the
-upper bound
+fails at lower electron-phonon coupling strengths. However, it is well known
+that \name{McMillan}'s formula intrinsically underestimates $T \sub c$ for large
+$\lambda$ \cite{AllenDynes75}. It predicts the upper bound
 %
 \begin{equation*}
-    \lim_{\lambda \rightarrow \inf} T \sub c = \frac {\av \omega} A
+    \lim_{\lambda \rightarrow \infty} T \sub c = \frac {\av \omega} A
     \exp \bigg[ -\frac B {1 - C \mu^*} \bigg],
 \end{equation*}
 %
@@ -516,23 +516,25 @@ $\sqrt \lambda$ \cite[Eq.~3.56]{Galasso05}.
 The differences between the results of the \name{Eliashberg} theory for constant
 and square-lattice densities of states are acceptable, especially if the
 heuristic mapping from $\mu^*$ to $\mu \sub C$ is taken into account. There is
-no general solution to resolve this ambiguity. However, it still remains unclear
-to what extend the critical temperature is determined by the shape of the
-density of states in the vicinity of the chemical potential, since the square
-lattice at quarter filling, which has been analyzed so far, is rather benign in
-this regard. This question is further investigated in the following section.
+no general solution to resolve this ambiguity. Nevertheless, it still remains
+unclear to what extend the critical temperature is determined by the shape of
+the density of states in the vicinity of the chemical potential, since the
+square lattice at quarter filling, which has only been analyzed so far, is
+rather benign in this regard. This question is further investigated in the
+following section.
 
 Apart from the comparison of the different theories,
 Fig.~\ref{critical-temperature benchmarks} gives a good overview of the general
 dependence of the critical temperature on the characteristic variables. Large
 values of $\lambda$ and $\omega \sub E$ favor superconductivity, while $\mu^*$
-opposes it. In the case of $\omega \sub E$, the proportionality which is
-immanent in \name{McMillan}'s formula is perfectly confirmed. It may be
-explained by the fact that $\omega \sub E$ enters the \name{Eliashberg}
-equations only through $\lambda(n)$ or the phononic \name{Green} function, the
-\q{broadening} of which is determined by $\frac T {\omega \sub E}$.
+opposes it. Concerning $\omega \sub E$, the proportionality which is immanent in
+\name{McMillan}'s formula is perfectly confirmed. It is responsible for the
+isotope effect and may be explained by the fact that $\omega \sub E$ enters the
+\name{Eliashberg} equations only through $\lambda(n)$ or the phononic
+\name{Green} function, the \q{broadening} of which is determined by $\frac T
+{\omega \sub E}$.
 
-\section{Dependence on density of states and occupancy}
+\section{Energy dependence}
 
 \begin{figure}
     \small
@@ -550,7 +552,7 @@ equations only through $\lambda(n)$ or the phononic \name{Green} function, the
 %
 The final survey regarding the single-band \name{Eliashberg} theory is concerned
 with the dependence of the critical temperature on the shape of the density of
-states near the chemical potential, i.e. where the superconducting pairing takes
+states near the chemical potential, where the superconducting pairing takes
 place.
 
 This is done by \q{scanning} the entire domain of the density of states of the
@@ -563,7 +565,7 @@ the density of states. Note that the magnitude of the density of states only
 enters through the coupling strengths which are held constant.
 
 The following interpretation is guided by the observations that a high density
-of states is generally favorable for superconductivity and that not not only its
+of states is generally favorable for superconductivity and that not only its
 value at one exact energy contributes, but rather floating averages with respect
 to bell-shaped weight functions which are centered at $\mu - \chi(\I \omega_n)$,
 which can be directly deduced from Eq.~\ref{local Eliashberg equations}.
@@ -594,7 +596,7 @@ states overcompensates this effect, which leads to a boost of the critical
 temperature shortly before it drops towards zero.
 
 To conclude, the shape of the density of states may affect the critical
-temperature considerable, especially where changes with energy are strong, e.g.
+temperature considerably, especially where changes with energy are strong, e.g.
 at \name{van Hove} singularities. This is a problem inherent in the definition
 of the coupling strengths, which should give a reliable measure of the real
 coupling. A possible solution is to use intensive coupling strengths which are
