@@ -1384,7 +1384,8 @@ and thus the \emph{particle density} or \emph{occupation number} per unit cell
         {\Theta_{\vec k}(n)},
 \end{equation*}
 %
-where terms with $\I \omega_n Z_{\vec k}(\I \omega_n)$ have cancelled.
+not to be confused with the summation index, where terms with $\I \omega_n
+Z_{\vec k}(\I \omega_n)$ have cancelled.
 
 \subsection{Free particles}
 
@@ -1487,8 +1488,9 @@ q$, even though they have been averaged out as in the case of the \name{Coulomb}
 interaction, with band indices $i$ and $j$, respectively. In doing so, the
 self-energy components searched for are defined for each band separately and
 scalar coupling strengths become matrices describing intra- and inter-band
-interactions. The corresponding local \name{Eliashberg} equations, where the
-band-structure only enters through the density of states, read
+interactions.
+
+The corresponding local \name{Eliashberg} equations read
 %
 \begin{subequations} \label{local multi-band Eliashberg equations}
     \begin{align}
@@ -1517,18 +1519,26 @@ The common denominator and the electron-phonon coupling matrices are defined as
 \begin{align*}
     \Theta_i(\epsilon, n) &= [\omega_n Z_i(\I \omega_n)]^2
     + \phi_i^2(\I \omega_n) + [\epsilon - \mu + \chi_i(\I \omega_n)]^2,
-    \\
+    \\g
     \Lambda_{i j}^\pm(n, m)
     &= \lambda_{i j}(n - m) \pm \lambda_{i j}(n + m + 1).
 \end{align*}
 %
 $n_j(\epsilon)$ denotes the density of states for the $j$-th band, normalized
-with respect to integration over $\epsilon$ and summation over $j$, which is
-also part of the definition of the electron-phonon coupling strength $\lambda_{i
-j} \equiv \lambda_{i j}(0) = -n_j(\mu_0) \, g_{i j}^2 \, D(0)$. For symmetric
-electron-phonon matrix elements $g_{i j} = g_{j i}$, which can be taken for
-granted, it follows that $\lambda_{i j} / \lambda_{j i} = n_j(\mu_0) /
-n_i(\mu_0)$ \cite[Eq.~3.64]{Galasso05}.
+with respect to integration over $\epsilon$ and summation over $j$ to obtain
+an occupation number $n \in [0, 2]$ defined for $N \rightarrow \infty$ as
+%
+\begin{equation*}
+    n = 1 - 4 T \sum_i \sum_{n = 0}^{N - 1}
+    \int \from{-\infty} \till \infty \D \epsilon \, n_i(\epsilon)
+    \frac{\epsilon - \mu + \chi_i(\I \omega_n)}{\Theta_i(\epsilon, n)}.
+\end{equation*}
+%
+Again, the density of states is also part of the definition of the
+electron-phonon coupling strength $\lambda_{i j} \equiv \lambda_{i j}(0) =
+-n_j(\mu_0) \, g_{i j}^2 \, D(0)$. For symmetric electron-phonon matrix elements
+$g_{i j} = g_{j i}$, which can be taken for granted, it follows that $\lambda_{i
+j} / \lambda_{j i} = n_j(\mu_0) / n_i(\mu_0)$ \cite[Eq.~3.64]{Galasso05}.
 
 Analogously, for constant band densities of states one finds
 %
@@ -1565,18 +1575,20 @@ numbers to a mere energy-dependence. Essentially,
 \begin{equation*}
     \sum_{\vec k} f(\vec k) \approx
     \int \from{-\infty} \till \infty \D \epsilon \,
-    \hyper{\sum_{\vec k} \delta(\epsilon - \epsilon_{\vec k})}{N(\epsilon)} \,
-    f(\epsilon).
+    \smash{
+        \hyper
+            {\sum_{\vec k} \delta(\epsilon - \epsilon_{\vec k})}
+            {N(\epsilon)} \,
+        f(\epsilon)
+        }.
 \end{equation*}
 %
 In the special case where $f(\vec k)$ is a function of $\epsilon_{\vec k}$ only,
 the above equation becomes exact. Otherwise $f(\epsilon)$ must be an appropriate
-constant-energy average.
-
-The alternate idea is now to split the domain of the band-structure, for example
-the first \name{Brillouin} zone, into subdomains for which separate densities of
-states are determined \cite{Entel76} and the corresponding averages taken.
-Formally,
+constant-energy average. The alternate idea is now to split the domain of the
+band-structure, for example the first \name{Brillouin} zone, into subdomains for
+which separate densities of states are determined \cite{Entel76} and the
+corresponding averages taken:
 %
 \begin{equation*}
     \sum_{\vec k} f(\vec k) \approx
