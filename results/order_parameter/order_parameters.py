@@ -9,7 +9,6 @@ T = np.linspace(1, 55, 1001)
 X = np.arange(-4.5, 0.0, 0.5)[::-1]
 
 Delta = np.empty((len(X), 2, len(T)))
-steps = np.empty(len(T))
 
 para = {
     'file': 'order_parameters.dat',
@@ -30,19 +29,10 @@ for filename, plot.width, plot.height, plot.xstep, lamda in (
 
     for i, x in enumerate(X):
         for j, para['T'] in enumerate(T):
-            data = ebmb.get(lamda=lamda(x), **para)
-
-            Delta[i, :, j] = data['Delta'][:, 0] * 1000
-
-            if i == len(X) - 1:
-                steps[j] = data['status']
+            Delta[i, :, j] = 1e3 * ebmb.get(lamda=lamda(x),
+                **para)['Delta'][:, 0]
 
             print 'x = %.1f, T = %.1f K' % (x, para['T'])
-
-    steps[np.where(steps < 0)] = steps.max()
-    steps *= Delta.max() / steps.max()
-
-    plot.line(T, steps, yref=0, draw='none', fill='blue!25')
 
     for i, x in enumerate(X):
         plot.line(T, Delta[i, 0, :], x, thick=True)
@@ -51,8 +41,6 @@ for filename, plot.width, plot.height, plot.xstep, lamda in (
     if filename == 'connect.sl':
         plot.line(label='1st band', thick=True)
         plot.line(label='2nd band', thick=True, dashed=True)
-        plot.line(label='iter. (a.u.)', line_cap='butt', line_width='6pt',
-            color='blue!25')
 
     plot.save(filename, external=True)
     plot.clear()

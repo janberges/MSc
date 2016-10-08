@@ -5,12 +5,12 @@
 
 In the previous chapter it has been confirmed that \name{McMillan}'s equation
 can very well be used to predict critical temperatures of local
-\name{Eliashberg} theory, if only one electronic band is considered. The
-question remains, whether it may also be applied if the coupling strengths are
-matrices rather than scalars, which is equivalent to the problem of finding
-single-band systems which resemble multi-band systems with respect to the
-critical temperature -- self-energies etc. will certainly differ. Having three
-degrees of freedom at hand, namely the phonon frequency $\omega \sub E$, the
+\name{Eliashberg} theory if only one electronic band is considered. The question
+remains, whether it may also be applied if the coupling strengths are matrices
+rather than scalars, which is equivalent to the problem of finding single-band
+systems which resemble multi-band systems with respect to the critical
+temperature -- self-energies etc. will certainly differ. Having three degrees of
+freedom at hand, namely the phonon frequency $\omega \sub E$, the
 electron-phonon coupling $\lambda$ and the \name{Coulomb} pseudo-potential
 $\mu^*$, there are of course innumerable possibilities to accomplish this.
 However, since an unphysical redistribution of influences shall be avoided, the
@@ -21,22 +21,22 @@ within the CDOS approximation.
 
 To begin with, the temperature dependence of the order parameters of the
 different bands is investigated in analogy to Section~\ref{temperature
-dependence of the order parameter}. Next, it presented how intra- and inter-band
+dependence of order parameter}. Next, it presented how intra- and inter-band
 coupling strengths can be varied independently without altering the critical
 temperature. Based on this, the approximate mappings onto scalar coupling
 constants proposed in Section~\ref{effective scalar coupling strengths} are
 visualized using the example of inter-band coupling alone. Finally, the same
-approximations are tested with respect to the critical temperature.
+approximations are tested with respect to the critical temperature itself.
 
 \section{Temperature dependence of order parameters}
 \label{temperature dependence of order parameters}
 
-\begin{figure}
+\begin{figure}[b]
     \small
+    \captionsetup{singlelinecheck=off}
     \input{results/order_parameter/connect.sl}
     \input{results/order_parameter/connect_back.sl}
     \input{results/order_parameter/connect_forth.sl}
-    \captionsetup{singlelinecheck=off}
     \caption[Incrementally switching on inter-band coupling]{
         Incrementally switching on inter-band coupling. In analogy to Fig.~11 of
         Ref.~\barecite{NicolCarbotte05}, the temperature dependence of the
@@ -64,6 +64,9 @@ approximations are tested with respect to the critical temperature.
                 0 & 2
             \end{bmatrix}.
         \end{equation*}
+        %
+        The density of states is assumed to be constant and the cutoff frequency
+        chosen to be $\omega_N = 15 \, \omega \sub E$.
         }
     \label{incrementally switching on inter-band coupling}
 \end{figure}
@@ -82,17 +85,17 @@ also enter the diagonal coupling strengths, is zero or infinite (see
 Section~\ref{multi-band equations}). The diagonal elements, however, are chosen
 to be finite constants which differ by a factor of two.
 
-In the case of intra-band coupling only, one finds two curves which exactly
-resemble those for the single-band systems corresponding to the separate bands
--- because that is what they are. Each band has its own critical temperature,
-the upper one is associated with the system as a whole. In the background of
-Fig.~\ref{incrementally switching on inter-band coupling} the number of
-iterations needed to read convergence is displayed for this special case. It is
-found to be enhanced at both critical temperatures.
+In the case of intra-band coupling alone, which is not displayed in
+Fig.~\ref{incrementally switching on inter-band coupling}, one finds two curves
+which exactly resemble those for the single-band systems corresponding to the
+separate bands -- because that is what they are. Each band has its own critical
+temperature; the upper one is associated with the system as a whole. Also, the
+number of iterations needed to reach convergence is found to be enhanced at both
+critical temperatures.
 
 As soon as the influence of the band with the higher critical temperature on the
 other band is switched on -- it is important to note that this coupling is not
-bidirectional --, the end of the lower curve extends towards the end of the
+bidirectional --, the end of the lower curve is extended towards the end of the
 upper one resulting in a common critical temperature, which retains the exact
 value determined by the greater intra-band coupling strength (right panel). For
 this to happen, the strength of the switched-on coupling is irrelevant and only
@@ -101,29 +104,31 @@ influences the magnitude along the newly formed tail.
 In the case of a reversed influence, the upper critical temperature comes closer
 to the lower one, which in turn remains constant (left panel). At the same time,
 the lower curve becomes apparent in the shape of the upper one at the
-corresponding temperatures, resulting in sharp bend at the lower critical
+corresponding temperatures, resulting in a sharp bend at the lower critical
 temperature.
 
 When both effects are combined, i.e. when the inter-band couplings are switched
-on simultaneously, there is a common temperature which depends on the coupling
-strength (upper panel). Because of the extension of the lower one, both curves
-are differentiable except at the critical temperature.
+on simultaneously, there is a common critical temperature which depends on the
+coupling strength (upper panel). At all other non-zero temperatures both curves
+are differentiable because the lower curve is softened by the way it reaches for
+the end of the upper curve, the shape of which it still has influence on.
 
-Notably, the critical temperature is not always enhanced if a component of the
-electron-phonon coupling increases. The possibility of an inhibiting influence
-is disregarded when taking the maximum eigenvalue of the coupling matrix as
-effective scalar coupling strength, as described in
-Section~\ref{non-renormalized}, since this monotonically increases as a function
-of any element and so does the critical temperature.
+Notably, the critical temperature is not always enhanced if an element of the
+electron-phonon coupling matrix increases. The possibility of an inhibiting
+influence is disregarded when taking the maximum eigenvalue of the coupling
+matrix as an effective scalar coupling strength, as described in
+Section~\ref{non-renormalized}, since it increases monotonically as a function
+of any element, just like the resulting critical temperature.
 
-\section{Effective electron-phonon coupling}
+\section{Critical isotherms}
 
-Now the dependence of the critical temperature on the electron-phonon coupling
-matrix shall be analyzed in more detail. Only few exacts results will be stated
-but rather the approximations proposed in Section~\ref{effective scalar coupling
-strengths} tested with respect to their accuracy.
+The influence of the individual elements of the electron-phonon coupling matrix
+on the critical temperature requires a more detailed analysis. Making a start,
+this section is dedicated to the search for \emph{different} coupling matrices
+which yield the \emph{same} critical temperature, i.e. for \q{critical
+isotherms} in the space of the matrix elements.
 
-\subsection{Hyperbolas of constant $T \sub c$}
+\subsection{Hyperbolas of constant \bm$T \sub c$}
 
 \begin{figure}
     \small
@@ -134,16 +139,16 @@ strengths} tested with respect to their accuracy.
     \input{results/2-band/inter_askew.sl}
     \input{results/2-band/intra_askew.sl}
     \caption[Hyperbolas of constant $T \sub c$]{
-        Hyperbolas of constant $T \sub c$. For the parameters $\omega \sub E = 20
-        \, \unit{meV}$, $\omega_N = 25 \, \omega \sub E$ and $\mu^* = 0$,
+        Hyperbolas of constant $T \sub c$. For the parameters $\omega \sub E =
+        20 \, \unit{meV}$, $\omega_N = 25 \, \omega \sub E$ and $\mu^* = 0$,
         hyperbolas are shown, along which either intra- or inter-band
         electron-phonon coupling strengths in a two-band system may be jointly
         varied without changing the critical temperature. They intersect the
-        bisector or the odd quadrants at $\lambda \sub{d.} = \lambda_{1 1} =
+        bisector of the quadrant at $\lambda \sub{d.} = \lambda_{1 1} =
         \lambda_{2 2}$ and $\lambda \sub{od.} = \lambda_{1 2} = \lambda_{2 1}$,
-        respectively. Note that the matrix $\vec \lambda = \lambda \sub{d.} \vec
-        \sigma_0 + \lambda \sub{od.} \vec \sigma_1$ and the scalar $\lambda =
-        \lambda \sub{d.} + \lambda \sub{od.}$ yield the same critical
+        respectively. It shall be noted that the matrix $\vec \lambda = \lambda
+        \sub{d.} \vec \sigma_0 + \lambda \sub{od.} \vec \sigma_1$ and the scalar
+        $\lambda = \lambda \sub{d.} + \lambda \sub{od.}$ yield the same critical
         temperature.}
     \label{hyperbolas of constant Tc}
 \end{figure}
@@ -160,9 +165,9 @@ and inter-band coupling strengths lie on convex and concave sections of
 hyperbolas, respectively. This assumption is confirmed by comparison with a
 guess for the analytic dependence, which will be developed subsequently.
 
-Let $x$ and $y$ represent the variable and dependent elements of the
-electron-phonon coupling matrix, respectively. A possible equation defining a
-hyperbola through $x = y = \lambda$ reads
+Let $x$ represent the variable and $y$ the dependent element of the
+electron-phonon coupling matrix. The most simple equation defining a hyperbola
+through $x = y = \lambda$ reads
 %
 \begin{equation*}
     y = \frac {\lambda^2} x.
@@ -171,8 +176,8 @@ hyperbola through $x = y = \lambda$ reads
 However, the asymptotes would coincide with the $x$- and $y$-axes which is
 definitely not always the case in Fig.~\ref{hyperbolas of constant Tc}. The
 hyperbola is thus compressed by the factors $\alpha$ and $\beta$ in $x$- and
-$y$-direction, respectively, with $x = y = \lambda$ as the fixed point. This
-yields
+$y$-direction, respectively, with $x = y = \lambda$ defining the fixed point.
+This yields
 %
 \begin{equation*}
     y = \frac
@@ -201,11 +206,11 @@ y_\infty = \lambda (1 - \beta^{-1})$. Thus
     = \lambda - \frac{\lambda - y_\infty}{x - x_\infty} (x - \lambda).
 \end{equation*}
 %
-This formula describes the desired relation of the intra-band coupling strengths
-for $x_\infty$ and $y_\infty$ less than or equal to $\lambda$. In contrast,
-$x_\infty$ and $y_\infty$ greater than or equal to $\lambda$ are required for
-the description of intra-band coupling. The asymptotes may also be expressed in
-terms of the $x$- and $y$-intercepts $x_0$ and $y_0$:
+This formula describes the desired relation between the intra-band coupling
+strengths for $x_\infty$ and $y_\infty$ greater than or equal to $\lambda$. In
+contrast, $x_\infty$ and $y_\infty$ less than or equal to $\lambda$ are required
+for the description of the inter-band coupling. The asymptotes may also be
+expressed in terms of the $x$- and $y$-intercepts $x_0$ and $y_0$:
 %
 \begin{align*}
     x_0 &= \lambda \Big[ 1 - \frac{\lambda - x_\infty}{y_\infty} \Big], &
@@ -216,38 +221,38 @@ terms of the $x$- and $y$-intercepts $x_0$ and $y_0$:
 %
 For each parameter set the asymptotes are determined numerically. For the
 inter-band coupling, $x_\infty$ and $y_\infty$ are calculated directly by
-assigning a very large value, $10^{15}$ say, to either of $\lambda_{1 2}$ or
+assigning a very large value, $10^{10}$ say, to either $\lambda_{1 2}$ or
 $\lambda_{2 1}$ and solving for the other element. In the intra-band case the
 asymptotes are excluded from the domain of possible values. Hence, the
 intercepts are calculated, where either $\lambda_{1 1}$ or $\lambda_{2 2}$ is
-nullified. The position of the asymptotes is then concluded by means of the
-above equations.
+zero. The position of the asymptotes is then concluded by means of the above
+equations.
 
 The determined hyperbolas are plotted together with the numerical data points,
 which reveals a very good agreement. The choice of the correct asymptotes
 depends not only on $\lambda$ but also on the two matrix elements which are held
 constant. If an analytic expression of these dependencies were known, a closed
 set of equations would be obtained which could be solved for the scalar
-complement of the whole coupling matrix. This task is not accomplished within
-the present work, but in the following section some predictions of the
+equivalent of the whole coupling matrix. This task is not accomplished within
+the present work, but in the following section some predictions of the proposed
 approximate mappings regarding this matter are presented.
 
-\subsection{Asymptotic behavior for inter-band coupling}
+\subsection{Asymptotes for inter-band coupling}
 
 \begin{figure}
     \small
     \input{results/2-band/lamda_inf.sl}
     \input{results/2-band/lamda_inf_hyperbola.sl}
     \caption[Asymptotes of inter-band hyperbola of constant $T \sub c$]{
-        Position of the asymptotes $\lambda_\infty$ of the constant-$T \sub c$
-        hyperbola for inter-band coupling only, i.e. $\lambda_{1 1} = \lambda_{2
-        2} = 0$, as a function of the coupling strengh $\lambda$. Not only exact
-        results of the CDOS \name{Eliashberg} theory but also the behavior
-        within the approximations of a cutoff-independent mapping onto effective
-        scalar coupling constants (Section~\ref{cutoff-independent}) and a
-        renormalization of unity (Section~\ref{non-renormalized}) are presented.
-        Phonon and cutoff frequency are chosen to be $\omega \sub E = 20 \,
-        \unit{meV}$ and $\omega_N = 15 \, \omega \sub E$, respectively.}
+        Position of the asymptotes $\lambda_\infty$ of the hyperbolas of
+        constant $T \sub c$ for inter-band coupling only, i.e. $\lambda_{1 1} =
+        \lambda_{2 2} = 0$, as a function of the coupling strengh $\lambda$. Not
+        only exact results of the CDOS \name{Eliashberg} theory but also the
+        behavior within the approximations of a cutoff-independent mapping onto
+        effective scalar coupling constants (Section~\ref{cutoff-independent})
+        and a renormalization of unity (Section~\ref{non-renormalized}) are
+        presented. Phonon and cutoff frequency are chosen to be $\omega \sub E =
+        20 \, \unit{meV}$ and $\omega_N = 15 \, \omega \sub E$, respectively.}
     \label{inter-band hyperbola of constant Tc}
 \end{figure}
 %
@@ -256,12 +261,12 @@ strengths which were introduced in Section~\ref{effective scalar coupling
 strengths} are visualized for the special case of inter-band coupling alone,
 i.e. $\lambda_{1 1} = \lambda_{2 2} = 0$. Because of the following symmetry of
 the off-diagonal elements, $\lambda_{1 2}$ as a function of $\lambda_{2 1}$ is
-an involution, i.e. its own inverse. Subsequently, both asymptotes are have the
-same distance to their corresponding axes.
+an involution, i.e. its own inverse. Subsequently, both asymptotes have the same
+distance to their corresponding axes.
 
 The latter is determined both numerically and analytically according to
 Eqs.~\ref{non-renormalized} and \ref{cutoff-independent}. In the case studied,
-the latter reduce to
+the latter reduce to the hyperbola equations
 %
 \begin{equation*}
     \lambda = \sqrt{\lambda_{1 2} \lambda_{2 1}}
@@ -287,7 +292,7 @@ The results are presented in Fig.~\ref{inter-band hyperbola of constant Tc}. For
 all values of $\lambda$, the approximation of a cutoff-independent mapping
 yields better results than the assumption of a renormalization of unity.
 Especially for $\lambda \approx 1$, the agreement is satisfactory; for larger
-$\lambda$ is worsens continuously.
+$\lambda$ it worsens continuously.
 
 \section{Critical temperatures for single-band approximations}
 
@@ -327,7 +332,7 @@ noted, that on average, random coupling matrices may not represent those
 representing real materials very well.
 
 The approximation of a cutoff-independent mapping turns out to be considerably
-more accurate that the assumption of a renormalization of unity, in accordance
+more accurate than the assumption of a renormalization of unity, in accordance
 with the results of the previous section. Again, the former approach yields best
 results for coupling strengths in the vicinity of unity. Below and above it
 tends to under- and overestimate the critical temperature. The average absolute
