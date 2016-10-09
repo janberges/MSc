@@ -36,9 +36,9 @@ model interactions the most important diagrams are deduced explicitly. Finally,
 the self-energy and its most common approximations are introduced.
 
 In some places where no ambiguity arises, different quantities are represented
-by the same symbol and only distinguished by the name of their formal argument.
-This concerns mutual \name{Fourier} transforms as well as functions of real and
-imaginary time.
+by the same symbol and only distinguished by the name or presence of a formal
+argument. This concerns e.g. mutual \name{Fourier} transforms as well as
+functions of real and imaginary time.
 
 \section{Dynamical pictures}
 
@@ -188,8 +188,8 @@ exponential function with the time-ordering operator placed in front.
 \label{Green functions}
 
 Gathering complete information about an interacting many-body system is a hard,
-if not impossible task. However, much can be learned by studying the behavior of
-single test particles within this system.
+if not impossible task. However, much can be learned from studying the behavior
+of single test particles within this system.
 
 To that end \emph{correlation functions} like $\av{\op A(t) \, \op B(t')}$ are
 considered, where $\op A$ and $\op B$ are either fermionic or bosonic ladder
@@ -235,7 +235,7 @@ and -values $E_n$,
 \end{equation}
 %
 A \name{Fourier} transform using Eq.~\ref{int dt exp(i omega t)} reveals a
-weighted excitation spectrum
+weighted excitation spectrum:
 %
 \begin{equation} \label{C(omega)}
     C(\omega) = \frac 1 {2 \pi} \int \from{-\infty} \till \infty \D t \,
@@ -247,17 +247,17 @@ weighted excitation spectrum
 At temperature $\beta^{-1}$, the probability that a many-particle state $\ket n$
 with energy $E_n$ is realized reads $\E^{-\beta E_n} / Z$ and the average
 occupation number of a single-particle state with energy $\epsilon$ is given by
-$f(\epsilon) = [\E^{\beta \epsilon} \pm 1]^{-1}$ as derived in Section~\ref{free
-particles}. From now on upper and lower signs hold for fermions and bosons,
-respectively. One can easily verify that
+$f_\pm(\epsilon) = [\E^{\beta \epsilon} \pm 1]^{-1}$ as derived in
+Section~\ref{free particles}. From now on upper and lower signs hold for
+fermions and bosons, respectively. One can easily verify that
 %
 \begin{equation*}
     \E^{-\beta E_n} =
-    \big[ 1 \mp f(E_m - E_n) \big]
+    \big[ 1 \mp f_\pm(E_m - E_n) \big]
     \big[ \E^{-\beta E_n} \pm \E^{-\beta E_m} \big]
 \end{equation*}
 %
-and write Eq.~\ref{C(omega)} as $C(\omega) = [1 \mp f(\omega)] \, A(\omega)$
+and write Eq.~\ref{C(omega)} as $C(\omega) = [1 \mp f_\pm(\omega)] \, A(\omega)$
 with the \emph{spectral function}
 %
 \begin{equation} \label{A(omega)}
@@ -391,7 +391,7 @@ which causes every other series coefficient to vanish, thus
 \end{equation*}
 
 So one redefines the \emph{\name{Matsubara}-Green function} and its
-imaginary-axis representation
+imaginary-axis representation:
 %
 \begin{equation} \label{Matsubara-Green function}
     G(\tau) = \frac 1 \beta \sum_{n \in \mathds Z}
@@ -400,7 +400,7 @@ imaginary-axis representation
     G(\I \omega_n) = \int \from 0 \till \beta \D \tau \,
         \E^{\I \omega_n \tau} G(\tau)
     = -\int \from 0 \till \beta \D \tau \,
-        \E^{\I \omega_n \tau} \av{\op A(\tau) \op B},
+        \E^{\I \omega_n \tau} \av{\op A(\tau) \op B}
 \end{equation}
 %
 with the \emph{\name{Matsubara} frequencies}
@@ -481,7 +481,7 @@ single-particle states, and the corresponding energy $E_n = \sum_k \epsilon_k
 n_k$, where $n_k$ are occupation numbers, is a sum of single-particle energies.
 %
 \begin{equation*}
-    f(\epsilon_k) = \av{\op n_k}_0
+    f_\pm(\epsilon_k) = \av{\op n_k}_0
     = \frac{\sum_n \bra n \op n_k \ket n \E^{-\beta E_n}}
         {\sum_n \E^{-\beta E_n}}
     = \frac{\sum_{n_k = 0}^N n_k \E^{-\beta \epsilon_k n_k}}
@@ -572,7 +572,7 @@ Eq.~\ref{Dyson series} reads
     \op S(t, t_0) = \sum_{n = 0}^\infty \frac{(-1)^n}{n!}
     \int \from{\tau_0} \till \tau \D \tau_1 \dots
     \int \from{\tau_0} \till \tau \D \tau_n \,
-    \op T \, \op V[\tau_1] \dots \op V[\tau_n],
+    \op T \, \op V[\tau_1] \dots \op V[\tau_n].
 \end{equation}
 %
 For brevity, let $\op S(\tau) = \op S(\tau, 0) = \E^{\op H_0 \tau} \, \E^{-\op H
@@ -655,7 +655,7 @@ read
         \op a_{k'}^+[\tau_1] \, \op a_k[\tau_1] \,
         \op a_{q'}^+[\tau_2] \, \op a_q[\tau_2] \,
         \op B[0]
-    }_0 + \dots
+    }_0 + \cdots
 \end{gather*}
 %
 Continuing in this way, expectation values of products of a growing number of
@@ -807,7 +807,7 @@ values as well, thus
         \\
         \smash{\widetilde F_{\vec k \sigma}}(\tau) &= -\av{\op T \,
         \op c_{-\vec k -\sigma}^+(\tau) \,
-        \op c_{\vec k \sigma}^+(0)} = [F_{\vec k \sigma}(\tau)]^*,
+        \op c_{\vec k \sigma}^+(0)} = [F_{\vec k \sigma}(\tau)]^*
     \end{align}
     %
     as well as the phonon \name{Green} function
@@ -824,7 +824,7 @@ calculated explicitly for some model interactions. First, the perturbation
 series for the electron-phonon interaction as described by the
 \name{Holstein-Hamilton} operator is analyzed up the second order. As will be
 shown, the latter bears a close resemblance to the first order terms of the
-homogeneous electron gas and the more simple \name{Hubbard} model of interacting
+homogeneous electron gas and the simpler \name{Hubbard} model of interacting
 electrons.
 
 For \name{Hamilton} operators which conserve the number of electrons, by which
@@ -1102,8 +1102,8 @@ obtains
     \end{aligned}
 \end{align*}
 %
-The corresponding \name{Feynman} diagrams are depicted in Fig.~\ref{Feynman
-diagrams}.
+The corresponding \emph{\name{Feynman} diagrams} are depicted in
+Fig.~\ref{Feynman diagrams}.
 
 The last three terms represent \emph{disconnected diagrams}. Calculating the
 second order of $\av{S(\beta)}_0$, which has been ignored so far, yields these
@@ -1114,7 +1114,7 @@ of Eq.~\ref{perturbation series} will reappear in the nominator in a way that
 \begin{equation*}
     \av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B[0]}_0 =
     \av{\op S(\beta)}_0
-    \av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B[0]}_0 \super{c.}
+    \av{\op T \, \op A[\tau] \, \op S(\beta) \, \op B[0]}_0 \super{c.},
 \end{equation*}
 %
 where $\av \dots_0 \super{c.}$ is $\av \dots_0$ less all terms corresponding to
@@ -1127,7 +1127,7 @@ disconnected diagrams. Hence,
 
 In the following, all terms with $D^0_0(\tau' - \tau'')$ are neglected since
 phonons with $\vec q = 0$ are no actual phonons but rather translations of the
-crystal as a whole or a permanent strain \cite[p.~82]{Mahan00}, which shall not
+crystal as a whole or permanent strains \cite[p.~82]{Mahan00}, which shall not
 be considered.
 
 Performing the integrals, the remaining two terms turn out to be equivalent
@@ -1151,8 +1151,8 @@ since $\tau'$ and $\tau''$ occur in exchangeable positions. Transforming to
     G^0_{\vec k \sigma}(\I \omega_i) \,
     G^0_{\vec k - \vec q \sigma}(\I \omega_m) \,
     G^0_{\vec k \sigma}(\I \omega_j) \,
-    D^0_{\vec q}(\I \nu_k) \times \dots \\
-    \dots &\times
+    D^0_{\vec q}(\I \nu_k) \times \cdots \\
+    \cdots &\times
     \frac 1 \beta \int \from 0 \till \beta \D \tau \,
     \E^{\I (\omega_n - \omega_i) \tau} \,
     \frac 1 \beta \int \from 0 \till \beta \D \tau' \,
@@ -1198,7 +1198,7 @@ that
         \op c_{\vec k' \sigma'}[\tau'] \,
         \op c_{\vec k'' + \vec q' \sigma''}^+[\tau''] \,
         \op c_{\vec k'' \sigma''}[\tau''] \,
-        \op c_{-\vec k -\sigma}[0]}_0.
+        \op c_{-\vec k -\sigma}[0]}_0
 \end{align*}
 %
 has to be considered. With the help of \name{Wick}'s theorem this reduces to
@@ -1448,8 +1448,8 @@ contribution formally resembles the normal one:
 \subsection{\name{Hubbard} model}
 \label{Hubbard model}
 
-The \name{Hubbard} model further restricts the \name{Coulomb} interaction to
-occur only between electrons at the same site, which must consequently have
+The \emph{\name{Hubbard} model} further restricts the \name{Coulomb} interaction
+to occur only between electrons at the same site, which must consequently have
 opposite spins because of the \name{Pauli} principle. With the on-site
 \name{Coulomb} repulsion $U$, the corresponding operator in real space reads
 \cite{vonderLindenBergerValasek95}
@@ -1591,8 +1591,8 @@ possible subsets of all irreducible parts and join them with fermion lines:
     defines a self-consistency problem. It can be solved iteratively, i.e. by
     calculating $G_{n + 1} = G_0 + G_0 \Sigma G_n$ with the \q{bare} $G_0$ as
     the initial value. At each step a higher number of diagrams is considered.
-    Multiplication with $G_0^{-1}$ and $G^{-1}$ from the left and right,
-    respectively, yields
+    Multiplication with $G_0^{-1}$ from the left and $G^{-1}$ from the right
+    side yields
     %
     \begin{equation*}
         G^{-1} = G_0^{-1} - \Sigma.
@@ -1647,10 +1647,10 @@ possible subsets of all irreducible parts and join them with fermion lines:
     \end{equation}
 \end{subequations}
 
-Eqs.~\ref{Hedin equations}, known as \name{Hedin}'s equations \cites[Appendix
-A]{Hedin65}[Eqs.~13.19]{HedinLundqvist69}, are all coupled among themselves,
-which makes their solution a non-trivial task. In practice one often applies
-certain approximations, which are presented in the following.
+Eqs.~\ref{Hedin equations}, known as \emph{\name{Hedin}'s equations}
+\cites[Appendix A]{Hedin65}[Eqs.~13.19]{HedinLundqvist69}, are all coupled among
+themselves, which makes their solution a non-trivial task. In practice one often
+applies certain approximations, which are presented in the following.
 
 \subsection{GW approximation}
 
