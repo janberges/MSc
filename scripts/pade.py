@@ -56,7 +56,7 @@ iomega = 1j * np.linspace(-3 * omegaE, 15 * omegaE, 1001)
 
 plot.line(iomega.imag / omegaE, Z(iomega).real, line_width='2.5pt')
 
-plot.save('../results/pade-im.sl')
+plot.save('../results/pade-im.sl', external=True)
 
 
 plot = storylines.Plot(7, 5, lower='red', upper='yellow', line_join='round')

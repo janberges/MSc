@@ -45,7 +45,7 @@ for epsilon in np.linspace(-4 * t, 4 * t, 11):
     plot.line(-kx,  ky, epsilon, thick=True)
     plot.line(-kx, -ky, epsilon, thick=True)
 
-plot.save('../results/square-lattice-dispersion.sl')
+plot.save('../results/square-lattice-dispersion.sl', external=True)
 
 epsilon, dos = ebmb.square_dos(resolution=2001, t=1)
 

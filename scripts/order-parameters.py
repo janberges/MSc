@@ -42,5 +42,5 @@ for name, plot.width, plot.height, plot.xstep, lamda in (
         plot.line(label='1st band', thick=True)
         plot.line(label='2nd band', thick=True, dashed=True)
 
-    plot.save('../results/order-parameters-%s.sl' + name, external=True)
+    plot.save('../results/order-parameters-%s.sl' % name, external=True)
     plot.clear()
