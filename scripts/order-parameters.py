@@ -11,7 +11,7 @@ X = np.arange(-4.5, 0.0, 0.5)[::-1]
 Delta = np.empty((len(X), 2, len(T)))
 
 para = {
-    'file': 'order_parameters.dat',
+    'file': 'order-parameters.dat',
     'tell': False,
     }
 
@@ -21,10 +21,10 @@ plot.xlabel = r'$T / \unit K$'
 plot.ylabel = r'$\Delta(\mathrm i \omega_0) / \unit{meV}$'
 plot.zlabel = r'$\log_{10} x$'
 
-for filename, plot.width, plot.height, plot.xstep, lamda in (
-    ('connect.sl',      14, 7,  5, lambda x: [[1, 10 ** x], [10 ** x, 2]]),
-    ('connect_back.sl',  7, 6, 10, lambda x: [[1,       0], [10 ** x, 2]]),
-    ('connect_forth.sl', 7, 6, 10, lambda x: [[1, 10 ** x], [0,       2]]),
+for name, plot.width, plot.height, plot.xstep, lamda in (
+    ('top',  14, 7,  5, lambda x: [[1, 10 ** x], [10 ** x, 2]]),
+    ('left',  7, 6, 10, lambda x: [[1,       0], [10 ** x, 2]]),
+    ('right', 7, 6, 10, lambda x: [[1, 10 ** x], [0,       2]]),
     ):
 
     for i, x in enumerate(X):
@@ -38,9 +38,9 @@ for filename, plot.width, plot.height, plot.xstep, lamda in (
         plot.line(T, Delta[i, 0, :], x, thick=True)
         plot.line(T, Delta[i, 1, :], x, thick=True, dashed=True)
 
-    if filename == 'connect.sl':
+    if name == 'top':
         plot.line(label='1st band', thick=True)
         plot.line(label='2nd band', thick=True, dashed=True)
 
-    plot.save('../results/' + filename, external=True)
+    plot.save('../results/order-parameters-%s.sl' + name, external=True)
     plot.clear()

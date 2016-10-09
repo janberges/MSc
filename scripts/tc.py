@@ -9,7 +9,7 @@ bands = 2
 settings = {
     'power': False,
     'rate': 0.5,
-    'file': 'tc_test.dat',
+    'file': 'tc.dat',
     'error': 0.01,
     }
 
@@ -69,17 +69,17 @@ plot.ylabel = r'$\widetilde T \sub c / \unit K$'
 plot.line(lim, lim, **line)
 plot.line(Tc, Tc1, color='cyan', **scatter)
 
-plot.save('../results/tc_cutoff-independent.sl', external=True)
+plot.save('../results/tc-1.sl', external=True)
 
 plot.clear()
 
 plot.line(lim, lim, **line)
 plot.line(Tc, Tc2, color='magenta', **scatter)
 
-plot.save('../results/tc_non-renormalized.sl', external=True)
+plot.save('../results/tc-2.sl', external=True)
 
-with open('../results/error1.dat', 'w') as dat:
+with open('../results/tc-error-1.dat', 'w') as dat:
     dat.write('%.1f%%\n' % (sum(abs(Tc - Tc1)) / size))
 
-with open('../results/error2.dat', 'w') as dat:
+with open('../results/tc-error-2.dat', 'w') as dat:
     dat.write('%.1f%%\n' % (sum(abs(Tc - Tc2)) / size))

@@ -24,9 +24,9 @@ color = ['orange', 'blue', 'red', 'purple', 'cyan']
 scatter = dict(mark='*', only_marks=True, omit=False)
 
 plots = [
-    ('intra_intra.sl', [(0.5, 1.0, 1.0), (1.0, 1.0, 1.0), (1.5, 1.0, 1.0)]),
-    ('intra_inter.sl', [(1.0, .01, .01), (1.0, 1.0, 1.0), (1.0, 100, 100)]),
-    ('intra_askew.sl', [(1.0, 2.0, 1.0), (1.0, 1.0, 1.0), (1.0, 1.0, 2.0)]),
+    ('intra-intra.sl', [(0.5, 1.0, 1.0), (1.0, 1.0, 1.0), (1.5, 1.0, 1.0)]),
+    ('intra-inter.sl', [(1.0, .01, .01), (1.0, 1.0, 1.0), (1.0, 100, 100)]),
+    ('intra-askew.sl', [(1.0, 2.0, 1.0), (1.0, 1.0, 1.0), (1.0, 1.0, 2.0)]),
     ]
 
 plot = storylines.Plot(7, 7, right=0.5,

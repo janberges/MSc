@@ -7,7 +7,7 @@ import numpy as np
 kB = 8.61733e-5
 
 para = {
-    'file': 'integration_points.dat',
+    'file': 'convergence-resolution.dat',
     'tell': False,
 
     'T': 10.0,
@@ -18,7 +18,7 @@ para = {
     'muStar': 0.10,
     'cutoff': 15.0,
 
-    'dos': 'dos.in',
+    'dos': 'convergence-resolution.dos',
     'n': 0.5,
     }
 
@@ -47,4 +47,4 @@ for i, (frequency, color) in enumerate(zip(frequencies, ['blue', 'red'])):
     plot.line(log_resolutions, Tc[i, :], omit=False, mark='*', only_marks=True,
         color=color, label='%.0f' % (1e3 * frequency))
 
-plot.save('../results/integration_points.sl', external=True)
+plot.save('../results/convergence-resolution.sl', external=True)

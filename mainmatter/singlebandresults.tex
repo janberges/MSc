@@ -23,8 +23,8 @@ particle number is discussed in detail.
 \subsection{Validation of \name{Padé} approximant}
 
 \begin{figure}
-    \input{results/imaginary-axis.sl}
-    \input{results/real-axis.sl}
+    \input{results/pade-im.sl}
+    \input{results/pade-re.sl}
     \caption[Exact renormalization function]{
         Exact normal-state CDOS renormalization together with selected
         \name{Padé} approximants for an electron-phonon coupling strength
@@ -84,12 +84,12 @@ the exact and approximate curves coincide to a high degree.
         \label{square-lattice unit cell}
     \end{subfigure}%
     \begin{subfigure}[b]{4.666cm}
-        \input{results/square_lattice_dispersion.sl}
+        \input{results/square-lattice-dispersion.sl}
         \caption{dispersion}
         \label{square-lattice dispersion}
     \end{subfigure}%
     \begin{subfigure}[b]{4.666cm}
-        \input{results/square_lattice_dos.sl}
+        \input{results/square-lattice-dos.sl}
         \caption{density of states}
         \label{square-lattice dos}
     \end{subfigure}
@@ -159,12 +159,12 @@ chosen in the following.
 
 \begin{figure}
     \small
-    \input{results/Delta(iomega).sl}
-    \input{results/Delta(omega).sl}
-    \input{results/chi(iomega).sl}
-    \input{results/chi(omega).sl}
-    \input{results/Z(iomega).sl}
-    \input{results/Z(omega).sl}
+    \input{results/self-energy-delta-im.sl}
+    \input{results/self-energy-delta-re.sl}
+    \input{results/self-energy-chi-im.sl}
+    \input{results/self-energy-chi-re.sl}
+    \input{results/self-energy-z-im.sl}
+    \input{results/self-energy-z-re.sl}
     \caption[Self-energy at different temperatures]{
         Imaginary- and real-axis self-energy components at different
         temperatures for a square-lattice density of states with an electronic
@@ -227,7 +227,7 @@ apparent from the depicted detail.
 \begin{figure}
     \small
     \centering
-    \input{results/order_parameter.sl}
+    \input{results/order-parameter.sl}
     \caption[\name{Eliashberg} gap]{
         Order parameters. The temperature dependence of leading \name{Matsubara}
         and measurable gap is shown for the same parameter set as in
@@ -276,13 +276,13 @@ knowledge is necessary to obtain confidence in all subsequent results.
 \begin{figure}
     \small
     \begin{minipage}{4.666cm}
-        \input{results/Delta_N(iomega).sl}
+        \input{results/cutoff-delta.sl}
     \end{minipage}%
     \begin{minipage}{4.666cm}
-        \input{results/chi_N(iomega).sl}
+        \input{results/cutoff-chi.sl}
     \end{minipage}%
     \begin{minipage}{4.666cm}
-        \input{results/Z_N(iomega).sl}
+        \input{results/cutoff-z.sl}
     \end{minipage}%
     \caption[Cutoff-induced errors of self-energy]{
         Comparison to expose cutoff-induced errors in the components of the
@@ -317,11 +317,11 @@ self-energy will be of minor importance.
 \begin{figure}
     \small
     \begin{subfigure}{7cm}
-        \input{results/cutoff_frequency.sl}
+        \input{results/convergence-cutoff.sl}
         \caption{square lattice at quarter-filling}
     \end{subfigure}%
     \begin{subfigure}{7cm}
-        \input{results/cutoff_frequency_cdos.sl}
+        \input{results/convergence-cutoff-cdos.sl}
         \caption{constant density of states}
     \end{subfigure}
     \caption[Convergence with cutoff frequency]{
@@ -377,7 +377,7 @@ frequency does not change much with temperature.
 \begin{figure}
     \small
     \centering
-    \input{results/integration_points.sl}
+    \input{results/convergence-resolution.sl}
     \caption[Convergence with number of integration points]{
         Convergence with the number of integration points for two different
         phonon frequencies. Constants are defined as in Fig.~\ref{order
@@ -420,11 +420,11 @@ intelligent, non-equidistant sampling.
 \begin{figure}
     \small
     \begin{subfigure}{7cm}
-        \input{results/mcmillan_1st.sl}
+        \input{results/mcmillan-1.sl}
         \caption{$\mu^* = 0$}
     \end{subfigure}%
     \begin{subfigure}{7cm}
-        \input{results/mcmillan_2nd.sl}
+        \input{results/mcmillan-2.sl}
         \caption{$\mu^* > 0$}
     \end{subfigure}
     \caption[\name{McMillan}'s fits]{
@@ -474,10 +474,10 @@ parameters turn out to be $A = 0.94 \pm 0.03$, $B = 1.11 \pm 0.01$ and $C = 0.74
 
 \begin{figure}
     \small
-    \input{results/tc_lamda.sl}
-    \input{results/tc_lamda_2.sl}
-    \input{results/tc_omegaE.sl}
-    \input{results/tc_muStar.sl}
+    \input{results/benchmark-lamda.sl}
+    \input{results/benchmark-lamda-more.sl}
+    \input{results/benchmark-omegae.sl}
+    \input{results/benchmark-mustar.sl}
     \caption[Critical-temperature benchmarks]{
         Comparison of the critical temperatures according to \name{McMillan}'s
         formula in its original form and with its constants adjusted to an
@@ -543,9 +543,9 @@ isotope effect and may be explained by the fact that $\omega \sub E$ enters the
 \begin{figure}
     \small
     \centering
-    \input{results/energy_dos.sl}
-    \input{results/energy_shift.sl}
-    \input{results/energy_tc.sl}
+    \input{results/energy-dos.sl}
+    \input{results/energy-shift.sl}
+    \input{results/energy-tc.sl}
     \caption[Energy dependence]{
         Energy dependence. It is shown how the critical temperature, the
         self-consistent chemical potential and the leading energy shift change

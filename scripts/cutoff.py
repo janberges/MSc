@@ -16,7 +16,7 @@ para = {
     'lambda': 1.00,
     'muStar': 0.10,
 
-    'dos': 'dos.in',
+    'dos': 'cutoff.dos',
     'n': 0.5,
     }
 
@@ -60,5 +60,5 @@ for key, plot.xlabel in [
     for results in data:
         plot.line(results[key], results['iomega'], results['cutoff'])
 
-    plot.save('../results/%s_N(iomega).sl' % key, external=True)
+    plot.save('../results/cutoff-%s.sl' % key.lower(), external=True)
     plot.clear()

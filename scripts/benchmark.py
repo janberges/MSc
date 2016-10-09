@@ -41,7 +41,7 @@ formula = {
 
 print 'Calculating DOS..'
 
-ebmb.square_dos('dos.in', resolution=2001)
+ebmb.square_dos('benchmark.dos', resolution=2001)
 
 Tc = np.zeros((4, resolution))
 
@@ -73,7 +73,7 @@ while True:
         for j, parameters[key] in enumerate(variable[key]):
             print '%s = %6.4f' % (key, parameters[key])
 
-            for i, parameters['dos'] in enumerate(['none', 'dos.in']):
+            for i, parameters['dos'] in enumerate(['none', 'benchmark.dos']):
                 Tc[i, j] = ebmb.get('critical', **parameters)
 
                 parameters['T'] = Tc[i, j]
@@ -87,11 +87,13 @@ while True:
         plot.xspacing = 1.5 if key == 'omegaE' else 1.0
         plot.corner   = 1   if key == 'muStar' else 4
 
-        plot.save('../results/tc_' + key + extra + '.sl', external=True)
+        plot.save('../results/benchmark-' + key.lower() + extra + '.sl',
+            external=True)
+
         plot.clear()
 
     if extra:
         break
 
     variable = { 'lamda': np.linspace(0.50, 10.00, resolution) }
-    extra = '_2'
+    extra = '-more'

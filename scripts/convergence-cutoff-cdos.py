@@ -7,24 +7,17 @@ import numpy as np
 kB = 8.61733e-5
 
 para = {
-    'file': 'cutoff_frequency.dat',
+    'file': 'convergence-cutoff-cdos.dat',
     'tell': False,
 
     'T': 27.0,
     'error': 0.001,
-    'rate': 0.2,
+    'rate': 0.3,
 
     'omegaE': 0.02,
     'lambda': 1.00,
     'muStar': 0.10,
-
-    'dos': 'dos.in',
-    'n': 0.5,
     }
-
-print 'Calculating DOS..'
-
-ebmb.square_dos(para['dos'], resolution=501)
 
 log_cutoff = np.linspace(0.5, 3.0, 50)
 
@@ -50,4 +43,4 @@ for i, (rescaled, color) in enumerate(zip(rescale, ['blue', 'red'])):
     plot.line(log_cutoff, Tc[i, :], mark='*', only_marks=True,
         omit=False, color=color, label='yes' if rescaled else 'no')
 
-plot.save('../results/cutoff_frequency.sl', external=True)
+plot.save('../results/convergence-cutoff-cdos.sl', external=True)

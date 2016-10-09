@@ -199,8 +199,8 @@ plot2.line(x, y, color='red', **scatter)
 
 # save figures:
 
-plot1.save('../results/mcmillan_1st.sl', external=True)
-plot2.save('../results/mcmillan_2nd.sl', external=True)
+plot1.save('../results/mcmillan-1.sl', external=True)
+plot2.save('../results/mcmillan-2.sl', external=True)
 
 # print results:
 

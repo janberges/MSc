@@ -18,7 +18,7 @@ para = {
 
     'cutoff': 15.0,
 
-    'dos': 'dos.in',
+    'dos': 'energy.dos',
     }
 
 print 'Calculating DOS..'
@@ -66,7 +66,7 @@ plot.ylabel = r'$T \sub c / \unit K$'
 for sgn in -1, +1:
     plot.line(sgn * mu, Tc, color='purple', thick=True)
 
-plot.save('../results/energy_tc.sl', external=True)
+plot.save('../results/energy-tc.sl', external=True)
 
 # energy shift:
 
@@ -80,7 +80,7 @@ for sgn in -1, +1:
     plot.line(sgn * mu, sgn * dmu, color='purple', thick=True)
     plot.line(sgn * mu, sgn * chi, color='teal',   thick=True)
 
-plot.save('../results/energy_shift.sl', external=True)
+plot.save('../results/energy-shift.sl', external=True)
 
 # density of states:
 
@@ -91,4 +91,4 @@ plot.ylabel = r'$n / \unit{eV^{-1}}$'
 
 plot.line(epsilon, dos, yref=0, color='teal', fill='teal!25')
 
-plot.save('../results/energy_dos.sl', external=True)
+plot.save('../results/energy-dos.sl', external=True)

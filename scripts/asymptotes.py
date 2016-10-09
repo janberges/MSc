@@ -8,7 +8,7 @@ kB = 8.61733e-5
 inf = 1e10
 
 settings = {
-    'file': 'lamda_inf.dat',
+    'file': 'asymptotes.dat',
     'rate': 0.5,
     'error': 1e-12,
     'cutoff': 15,
@@ -44,7 +44,7 @@ l = np.array([0, lmax])
 plot.line(l, l / 3, color=color[1], thick=True, label=label[1])
 plot.line(l, 0 * l, color=color[2], thick=True, label=label[2])
 
-plot.save('../results/lamda_inf.sl')
+plot.save('../results/asymptotes-1.sl')
 
 upper = 4.0
 
@@ -84,5 +84,5 @@ for l in [0.5, 1.0, 1.5]:
 for c, l in zip(color, label):
     plot.line(color=c, thick=True, label=l)
 
-plot.save('../results/lamda_inf_hyperbola.sl')
+plot.save('../results/asymptotes-2.sl')
 plot.clear()

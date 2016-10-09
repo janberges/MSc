@@ -26,9 +26,9 @@ upper = 4.0
 scatter = dict(mark='*', only_marks=True, omit=False)
 
 plots = [
-    ('inter_inter.sl', [(0.5, 0.0, 0.0), (1.0, 0.0, 0.0), (1.5, 0.0, 0.0)]),
-    ('inter_intra.sl', [(1.0, 0.0, 0.0), (1.0,  10,  10), (1.0, 100, 100)]),
-    ('inter_askew.sl', [(1.0, 2.0, 0.0), (1.0, 1.0, 1.0), (1.0, 0.0, 2.0)]),
+    ('inter-inter.sl', [(0.5, 0.0, 0.0), (1.0, 0.0, 0.0), (1.5, 0.0, 0.0)]),
+    ('inter-intra.sl', [(1.0, 0.0, 0.0), (1.0,  10,  10), (1.0, 100, 100)]),
+    ('inter-askew.sl', [(1.0, 2.0, 0.0), (1.0, 1.0, 1.0), (1.0, 0.0, 2.0)]),
     ]
 
 plot = storylines.Plot(7, 7, right=0.5, xmin=0, ymin=0, xstep=1, ystep=1)

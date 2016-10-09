@@ -45,7 +45,7 @@ for epsilon in np.linspace(-4 * t, 4 * t, 11):
     plot.line(-kx,  ky, epsilon, thick=True)
     plot.line(-kx, -ky, epsilon, thick=True)
 
-plot.save('../results/square_lattice_dispersion.sl')
+plot.save('../results/square-lattice-dispersion.sl')
 
 epsilon, dos = ebmb.square_dos(resolution=2001, t=1)
 
@@ -57,5 +57,5 @@ plot.ylabel = r'$n(\epsilon) / t^{-1}$'
 plot.line(epsilon, dos, yref=0,
     fill='orange!30', color='gray', line_join='round')
 
-plot.save('../results/square_lattice_dos.sl', external=True)
+plot.save('../results/square-lattice-dos.sl', external=True)
 plot.clear()

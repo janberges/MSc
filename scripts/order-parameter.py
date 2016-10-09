@@ -5,7 +5,7 @@ import storylines
 import numpy as np
 
 para = {
-    'file': 'order_parameter.dat',
+    'file': 'order-parameter.dat',
     'tell': False,
 
     'error': 0.0001,
@@ -16,7 +16,7 @@ para = {
 
     'cutoff': 15.0,
 
-    'dos': 'dos.in',
+    'dos': 'order-parameter.dos',
     'n': 0.5,
 
     'measurable': True,
@@ -74,4 +74,4 @@ plot.line(T[:Nc + 1], measurable__gap[:Nc + 1], thick=True, color='blue',
 plot.line(T[:Nc + 1], order_parameter[:Nc + 1], thick=True, color='black',
     label=r'$\Delta(\I \omega_0)$')
 
-plot.save('../results/order_parameter.sl', external=True)
+plot.save('../results/order-parameter.sl', external=True)
