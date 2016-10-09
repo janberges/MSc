@@ -47,22 +47,22 @@ the context of solving the \name{Eliashberg} equations.
 
 \subsection{global.f90}
 
-This module provides the information which is used globally. This includes the
-desired accuracy of floating-point numbers, mathematical and physical constants
-as well as container data types which are used to pass around parameters and
-results without the need for endless argument list at functions calls or, more
-troublesome, global variables. Additionally, a operator is defined which
-compares floating point numbers for approximate equality. It decides, for
-example, whether numerical self-consistency has been reached or an iteration has
-to continue. In all calculations performed, the default value of $10^{-15}$ of a
-negligible float difference has been chosen.
+The following module provides information which must be globally accessible.
+This includes the desired accuracy of floating-point numbers, mathematical and
+physical constants as well as container data types which are used to pass around
+parameters and results without the need for endless argument list at functions
+calls or, more troublesome, global variables. Additionally, a operator is
+defined which compares floating point numbers for approximate equality. It
+decides, for example, whether numerical self-consistency has been reached or an
+iteration has to continue. In all calculations performed, the default negligible
+float difference $10^{-15}$ has been chosen.
 
 \lstinputlisting[language=f90]{\path/universal/global.f90}
 
 \subsection{eigenvalues.f90}
 
 When testing for superconductivity via the linearized \name{Eliashberg}
-equations the quantity of interest is the greatest eigenvalue of the kernel
+equations, the quantity of interest is the greatest eigenvalue of the kernel
 given e.g. in Eq.~\ref{CDOS linearized gap equation}, which is a non-symmetric
 matrix with real eigenvalues. It is determined either using the corresponding
 routine from the well-established linear-algebra package \emph{LAPACK}
@@ -98,9 +98,9 @@ each serve a very specific purpose and may be used in a variety of occasions.
         \cite[Eqs.~1.1, 1.2]{Wolkowicz80}.
     %
     \item \code{differential(x, dx)}
-        calculates a list of weights oder \q{differentials} \code{dx} from a
-        list of sample points \code x to be used for numerical integration using
-        the trapezoidal rule.
+        calculates a list of weights or \q{differentials} \code{dx} from a list
+        of sample points \code x to be used for numerical integration with the
+        trapezoidal rule.
     %
     \item \code{interval(x, a, b, lower, upper)}
         discretizes the interval from \code a to \code b (returned as \code x),
@@ -108,7 +108,7 @@ each serve a very specific purpose and may be used in a variety of occasions.
         included.
     %
     \item \code{matches(str, char)}
-        counts the occurrences of a character in a string string.
+        counts the occurrences of a character in a string.
 \end{itemize}
 
 \lstinputlisting[language=f90]{\path/universal/tools.f90}
@@ -124,10 +124,10 @@ this issue a little more comfortable.
 
 \section{\name{Eliashberg} solvers}
 
-In this section four modules are presented which constitute the \emph{physical
-core} of the software, namely the solvers for the multi-band \name{Eliashberg}
-equations. They are subdivided on the one hand into solvers for the self-energy
-on the imaginary axis and the maximum eigenvalue of the kernel of the linearized
+In this section four modules are presented which constitute the physical core of
+the software, namely the solvers for the multi-band \name{Eliashberg} equations.
+They are subdivided on the one hand into solvers for the self-energy on the
+imaginary axis or for the maximum eigenvalue of the kernel of the linearized
 equations and on the other hand according to whether the density of states is
 taken into account or not.
 
@@ -149,16 +149,16 @@ at the end of the process.
 \subsection{self\_energy\_cdos.f90}
 
 Just as the preceding one, this module calculates the self-energy, but within
-the CDOS approximation according to Eq.~\ref{CDOS Eliashberg equations}. The
-\name{Coulomb} pseudo-potential is rescaled following Eq.~\ref{CDOS rescaled
-Coulomb pseudo-potential}.
+the CDOS approximation defined in Eq.~\ref{CDOS Eliashberg equations}.
+Accordingly, the \name{Coulomb} pseudo-potential is rescaled following
+Eq.~\ref{CDOS rescaled Coulomb pseudo-potential}.
 
 \lstinputlisting[language=f90]{\path/eliashberg/self_energy_cdos.f90}
 
 \subsection{eigenvalue.f90}
 
 This module determines the maximum eigenvalue of the \name{Eliashberg} kernel
-which takes the density of state into account. Since the kernel, defined in
+which takes the density of states into account. Since the kernel, defined in
 Eq.~\ref{linearized gap equation}, is returned by the self-energy solver
 presented in Section~\ref{self_energy.f90}, all that has to be done is call the
 eigenvalue solvers and optionally cache the eigenvector to be reused as initial
@@ -168,7 +168,7 @@ guess if the number of \name{Matsubara} frequencies remains constant.
 
 \subsection{eigenvalue\_cods.f90}
 
-Again, the same procedure as the preceding one is implemented within the CDOS
+Again, a procedure analogous to the preceding one is reimplemented for the CDOS
 approximation, Eq.~\ref{CDOS linearized gap equation}. In this case, however, an
 exact analytic expression for the renormalization is known which saves the
 expenses of calling the self-energy solver. For convenience, not only the
@@ -191,13 +191,13 @@ This is the actual implementation of the algorithm given in Section~\ref{Pade
 approximants}. Since there is no interest in the intermediate approximants, the
 backward-recurrence method is used. For each set of values on the imaginary
 axis, the coefficients are calculated only once; thereafter arbitrary real-axis
-values can be requested until the module is reinitialized with new data set.
+values can be requested until the module is reinitialized with a new data set.
 
 \lstinputlisting[language=f90]{\path/real_axis/pade.f90}
 
 \subsection{real\_axis.f90}
 
-This subroutine applies to above algorithm to the previously calculated
+This subroutine applies the above algorithm to the previously calculated
 self-energy. It may calculate both the measurable gap defined in
 Eq.~\ref{measurable gap} via a fixed-point iteration and the real-axis
 self-energy on an equidistantly discretized interval.
@@ -206,14 +206,15 @@ self-energy on an equidistantly discretized interval.
 
 \section{I/O}
 
-Subsequently, the input and output routines are presented. As states at the
+Subsequently, the input and output routines are presented. As stated at the
 beginning of the chapter, the input is always via the command-line, whereas the
-output is be directed towards either the standard output or disk.
+output is directed towards either the standard output or disk.
 
 \subsection{load.f90}
 
 This module is responsible for loading the command-line arguments, initializing
-the coupling matrices and reading the density of states from a given file.
+the coupling matrices and, possibly, reading the density of states from a given
+file.
 
 \lstinputlisting[language=f90]{\path/io/load.f90}
 
@@ -252,7 +253,7 @@ they are used, namely \code{ebmb}, \code{critical} and \code{tc}.
 
 The workflow of \code{ebmb} is simple: Load the parameters, call the desired
 self-energy solver, optionally continue the results to the real axis and output
-them via the desired channel.
+them via the desired channels.
 
 \lstinputlisting[language=f90]{\path/programs/ebmb.f90}
 
@@ -326,9 +327,9 @@ of the full self-energy at each step of the iteration, the use of
 
 \section{User manual}
 
-On the following pages, the user manual of the software package is displayed.
+On the following pages, the user manual for the software package is displayed.
 
-\foreach \page in {1, 2, 3} {
+\foreach \page in {1, ..., 5} {
     \begin{figure}
         \includegraphics[page=\page, width=\textwidth, trim=35mm 35mm 35mm 35mm]
             {\path/manual/ebmb.pdf}
