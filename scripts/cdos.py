@@ -30,5 +30,5 @@ for i, omega in enumerate([1.0, 0.1], 1):
     plot.line(epsilon,      exact, fill='red',      **style)
     plot.line(epsilon_cdos, about, fill='yellow',   **style)
 
-    plot.save('cdos%d.sl' % i, external=True)
+    plot.save('../results/cdos%d.sl' % i, external=True)
     plot.clear()

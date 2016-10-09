@@ -74,4 +74,4 @@ plot.line(T[:Nc + 1], measurable__gap[:Nc + 1], thick=True, color='blue',
 plot.line(T[:Nc + 1], order_parameter[:Nc + 1], thick=True, color='black',
     label=r'$\Delta(\I \omega_0)$')
 
-plot.save('order_parameter.sl', external=True)
+plot.save('../results/order_parameter.sl', external=True)

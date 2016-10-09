@@ -44,7 +44,7 @@ l = np.array([0, lmax])
 plot.line(l, l / 3, color=color[1], thick=True, label=label[1])
 plot.line(l, 0 * l, color=color[2], thick=True, label=label[2])
 
-plot.save('lamda_inf.sl')
+plot.save('../results/lamda_inf.sl')
 
 upper = 4.0
 
@@ -84,5 +84,5 @@ for l in [0.5, 1.0, 1.5]:
 for c, l in zip(color, label):
     plot.line(color=c, thick=True, label=l)
 
-plot.save('lamda_inf_hyperbola.sl')
+plot.save('../results/lamda_inf_hyperbola.sl')
 plot.clear()

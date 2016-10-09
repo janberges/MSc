@@ -87,7 +87,7 @@ while True:
         plot.xspacing = 1.5 if key == 'omegaE' else 1.0
         plot.corner   = 1   if key == 'muStar' else 4
 
-        plot.save('tc_' + key + extra + '.sl', external=True)
+        plot.save('../results/tc_' + key + extra + '.sl', external=True)
         plot.clear()
 
     if extra:

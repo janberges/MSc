@@ -47,4 +47,4 @@ for i, (frequency, color) in enumerate(zip(frequencies, ['blue', 'red'])):
     plot.line(log_resolutions, Tc[i, :], omit=False, mark='*', only_marks=True,
         color=color, label='%.0f' % (1e3 * frequency))
 
-plot.save('integration_points.sl', external=True)
+plot.save('../results/integration_points.sl', external=True)

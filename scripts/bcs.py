@@ -44,4 +44,4 @@ for v in V:
 
     plot.line(T[:i + 1], 1000 * Delta[:i + 1], v, thick=True)
 
-plot.save('bcs.sl')
+plot.save('../results/bcs.sl')

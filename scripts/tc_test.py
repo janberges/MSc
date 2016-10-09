@@ -69,17 +69,17 @@ plot.ylabel = r'$\widetilde T \sub c / \unit K$'
 plot.line(lim, lim, **line)
 plot.line(Tc, Tc1, color='cyan', **scatter)
 
-plot.save('tc_cutoff-independent.sl', external=True)
+plot.save('../results/tc_cutoff-independent.sl', external=True)
 
 plot.clear()
 
 plot.line(lim, lim, **line)
 plot.line(Tc, Tc2, color='magenta', **scatter)
 
-plot.save('tc_non-renormalized.sl', external=True)
+plot.save('../results/tc_non-renormalized.sl', external=True)
 
-with open('error1.dat', 'w') as dat:
+with open('../results/error1.dat', 'w') as dat:
     dat.write('%.1f%%\n' % (sum(abs(Tc - Tc1)) / size))
 
-with open('error2.dat', 'w') as dat:
+with open('../results/error2.dat', 'w') as dat:
     dat.write('%.1f%%\n' % (sum(abs(Tc - Tc2)) / size))

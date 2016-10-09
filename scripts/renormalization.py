@@ -56,7 +56,7 @@ iomega = 1j * np.linspace(-3 * omegaE, 15 * omegaE, 1001)
 
 plot.line(iomega.imag / omegaE, Z(iomega).real, line_width='2.5pt')
 
-plot.save('imaginary-axis.sl')
+plot.save('../results/imaginary-axis.sl')
 
 
 plot = storylines.Plot(7, 5, lower='red', upper='yellow', line_join='round')
@@ -83,4 +83,4 @@ for n in plot.zticks:
 plot.line(line_width='1pt', dotted=False, label='Re')
 plot.line(line_width='1pt', dotted=True,  label='Im')
 
-plot.save('real-axis.sl', external=True)
+plot.save('../results/real-axis.sl', external=True)

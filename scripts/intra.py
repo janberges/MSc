@@ -75,5 +75,5 @@ for filename, lamda in plots:
         plot.line(mark='*', color=c,
             label=math(', '.join('%g' % x for x in [l, l12, l21])))
 
-    plot.save(filename, external=True)
+    plot.save('../results/' + filename, external=True)
     plot.clear()

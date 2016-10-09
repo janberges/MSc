@@ -71,7 +71,7 @@ for key, plot.ylabel in [
             plot.line(sgn * results['iomega'][n], results[key][n], results['T'],
                 mark='*', mark_size='0.8pt', only_marks=True, omit=False)
 
-    plot.save('%s(iomega).sl' % key, external=True)
+    plot.save('../results/%s(iomega).sl' % key, external=True)
     plot.clear()
 
 for key, plot.ylabel in [
@@ -87,5 +87,5 @@ for key, plot.ylabel in [
             plot.line(results['omega'], results['%s[%s]' % (label, key)],
                 results['T'], thick=True, style=style)
 
-    plot.save('%s(omega).sl' % key, external=True)
+    plot.save('../results/%s(omega).sl' % key, external=True)
     plot.clear()

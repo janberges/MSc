@@ -60,5 +60,5 @@ for key, plot.xlabel in [
     for results in data:
         plot.line(results[key], results['iomega'], results['cutoff'])
 
-    plot.save('%s_N(iomega).sl' % key, external=True)
+    plot.save('../results/%s_N(iomega).sl' % key, external=True)
     plot.clear()

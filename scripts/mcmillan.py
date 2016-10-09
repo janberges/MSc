@@ -145,7 +145,7 @@ for i, l in enumerate(lamda):
         Tc[i, j] = ebmb.get('critical', file='mcmillan.dat',
             lamda=l, muStar=m, error=0.001, omegaE=0.02)
 
-with open('mcmillan.dat', 'w') as table:
+with open('../results/mcmillan.dat', 'w') as table:
     table.write(r'''\begin{tabular}{*7r}
     \begin{tikzpicture}
         \useasboundingbox (0, 0) rectangle (0.5, 0.5);
@@ -199,8 +199,8 @@ plot2.line(x, y, color='red', **scatter)
 
 # save figures:
 
-plot1.save('mcmillan_1st.sl', external=True)
-plot2.save('mcmillan_2nd.sl', external=True)
+plot1.save('../results/mcmillan_1st.sl', external=True)
+plot2.save('../results/mcmillan_2nd.sl', external=True)
 
 # print results:
 

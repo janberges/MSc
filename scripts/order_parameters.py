@@ -42,5 +42,5 @@ for filename, plot.width, plot.height, plot.xstep, lamda in (
         plot.line(label='1st band', thick=True)
         plot.line(label='2nd band', thick=True, dashed=True)
 
-    plot.save(filename, external=True)
+    plot.save('../results/' + filename, external=True)
     plot.clear()
