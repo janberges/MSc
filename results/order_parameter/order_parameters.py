@@ -22,9 +22,9 @@ plot.ylabel = r'$\Delta(\mathrm i \omega_0) / \unit{meV}$'
 plot.zlabel = r'$\log_{10} x$'
 
 for filename, plot.width, plot.height, plot.xstep, lamda in (
-    ('connect.sl',      14, 7.0,  5, lambda x: [[1, 10 ** x], [10 ** x, 2]]),
-    ('connect_back.sl',  7, 6.5, 10, lambda x: [[1,       0], [10 ** x, 2]]),
-    ('connect_forth.sl', 7, 6.5, 10, lambda x: [[1, 10 ** x], [0,       2]]),
+    ('connect.sl',      14, 7,  5, lambda x: [[1, 10 ** x], [10 ** x, 2]]),
+    ('connect_back.sl',  7, 6, 10, lambda x: [[1,       0], [10 ** x, 2]]),
+    ('connect_forth.sl', 7, 6, 10, lambda x: [[1, 10 ** x], [0,       2]]),
     ):
 
     for i, x in enumerate(X):
