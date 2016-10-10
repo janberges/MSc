@@ -10,11 +10,11 @@ being suitable order parameters for the superconducting state.
 
 To that end it is convenient to combine the \name{Green} functions of interest
 into a $2 \times 2$ matrix, i.e. to use the \name{Nambu} formalism, which is
-presented in the first section. With that, the general form of the
-\name{Eliashberg} equations on the imaginary frequency axis is derived, followed
-by two common approximations which assume (1) a local self-energy and (2) a
-constant density of states. Next, it is shown how the corresponding real-axis
-equations can be obtained through analytic continuation. On this basis
+presented in the first section.\footnotemark{} With that, the general form of
+the \name{Eliashberg} equations on the imaginary frequency axis is derived,
+followed by two common approximations which assume (1) a local self-energy and
+(2) a constant density of states. Next, it is shown how the corresponding
+real-axis equations can be obtained through analytic continuation. On this basis
 \name{McMillan}'s formula for the critical temperature is derived, whereby the
 \name{Coulomb} pseudo-potential is introduced. This requires a more detailed
 discussion of rescaling of the \name{Coulomb} interaction, leading to results
@@ -37,7 +37,8 @@ equation. Diagrammatically, within the GW approximation and without
     \input{diagrams/nambu-dyson.tex}
 \end{equation*}
 %
-and formally, where quantum numbers and frequency arguments are suppressed,
+and formally, where quantum numbers and frequency arguments have been
+suppressed,
 %
 \begin{equation} \label{Nambu-Dyson equation}
     \begin{split}
@@ -99,6 +100,9 @@ necessarily conserved, but this becomes insignificant in the macroscopic limit
 temperature which allows the off-diagonal components to be non-zero
 \cite[37]{AllenMitrovic82}.
 
+\footnotetext{These derivations are guided by Section~3.2 of
+Ref.~\barecite{Galasso05} and Section~II of Ref.~\barecite{MargineGiustino13}.}
+%
 Giving names to the involved matrices, the \name{Dyson} equation may be written
 as $\vec G = \vec G_0 + \vec G_0 \vec \Sigma \vec G$ or $\vec G^{-1} = \vec
 G_0^{-1} - \vec \Sigma$, using inverse matrices. With the help of the
@@ -246,8 +250,8 @@ the zeros of $\Theta_{\vec k}(n)$, which satisfy
 %
 This identifies $Z_{\vec k}(\I \omega_n)$ as a renormalization function,
 $\chi_{\vec k}(\I \omega_n)$ as an energy shift and $\phi^{(\prime)}_{\vec k}(\I
-\omega_n)$ as a suitable order parameter, since the energy gap of the
-superconducting state turns out to be
+\omega_n)$ as an order parameter for the superconducting state just like the
+energy gap which turns out to be
 %
 \begin{align*}
     \Delta_{\vec k}(\I \omega_n) = \frac
@@ -353,7 +357,7 @@ identical equations and enter the common denominator $\Theta_{\vec q}(\I
 to set $\phi'_{\vec k}(\I \omega_n) = 0$ \cites[37]{AllenMitrovic82}[around
 Eq.~2.20]{Nambu60}.
 
-Using the definitions \cite{MargineGiustino13}
+Using the definitions
 %
 \begin{equation} \label{coupling strengths}
     \mu \sub C = n(\mu_0) \, U,
@@ -1106,7 +1110,7 @@ circumvents this.%
 %
 \footnote{Similar derivations are given by \name{Schrieffer}
 \cite[185-188]{Schrieffer83} and \name{Allen} and \name{Mitrovi\'{c}}
-\cite[Section~9]{AllenMitrovic82}}
+\cite[Section~9]{AllenMitrovic82}.}
 
 \subsection{Introduction of cutoff frequency}
 \label{introduction of cutoff frequency}
@@ -1118,7 +1122,7 @@ consider the \name{Eliashberg} equation for $\phi \sub{el.}$,
     \phi \sub{el.} = -2 \mu \sub C T \sum_{m = 0}^\infty
     \int \from{-\infty} \till \infty \D \epsilon
     \frac{N(\epsilon)}{N(\mu_0)}
-    \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)},
+    \frac{\phi(\I \omega_m)}{\Theta(\epsilon, m)}.
 \end{equation}
 %
 As will be seen from the results presented in Fig.~\ref{imaginary- and real-axis
@@ -1252,7 +1256,7 @@ By means of substitution and partial integration one can further evaluate
 %
 Since the hyperbolic cosine growths exponentially with the magnitude of its
 arguments while the arc tangent approaches $\pi / 2$, for the reasonable
-assumption $D \gg \omega_N$ one finds
+assumption that $D \gg \omega_N$ one finds
 %
 \begin{equation} \label{rectangular-DOS mu*}
 R(N) = \hyper{\frac{\arctan \tfrac D {\omega_N}}{\pi / 2}}{\approx 1}
@@ -1290,7 +1294,7 @@ out in Section~\ref{introduction of cutoff frequency} directly to the CDOS
 \name{Eliashberg} equation
 %
 \begin{equation} \label{approximate constant Coulomb contribution}
-    \phi \sub{el.} = -2 \mu^*(M) \pi T \sum_{m = 0}^{N - 1}
+    \phi \sub{el.} = -2 \mu^*(M) \pi T \sum_{m = 0}^{M - 1}
     \frac
         {\phi(\I \omega_m)}
         {\sqrt{[\omega_m Z(\I \omega_m)]^2 + \phi^2(\I \omega_m)}},
@@ -1329,7 +1333,7 @@ As above, one can further simplify
     2 \pi T \sum_{m = N}^{M - 1} |\omega_m|^{-1}
     = \sum_{m = N}^{M - 1} \frac 1 {m + \frac 1 2}
     = \psi(M + \tfrac 1 2) - \psi(N + \tfrac 1 2)
-    \approx \log \frac{N + \frac 1 2}{N + \frac 1 2}
+    \approx \log \frac{M + \frac 1 2}{N + \frac 1 2}
     = \ln \frac{\omega_M}{\omega_N},
 \end{equation*}
 %
@@ -1451,9 +1455,9 @@ corresponding free-particle expression:
     \Bigg],
 \end{equation*}
 %
-where the intermediate results from Section \ref{introduction of cutoff
-frequency} have been used. Solving this equation for the left appearance of
-$\mu$ yields a manageable fixed-point equation, namely
+where the intermediate result from Section~\ref{introduction of cutoff
+frequency} has been used. Solving this equation for the left appearance of $\mu$
+yields a manageable fixed-point equation, namely
 %
 \begin{equation} \label{fixed point interacting}
     \mu \approx \frac
@@ -1523,7 +1527,7 @@ The common denominator and the electron-phonon coupling matrices are defined as
 \begin{align*}
     \Theta_i(\epsilon, n) &= [\omega_n Z_i(\I \omega_n)]^2
     + \phi_i^2(\I \omega_n) + [\epsilon - \mu + \chi_i(\I \omega_n)]^2,
-    \\g
+    \\
     \Lambda_{i j}^\pm(n, m)
     &= \lambda_{i j}(n - m) \pm \lambda_{i j}(n + m + 1).
 \end{align*}
@@ -1745,13 +1749,13 @@ kernel reduces to
 %
 Assuming further that the matrices $\vec \lambda$ and $\vec \mu^*(N)$ describing
 the intra- and inter-band electron-phonon coupling strengths and rescaled
-\name{Coulomb} pseudo-potentials are proportional, i.e. $\lambda_{i j} = c \,
-\mu^*_{i j}(N)$ with $c \ge 0$, one finds the quotient $Q(n, m) \equiv K_{i
-j}(n, m) / \lambda_{i j}$ to be independent of band indices. For the
-corresponding matrices it follows that
+\name{Coulomb} pseudo-potentials are proportional, i.e. $\mu^*_{i j}(N) = c \,
+\lambda_{i j}$ with $c \ge 0$, one can write $K_{i j}(n, m) = \lambda_{i j} Q(n,
+m)$ with $Q(n, m)$ independent of band indices. This is nothing but a direct
+matrix product:
 %
 \begin{equation*}
-    \vec K = \vec Q \otimes \vec \lambda.
+    \vec K = \vec \lambda \otimes \vec Q.
 \end{equation*}
 %
 Hence, applying Eq.~\ref{eigenvalues direct product}, the largest eigenvalue of
