@@ -47,7 +47,7 @@ for epsilon in np.linspace(-4 * t, 4 * t, 11):
 
 plot.save('../results/square-lattice-dispersion.sl', external=True)
 
-epsilon, dos = ebmb.square_dos(resolution=2001, t=1)
+epsilon, dos = ebmb.square_dos('square-lattice.dos', resolution=2001, t=1)
 
 plot = storylines.Plot(4.666, 4.166, right=0.5, ymin=0.0, xmin=-4.5, xmax=4.5)
 

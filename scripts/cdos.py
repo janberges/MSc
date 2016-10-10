@@ -7,7 +7,7 @@ import numpy as np
 def lorentz(x, s):
     return s / (s ** 2 + x ** 2) / np.pi
 
-epsilon, dos = ebmb.square_dos(resolution=2001, t=1)
+epsilon, dos = ebmb.square_dos('cdos.dos', resolution=2001, t=1)
 epsilon_cdos = np.linspace(-6, 6, 3001)
 
 mu = -2.0
