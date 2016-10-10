@@ -251,7 +251,7 @@ they are used, namely \code{ebmb}, \code{critical} and \code{tc}.
 
 \subsection{ebmb.f90}
 
-The workflow of \code{ebmb} is simple: Load the parameters, call the desired
+The workflow of \code{ebmb} is simple: load the parameters, call the desired
 self-energy solver, optionally continue the results to the real axis and output
 them via the desired channels.
 
@@ -296,7 +296,7 @@ ________________________________________________________________________________
 
 \code{critical} does not only call the appropriate \name{Eliashberg} eigenvalue
 solver but also performs individual tasks, namely the identification of the
-variable parameter and its optimization via a bisection method.
+variable parameter and its optimization via the bisection method.
 
 \lstinputlisting[language=f90]{\path/programs/critical.f90}
 
@@ -319,8 +319,8 @@ In a second step one could determine an effective scalar coupling constant:
 \subsection{tc.f90}
 
 Finally, a program is presented which determines the critical temperatures for
-all bands separately via a bisection method. Since this requires the calculation
-of the full self-energy at each step of the iteration, the use of
+all bands separately via the bisection method. Since this requires the
+calculation of the full self-energy at each step of the iteration, the use of
 \code{critical} should be preferred, if possible.
 
 \lstinputlisting[language=f90]{\path/programs/tc.f90}
