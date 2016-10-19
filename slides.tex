@@ -1,0 +1,94 @@
+% !TEX TS-options = -shell-escape
+
+\documentclass{beamer}
+
+\mode<presentation>
+
+\usetheme[width=2cm]{Goettingen}
+
+\input{preamble/packages}
+\input{preamble/settings}
+\input{preamble/definitions}
+
+\definecolor{titleblue}{rgb}{0.2, 0.2, 0.7}
+
+\setbeamerfont     {title}{series=\bfseries}
+\setbeamerfont  {subtitle}{series=\normalfont}
+\setbeamerfont{frametitle}{series=\bfseries}
+
+\setbeamerfont{caption}{size=\scriptsize}
+
+\setbeamercolor     {title in sidebar}{fg=white}
+\setbeamercolor    {author in sidebar}{fg=white}
+\setbeamercolor   {section in sidebar}{fg=white, bg=titleblue!75}
+\setbeamercolor{subsection in sidebar}{fg=white, bg=titleblue!75}
+
+\setbeamercolor   {section in sidebar shaded}{fg=titleblue!25}
+\setbeamercolor{subsection in sidebar shaded}{fg=titleblue!25}
+
+\setbeamerfont     {title in sidebar}{series=\bfseries}
+\setbeamerfont   {section in sidebar}{series=\bfseries}
+\setbeamerfont{subsection in sidebar}{size=\tiny}
+
+\setbeamerfont{section in toc}{series=\bfseries}
+
+\setbeamertemplate{sidebar canvas right}
+    {\hspace{-21mm}\input{results/sidebar.sl}}
+
+\title[%
+    \hspace{-5mm} On the scope of \\
+    \hspace{-5mm} \name{McMillan}'s formula%
+    ]
+    {On the scope of \name{McMillan}'s formula}
+
+\subtitle{\medskip \bfseries \footnotesize Presentation of master's thesis}
+
+\AtBeginDocument{
+    \author[\hspace{-5mm} Jan Berges]{%
+        \scriptsize
+        \begin{tabular}{r l}
+            \it by
+                & Jan Berges \\[2mm]
+            \it Supervisors
+                & Prof. Dr. Tim Wehling \\
+                & Prof. Dr. Gerd Czycholl
+        \end{tabular}%
+        }
+    }
+
+\institute{%
+    \raisebox{-0.5\height}{\includegraphics[height=5mm]{figures/uni.pdf}} \quad
+    \raisebox{-0.5\height}{\includegraphics[height=8mm]{figures/itp.pdf}}%
+    }
+
+\date{\scriptsize \today}
+
+\begin{document}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\section*{Contents}
+
+	\begin{frame}{Contents}
+		\tableofcontents
+	\end{frame}
+
+	\section{Motivation}
+
+	\begin{frame}{Motivation}
+	\end{frame}
+
+	\section{Conclusion}
+
+	\begin{frame}{Conclusion}
+	\end{frame}
+
+	\section{References}
+
+	\begin{frame}
+		\frametitle{References}
+
+        \printbibliography
+	\end{frame}
+\end{document}

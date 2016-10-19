@@ -1,8 +1,11 @@
 % !TEX root = ../thesis.tex
 
+\makeatletter
+
 % GENERAL
 
-\usepackage[margin=3cm, bindingoffset=1cm]{geometry}
+\@ifclassloaded{beamer}{}
+    {\usepackage[margin=3cm, bindingoffset=1cm]{geometry}}
 
 \usepackage[utf8]{inputenc}
 
@@ -15,7 +18,9 @@
 
 \usepackage{microtype, slantsc}
 
-\usepackage[font=small, labelfont=bf]{caption, subcaption}
+\@ifclassloaded{beamer}
+    {\usepackage[font=small, labelfont=bf]{caption}}
+    {\usepackage[font=small, labelfont=bf]{caption, subcaption}}
 
 % MATH
 
@@ -112,7 +117,8 @@
 
 \usepackage{fancyhdr}
 
-\pagestyle{fancy}
+\@ifclassloaded{beamer}{}
+    {\pagestyle{fancy}}
 
 \fancyhf{}
 
@@ -221,6 +227,9 @@
 
 \definecolor{linkcolor}{rgb}{0.5, 0, 0}
 
-\usepackage[colorlinks, allcolors=linkcolor]{hyperref} % ocgcolorlinks
+\@ifclassloaded{beamer}{}
+    {\usepackage[colorlinks, allcolors=linkcolor]{hyperref}} % ocgcolorlinks
 
 \pdfstringdefDisableCommands{\let\name\relax}
+
+\makeatother

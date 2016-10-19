@@ -119,6 +119,7 @@ class Plot():
         self.tick = 0.07
         self.tip = 0.1
 
+        self.axes = True
         self.outline = False
 
         self.lines = []
@@ -134,8 +135,8 @@ class Plot():
             else:
                 self.options[name] = value
 
-    def line(self, x=[], y=[], z=None, label=None, omit=True, yref=None,
-        **options):
+    def line(self, x=[], y=[], z=None, label=None, omit=True,
+        xref=None, yref=None, **options):
 
         self.lines.append(locals())
 
@@ -248,12 +249,15 @@ class Plot():
                 if len(line['x']) and len(line['y']):
                     file.write('\n\t\\draw [%s] plot coordinates {' % options)
 
-                    if line['yref'] is not None:
-                        for x in 'x', 'y':
-                            line[x] = list(line[x])
+                    for x, y in ('x', 'y'), ('y', 'x'):
+                        xref = line[x + 'ref']
 
-                        line['x'] =  line['x'][:1] + line['x'] +  line['x'][-1:]
-                        line['y'] = [line['yref']] + line['y'] + [line['yref']]
+                        if xref is not None:
+                            line[x] = list(line[x])
+                            line[y] = list(line[y])
+
+                            line[x] =      [xref] + line[x] + [xref]
+                            line[y] = line[y][:1] + line[y] + line[y][-1:]
 
                     points = zip(*[[scale[x] * (n - lower[x])
                         for n in line[x]] for x in 'x', 'y'])
@@ -267,42 +271,43 @@ class Plot():
 
                     file.write(' };')
 
-            # paint colorbar
+            if self.axes:
+                # paint colorbar
 
-            if colorbar:
-                file.write('\n\t\\shade [bottom color=%s, top color=%s]'
-                    % (self.lower, self.upper))
+                if colorbar:
+                    file.write('\n\t\\shade [bottom color=%s, top color=%s]'
+                        % (self.lower, self.upper))
 
-                file.write('\n\t\t(%.3f, 0) rectangle (%.3f, %.3f);'
-                    % (extent['x'], extent['x'] + self.tip, extent['z']))
+                    file.write('\n\t\t(%.3f, 0) rectangle (%.3f, %.3f);'
+                        % (extent['x'], extent['x'] + self.tip, extent['z']))
 
-            # draw tick marks and labels
+                # draw tick marks and labels
 
-            file.write('\n\t\\draw [line cap=butt]')
+                file.write('\n\t\\draw [line cap=butt]')
 
-            for x, label in ticks['x']:
-                file.write('\n\t\t(%.3f, 0) -- +(0, %.3f) '
-                    'node [below] {%s}' % (x, -self.tick, label))
+                for x, label in ticks['x']:
+                    file.write('\n\t\t(%.3f, 0) -- +(0, %.3f) '
+                        'node [below] {%s}' % (x, -self.tick, label))
 
-            for y, label in ticks['y']:
-                file.write('\n\t\t(0, %.3f) -- +(%.3f, 0) '
-                    'node [rotate=90, above] {%s}' % (y, -self.tick, label))
+                for y, label in ticks['y']:
+                    file.write('\n\t\t(0, %.3f) -- +(%.3f, 0) '
+                        'node [rotate=90, above] {%s}' % (y, -self.tick, label))
 
-            file.write(';')
+                file.write(';')
 
-            if colorbar:
-                for z, label in ticks['z']:
-                    file.write('\n\t\\node '
-                        '[rotate=90, below] at (%.3f, %.3f) {%s};'
-                        % (extent['x'] + self.tip, z, label))
+                if colorbar:
+                    for z, label in ticks['z']:
+                        file.write('\n\t\\node '
+                            '[rotate=90, below] at (%.3f, %.3f) {%s};'
+                            % (extent['x'] + self.tip, z, label))
 
-            # draw coordinate axes
+                # draw coordinate axes
 
-            file.write('\n\t\\draw [%s, line cap=butt]'
-                % ('->' if colorbar else '<->'))
+                file.write('\n\t\\draw [%s, line cap=butt]'
+                    % ('->' if colorbar else '<->'))
 
-            file.write('\n\t\t(%.3f, 0) -- (0, 0) -- (0, %.3f);'
-                % (extent['x'] + self.tip, extent['y'] + self.tip))
+                file.write('\n\t\t(%.3f, 0) -- (0, 0) -- (0, %.3f);'
+                    % (extent['x'] + self.tip, extent['y'] + self.tip))
 
             # label coordinate axes
 
