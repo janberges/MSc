@@ -1,0 +1,26 @@
+% !TEX root = ../slides.tex
+%
+\tikzsetnextfilename{dyson-1}
+%
+\begin{tikzpicture}[scale=0.7]
+    \useasboundingbox (0, -0.7) rectangle (11, 1.4);
+
+    \foreach \r in {(2, 0.7), (4, 0.7)}
+        \draw [backward] \r -- +(1, 0);
+
+    \foreach \r in {(0, 0.7), (6, 0.7)}
+        \draw [backward, double] \r -- +(1, 0);
+
+    \draw [backward, double] (5, 0.7) arc (180:0:0.5);
+
+    \draw [phonon, double] (5, 0.7) -- +(1, 0);
+
+    \foreach \x in {5, 6}
+        \fill (\x, 0.7) circle (0.075);
+
+    \foreach \r in {(1.5, 0.7)} \node at \r {$=$};
+
+    \node at (3.5, 0.7) {$+$};
+
+    \useasboundingbox ([yshift=1mm] current bounding box.north east);
+\end{tikzpicture}%

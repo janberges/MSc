@@ -1,6 +1,6 @@
 % !TEX TS-options = -shell-escape
 
-\documentclass{beamer}
+\documentclass[10pt]{beamer}
 
 \mode<presentation>
 
@@ -10,13 +10,15 @@
 \input{preamble/settings}
 \input{preamble/definitions}
 
+\setbeamertemplate{caption}[numbered]
+
 \definecolor{titleblue}{rgb}{0.2, 0.2, 0.7}
+
+\usefonttheme{professionalfonts}
 
 \setbeamerfont     {title}{series=\bfseries}
 \setbeamerfont  {subtitle}{series=\normalfont}
 \setbeamerfont{frametitle}{series=\bfseries}
-
-\setbeamerfont{caption}{size=\scriptsize}
 
 \setbeamercolor     {title in sidebar}{fg=white}
 \setbeamercolor    {author in sidebar}{fg=white}
@@ -78,6 +80,460 @@
 
 	\begin{frame}{Motivation}
 	\end{frame}
+
+    \section{Many-body physics}
+
+    \subsection[El.-ph. interaction]{Electron-phonon interaction}
+
+	\begin{frame}{Electron-phonon interaction}
+        \begin{figure}
+            \small
+            \input{diagrams/hartree.tex}
+            \input{diagrams/fock.tex}
+            \input{diagrams/glasses.tex}
+            \input{diagrams/porthole.tex}
+            \caption{Electron renormalization processes with one phonon}
+        \end{figure}
+	\end{frame}
+
+    \subsection{\name{Hedin}'s equations}
+
+	\begin{frame}{\name{Hedin}'s equations}
+        \begin{gather*}
+            \input{diagrams/electron.tex} \\
+            \only<1>{\input{diagrams/self-energy.tex}}%
+            \only<2>{\input{diagrams/self-energy-gw.tex}} \\
+            \input{diagrams/phonon.tex} \hspace{14mm}
+            \input{diagrams/polarization.tex} \\[-7mm]
+            \only<1>{\input{diagrams/vertex-exact.tex}}%
+            \only<2>{\input{diagrams/vertex-gw.tex}%
+            \mathllap{\text{(GW\,/\,\name{Migdal})}}}
+        \end{gather*}
+	\end{frame}
+
+    \subsection[Superconductivity?]{What about superconductivity?}
+
+	\begin{frame}{What about superconductivity?}
+        \begin{itemize}
+            \item<2-> \name{Dyson} equation
+            %
+            \vspace{-3mm}
+            \begin{align*}
+                \only<-6>{\input{diagrams/dyson-1.tex}}%
+                \only<7>{\input{diagrams/dyson-2.tex}}%
+                \only<8>{\input{diagrams/dyson-3.tex}}
+            \end{align*}
+            %
+            \item<3-> \name{Green} functions
+            %
+            \begin{itemize}
+                \item<4-> electronic
+                %
+                \only<-7>{
+                    \begin{align*}
+                        \tikz [baseline=-2.5pt]
+                            \draw [backward, double] (0, 0) -- (0.7, 0);
+                        \quad &= \quad
+                        \mathrlap{ -\av{ \op T \,
+                            \op c_{\vec k \up}(\tau) \,
+                            \op c_{\vec k \up}^+ } }
+                        \hspace{6cm}
+                        \\
+                        \tikz [baseline=-2.5pt]
+                            \draw [backward] (0, 0) -- (0.7, 0);
+                        \quad &= \quad
+                        -\av{ \op T \,
+                            \op c_{\vec k \up}(\tau) \,
+                            \op c_{\vec k \up}^+ }_0
+                    \end{align*}
+                    }
+                %
+                \only<8>{
+                    \begin{align*}
+                        \tikz [baseline=-2.5pt]
+                            \draw [forward, double] (0, 0) -- (0.7, 0);
+                        \quad &= \quad
+                        \mathrlap{ -\av{ \op T \,
+                            \op c_{-\vec k \down}^+(\tau) \,
+                            \op c_{-\vec k \down} } }
+                        \hspace{6cm}
+                        \\
+                        \tikz [baseline=-2.5pt]
+                            \draw [forward] (0, 0) -- (0.7, 0);
+                        \quad &= \quad
+                        -\av{ \op T \,
+                            \op c_{-\vec k \down}^+(\tau) \,
+                            \op c_{-\vec k \down} }_0
+                    \end{align*}
+                    }
+                %
+                \item<5-> phononic
+                %
+                \begin{align*}
+                    \tikz [baseline=-2.5pt]
+                        \draw [phonon, double] (0, 0) -- (0.7, 0);
+                    \quad &= \quad
+                    \mathrlap{ -\av{ \op T \,
+                        \upphi_{\vec q}(\tau) \,
+                        \upphi_{\vec q}^+ } }
+                    \hspace{6cm}
+                    \\
+                    \tikz [baseline=-2.5pt]
+                        \draw [phonon] (0, 0) -- (0.7, 0);
+                    \quad &= \quad
+                    -\av{ \op T \,
+                        \upphi_{\vec q}(\tau) \,
+                        \upphi_{\vec q}^+ }_0
+                    \quad \text{with} \quad
+                    \upphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+
+                \end{align*}
+                %
+                \item<6-> anomalous
+                %
+                \only<-7>{
+                    \begin{align*}
+                        \tikz [baseline=-2.5pt]
+                            \draw [outward, double] (0, 0) -- (0.7, 0);
+                        \quad &= \quad
+                        \mathrlap{ -\av{ \op T \,
+                            \op c_{\vec k \up}(\tau) \,%
+                            \vphantom{\op c_{\vec k \up}^+}%
+                            \op c_{-\vec k \down} } }
+                        \hspace{6cm}
+                        \\
+                        \tikz [baseline=-2.5pt]
+                            \draw [outward] (0, 0) -- (0.7, 0);
+                        \quad &= \quad
+                        -\av{ \op T \,
+                            \op c_{\vec k \up}(\tau) \,%
+                            \vphantom{\op c_{\vec k \up}^+}%
+                            \op c_{-\vec k \down} }_0
+                        \quad = \quad 0
+                    \end{align*}
+                    }
+                %
+                \only<8>{
+                    \begin{align*}
+                        \tikz [baseline=-2.5pt]
+                            \draw [inward, double] (0, 0) -- (0.7, 0);
+                        \quad &= \quad
+                        \mathrlap{ -\av{ \op T \,
+                            \op c_{-\vec k \down}^+(\tau) \,
+                            \op c_{\vec k \up}^+ } }
+                        \hspace{6cm}
+                        \\
+                        \tikz [baseline=-2.5pt]
+                            \draw [inward] (0, 0) -- (0.7, 0);
+                        \quad &= \quad
+                        -\av{ \op T \,
+                            \op c_{-\vec k \down}^+(\tau) \,
+                            \op c_{\vec k \up}^+ }_0
+                        \quad = \quad 0
+                    \end{align*}
+                    }
+            \end{itemize}
+        \end{itemize}
+	\end{frame}
+
+    \section{\name{Eliashberg} theory}
+
+    \subsection{\name{Nambu} formalism}
+
+    \begin{frame}{\name{Nambu} formalism}
+        \begin{itemize}
+            \item \name{Dyson} matrix equation
+            %
+            \begin{gather*}
+                \vec G = \vec G_0 + \vec G_0 \vec \Sigma \vec G
+                \quad \text{or} \quad
+                \vec G^{-1} = \vec G_0^{-1} - \vec \Sigma \\
+                \input{diagrams/nambu-dyson-matrices.tex}
+            \end{gather*}
+            %
+            \item<2-> Linear combination of \name{Pauli} matrices
+            %
+            \begin{align*}
+                \vec \Sigma_{\vec k}(\I \omega_n)
+                &= \I \omega_n
+                [1 - Z_{\vec k}(\I \omega_n)] \vec \sigma_0
+                + \phi_{\vec k}(\I \omega_n)  \vec \sigma_1
+                + \chi_{\vec k}(\I \omega_n)  \vec \sigma_3
+                \\
+                \uncover<5->{
+                    &= -\frac {g^2 T} N \sum_{\vec q m}
+                    \vec \sigma_3 \,
+                    \tikz [remember picture, inner sep=0, outer sep=0,
+                        baseline, anchor=base] \node (B)
+                        {$\vec G_{\vec q}(\I \omega_m)$}; \,
+                    \vec \sigma_3 \, \hypo
+                        {D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)}
+                        {\tikz \draw [phonon, double] (0, 0) -- (0.7, 0);}
+                    }
+                \\
+                \uncover<3->{
+                    \vec G\alt<3>{^0}{^{\vphantom 0}}_{\vec k}(\I \omega_n) &=
+                    \tikz [remember picture, inner xsep=0, inner ysep=1mm,
+                        outer sep=0, baseline, anchor=base] \node (A) {$
+                        \displaystyle -\frac{
+                            \I \omega_n
+                            \uncover<4->{Z_{\vec k}(\I \omega_n)}
+                            \vec \sigma_0
+                            \uncover<4->{+ \phi_{\vec k}(\I \omega_n)
+                            \vec \sigma_1}
+                            + [\epsilon_{\vec k} - \mu
+                            \uncover<4->{ + \chi_{\vec k}(\I \omega_n)}]
+                            \vec \sigma_3
+                            }{
+                            [\omega_n
+                            \uncover<4->{Z_{\vec k}(\I \omega_n)}]^2
+                            \uncover<4->{+ \phi^2_{\vec k}(\I \omega_n)}
+                            + [\epsilon_{\vec k} - \mu
+                            \uncover<4->{+ \chi_{\vec k}(\I \omega_n)}]^2
+                            }
+                        $};
+                    }
+            \end{align*}
+            \uncover<6>{
+                \begin{tikzpicture}[remember picture, overlay, ultra thick, red]
+                    \draw [->] (A) to[out=90, in=270] (B);
+                    \draw [rounded corners]
+                        (A.south west) rectangle (A.north east);
+                \end{tikzpicture}
+                }
+        \end{itemize}
+    \end{frame}
+
+    \subsection{\name{Eliashberg} equations}
+
+    \begin{frame}{\name{Eliashberg} equations}
+        \begin{center} \bf
+            Anisotropic equations
+        \end{center}
+        %
+        \begin{align*}
+            Z_{\vec k}(\I \omega_n) &= 1 \alert<4> - \frac T {\alert<4> N}
+            \frac 1 {\omega_n} \sum_{\vec q m} \frac
+                {\omega_m Z_{\vec q}(\I \omega_m)}
+                {\Theta_{\vec q}(m)}
+            \alert<4>{g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)}
+            \\
+            \phi_{\vec k}(\I \omega_n) &= \alert<4> -\frac T {\alert<4> N}
+            \sum_{\vec q m} \frac
+                {\phi_{\vec q}(\I \omega_m)}
+                {\Theta_{\vec q}(m)}
+            \big[ \alert<4>{g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
+            \only<2->{+ \alert<2>{U_{\vec k - \vec q}}}} \big]
+            \\
+            \chi_{\vec k}(\I \omega_n) &= \frac T {\alert<4> N}
+            \sum_{\vec q m} \frac
+                {\epsilon_{\vec q} - \mu + \chi_{\vec q}(\I \omega_m)}
+                {\Theta_{\vec q}(m)}
+            \alert<4>{g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)}
+            \\
+            \hspace{2cm} & \hspace{8cm}
+            \\
+            \Theta_{\vec k}(n) &= [\omega_n Z_{\vec k}(\I \omega_n)]^2
+            + [\epsilon_{\vec k} - \mu + \chi_{\vec k}(\I \omega_n)]^2
+            + \phi^2_{\vec k}(\I \omega_n)
+        \end{align*}
+    \end{frame}
+
+    \begin{frame}{\name{Eliashberg} equations}
+        \begin{center} \bf
+            Anisotropic equations
+        \end{center}
+        %
+        \begin{align*}
+            Z_{\alert<3>{\vec k}}(\I \omega_n)
+            &= 1 \alert<1>+ \frac T {\alert<1>{N(\mu_0)}} \frac 1 {\omega_n}
+            \sum_{\vec q m} \frac
+                {\omega_m Z_{\alert<3>{\vec q}}(\I \omega_m)}
+                {\Theta_{\vec q}(m)}
+            \alert<1>{\lambda_{\alert<3>{\vec k - \vec q}}(n - m)}
+            \\
+            \phi_{\alert<3>{\vec k}}(\I \omega_n)
+            &= \frac T {\alert<1>{N(\mu_0)}}
+            \sum_{\vec q m} \frac
+                {\phi_{\alert<3>{\vec q}}(\I \omega_m)}
+                {\Theta_{\vec q}(m)}
+            \big[
+                \alert<1>{\lambda_{\alert<3>{\vec k - \vec q}}(n - m)
+                - {\mu \sub C}_{\alert<3>{\vec k - \vec q}}}
+            \big]
+            \\
+            \chi_{\alert<3>{\vec k}}(\I \omega_n)
+            &= \alert<1> -\frac T {\alert<1>{N(\mu_0)}}
+            \sum_{\vec q m} \frac
+                { \epsilon_{\vec q} - \mu
+                + \chi_{\alert<3>{\vec q}}(\I \omega_m) }
+                {\Theta_{\vec q}(m)}
+            \alert<1>{\lambda_{\alert<3>{\vec k - \vec q}}(n - m)}
+            \\
+            \hspace{2cm} & \hspace{8cm}
+            \\
+            \Theta_{\vec k}(n)
+            &= [\omega_n Z_{\alert<3>{\vec k}}(\I \omega_n)]^2
+            + [\epsilon_{\vec k} - \mu
+            + \chi_{\alert<3>{\vec k}}(\I \omega_n)]^2
+            + \phi^2_{\alert<3>{\vec k}}(\I \omega_n)
+        \end{align*}
+    \end{frame}
+
+    \begin{frame}{\name{Eliashberg} equations}
+        \begin{center} \bf
+            Local approximation
+        \end{center}
+        %
+        \begin{align*}
+            Z(\I \omega_n) &= 1 + \frac T {N(\mu_0)} \frac 1 {\omega_n}
+            \alert<2>{\sum_{\vec q \color{black} m}} \frac
+                {\omega_m Z\vphantom{_{\vec q}}(\I \omega_m)}
+                {\Theta_{\alert<2>{\vec q}}(m)}
+            \lambda(n - m)
+            \\
+            \phi(\I \omega_n) &= \frac T {N(\mu_0)}
+            \alert<2>{\sum_{\vec q \color{black} m}} \frac
+                {\phi\vphantom{_{\vec q}}(\I \omega_m)}
+                {\Theta_{\alert<2>{\vec q}}(m)}
+            \big[ \lambda(n - m) - \mu \sub C \big]
+            \\
+            \chi(\I \omega_n) &= -\frac T {N(\mu_0)}
+            \alert<2>{\sum_{\vec q \color{black} m}} \frac
+                { \epsilon_{\alert<2>{\vec q}} - \mu
+                + \chi\vphantom{_{\vec q}}(\I \omega_m) }
+                {\Theta_{\alert<2>{\vec q}}(m)}
+            \lambda(n - m)
+            \\
+            \hspace{2cm} & \hspace{8cm}
+            \\
+            \Theta_{\alert<2>{\vec k}}(n) &= [\omega_n Z(\I \omega_n)]^2
+            + [\epsilon_{\alert<2>{\vec k}} - \mu + \chi(\I \omega_n)]^2
+            + \phi^2(\I \omega_n)
+        \end{align*}
+    \end{frame}
+
+    \begin{frame}{\name{Eliashberg} equations}
+        \begin{center} \bf
+            \alt<-3>{Local}{CDOS} approximation
+        \end{center}
+        %
+        \begin{align*}
+            Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_{\vphantom{\vec q} m}
+            \alert<1,8>{\int \from{-\infty} \till \infty \D \epsilon} \,
+            \only<1-6>{\alert<6>{\frac
+                {\alert<1>{N(\alt<1-3>{\alert<3> \epsilon}{\alert<4>{\mu_0}})}}
+                {N(\mu_0)}
+                }}
+            \frac
+                {\omega_m Z\vphantom{_{\vec q}}(\I \omega_m)}
+                {\alert<8>{\Theta_{\alert<1> \epsilon}(m)}}
+            \lambda(n - m)
+            \\
+            \phi(\I \omega_n) &= T \sum_{\vphantom{\vec q} m}
+            \alert<1,8>{\int \from{-\infty} \till \infty \D \epsilon} \,
+            \only<1-6>{\alert<6>{\frac
+                {\alert<1>{N(\alt<1-3>{\alert<3> \epsilon}{\alert<4>{\mu_0}})}}
+                {N(\mu_0)}
+                }}
+            \frac
+                {\phi\vphantom{_{\vec q}}(\I \omega_m)}
+                {\alert<8>{\Theta_{\alert<1> \epsilon}(m)}}
+            \big[ \lambda(n - m) - \mu \sub C \big]
+            \\
+            \chi(\I \omega_n) &= -T \sum_{\vphantom{\vec q} m}
+            \alert<1,8>{\int \from{-\infty} \till \infty \D \epsilon} \,
+            \only<1-6>{\alert<6>{\frac
+                {\alert<1>{N(\alt<1-3>{\alert<3> \epsilon}{\alert<4>{\mu_0}})}}
+                {N(\mu_0)}
+                }}
+            \frac
+                {\epsilon - \mu + \chi\vphantom{_{\vec q}}(\I \omega_m)}
+                {\alert<8>{\Theta_{\alert<1> \epsilon}(m)}}
+            \lambda(n - m)
+            \\
+            \hspace{2cm} & \hspace{8cm}
+            \\
+            \alert<8>{\Theta_{\alert<1> \epsilon}(n)}
+            & \alert<8>{ = [\omega_n Z(\I \omega_n)]^2
+            + [\epsilon - \mu + \chi(\I \omega_n)]^2
+            + \phi^2(\I \omega_n) }
+        \end{align*}
+    \end{frame}
+
+    \begin{frame}{\name{Eliashberg} equations}
+        \begin{center} \bf
+            \only<-6>{CDOS approximation}%
+            \only<7-8>{Linearized equations}%
+            \only<9->{Multi-band equations}
+        \end{center}
+        %
+        \begin{align*}
+            \alt<-8> Z {Z_{\alert<9> i}} (\I \omega_n) &=
+            %
+            \vphantom{
+                \sum_{\vec q} \int \from{-\infty} \till \infty
+                \frac{Z()}{()}
+                }
+            %
+            1 + \frac
+                {\alert<1> \pi \alert<6-7>{\alt<-6> T {T \sub c}}}
+                {\omega_n}
+            \sum_{m \only<9->{\alert<9>{\smash[b] j}}}
+            \alt<-6>{\frac
+                {\omega_m \only<-3>{\alert<3>{Z(\I \omega_m)}}}
+                {\alert<1>{\sqrt{
+                    \alt<4->{\omega_m^2}{[\omega_m \alert<3>{Z(\I \omega_m)}]^2}
+                    + \alert<3-4,6>{\alt<4-> \Delta \phi^2(\I \omega_m)}
+                    }}}}{\alert<7>{\sgn(\omega_m)} \,}
+            \alt<-8> \lambda {\lambda_{\alert<9>{i j}}} (n - m)
+            \\
+            \alert<3-4>{
+                \only<-3> \phi
+                \only<4-8> \Delta
+                \only<9-10>{\Delta_{\alert<9> i}}
+                (\I \omega_m)
+                }
+            &=
+            %
+            \vphantom{
+                \sum_{\vec q} \int \from{-\infty} \till \infty
+                \frac{\phi()}{()}
+                }
+            %
+            \only<-3>{\alert<1> \pi T}
+            \only<4->{\frac
+                {\pi \alert<6-7>{\alt<-6> T {T \sub c}}}
+                {\alert<4>{Z(\I \omega_n)}}
+                }
+            \sum_{m \only<9->{\alert<9>{\smash[b] j}}}
+            \frac
+                {\alert<3-4>{
+                    \only<-3> \phi
+                    \only<4-8> \Delta
+                    \only<9-10>{\Delta_{\alert<9>{\smash[b] j}}}
+                    (\I \omega_m)
+                    }}
+                {\alert<1>{\alt<-6>{\sqrt{
+                    \alt<4->{\omega_m^2}{[\omega_m \alert<3>{Z(\I \omega_m)}]^2}
+                    + \alert<3-4,6>{\alt<4-> \Delta \phi^2(\I \omega_m)}
+                    }}{\alert<7>{|\omega_m|}}}}
+            [ \alt<-8> \lambda {\lambda_{\alert<9>{i j}}} (n - m)
+            - \mu \sub C \only<9->{_{\alert<9>{i j}}} ]
+            \\
+            \only<1>{\chi(\I \omega_n)} & \only<1> =
+            %
+            \vphantom{
+                \sum_{\vec q} \int \from{-\infty} \till \infty
+                \frac{\chi()}{()}
+                }
+            %
+            \only<1>{\alert<1> 0}
+            \\
+            \hspace{2cm} & \hspace{8cm}
+            \\
+            \phantom{[]^2}
+        \end{align*}
+    \end{frame}
 
 	\section{Conclusion}
 

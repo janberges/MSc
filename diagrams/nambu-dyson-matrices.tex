@@ -1,0 +1,44 @@
+% !TEX root = ../slides.tex
+%
+\tikzsetnextfilename{nambu-dyson-matrices}
+%
+\begin{tikzpicture}[yscale=-1]
+    \foreach \r in {(0.8, 0.25), (3.8, 0.25), (6.8, 0.25)}
+        \node at \r {$\Bigg[$};
+
+    \foreach \r in {(2.5, 0.25), (5.5, 0.25), (8.5, 0.25)}
+        \node at \r {$\Bigg]$};
+
+    \draw [backward] (4.0, 0.00) -- +(0.5, 0);
+    \draw [ forward] (4.8, 0.50) -- +(0.5, 0);
+
+    \foreach \r in {(5.05, 0), (4.25, 0.5)}
+        \node at \r {$0$};
+
+    \draw [backward, double] (1.0, 0.0) -- +(0.5, 0);
+    \draw [ outward, double] (1.8, 0.0) -- +(0.5, 0);
+    \draw [  inward, double] (1.0, 0.5) -- +(0.5, 0);
+    \draw [ forward, double] (1.8, 0.5) -- +(0.5, 0);
+
+    \draw [backward, double] (7.0, 0.0) arc (180:360:2.5mm);
+    \draw [ outward, double] (7.8, 0.0) arc (180:360:2.5mm);
+    \draw [  inward, double] (7.0, 0.5) arc (180:360:2.5mm);
+    \draw [ forward, double] (7.8, 0.5) arc (180:360:2.5mm);
+
+    \foreach \x in {7, 7.8}
+        \foreach \y in {0, 0.5}
+            \draw [phonon, double] (\x, \y) -- +(0.5, 0);
+
+    \foreach \x in {7, 7.5, 7.8, 8.3}
+        \foreach \y in {0, 0.5}
+            \fill (\x, \y) circle (1.5pt);
+
+    \node at (0.25, 0.25) {$\vec G$};
+    \node at (3.20, 0.25) {$\vec G_0$};
+    \node at (6.25, 0.25) {$\vec \Sigma$};
+
+    \foreach \x in {0.55, 3.55, 6.55}
+        \node at (\x, 0.25) {$=$};
+
+    %\node at (4.50, 0.25) {$+$};
+\end{tikzpicture}%
