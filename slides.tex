@@ -65,6 +65,8 @@
 
 \date{\scriptsize \today}
 
+\includeonlyframes{Eliashberg5}
+
 \begin{document}
 	\begin{frame}
 		\titlepage
@@ -85,7 +87,7 @@
 
     \subsection[El.-ph. interaction]{Electron-phonon interaction}
 
-	\begin{frame}{Electron-phonon interaction}
+	\begin{frame}[label=interaction]{Electron-phonon interaction}
         \begin{figure}
             \small
             \input{diagrams/hartree.tex}
@@ -98,7 +100,7 @@
 
     \subsection{\name{Hedin}'s equations}
 
-	\begin{frame}{\name{Hedin}'s equations}
+	\begin{frame}[label=Hedin]{\name{Hedin}'s equations}
         \begin{gather*}
             \input{diagrams/electron.tex} \\
             \only<1>{\input{diagrams/self-energy.tex}}%
@@ -113,7 +115,7 @@
 
     \subsection[Superconductivity?]{What about superconductivity?}
 
-	\begin{frame}{What about superconductivity?}
+	\begin{frame}[label=superconductivity]{What about superconductivity?}
         \begin{itemize}
             \item<2-> \name{Dyson} equation
             %
@@ -239,7 +241,7 @@
 
     \subsection{\name{Nambu} formalism}
 
-    \begin{frame}{\name{Nambu} formalism}
+    \begin{frame}[label=Nambu]{\name{Nambu} formalism}
         \begin{itemize}
             \item \name{Dyson} matrix equation
             %
@@ -305,7 +307,7 @@
 
     \subsection{\name{Eliashberg} equations}
 
-    \begin{frame}{\name{Eliashberg} equations}
+    \begin{frame}[label=Eliashberg1]{\name{Eliashberg} equations}
         \begin{center} \bf
             Anisotropic equations
         \end{center}
@@ -338,7 +340,7 @@
         \end{align*}
     \end{frame}
 
-    \begin{frame}{\name{Eliashberg} equations}
+    \begin{frame}[label=Eliashberg2]{\name{Eliashberg} equations}
         \begin{center} \bf
             Anisotropic equations
         \end{center}
@@ -379,7 +381,7 @@
         \end{align*}
     \end{frame}
 
-    \begin{frame}{\name{Eliashberg} equations}
+    \begin{frame}[label=Eliashberg3]{\name{Eliashberg} equations}
         \begin{center} \bf
             Local approximation
         \end{center}
@@ -412,7 +414,7 @@
         \end{align*}
     \end{frame}
 
-    \begin{frame}{\name{Eliashberg} equations}
+    \begin{frame}[label=Eliashberg4]{\name{Eliashberg} equations}
         \begin{center} \bf
             \alt<-3>{Local}{CDOS} approximation
         \end{center}
@@ -460,7 +462,7 @@
         \end{align*}
     \end{frame}
 
-    \begin{frame}{\name{Eliashberg} equations}
+    \begin{frame}[label=Eliashberg5]{\name{Eliashberg} equations}
         \begin{center} \bf
             \only<-6>{CDOS approximation}%
             \only<7-8>{Linearized equations}%
