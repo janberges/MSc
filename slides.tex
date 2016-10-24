@@ -65,7 +65,7 @@
 
 \date{\scriptsize \today}
 
-\includeonlyframes{Eliashberg5}
+\includeonlyframes{Nambu}
 
 \begin{document}
 	\begin{frame}
@@ -256,48 +256,68 @@
             %
             \begin{align*}
                 \vec \Sigma_{\vec k}(\I \omega_n)
-                &= \I \omega_n
-                [1 - Z_{\vec k}(\I \omega_n)] \vec \sigma_0
-                + \phi_{\vec k}(\I \omega_n)  \vec \sigma_1
-                + \chi_{\vec k}(\I \omega_n)  \vec \sigma_3
+                &= \I \omega_n [1 -
+                \tikz [remember picture, inner sep=0, outer sep=0,
+                    baseline, anchor=base]
+                    \node (Z) {$Z_{\vec k}$};
+                (\I \omega_n)] \vec \sigma_0 +
+                \tikz [remember picture, inner sep=0, outer sep=0,
+                    baseline, anchor=base]
+                    \node (phi) {$\phi_{\vec k}$};
+                (\I \omega_n) \vec \sigma_1 +
+                \tikz [remember picture, inner sep=0, outer sep=0,
+                    baseline, anchor=base]
+                    \node (chi) {$\chi_{\vec k}$};
+                (\I \omega_n) \vec \sigma_3
                 \\
-                \uncover<5->{
+                \uncover<8->{
                     &= -\frac {g^2 T} N \sum_{\vec q m}
                     \vec \sigma_3 \,
                     \tikz [remember picture, inner sep=0, outer sep=0,
                         baseline, anchor=base] \node (B)
-                        {$\vec G_{\vec q}(\I \omega_m)$}; \,
-                    \vec \sigma_3 \, \hypo
+                        {$\vec G_{\vec q}$}; \,
+                    (\I \omega_m) \vec \sigma_3 \, \hypo
                         {D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)}
                         {\tikz \draw [phonon, double] (0, 0) -- (0.7, 0);}
                     }
                 \\
-                \uncover<3->{
-                    \vec G\alt<3>{^0}{^{\vphantom 0}}_{\vec k}(\I \omega_n) &=
+                \uncover<6->{
+                    \vec G\alt<6>{^0}{^{\vphantom 0}}_{\vec k}(\I \omega_n) &=
                     \tikz [remember picture, inner xsep=0, inner ysep=1mm,
                         outer sep=0, baseline, anchor=base] \node (A) {$
                         \displaystyle -\frac{
                             \I \omega_n
-                            \uncover<4->{Z_{\vec k}(\I \omega_n)}
+                            \uncover<7->{Z_{\vec k}(\I \omega_n)}
                             \vec \sigma_0
-                            \uncover<4->{+ \phi_{\vec k}(\I \omega_n)
+                            \uncover<7->{+ \phi_{\vec k}(\I \omega_n)
                             \vec \sigma_1}
                             + [\epsilon_{\vec k} - \mu
-                            \uncover<4->{ + \chi_{\vec k}(\I \omega_n)}]
+                            \uncover<7->{ + \chi_{\vec k}(\I \omega_n)}]
                             \vec \sigma_3
                             }{
                             [\omega_n
-                            \uncover<4->{Z_{\vec k}(\I \omega_n)}]^2
-                            \uncover<4->{+ \phi^2_{\vec k}(\I \omega_n)}
+                            \uncover<7->{Z_{\vec k}(\I \omega_n)}]^2
+                            \uncover<7->{+ \phi^2_{\vec k}(\I \omega_n)}
                             + [\epsilon_{\vec k} - \mu
-                            \uncover<4->{+ \chi_{\vec k}(\I \omega_n)}]^2
+                            \uncover<7->{+ \chi_{\vec k}(\I \omega_n)}]^2
                             }
                         $};
                     }
             \end{align*}
-            \uncover<6>{
+            \uncover<3-7>{
+                \begin{tikzpicture}[remember picture, overlay, ultra thick, red,
+                    inner sep=0, outer sep=0, <-, shorten <=1mm]
+                    \only<3->{\draw (Z) to[out=240, in=90] +(-1cm, -7mm)
+                        node [below] {renormalization};}
+                    \only<4->{\draw (phi) to[out=270, in=90] +(0, -7mm)
+                        node [below] {order parameter};}
+                    \only<5->{\draw (chi) to[out=300, in=90] +(1cm, -6.5mm)
+                        node [below] {energy shift};}
+                \end{tikzpicture}
+                }
+            \uncover<9>{
                 \begin{tikzpicture}[remember picture, overlay, ultra thick, red]
-                    \draw [->] (A) to[out=90, in=270] (B);
+                    \draw [->, shorten >=1mm] (A) to[out=90, in=300] (B);
                     \draw [rounded corners]
                         (A.south west) rectangle (A.north east);
                 \end{tikzpicture}
