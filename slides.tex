@@ -10,8 +10,16 @@
 \input{preamble/settings}
 \input{preamble/definitions}
 
+\defbeamertemplate{footline}{reference}[1]{%
+    \hfill\smash{\color{titleblue}{\scriptsize #1}}\hfill%
+    \hspace{2cm}\llap{\color{white}{%
+        \insertframenumber\,/\,\inserttotalframenumber\hspace*{1mm}}}%
+    \vspace{1mm}%
+    }
+
+\setbeamertemplate{footline}[reference]{}
 \setbeamertemplate{caption}[numbered]
-\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
 
 \definecolor{titleblue}{rgb}{0.2, 0.2, 0.7}
 
@@ -101,6 +109,9 @@
 
     \subsection{\name{Hedin}'s equations}
 
+    \setbeamertemplate{footline}[reference]{%
+        L. \name{Hedin}, Phys. Rev. \textbf{139}, A796 (1965)}
+
 	\begin{frame}[label=Hedin]{\name{Hedin}'s equations}
         \begin{gather*}
             \input{diagrams/electron.tex} \\
@@ -115,6 +126,8 @@
 	\end{frame}
 
     \subsection[Superconductivity?]{What about superconductivity?}
+
+    \setbeamertemplate{footline}[reference]{}
 
 	\begin{frame}[label=superconductivity]{What about superconductivity?}
         \begin{itemize}
@@ -242,6 +255,9 @@
 
     \subsection{\name{Nambu} formalism}
 
+    \setbeamertemplate{footline}[reference]{%
+        Y. \name{Nambu}, Phys. Rev. \textbf{117}, 648 (1960)}
+
     \begin{frame}[label=Nambu]{\name{Nambu} formalism}
         \begin{itemize}
             \item \name{Dyson} matrix equation
@@ -329,6 +345,9 @@
     \end{frame}
 
     \subsection{\name{Eliashberg} equations}
+
+    \setbeamertemplate{footline}[reference]{%
+        G. M. \name{Eliashberg}, Soviet Phys. JETP \textbf{11}, 696 (1960)}
 
     \begin{frame}[label=Eliashberg1]{\name{Eliashberg} equations}
         \begin{center} \bf
