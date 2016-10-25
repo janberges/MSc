@@ -11,6 +11,7 @@
 \input{preamble/definitions}
 
 \setbeamertemplate{caption}[numbered]
+\setbeamertemplate{footline}[frame number]
 
 \definecolor{titleblue}{rgb}{0.2, 0.2, 0.7}
 
@@ -320,6 +321,8 @@
                     \draw [->, shorten >=1mm] (A) to[out=90, in=300] (B);
                     \draw [rounded corners]
                         (A.south west) rectangle (A.north east);
+                    \node [below=7mm] at (A) {$\scriptstyle \blacktriangleright$
+                        coefficient comparison};
                 \end{tikzpicture}
                 }
         \end{itemize}
@@ -359,6 +362,8 @@
             + \phi^2_{\vec k}(\I \omega_n)
         \end{align*}
     \end{frame}
+
+    \addtocounter{framenumber}{-1}
 
     \begin{frame}[label=Eliashberg2]{\name{Eliashberg} equations}
         \begin{center} \bf
@@ -434,7 +439,11 @@
         \end{align*}
     \end{frame}
 
+    \addtocounter{framenumber}{-1}
+
     \begin{frame}[label=Eliashberg4]{\name{Eliashberg} equations}
+        \only<4>{\addtocounter{framenumber}{1}}
+        %
         \begin{center} \bf
             \alt<-3>{Local}{CDOS} approximation
         \end{center}
@@ -482,7 +491,11 @@
         \end{align*}
     \end{frame}
 
+    \addtocounter{framenumber}{-1}
+
     \begin{frame}[label=Eliashberg5]{\name{Eliashberg} equations}
+        \only<7,9>{\addtocounter{framenumber}{1}}
+        %
         \begin{center} \bf
             \only<-6>{CDOS approximation}%
             \only<7-8>{Linearized equations}%
@@ -513,7 +526,7 @@
                 \only<-3> \phi
                 \only<4-8> \Delta
                 \only<9-10>{\Delta_{\alert<9> i}}
-                (\I \omega_m)
+                (\I \omega_n)
                 }
             &=
             %
