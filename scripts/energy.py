@@ -68,6 +68,13 @@ for sgn in -1, +1:
 
 plot.save('../results/energy-tc.sl', external=True)
 
+plot.width = 9.8
+plot.height = 2.7
+plot.xstep = 0.5
+plot.yticks = [15, 17]
+
+plot.save('../results/energy-tc-slides.sl', external=True)
+
 # energy shift:
 
 plot = storylines.Plot(width, height, right=0.5, ystep=0.05)
@@ -82,6 +89,16 @@ for sgn in -1, +1:
 
 plot.save('../results/energy-shift.sl', external=True)
 
+plot.width = 9.8
+plot.height = 2.7
+plot.xstep = 0.5
+plot.yticks = [-0.05, 0.05]
+
+plot.ylabel = r'$\{ \textcolor{teal}{\chi(\I \omega_0)}, ' \
+    r'\textcolor{purple}{\Delta \mu} \} / \unit{eV}$'
+
+plot.save('../results/energy-shift-slides.sl', external=True)
+
 # density of states:
 
 plot = storylines.Plot(width, height, right=0.5, ymin = 0, ystep=1)
@@ -92,3 +109,9 @@ plot.ylabel = r'$n / \unit{eV^{-1}}$'
 plot.line(epsilon, dos, yref=0, color='teal', fill='teal!25')
 
 plot.save('../results/energy-dos.sl', external=True)
+
+plot.width = 9.8
+plot.height = 2.7
+plot.xstep = 0.5
+
+plot.save('../results/energy-dos-slides.sl', external=True)
