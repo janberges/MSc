@@ -10,14 +10,16 @@
 \input{preamble/settings}
 \input{preamble/definitions}
 
-\defbeamertemplate{footline}{reference}[1]{%
-    \hfill\smash{\color{titleblue}{\scriptsize #1}}\hfill%
-    \hspace{2cm}\llap{\color{white}{%
+\usetikzlibrary{shadows.blur}
+
+\defbeamertemplate{footline}{info}[1]{%
+    \hfill\smash{\color{titleblue}{\footnotesize #1}}\hfill%
+    \hspace{2cm}\llap{\color{white}{\scriptsize%
         \insertframenumber\,/\,\inserttotalframenumber\hspace*{1mm}}}%
     \vspace{1mm}%
     }
 
-\setbeamertemplate{footline}[reference]{}
+\setbeamertemplate{footline}[info]{}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{navigation symbols}{}
 
@@ -37,9 +39,12 @@
 \setbeamercolor   {section in sidebar shaded}{fg=titleblue!25}
 \setbeamercolor{subsection in sidebar shaded}{fg=titleblue!25}
 
-\setbeamerfont     {title in sidebar}{series=\bfseries}
-\setbeamerfont   {section in sidebar}{series=\bfseries}
-\setbeamerfont{subsection in sidebar}{size=\tiny}
+\setbeamerfont     {title in sidebar}{size=\fontsize{6.0pt}{7.2pt}\selectfont,
+                                    series=\bfseries}
+\setbeamerfont    {author in sidebar}{size=\fontsize{5.5pt}{6.6pt}\selectfont}
+\setbeamerfont   {section in sidebar}{size=\fontsize{5.5pt}{6.6pt}\selectfont,
+                                    series=\bfseries}
+\setbeamerfont{subsection in sidebar}{size=\fontsize{5.5pt}{6.6pt}\selectfont}
 
 \setbeamerfont{section in toc}{series=\bfseries}
 
@@ -52,11 +57,11 @@
     ]
     {On the scope of \name{McMillan}'s formula}
 
-\subtitle{\medskip \bfseries \footnotesize Presentation of master's thesis}
+\subtitle{\medskip \bfseries \small Presentation of master's thesis}
 
 \AtBeginDocument{
     \author[\hspace{-5mm} Jan Berges]{%
-        \scriptsize
+        \small
         \begin{tabular}{r l}
             \it by
                 & Jan Berges \\[2mm]
@@ -67,21 +72,24 @@
         }
     }
 
-\institute{%
-    \raisebox{-0.5\height}{\includegraphics[height=5mm]{figures/uni.pdf}} \quad
-    \raisebox{-0.5\height}{\includegraphics[height=8mm]{figures/itp.pdf}}%
+\institute{\footnotesize%
+    Institut für Theoretische Physik \\
+    \emph{Electronic Structure and Correlated Nanosystems}%
     }
 
-\date{\scriptsize \today}
+\titlegraphic{%
+    \includegraphics[height=0.8cm]{figures/uni.pdf}\hfill%
+    \includegraphics[height=1.6cm]{figures/itp.pdf}\vspace{-15mm}%
+    }
 
-\includeonlyframes{Nambu}
+\date{\small \today}
+
+%\includeonlyframes{}
 
 \begin{document}
 	\begin{frame}
 		\titlepage
 	\end{frame}
-
-	\section*{Contents}
 
 	\begin{frame}{Contents}
 		\tableofcontents
@@ -109,7 +117,7 @@
 
     \subsection{\name{Hedin}'s equations}
 
-    \setbeamertemplate{footline}[reference]{%
+    \setbeamertemplate{footline}[info]{%
         L. \name{Hedin}, Phys. Rev. \textbf{139}, A796 (1965)}
 
 	\begin{frame}[label=Hedin]{\name{Hedin}'s equations}
@@ -127,25 +135,25 @@
 
     \subsection[Superconductivity?]{What about superconductivity?}
 
-    \setbeamertemplate{footline}[reference]{}
+    \setbeamertemplate{footline}[info]{}
 
 	\begin{frame}[label=superconductivity]{What about superconductivity?}
         \begin{itemize}
-            \item<2-> \name{Dyson} equation
+            \item \name{Dyson} equation
             %
             \vspace{-3mm}
             \begin{align*}
-                \only<-6>{\input{diagrams/dyson-1.tex}}%
-                \only<7>{\input{diagrams/dyson-2.tex}}%
-                \only<8>{\input{diagrams/dyson-3.tex}}
+                \only<1>{\input{diagrams/dyson-1.tex}}%
+                \only<2>{\input{diagrams/dyson-2.tex}}%
+                \only<3>{\input{diagrams/dyson-3.tex}}
             \end{align*}
             %
-            \item<3-> \name{Green} functions
+            \item \name{Green} functions
             %
             \begin{itemize}
-                \item<4-> electronic
+                \item electronic
                 %
-                \only<-7>{
+                \only<-2>{
                     \begin{align*}
                         \tikz [baseline=-2.5pt]
                             \draw [backward, double] (0, 0) -- (0.7, 0);
@@ -164,7 +172,7 @@
                     \end{align*}
                     }
                 %
-                \only<8>{
+                \only<3>{
                     \begin{align*}
                         \tikz [baseline=-2.5pt]
                             \draw [forward, double] (0, 0) -- (0.7, 0);
@@ -183,7 +191,7 @@
                     \end{align*}
                     }
                 %
-                \item<5-> phononic
+                \item phononic
                 %
                 \begin{align*}
                     \tikz [baseline=-2.5pt]
@@ -204,9 +212,9 @@
                     \upphi_{\vec q} = \op b_{\vec q} + \op b_{-\vec q}^+
                 \end{align*}
                 %
-                \item<6-> anomalous
+                \item<2-> anomalous
                 %
-                \only<-7>{
+                \only<-2>{
                     \begin{align*}
                         \tikz [baseline=-2.5pt]
                             \draw [outward, double] (0, 0) -- (0.7, 0);
@@ -228,7 +236,7 @@
                     \end{align*}
                     }
                 %
-                \only<8>{
+                \only<3>{
                     \begin{align*}
                         \tikz [baseline=-2.5pt]
                             \draw [inward, double] (0, 0) -- (0.7, 0);
@@ -255,7 +263,7 @@
 
     \subsection{\name{Nambu} formalism}
 
-    \setbeamertemplate{footline}[reference]{%
+    \setbeamertemplate{footline}[info]{%
         Y. \name{Nambu}, Phys. Rev. \textbf{117}, 648 (1960)}
 
     \begin{frame}[label=Nambu]{\name{Nambu} formalism}
@@ -269,7 +277,7 @@
                 \input{diagrams/nambu-dyson-matrices.tex}
             \end{gather*}
             %
-            \item<2-> Linear combination of \name{Pauli} matrices
+            \item Linear combination of \name{Pauli} matrices
             %
             \begin{align*}
                 \vec \Sigma_{\vec k}(\I \omega_n)
@@ -287,7 +295,7 @@
                     \node (chi) {$\chi_{\vec k}$};
                 (\I \omega_n) \vec \sigma_3
                 \\
-                \uncover<8->{
+                \uncover<7->{
                     &= -\frac {g^2 T} N \sum_{\vec q m}
                     \vec \sigma_3 \,
                     \tikz [remember picture, inner sep=0, outer sep=0,
@@ -298,41 +306,41 @@
                         {\tikz \draw [phonon, double] (0, 0) -- (0.7, 0);}
                     }
                 \\
-                \uncover<6->{
-                    \vec G\alt<6>{^0}{^{\vphantom 0}}_{\vec k}(\I \omega_n) &=
+                \uncover<5->{
+                    \vec G\alt<5>{^0}{^{\vphantom 0}}_{\vec k}(\I \omega_n) &=
                     \tikz [remember picture, inner xsep=0, inner ysep=1mm,
                         outer sep=0, baseline, anchor=base] \node (A) {$
                         \displaystyle -\frac{
                             \I \omega_n
-                            \uncover<7->{Z_{\vec k}(\I \omega_n)}
+                            \uncover<6->{Z_{\vec k}(\I \omega_n)}
                             \vec \sigma_0
-                            \uncover<7->{+ \phi_{\vec k}(\I \omega_n)
+                            \uncover<6->{+ \phi_{\vec k}(\I \omega_n)
                             \vec \sigma_1}
                             + [\epsilon_{\vec k} - \mu
-                            \uncover<7->{ + \chi_{\vec k}(\I \omega_n)}]
+                            \uncover<6->{ + \chi_{\vec k}(\I \omega_n)}]
                             \vec \sigma_3
                             }{
                             [\omega_n
-                            \uncover<7->{Z_{\vec k}(\I \omega_n)}]^2
-                            \uncover<7->{+ \phi^2_{\vec k}(\I \omega_n)}
+                            \uncover<6->{Z_{\vec k}(\I \omega_n)}]^2
+                            \uncover<6->{+ \phi^2_{\vec k}(\I \omega_n)}
                             + [\epsilon_{\vec k} - \mu
-                            \uncover<7->{+ \chi_{\vec k}(\I \omega_n)}]^2
+                            \uncover<6->{+ \chi_{\vec k}(\I \omega_n)}]^2
                             }
                         $};
                     }
             \end{align*}
-            \uncover<3-7>{
+            \uncover<2-6>{
                 \begin{tikzpicture}[remember picture, overlay, ultra thick, red,
                     inner sep=0, outer sep=0, <-, shorten <=1mm]
-                    \only<3->{\draw (Z) to[out=240, in=90] +(-1cm, -7mm)
+                    \only<2->{\draw (Z) to[out=240, in=90] +(-1cm, -7mm)
                         node [below] {renormalization};}
-                    \only<4->{\draw (phi) to[out=270, in=90] +(0, -7mm)
+                    \only<3->{\draw (phi) to[out=270, in=90] +(0, -7mm)
                         node [below] {order parameter};}
-                    \only<5->{\draw (chi) to[out=300, in=90] +(1cm, -6.5mm)
+                    \only<4->{\draw (chi) to[out=300, in=90] +(1cm, -6.5mm)
                         node [below] {energy shift};}
                 \end{tikzpicture}
                 }
-            \uncover<9>{
+            \uncover<8>{
                 \begin{tikzpicture}[remember picture, overlay, ultra thick, red]
                     \draw [->, shorten >=1mm] (A) to[out=90, in=300] (B);
                     \draw [rounded corners]
@@ -344,10 +352,12 @@
         \end{itemize}
     \end{frame}
 
-    \subsection{\name{Eliashberg} equations}
+    \subsection[\name{Eliashberg} eqs.]{\name{Eliashberg} equations}
 
-    \setbeamertemplate{footline}[reference]{%
+    \setbeamertemplate{footline}[info]{%
         G. M. \name{Eliashberg}, Soviet Phys. JETP \textbf{11}, 696 (1960)}
+
+    \def\vspacing{\vphantom{\int\limits_Z^Z}}
 
     \begin{frame}[label=Eliashberg1]{\name{Eliashberg} equations}
         \begin{center} \bf
@@ -360,6 +370,7 @@
                 {\omega_m Z_{\vec q}(\I \omega_m)}
                 {\Theta_{\vec q}(m)}
             \alert<4>{g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)}
+            \vspacing
             \\
             \phi_{\vec k}(\I \omega_n) &= \alert<4> -\frac T {\alert<4> N}
             \sum_{\vec q m} \frac
@@ -367,19 +378,35 @@
                 {\Theta_{\vec q}(m)}
             \big[ \alert<4>{g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)
             \only<2->{+ \alert<2>{U_{\vec k - \vec q}}}} \big]
+            \vspacing
             \\
             \chi_{\vec k}(\I \omega_n) &= \frac T {\alert<4> N}
             \sum_{\vec q m} \frac
                 {\epsilon_{\vec q} - \mu + \chi_{\vec q}(\I \omega_m)}
                 {\Theta_{\vec q}(m)}
             \alert<4>{g^2 D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)}
+            \vspacing
             \\
             \hspace{2cm} & \hspace{8cm}
             \\
             \Theta_{\vec k}(n) &= [\omega_n Z_{\vec k}(\I \omega_n)]^2
             + [\epsilon_{\vec k} - \mu + \chi_{\vec k}(\I \omega_n)]^2
             + \phi^2_{\vec k}(\I \omega_n)
+            \vspacing
         \end{align*}
+        %
+        \uncover<4>{
+            \begin{tikzpicture}[remember picture, overlay]
+                \node [shape=rectangle, rounded corners, draw, fill=white,
+                    opacity=0.9, blur shadow, xshift=-25mm, yshift=-23mm]
+                    at (current page.center)
+                {$\lambda_{\vec q}(n) = -n(\mu_0) \, g^2 D_{\vec q}(\I \nu_n)$};
+                \node [shape=rectangle, rounded corners, draw, fill=white,
+                    opacity=0.9, blur shadow, xshift=15mm, yshift=-23mm]
+                    at (current page.center)
+                {${\mu \sub C}_{\vec q} = n(\mu_0) \, U_{\vec q}$};
+            \end{tikzpicture}
+            }
     \end{frame}
 
     \addtocounter{framenumber}{-1}
@@ -396,6 +423,7 @@
                 {\omega_m Z_{\alert<3>{\vec q}}(\I \omega_m)}
                 {\Theta_{\vec q}(m)}
             \alert<1>{\lambda_{\alert<3>{\vec k - \vec q}}(n - m)}
+            \vspacing
             \\
             \phi_{\alert<3>{\vec k}}(\I \omega_n)
             &= \frac T {\alert<1>{N(\mu_0)}}
@@ -406,6 +434,7 @@
                 \alert<1>{\lambda_{\alert<3>{\vec k - \vec q}}(n - m)
                 - {\mu \sub C}_{\alert<3>{\vec k - \vec q}}}
             \big]
+            \vspacing
             \\
             \chi_{\alert<3>{\vec k}}(\I \omega_n)
             &= \alert<1> -\frac T {\alert<1>{N(\mu_0)}}
@@ -414,6 +443,7 @@
                 + \chi_{\alert<3>{\vec q}}(\I \omega_m) }
                 {\Theta_{\vec q}(m)}
             \alert<1>{\lambda_{\alert<3>{\vec k - \vec q}}(n - m)}
+            \vspacing
             \\
             \hspace{2cm} & \hspace{8cm}
             \\
@@ -422,7 +452,21 @@
             + [\epsilon_{\vec k} - \mu
             + \chi_{\alert<3>{\vec k}}(\I \omega_n)]^2
             + \phi^2_{\alert<3>{\vec k}}(\I \omega_n)
+            \vspacing
         \end{align*}
+        %
+        \uncover<1>{
+            \begin{tikzpicture}[remember picture, overlay]
+                \node [shape=rectangle, rounded corners, draw, fill=white,
+                    opacity=0.9, blur shadow, xshift=-25mm, yshift=-23mm]
+                    at (current page.center)
+                {$\lambda_{\vec q}(n) = -n(\mu_0) \, g^2 D_{\vec q}(\I \nu_n)$};
+                \node [shape=rectangle, rounded corners, draw, fill=white,
+                    opacity=0.9, blur shadow, xshift=15mm, yshift=-23mm]
+                    at (current page.center)
+                {${\mu \sub C}_{\vec q} = n(\mu_0) \, U_{\vec q}$};
+            \end{tikzpicture}
+            }
     \end{frame}
 
     \begin{frame}[label=Eliashberg3]{\name{Eliashberg} equations}
@@ -436,12 +480,14 @@
                 {\omega_m Z\vphantom{_{\vec q}}(\I \omega_m)}
                 {\Theta_{\alert<2>{\vec q}}(m)}
             \lambda(n - m)
+            \vspacing
             \\
             \phi(\I \omega_n) &= \frac T {N(\mu_0)}
             \alert<2>{\sum_{\vec q \color{black} m}} \frac
                 {\phi\vphantom{_{\vec q}}(\I \omega_m)}
                 {\Theta_{\alert<2>{\vec q}}(m)}
             \big[ \lambda(n - m) - \mu \sub C \big]
+            \vspacing
             \\
             \chi(\I \omega_n) &= -\frac T {N(\mu_0)}
             \alert<2>{\sum_{\vec q \color{black} m}} \frac
@@ -449,16 +495,23 @@
                 + \chi\vphantom{_{\vec q}}(\I \omega_m) }
                 {\Theta_{\alert<2>{\vec q}}(m)}
             \lambda(n - m)
+            \vspacing
             \\
             \hspace{2cm} & \hspace{8cm}
             \\
             \Theta_{\alert<2>{\vec k}}(n) &= [\omega_n Z(\I \omega_n)]^2
             + [\epsilon_{\alert<2>{\vec k}} - \mu + \chi(\I \omega_n)]^2
             + \phi^2(\I \omega_n)
+            \vspacing
         \end{align*}
+        %
+        \tikz[remember picture, overlay] \node at (0, 0) {};
     \end{frame}
 
     \addtocounter{framenumber}{-1}
+
+    \newsavebox{\CDOS}
+    \savebox{\CDOS}{\small\input{results/cdos-1.sl}}
 
     \begin{frame}[label=Eliashberg4]{\name{Eliashberg} equations}
         \only<4>{\addtocounter{framenumber}{1}}
@@ -469,45 +522,57 @@
         %
         \begin{align*}
             Z(\I \omega_n) &= 1 + \frac T {\omega_n} \sum_{\vphantom{\vec q} m}
-            \alert<1,8>{\int \from{-\infty} \till \infty \D \epsilon} \,
-            \only<1-6>{\alert<6>{\frac
+            \alert<1,9>{\int \from{-\infty} \till \infty \D \epsilon} \,
+            \only<1-7>{\alert<7>{\frac
                 {\alert<1>{N(\alt<1-3>{\alert<3> \epsilon}{\alert<4>{\mu_0}})}}
                 {N(\mu_0)}
                 }}
             \frac
                 {\omega_m Z\vphantom{_{\vec q}}(\I \omega_m)}
-                {\alert<8>{\Theta_{\alert<1> \epsilon}(m)}}
+                {\alert<9>{\Theta_{\alert<1> \epsilon}(m)}}
             \lambda(n - m)
+            \vspacing
             \\
             \phi(\I \omega_n) &= T \sum_{\vphantom{\vec q} m}
-            \alert<1,8>{\int \from{-\infty} \till \infty \D \epsilon} \,
-            \only<1-6>{\alert<6>{\frac
+            \alert<1,9>{\int \from{-\infty} \till \infty \D \epsilon} \,
+            \only<1-7>{\alert<7>{\frac
                 {\alert<1>{N(\alt<1-3>{\alert<3> \epsilon}{\alert<4>{\mu_0}})}}
                 {N(\mu_0)}
                 }}
             \frac
                 {\phi\vphantom{_{\vec q}}(\I \omega_m)}
-                {\alert<8>{\Theta_{\alert<1> \epsilon}(m)}}
+                {\alert<9>{\Theta_{\alert<1> \epsilon}(m)}}
             \big[ \lambda(n - m) - \mu \sub C \big]
+            \vspacing
             \\
             \chi(\I \omega_n) &= -T \sum_{\vphantom{\vec q} m}
-            \alert<1,8>{\int \from{-\infty} \till \infty \D \epsilon} \,
-            \only<1-6>{\alert<6>{\frac
+            \alert<1,9>{\int \from{-\infty} \till \infty \D \epsilon} \,
+            \only<1-7>{\alert<7>{\frac
                 {\alert<1>{N(\alt<1-3>{\alert<3> \epsilon}{\alert<4>{\mu_0}})}}
                 {N(\mu_0)}
                 }}
             \frac
                 {\epsilon - \mu + \chi\vphantom{_{\vec q}}(\I \omega_m)}
-                {\alert<8>{\Theta_{\alert<1> \epsilon}(m)}}
+                {\alert<9>{\Theta_{\alert<1> \epsilon}(m)}}
             \lambda(n - m)
+            \vspacing
             \\
             \hspace{2cm} & \hspace{8cm}
             \\
-            \alert<8>{\Theta_{\alert<1> \epsilon}(n)}
-            & \alert<8>{ = [\omega_n Z(\I \omega_n)]^2
+            \alert<9>{\Theta_{\alert<1> \epsilon}(n)}
+            & \alert<9>{ = [\omega_n Z(\I \omega_n)]^2
             + [\epsilon - \mu + \chi(\I \omega_n)]^2
             + \phi^2(\I \omega_n) }
+            \vspacing
         \end{align*}
+        %
+        \uncover<5>{
+            \begin{tikzpicture}[remember picture, overlay]
+                \node [shape=rectangle, rounded corners, draw, fill=white,
+                    opacity=0.9, blur shadow] at (current page.center)
+                    {\usebox{\CDOS}};
+            \end{tikzpicture}
+            }
     \end{frame}
 
     \addtocounter{framenumber}{-1}
@@ -523,12 +588,6 @@
         %
         \begin{align*}
             \alt<-8> Z {Z_{\alert<9> i}} (\I \omega_n) &=
-            %
-            \vphantom{
-                \sum_{\vec q} \int \from{-\infty} \till \infty
-                \frac{Z()}{()}
-                }
-            %
             1 + \frac
                 {\alert<1> \pi \alert<6-7>{\alt<-6> T {T \sub c}}}
                 {\omega_n}
@@ -540,6 +599,7 @@
                     + \alert<3-4,6>{\alt<4-> \Delta \phi^2(\I \omega_m)}
                     }}}}{\alert<7>{\sgn(\omega_m)} \,}
             \alt<-8> \lambda {\lambda_{\alert<9>{i j}}} (n - m)
+            \vspacing
             \\
             \alert<3-4>{
                 \only<-3> \phi
@@ -548,12 +608,6 @@
                 (\I \omega_n)
                 }
             &=
-            %
-            \vphantom{
-                \sum_{\vec q} \int \from{-\infty} \till \infty
-                \frac{\phi()}{()}
-                }
-            %
             \only<-3>{\alert<1> \pi T}
             \only<4->{\frac
                 {\pi \alert<6-7>{\alt<-6> T {T \sub c}}}
@@ -573,32 +627,29 @@
                     }}{\alert<7>{|\omega_m|}}}}
             [ \alt<-8> \lambda {\lambda_{\alert<9>{i j}}} (n - m)
             - \mu \sub C \only<9->{_{\alert<9>{i j}}} ]
+            \vspacing
             \\
             \only<1>{\chi(\I \omega_n)} & \only<1> =
-            %
-            \vphantom{
-                \sum_{\vec q} \int \from{-\infty} \till \infty
-                \frac{\chi()}{()}
-                }
-            %
             \only<1>{\alert<1> 0}
+            \vspacing
             \\
             \hspace{2cm} & \hspace{8cm}
             \\
-            \phantom{[]^2}
+            & \vspacing
         \end{align*}
+        %
+        \uncover<3-4>{
+            \tikz[remember picture, overlay]
+                \node [shape=rectangle, rounded corners, draw, fill=white,
+                        opacity=0.9, blur shadow, xshift=-12mm, yshift=-15mm]
+                        at (current page.center)
+                    {$\displaystyle \Delta(\I \omega_n)
+                    = \frac{\phi(\I \omega_n)}{Z(\I \omega_n)}$};
+            }
     \end{frame}
 
 	\section{Conclusion}
 
 	\begin{frame}{Conclusion}
-	\end{frame}
-
-	\section{References}
-
-	\begin{frame}
-		\frametitle{References}
-
-        \printbibliography
 	\end{frame}
 \end{document}
