@@ -658,24 +658,34 @@
 
     \begin{frame}[label=self-energy]{Self-energy \hspace{22mm} \clap{
             \color{black} \normalsize
-            \only<1>{Order parameter}%
-            \only<2>{Renormalization}%
-            \only<3>{Energy shift}%
+            \only<1-2>{Order parameter}%
+            \only<3>{Renormalization}%
+            \only<4>{Energy shift}%
             }}
 
         \begin{figure}
             \small
-            \only<1>{%
+            \only<1-2>{%
                 \input{results/self-energy-delta-im-slides.sl}\vspace{-5mm}%
-                \input{results/self-energy-delta-re-slides.sl}%
+                \uncover<2>{\input{results/self-energy-delta-re-slides.sl}}%
                 }%
-            \only<2>{%
+            \only<3>{%
                 \input{results/self-energy-z-im-slides.sl}\vspace{-5mm}%
                 \input{results/self-energy-z-re-slides.sl}%
                 }%
-            \only<3>{%
+            \only<4>{%
                 \input{results/self-energy-chi-im-slides.sl}\vspace{-5mm}%
                 \input{results/self-energy-chi-re-slides.sl}%
+                }%
+            \vspace{-3cm}%
+            \uncover<1>{
+                \begin{equation*}
+                    \textbf{\name{Padé} approximant} \qquad
+                    \Delta(\omega) = \dfrac{
+                       c_0 \, \phantom{(\omega - \I \omega_0)}}
+                    {1 + \dfrac{c_1 \, (\omega - \I \omega_0)}
+                    {1 + \dfrac{c_2 \, (\omega - \I \omega_1)} \dots}}
+                \end{equation*}
                 }%
         \end{figure}
     \end{frame}
