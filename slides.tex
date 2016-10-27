@@ -27,9 +27,10 @@
 
 \usefonttheme{professionalfonts}
 
-\setbeamerfont     {title}{series=\bfseries}
-\setbeamerfont  {subtitle}{series=\normalfont}
-\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont        {title}{series=\bfseries}
+\setbeamerfont     {subtitle}{series=\normalfont}
+\setbeamerfont   {frametitle}{series=\bfseries}
+\setbeamerfont{framesubtitle}{series=\normalfont, size=\normalsize}
 
 \setbeamercolor     {title in sidebar}{fg=white}
 \setbeamercolor    {author in sidebar}{fg=white}
@@ -84,7 +85,7 @@
 
 \date{\small \today}
 
-\includeonlyframes{Coulomb,self-energy,lattice,energy,McMillan}
+\includeonlyframes{Coulomb,scalars}
 
 \begin{document}
 	\begin{frame}
@@ -692,6 +693,68 @@
                     {natural cutoff at \name{Fermi} energy $E \sub F$};
             \end{tikzpicture}
             }
+    \end{frame}
+
+    \subsection[Effective scalars]{Effective scalar coupling strengths}
+
+    \setbeamertemplate{footline}[info]{}
+
+    \begin{frame}[label=scalars]{Effective scalar coupling strengths}
+        \framesubtitle{Scalar $\lambda$ which yields the same $T \sub c$ as matrix
+                  $\vec \lambda = [\lambda_{i j}]$?}
+
+        Approximate analytical solutions for $\mu^* = 0$
+        %
+        \begin{enumerate}
+            \item Renormalization $Z(\I \omega_n) = 1$
+            %
+            \begin{center}
+                \begin{tikzpicture}
+                    \node [shape=rectangle, rounded corners, draw, fill=white,
+                        opacity=0.9, blur shadow] at (current page.center)
+                        {$\lambda$ is greatest eigenvalue of $\vec \lambda$};
+                \end{tikzpicture}
+            \end{center}
+            %
+            \begin{itemize}
+                \item Two bands:
+                %
+                \begin{equation*}
+                    \lambda = \frac 1 2 \Big[ \lambda_{11} + \lambda_{22} + \sqrt{
+                        (\lambda_{1 1} - \lambda_{2 2})^2
+                        + 4 \lambda_{1 2} \lambda_{2 1}
+                        }
+                    \Big]
+                \end{equation*}
+            \end{itemize}
+            %
+            \item $N = 1$ \name{Matsubara} frequencies
+            %
+            \begin{center}
+                \begin{tikzpicture}
+                    \node [shape=rectangle, rounded corners, draw, fill=white,
+                        opacity=0.9, blur shadow] at (current page.center)
+                        {$\lambda$ is greatest eigenvalue of $[2 \lambda_{i j} -
+                         \delta_{i j} \sum_k \lambda_{i k}]$};
+                \end{tikzpicture}
+            \end{center}
+            %
+            \begin{itemize}
+                \item Two bands:
+                %
+                \begin{equation*}
+                    \lambda = \frac 1 2 \Big[
+                          \lambda_{1 1} - \lambda_{1 2}
+                        - \lambda_{2 1} + \lambda_{2 2}
+                        + \sqrt{
+                            ( \lambda_{1 1} - \lambda_{1 2}
+                            + \lambda_{2 1} - \lambda_{2 2} )^2
+                            + 16 \lambda_{1 2} \lambda_{2 1}
+                            }
+                    \Big]
+                \end{equation*}
+            \end{itemize}
+        \end{enumerate}
     \end{frame}
 
     \section{Single-band case}
