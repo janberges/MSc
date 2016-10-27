@@ -84,7 +84,7 @@
 
 \date{\small \today}
 
-\includeonlyframes{self-energy,lattice,energy,McMillan}
+\includeonlyframes{Coulomb,self-energy,lattice,energy,McMillan}
 
 \begin{document}
 	\begin{frame}
@@ -645,6 +645,52 @@
                         at (current page.center)
                     {$\displaystyle \Delta(\I \omega_n)
                     = \frac{\phi(\I \omega_n)}{Z(\I \omega_n)}$};
+            }
+    \end{frame}
+
+    \subsection[\name{Coulomb} potential]
+        {Rescaling the \name{Coulomb} interaction}
+
+    \setbeamertemplate{footline}[info]{%
+        e.g. P. B. \name{Allen} and B. \name{Mitrović},
+        Solid state physics \textbf{37} (1982)}
+
+    \begin{frame}[label=Coulomb]{Rescaling the \name{Coulomb} interaction}
+        \begin{itemize}
+            \item Introduction of cutoff frequency $\omega_N$
+            %
+            \begin{align*}
+                \sum_m \enspace &\rightarrow \enspace
+                \sum_m^{|\omega_m| < \omega_N}
+                \\
+                \intertext{
+                    \item Compensation by rescaled \name{Coulomb}
+                    pseudo-potential $\mu^*(N)$
+                    }
+                %
+                \textbf{\llap{local:}} \quad
+                \frac 1 {\mu \sub C} \enspace &\rightarrow \enspace
+                \frac 1 {\mu^*(N)} \approx \frac 1 {\mu \sub C}
+                + \frac 1 \pi \int \from{-\infty} \till \infty \D \epsilon
+                \frac{N(\epsilon)}{N(\mu_0)}
+                \frac{\arctan \frac{\epsilon - \mu}{\omega_N}}{\epsilon - \mu}
+                \\[5mm]
+                \textbf{\llap{CDOS:}} \quad
+                \frac 1 {\mu \sub C} \enspace &\rightarrow \enspace
+                \frac 1 {\mu^*(N)} \approx \frac 1 {\mu \sub C}
+                + \tikz [remember picture, inner sep=0, outer sep=0,
+                         baseline, anchor=base] \node (log)
+                    {$\displaystyle \ln \frac{E \sub F}{\omega_N}$};
+            \end{align*}
+        \end{itemize}
+        %
+        \uncover<2>{%
+            \begin{tikzpicture}[remember picture, overlay, ultra thick, red]
+                \draw [<-, shorten <=1mm, shorten >=1mm]
+                    (log) to[out=-10, in=100] +(15mm, -1cm)
+                    node [below, inner sep=0, outer sep=0]
+                    {natural cutoff at \name{Fermi} energy $E \sub F$};
+            \end{tikzpicture}
             }
     \end{frame}
 
