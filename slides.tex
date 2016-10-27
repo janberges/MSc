@@ -84,7 +84,7 @@
 
 \date{\small \today}
 
-%\includeonlyframes{}
+\includeonlyframes{self-energy,lattice,energy,McMillan}
 
 \begin{document}
 	\begin{frame}
@@ -647,6 +647,95 @@
                     = \frac{\phi(\I \omega_n)}{Z(\I \omega_n)}$};
             }
     \end{frame}
+
+    \section{Single-band case}
+
+    \subsection{Self-energy}
+
+    \setbeamertemplate{footline}[info]{%
+        $\omega \sub E = 20 \, \unit{meV}$, $\lambda = 1$, $\mu^* = 0.1$,
+        $\omega_N = 15 \, \omega \sub E$, $n = 0.5$}
+
+    \begin{frame}[label=self-energy]{Self-energy \hspace{22mm} \clap{
+            \color{black} \normalsize
+            \only<1>{Order parameter}%
+            \only<2>{Renormalization}%
+            \only<3>{Energy shift}%
+            }}
+
+        \begin{figure}
+            \small
+            \only<1>{%
+                \input{results/self-energy-delta-im-slides.sl}\vspace{-5mm}%
+                \input{results/self-energy-delta-re-slides.sl}%
+                }%
+            \only<2>{%
+                \input{results/self-energy-z-im-slides.sl}\vspace{-5mm}%
+                \input{results/self-energy-z-re-slides.sl}%
+                }%
+            \only<3>{%
+                \input{results/self-energy-chi-im-slides.sl}\vspace{-5mm}%
+                \input{results/self-energy-chi-re-slides.sl}%
+                }%
+        \end{figure}
+    \end{frame}
+
+    \subsection{Energy dependence}
+
+    \setbeamertemplate{footline}[info]{}
+
+    \begin{frame}[label=lattice]{Square lattice}
+        \begin{figure}
+            \small
+            \begin{minipage}[c][4cm][c]{12cm/3}
+                \input{diagrams/square-lattice.tex}
+            \end{minipage}%
+            \begin{minipage}[c][4cm][c]{16cm/3}
+                \begin{align*}
+                    \op H = -t \sum_{\vec R}
+                         [  \ket{\vec R + \vec t_1}
+                         &+ \ket{\vec R - \vec t_1} \\{}
+                          + \ket{\vec R + \vec t_2}
+                         &+ \ket{\vec R - \vec t_2} ]
+                    \bra{\vec R}
+                \end{align*}
+            \end{minipage}\\
+            \input{results/square-lattice-dispersion.sl}%
+            \input{results/square-lattice-dos.sl}
+        \end{figure}
+    \end{frame}
+
+    \setbeamertemplate{footline}[info]{%
+        $\omega \sub E = 20 \, \unit{meV}$, $\lambda = 1$, $\mu^* = 0.1$,
+        $\omega_N = 15 \, \omega \sub E$}
+
+    \begin{frame}[label=energy]{Energy dependence}
+        \begin{figure}
+            \small
+            \centering
+            \medmuskip=0mu
+            \input{results/energy-dos-slides.sl}
+            \input{results/energy-shift-slides.sl}
+            \input{results/energy-tc-slides.sl}
+        \end{figure}
+    \end{frame}
+
+    \subsection{\name{McMillan}'s formula}
+
+    \setbeamertemplate{footline}[info]{%
+        W. L. \name{McMillan}, Phys. Rev. \textbf{167}, 331 (1968) ---
+        $\omega \sub E = 20 \, \unit{meV}$, $\omega_N = 15 \, \omega \sub E$}
+
+    \begin{frame}[label=McMillan]{\name{McMillan}'s fits}
+        \begin{figure}
+            \small
+            \centering
+            \only<1>{\input{results/mcmillan-1.sl}}%
+            \only<2>{\input{results/mcmillan-2.sl}\hspace*{4mm}}%
+        \end{figure}
+    \end{frame}
+
+    \setbeamertemplate{footline}[info]{}
 
 	\section{Conclusion}
 
