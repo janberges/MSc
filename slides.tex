@@ -91,7 +91,7 @@
 
 \date{\small \today}
 
-\includeonlyframes{McMillan}
+%\includeonlyframes{McMillan}
 
 \begin{document}
 	\begin{frame}
@@ -668,16 +668,15 @@
                     \frac 1 {\mu^*(N)} &\approx \frac 1 {\mu \sub C}
                     + \frac 1 \pi \int \from{-\infty} \till \infty \D \epsilon
                     \frac{n(\epsilon)}{n(\mu_0)}
-                    \frac{\arctan \frac{\epsilon - \mu}{\omega_N}}{\epsilon - \mu}
+                    \frac
+                        {\arctan \frac{\epsilon - \mu}{\omega_N}}
+                        {\epsilon - \mu}
                     \\[5mm]
                     \uncover<2->{
                         &\approx \frac 1
-                            {\tikz [remember picture, inner sep=0, outer sep=0,
-                                 baseline, anchor=base] \node (muC) {$\mu \sub C$};}
+                            {\tikz [remembered] \node (muC) {$\mu \sub C$};}
                         + \ln \frac
-                            {\tikz [remember picture, inner sep=0, outer sep=0,
-                                 baseline, anchor=base] \node (EF)
-                                 {$E \sub F$};}
+                            {\tikz [remembered] \node (EF) {$E \sub F$};}
                             {\omega_N}
                         \quad \text{for} \quad
                         \omega_N \ll E \sub F
@@ -728,8 +727,9 @@
     \setbeamertemplate{footline}[info]{}
 
     \begin{frame}[label=scalars]{Effective scalar coupling strengths}
-        \framesubtitle{Scalar $\lambda$ which yields the same $T \sub c$ as matrix
-                  $\vec \lambda = [\lambda_{i j}]$?}
+        \framesubtitle{
+            Scalar $\lambda$ which yields the same $T \sub c$ as matrix $\vec
+            \lambda = [\lambda_{i j}]$?}
 
         Approximate analytical solutions for $\mu^* = 0$
         %
@@ -747,7 +747,8 @@
                 \item Two bands:
                 %
                 \begin{equation*}
-                    \lambda = \frac 1 2 \Big[ \lambda_{11} + \lambda_{22} + \sqrt{
+                    \lambda
+                    = \frac 1 2 \Big[ \lambda_{11} + \lambda_{22} + \sqrt{
                         (\lambda_{1 1} - \lambda_{2 2})^2
                         + 4 \lambda_{1 2} \lambda_{2 1}
                         }
