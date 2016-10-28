@@ -85,7 +85,7 @@
 
 \date{\small \today}
 
-\includeonlyframes{Coulomb,scalars}
+\includeonlyframes{Coulomb}
 
 \begin{document}
 	\begin{frame}
@@ -656,6 +656,10 @@
         e.g. P. B. \name{Allen} and B. \name{Mitrović},
         Solid state physics \textbf{37} (1982)}
 
+    \newsavebox{\RDOS}
+    \savebox{\RDOS}{\small\input{results/rdos.sl}}
+    \savebox{\CDOS}{\small\input{results/cdos.sl}}
+
     \begin{frame}[label=Coulomb]{Rescaling the \name{Coulomb} interaction}
         \begin{itemize}
             \item Introduction of cutoff frequency $\omega_N$
@@ -669,30 +673,66 @@
                     pseudo-potential $\mu^*(N)$
                     }
                 %
-                \textbf{\llap{local:}} \quad
                 \frac 1 {\mu \sub C} \enspace &\rightarrow \enspace
-                \frac 1 {\mu^*(N)} \approx \frac 1 {\mu \sub C}
-                + \frac 1 \pi \int \from{-\infty} \till \infty \D \epsilon
-                \frac{N(\epsilon)}{N(\mu_0)}
-                \frac{\arctan \frac{\epsilon - \mu}{\omega_N}}{\epsilon - \mu}
-                \\[5mm]
-                \textbf{\llap{CDOS:}} \quad
-                \frac 1 {\mu \sub C} \enspace &\rightarrow \enspace
-                \frac 1 {\mu^*(N)} \approx \frac 1 {\mu \sub C}
-                + \tikz [remember picture, inner sep=0, outer sep=0,
-                         baseline, anchor=base] \node (log)
-                    {$\displaystyle \ln \frac{E \sub F}{\omega_N}$};
+                \begin{aligned}[t]
+                    \frac 1 {\mu^*(N)} &\approx \frac 1 {\mu \sub C}
+                    + \frac 1 \pi \int \from{-\infty} \till \infty \D \epsilon
+                    \frac{n(\epsilon)}{n(\mu_0)}
+                    \frac{\arctan \frac{\epsilon - \mu}{\omega_N}}{\epsilon - \mu}
+                    \\[5mm]
+                    \uncover<2->{
+                        &\approx \frac 1
+                            {\tikz [remember picture, inner sep=0, outer sep=0,
+                                 baseline, anchor=base] \node (muC) {$\mu \sub C$};}
+                        + \ln \frac
+                            {\tikz [remember picture, inner sep=0, outer sep=0,
+                                 baseline, anchor=base] \node (EF)
+                                 {$E \sub F$};}
+                            {\omega_N}
+                        \quad \text{for} \quad
+                        \omega_N \ll E \sub F
+                        }
+                \end{aligned}
             \end{align*}
         \end{itemize}
         %
-        \uncover<2>{%
-            \begin{tikzpicture}[remember picture, overlay, ultra thick, red]
-                \draw [<-, shorten <=1mm, shorten >=1mm]
-                    (log) to[out=-10, in=100] +(15mm, -1cm)
-                    node [below, inner sep=0, outer sep=0]
-                    {natural cutoff at \name{Fermi} energy $E \sub F$};
-            \end{tikzpicture}
-            }
+        \begin{tikzpicture}[remember picture, overlay]
+            \uncover<2->{
+                \node [shape=rectangle, rounded corners, draw, fill=white,
+                    opacity=0.9, blur shadow, xshift=-4cm, yshift=-28mm]
+                    at (current page.center)
+                    {\only<-3>{\usebox\RDOS}\only<4>{\usebox\CDOS}};
+                }
+            \uncover<3->{
+                \draw [red]
+                    (muC.south west) -- (muC.north east)
+                    ( EF.south west) -- ( EF.north east);
+                \node [inner sep=0, outer sep=0, below right=1.5mm, red]
+                    (muStar) at (muC) {$\mu^*$};
+                \node [inner sep=0, outer sep=0, above left=1.5mm, red]
+                    (omegaE) at (EF) {$\omega \sub E$};
+                \node [shape=rectangle, rounded corners, draw, fill=white,
+                    opacity=0.9, blur shadow, xshift=14mm, yshift=14mm]
+                    at (current page.center) {
+                        \name{McMillan:}
+                        $\displaystyle \frac 1 {\mu^*}
+                        = \frac 1 {\mu \sub C}
+                        + \ln \frac{E \sub F}{\omega \sub E}$
+                        };
+                }
+            \uncover<4>{
+                \draw [titleblue]
+                    (muStar.south west) -- (muStar.north east)
+                    (omegaE.south west) -- (omegaE.north east);
+                \node [inner sep=0, outer sep=0, below right=1.5mm, titleblue]
+                    (muStarM) at (muStar) {$\mu^*(M)$};
+                \node [inner sep=0, outer sep=0, above left=1.5mm, titleblue]
+                    (omegaM) at (omegaE) {$\omega_M$};
+                \node [titleblue, below right=3mm] at (muStarM)
+                    { $\scriptstyle \blacktriangleright$
+                      natural cutoff at $E \sub F$ };
+                }
+        \end{tikzpicture}
     \end{frame}
 
     \subsection[Effective scalars]{Effective scalar coupling strengths}
