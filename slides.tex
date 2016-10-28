@@ -12,6 +12,12 @@
 
 \usetikzlibrary{shadows.blur}
 
+\tikzset{remembered/.style={
+    remember picture, inner sep=0, outer sep=0, baseline, anchor=base}}
+
+\tikzset{infobox/.style={shape=rectangle,
+    rounded corners, draw, fill=white, opacity=0.9, blur shadow}}
+
 \defbeamertemplate{footline}{info}[1]{%
     \hfill\smash{\color{titleblue}{\footnotesize #1}}\hfill%
     \hspace{2cm}\llap{\color{white}{\scriptsize%
@@ -85,7 +91,7 @@
 
 \date{\small \today}
 
-\includeonlyframes{Coulomb}
+%\includeonlyframes{Coulomb}
 
 \begin{document}
 	\begin{frame}
@@ -283,25 +289,17 @@
             \begin{align*}
                 \vec \Sigma_{\vec k}(\I \omega_n)
                 &= \I \omega_n [1 -
-                \tikz [remember picture, inner sep=0, outer sep=0,
-                    baseline, anchor=base]
-                    \node (Z) {$Z_{\vec k}$};
+                \tikz [remembered] \node (Z) {$Z_{\vec k}$};
                 (\I \omega_n)] \vec \sigma_0 +
-                \tikz [remember picture, inner sep=0, outer sep=0,
-                    baseline, anchor=base]
-                    \node (phi) {$\phi_{\vec k}$};
+                \tikz [remembered] \node (phi) {$\phi_{\vec k}$};
                 (\I \omega_n) \vec \sigma_1 +
-                \tikz [remember picture, inner sep=0, outer sep=0,
-                    baseline, anchor=base]
-                    \node (chi) {$\chi_{\vec k}$};
+                \tikz [remembered] \node (chi) {$\chi_{\vec k}$};
                 (\I \omega_n) \vec \sigma_3
                 \\
                 \uncover<7->{
                     &= -\frac {g^2 T} N \sum_{\vec q m}
                     \vec \sigma_3 \,
-                    \tikz [remember picture, inner sep=0, outer sep=0,
-                        baseline, anchor=base] \node (B)
-                        {$\vec G_{\vec q}$}; \,
+                    \tikz [remembered] \node (B) {$\vec G_{\vec q}$}; \,
                     (\I \omega_m) \vec \sigma_3 \, \hypo
                         {D_{\vec k - \vec q}(\I \omega_n - \I \omega_m)}
                         {\tikz \draw [phonon, double] (0, 0) -- (0.7, 0);}
@@ -309,8 +307,7 @@
                 \\
                 \uncover<5->{
                     \vec G\alt<5>{^0}{^{\vphantom 0}}_{\vec k}(\I \omega_n) &=
-                    \tikz [remember picture, inner xsep=0, inner ysep=1mm,
-                        outer sep=0, baseline, anchor=base] \node (A) {$
+                    \tikz [remembered, inner ysep=1mm] \node (A) {$
                         \displaystyle -\frac{
                             \I \omega_n
                             \uncover<6->{Z_{\vec k}(\I \omega_n)}
@@ -398,12 +395,10 @@
         %
         \uncover<4>{
             \begin{tikzpicture}[remember picture, overlay]
-                \node [shape=rectangle, rounded corners, draw, fill=white,
-                    opacity=0.9, blur shadow, xshift=-25mm, yshift=-23mm]
+                \node [infobox, xshift=-25mm, yshift=-23mm]
                     at (current page.center)
                 {$\lambda_{\vec q}(n) = -n(\mu_0) \, g^2 D_{\vec q}(\I \nu_n)$};
-                \node [shape=rectangle, rounded corners, draw, fill=white,
-                    opacity=0.9, blur shadow, xshift=15mm, yshift=-23mm]
+                \node [infobox, xshift=15mm, yshift=-23mm]
                     at (current page.center)
                 {${\mu \sub C}_{\vec q} = n(\mu_0) \, U_{\vec q}$};
             \end{tikzpicture}
@@ -458,12 +453,10 @@
         %
         \uncover<1>{
             \begin{tikzpicture}[remember picture, overlay]
-                \node [shape=rectangle, rounded corners, draw, fill=white,
-                    opacity=0.9, blur shadow, xshift=-25mm, yshift=-23mm]
+                \node [infobox, xshift=-25mm, yshift=-23mm]
                     at (current page.center)
                 {$\lambda_{\vec q}(n) = -n(\mu_0) \, g^2 D_{\vec q}(\I \nu_n)$};
-                \node [shape=rectangle, rounded corners, draw, fill=white,
-                    opacity=0.9, blur shadow, xshift=15mm, yshift=-23mm]
+                \node [infobox, xshift=15mm, yshift=-23mm]
                     at (current page.center)
                 {${\mu \sub C}_{\vec q} = n(\mu_0) \, U_{\vec q}$};
             \end{tikzpicture}
@@ -569,9 +562,7 @@
         %
         \uncover<5>{
             \begin{tikzpicture}[remember picture, overlay]
-                \node [shape=rectangle, rounded corners, draw, fill=white,
-                    opacity=0.9, blur shadow] at (current page.center)
-                    {\usebox{\CDOS}};
+                \node [infobox] at (current page.center) {\usebox{\CDOS}};
             \end{tikzpicture}
             }
     \end{frame}
@@ -641,11 +632,10 @@
         %
         \uncover<3-4>{
             \tikz[remember picture, overlay]
-                \node [shape=rectangle, rounded corners, draw, fill=white,
-                        opacity=0.9, blur shadow, xshift=-12mm, yshift=-15mm]
-                        at (current page.center)
-                    {$\displaystyle \Delta(\I \omega_n)
-                    = \frac{\phi(\I \omega_n)}{Z(\I \omega_n)}$};
+                \node [infobox, xshift=-12mm, yshift=-15mm]
+                    at (current page.center)
+                { $\displaystyle \Delta(\I \omega_n)
+                = \frac{\phi(\I \omega_n)}{Z(\I \omega_n)}$ };
             }
     \end{frame}
 
@@ -698,8 +688,7 @@
         %
         \begin{tikzpicture}[remember picture, overlay]
             \uncover<2->{
-                \node [shape=rectangle, rounded corners, draw, fill=white,
-                    opacity=0.9, blur shadow, xshift=-4cm, yshift=-28mm]
+                \node [infobox, xshift=-4cm, yshift=-28mm]
                     at (current page.center)
                     {\only<-3>{\usebox\RDOS}\only<4>{\usebox\CDOS}};
                 }
@@ -711,8 +700,7 @@
                     (muStar) at (muC) {$\mu^*$};
                 \node [inner sep=0, outer sep=0, above left=1.5mm, red]
                     (omegaE) at (EF) {$\omega \sub E$};
-                \node [shape=rectangle, rounded corners, draw, fill=white,
-                    opacity=0.9, blur shadow, xshift=14mm, yshift=14mm]
+                \node [infobox, xshift=14mm, yshift=14mm]
                     at (current page.center) {
                         \name{McMillan:}
                         $\displaystyle \frac 1 {\mu^*}
@@ -750,8 +738,7 @@
             %
             \begin{center}
                 \begin{tikzpicture}
-                    \node [shape=rectangle, rounded corners, draw, fill=white,
-                        opacity=0.9, blur shadow] at (current page.center)
+                    \node [infobox] at (current page.center)
                         {$\lambda$ is greatest eigenvalue of $\vec \lambda$};
                 \end{tikzpicture}
             \end{center}
@@ -772,10 +759,9 @@
             %
             \begin{center}
                 \begin{tikzpicture}
-                    \node [shape=rectangle, rounded corners, draw, fill=white,
-                        opacity=0.9, blur shadow] at (current page.center)
-                        {$\lambda$ is greatest eigenvalue of $[2 \lambda_{i j} -
-                         \delta_{i j} \sum_k \lambda_{i k}]$};
+                    \node [infobox] at (current page.center)
+                        { $\lambda$ is greatest eigenvalue of $[2 \lambda_{i j}
+                        - \delta_{i j} \sum_k \lambda_{i k}]$ };
                 \end{tikzpicture}
             \end{center}
             %
