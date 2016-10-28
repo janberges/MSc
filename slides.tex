@@ -91,7 +91,7 @@
 
 \date{\small \today}
 
-%\includeonlyframes{Coulomb}
+\includeonlyframes{McMillan}
 
 \begin{document}
 	\begin{frame}
@@ -504,8 +504,8 @@
 
     \addtocounter{framenumber}{-1}
 
-    \newsavebox{\CDOS}
-    \savebox{\CDOS}{\small\input{results/cdos-1.sl}}
+    \newsavebox\CDOS
+    \savebox\CDOS{\small\input{results/cdos-1.sl}}
 
     \begin{frame}[label=Eliashberg4]{\name{Eliashberg} equations}
         \only<4>{\addtocounter{framenumber}{1}}
@@ -562,7 +562,7 @@
         %
         \uncover<5>{
             \begin{tikzpicture}[remember picture, overlay]
-                \node [infobox] at (current page.center) {\usebox{\CDOS}};
+                \node [infobox] at (current page.center) {\usebox\CDOS};
             \end{tikzpicture}
             }
     \end{frame}
@@ -646,9 +646,9 @@
         e.g. P. B. \name{Allen} and B. \name{Mitrović},
         Solid state physics \textbf{37} (1982)}
 
-    \newsavebox{\RDOS}
-    \savebox{\RDOS}{\small\input{results/rdos.sl}}
-    \savebox{\CDOS}{\small\input{results/cdos.sl}}
+    \newsavebox\RDOS
+    \savebox\RDOS{\small\input{results/rdos.sl}}
+    \savebox\CDOS{\small\input{results/cdos.sl}}
 
     \begin{frame}[label=Coulomb]{Rescaling the \name{Coulomb} interaction}
         \begin{itemize}
@@ -868,16 +868,65 @@
     \subsection{\name{McMillan}'s formula}
 
     \setbeamertemplate{footline}[info]{%
-        W. L. \name{McMillan}, Phys. Rev. \textbf{167}, 331 (1968) ---
-        $\omega \sub E = 20 \, \unit{meV}$, $\omega_N = 15 \, \omega \sub E$}
+        W. L. \name{McMillan}, Phys. Rev. \textbf{167}, 331 (1968)}
 
-    \begin{frame}[label=McMillan]{\name{McMillan}'s fits}
-        \begin{figure}
-            \small
-            \centering
-            \only<1>{\input{results/mcmillan-1.sl}}%
-            \only<2>{\input{results/mcmillan-2.sl}\hspace*{4mm}}%
-        \end{figure}
+    \newsavebox\McMillanA
+    \newsavebox\McMillanB
+
+    \savebox\McMillanA
+        {\hspace*{2mm}\small\input{results/mcmillan-1.sl}\hspace*{2mm}}
+
+    \savebox\McMillanB
+        {\small\input{results/mcmillan-2.sl}\hspace*{4mm}}
+
+    \begin{frame}[label=McMillan]{\name{McMillan}'s formula}
+        \begin{enumerate}
+            \item Linearized CDOS \name{Eliashberg} equations on real axis
+            \item Trial function for energy gap
+            %
+            \begin{equation*}
+                \Delta(\omega) = \begin{cases}
+                    \Delta_0 & \text{for $|\omega| < \omega_0$} \\
+                    \Delta_\infty & \text{otherwise}
+                \end{cases}
+            \end{equation*}
+            %
+            \item Analytic expression for $T \sub c$
+            %
+            \begin{equation*}
+                T \sub c = \mathrlap{
+                    \alt<1>{\omega_0}{
+                        \frac
+                            {\alt<4>{\omega \sub E}{\av \omega}}
+                            {\only<2> A \only<3>{1.20} \only<4->{0.94}}
+                        }
+                    \exp \bigg[{ -\frac
+                        { \only<2> B \only<3>{1.04} \only<4->{1.11} \,
+                          \only<2->(1 + \lambda \only<2->) }
+                        { \lambda - \only<2> C \only<3>{0.62} \only<4->{0.74}
+                          \only<2->\, \lambda \mu^*
+                          \only<1>{\av \omega / \omega_0} - \mu^* }
+                    }\bigg]
+                }
+                \hspace{4cm}
+            \end{equation*}
+            %
+            \item<2-> Relaxation by introduction of fit parameters
+            \item<3-> Linear regression for\dots
+            %
+            \begin{itemize}
+                \setlength{\itemindent}{15mm}
+                \item[originally:] phonon DOS of niobium
+                \item[in this work:]<4-> \name{Einstein} spectrum
+            \end{itemize}
+        \end{enumerate}
+        %
+        \uncover<5-6>{
+            \begin{tikzpicture}[remember picture, overlay]
+                \node [infobox] at (current page.center)
+                {\only<5>{\usebox\McMillanA}\only<6>{\usebox\McMillanB}};
+            \end{tikzpicture}
+            }
     \end{frame}
 
     \setbeamertemplate{footline}[info]{}
