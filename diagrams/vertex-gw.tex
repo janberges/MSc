@@ -10,11 +10,11 @@
     \node at (1.5, 0) {$\approx$};
 
     \coordinate (0) at (2.5, 0);
-    
+
     \coordinate (I) at (4.00, -{sqrt(3)/2});
     \coordinate (X) at (5.00, +{sqrt(3)/2});
     \coordinate (O) at (6.00, -{sqrt(3)/2});
-    
+
     \begin{scope}[gray]
         \foreach \point in {i, 0}
             \draw [backward] (\point) -- +(225:5mm);
@@ -25,7 +25,7 @@
         \foreach \point in {o, 0}
             \draw [forward] (\point) -- +(315:5mm);
     \end{scope}
-    
+
     \begin{scope}[opacity=0]
         \foreach \point in {I}
             \draw [backward] (\point) -- +(225:5mm);

@@ -726,6 +726,12 @@
 
     \setbeamertemplate{footline}[info]{}
 
+    \newsavebox\TcA
+    \newsavebox\TcB
+
+    \savebox\TcA{\small\input{results/tc-2.sl}}
+    \savebox\TcB{\small\input{results/tc-1.sl}}
+
     \begin{frame}[label=scalars]{Effective scalar coupling strengths}
         \framesubtitle{
             Scalar $\lambda$ which yields the same $T \sub c$ as matrix $\vec
@@ -782,6 +788,15 @@
                 \end{equation*}
             \end{itemize}
         \end{enumerate}
+        %
+        \uncover<2-3>{
+            \begin{tikzpicture}[remember picture, overlay]
+                \node [infobox, align=center] at (current page.center){
+                    \only<2>{$Z = 1$\\[-\baselineskip]\usebox\TcA}%
+                    \only<3>{$N = 1$\\[-\baselineskip]\usebox\TcB}%
+                    };
+            \end{tikzpicture}
+            }
     \end{frame}
 
     \section{Single-band case}
