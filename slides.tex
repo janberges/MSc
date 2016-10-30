@@ -95,7 +95,7 @@
 
 \date{\small \today}
 
-\includeonlyframes{benchmarks}
+%\includeonlyframes{}
 
 \begin{document}
     \begin{frame}
@@ -573,6 +573,9 @@
 
     \addtocounter{framenumber}{-1}
 
+    \newsavebox\pockets
+    \savebox\pockets{\input{diagrams/multi-pocket.tex}}
+
     \begin{frame}[label=Eliashberg5]{\name{Eliashberg} equations}
         \only<7,9>{\addtocounter{framenumber}{1}}
         %
@@ -634,12 +637,19 @@
             & \vspacing
         \end{align*}
         %
-        \uncover<3-4>{
-            \tikz[remember picture, overlay]
-                \node [infobox, xshift=-12mm, yshift=-15mm]
-                    at (current page.center)
-                { $\displaystyle \Delta(\I \omega_n)
-                = \frac{\phi(\I \omega_n)}{Z(\I \omega_n)}$ };
+        \uncover<3-4, 9-10>{
+            \begin{tikzpicture}[remember picture, overlay]
+                \uncover<3-4>{
+                    \node [infobox, xshift=-1cm, yshift=-15mm]
+                        at (current page.center)
+                    { $\displaystyle \Delta(\I \omega_n)
+                    = \frac{\phi(\I \omega_n)}{Z(\I \omega_n)}$ };
+                    }
+                \uncover<9-10>{
+                    \node [infobox, xshift=-1cm, yshift=-24mm]
+                        at (current page.center) {\usebox\pockets};
+                    }
+            \end{tikzpicture}
             }
     \end{frame}
 
