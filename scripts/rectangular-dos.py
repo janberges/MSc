@@ -11,7 +11,7 @@ plot.yticks = [(0, 0), (1, '$n(\mu_0)$')]
 
 plot.line([-1, 1], [1, 1], yref=0, color='red', fill='red!20')
 
-plot.save('../results/rdos.sl', external=True)
+plot.save('../results/rectangular-dos.sl', external=True)
 plot.clear()
 
 plot.clear()
@@ -22,5 +22,5 @@ plot.line([-1.2, 1.2], [1, 1], draw='red')
 plot.xticks[0] = (-1.2, '$-\infty$')
 plot.xticks[2] = ( 1.2,  '$\infty$')
 
-plot.save('../results/cdos.sl', external=True)
+plot.save('../results/rectangular-dos-limit.sl', external=True)
 plot.clear()
