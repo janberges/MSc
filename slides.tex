@@ -91,7 +91,7 @@
 
 \date{\small \today}
 
-%\includeonlyframes{McMillan}
+\includeonlyframes{self-energy}
 
 \begin{document}
 	\begin{frame}
@@ -809,27 +809,30 @@
 
     \begin{frame}[label=self-energy]{Self-energy \hspace{22mm} \clap{
             \color{black} \normalsize
-            \only<1-2>{Order parameter}%
-            \only<3>{Renormalization}%
-            \only<4>{Energy shift}%
+            \only<1-3>{Order parameter}%
+            \only<4>{Renormalization}%
+            \only<5>{Energy shift}%
             }}
 
         \begin{figure}
             \small
-            \only<1-2>{%
+            \only<1-3>{%
                 \input{results/self-energy-delta-im-slides.sl}\vspace{-5mm}%
-                \uncover<2>{\input{results/self-energy-delta-re-slides.sl}}%
+                \uncover<1,3>{%
+                    \only<1>{\input{results/order-parameter-slides.sl}}%
+                    \only<2-3>{\input{results/self-energy-delta-re-slides.sl}}%
+                    }%
                 }%
-            \only<3>{%
+            \only<4>{%
                 \input{results/self-energy-z-im-slides.sl}\vspace{-5mm}%
                 \input{results/self-energy-z-re-slides.sl}%
                 }%
-            \only<4>{%
+            \only<5>{%
                 \input{results/self-energy-chi-im-slides.sl}\vspace{-5mm}%
                 \input{results/self-energy-chi-re-slides.sl}%
                 }%
             \vspace{-3cm}%
-            \uncover<1>{
+            \uncover<2>{
                 \begin{equation*}
                     \textbf{\name{Padé} approximant} \qquad
                     \Delta(\omega) = \dfrac{

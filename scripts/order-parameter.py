@@ -75,3 +75,16 @@ plot.line(T[:Nc + 1], order_parameter[:Nc + 1], thick=True, color='black',
     label=r'$\Delta(\I \omega_0)$')
 
 plot.save('../results/order-parameter.sl', external=True)
+
+plot.lines[1]['label'] = 'iterations (a.u.)'
+plot.lines[2]['label'] = r'$\Delta_0 = \Re[\Delta(\Delta_0)]$'
+
+plot.lines[2]['options']['color'] = 'orange'
+
+plot.width = 9.8
+plot.height = 4.0
+plot.right = 1.0
+
+plot.ymax = 3.05
+
+plot.save('../results/order-parameter-slides.sl', external=True)
