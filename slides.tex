@@ -18,8 +18,10 @@
 \tikzset{infobox/.style={shape=rectangle,
     rounded corners, draw, fill=white, opacity=0.9, blur shadow}}
 
+\def\information#1{\color{titleblue}{\footnotesize #1}}
+
 \defbeamertemplate{footline}{info}[1]{%
-    \hfill\smash{\color{titleblue}{\footnotesize #1}}\hfill%
+    \hfill\smash{\information{#1}}\hfill%
     \hspace{2cm}\llap{\color{white}{\scriptsize%
         \insertframenumber\,/\,\inserttotalframenumber\hspace*{1mm}}}%
     \vspace{1mm}%
@@ -91,7 +93,7 @@
 
 \date{\small \today}
 
-\includeonlyframes{self-energy}
+\includeonlyframes{Coulomb}
 
 \begin{document}
 	\begin{frame}
@@ -647,8 +649,15 @@
         Solid state physics \textbf{37} (1982)}
 
     \newsavebox\RDOS
+
     \savebox\RDOS{\small\input{results/rectangular-dos.sl}}
     \savebox\CDOS{\small\input{results/rectangular-dos-limit.sl}}
+
+    \newsavebox\convergence
+    \newsavebox\convergenceCDOS
+
+    \savebox\convergence    {\small\input{results/convergence-cutoff.sl}}
+    \savebox\convergenceCDOS{\small\input{results/convergence-cutoff-cdos.sl}}
 
     \begin{frame}[label=Coulomb]{Rescaling the \name{Coulomb} interaction}
         \begin{itemize}
@@ -672,7 +681,7 @@
                         {\arctan \frac{\epsilon - \mu}{\omega_N}}
                         {\epsilon - \mu}
                     \\[5mm]
-                    \uncover<2->{
+                    \uncover<4->{
                         &\approx \frac 1
                             {\tikz [remembered] \node (muC) {$\mu \sub C$};}
                         + \ln \frac
@@ -686,12 +695,12 @@
         \end{itemize}
         %
         \begin{tikzpicture}[remember picture, overlay]
-            \uncover<2->{
+            \uncover<4->{
                 \node [infobox, xshift=-4cm, yshift=-28mm]
                     at (current page.center)
-                    {\only<-3>{\usebox\RDOS}\only<4>{\usebox\CDOS}};
+                    {\only<-5>{\usebox\RDOS}\only<6->{\usebox\CDOS}};
                 }
-            \uncover<3->{
+            \uncover<5->{
                 \draw [red]
                     (muC.south west) -- (muC.north east)
                     ( EF.south west) -- ( EF.north east);
@@ -707,7 +716,7 @@
                         + \ln \frac{E \sub F}{\omega \sub E}$
                         };
                 }
-            \uncover<4>{
+            \uncover<6->{
                 \draw [titleblue]
                     (muStar.south west) -- (muStar.north east)
                     (omegaE.south west) -- (omegaE.north east);
@@ -718,6 +727,25 @@
                 \node [titleblue, below right=3mm] at (muStarM)
                     { $\scriptstyle \blacktriangleright$
                       natural cutoff at $E \sub F$ };
+                }
+            \uncover<2,7>{
+                \node [infobox, align=center] at (current page.center) {
+                    \only<2>{\usebox\convergence\\
+                        \information{%
+                            $\omega \sub E = 20 \, \unit{meV}$,
+                            $\lambda = 1$,
+                            $\mu \sub C = 0.16$,
+                            $n = 0.5$
+                            }%
+                        }%
+                    \only<7>{\usebox\convergenceCDOS\\
+                        \information{%
+                            $\omega \sub E = 20 \, \unit{meV}$,
+                            $\lambda = 1$,
+                            $\mu^* = 0.1$
+                            }%
+                        }%
+                    };
                 }
         \end{tikzpicture}
     \end{frame}
