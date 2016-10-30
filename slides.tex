@@ -95,7 +95,7 @@
 
 \date{\small \today}
 
-%\includeonlyframes{Coulomb}
+\includeonlyframes{scalars}
 
 \begin{document}
 	\begin{frame}
@@ -822,8 +822,26 @@
         \uncover<2-3>{
             \begin{tikzpicture}[remember picture, overlay]
                 \node [infobox, align=center] at (current page.center){
-                    \only<2>{$Z = 1$\\[-\baselineskip]\usebox\TcA}%
-                    \only<3>{$N = 1$\\[-\baselineskip]\usebox\TcB}%
+                    \only<2>{%
+                        \color{titleblue}{\bm$Z = 1$}\\[-\baselineskip]
+                        \usebox\TcA\\
+                        \information{$
+                            \omega \sub E = 20 \, \unit{meV} \sep
+                            \omega_N = 15 \, \omega \sub E \sep
+                            \lambda_{i j} \in [0, 1) \sep
+                            \lambda_{Z = 1} > 0.5
+                            $}%
+                        }%
+                    \only<3>{%
+                        \color{titleblue}{\bm$N = 1$}\\[-\baselineskip]
+                        \usebox\TcB\\
+                        \information{$
+                            \omega \sub E = 20 \, \unit{meV} \sep
+                            \omega_N = 15 \, \omega \sub E \sep
+                            \lambda_{i j} \in [0, 1) \sep
+                            \lambda_{Z = 1} > 0.5
+                            $}%
+                        }%
                     };
             \end{tikzpicture}
             }
