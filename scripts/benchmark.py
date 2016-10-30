@@ -48,11 +48,21 @@ Tc = np.zeros((4, resolution))
 plot = storylines.Plot(7, 7, right=0.5)
 plot.ylabel = r'$T \sub c / \unit K$'
 
+plot_slides = storylines.Plot(4.5, 4.5, right=0.5, top=0.5)
+plot_slides.ylabel = plot.ylabel
+
 styles = [
     dict(color='blue'),
     dict(color='red'),
     dict(),
     dict(thick=True, dotted=True),
+    ]
+
+styles_slides = [
+    dict(thick=True, color='cyan'),
+    dict(thick=True, color='orange'),
+    dict(thick=True),
+    dict(very_thick=True, loosely_dotted=True),
     ]
 
 labels = [
@@ -67,6 +77,7 @@ extra = ''
 while True:
     for key in variable.keys():
         plot.xlabel = r'$%s$' % formula[key]
+        plot_slides.xlabel = plot.xlabel
 
         parameters.update(constant)
 
@@ -81,8 +92,11 @@ while True:
             Tc[2, j] = McMillan(A=1.20, B=1.04, C=0.62, **parameters)
             Tc[3, j] = McMillan(A=0.94, B=1.11, C=0.74, **parameters)
 
-        for tc, style, label in zip(Tc, styles, labels):
+        for tc, style,  style_slides,  label in zip(
+            Tc, styles, styles_slides, labels):
+
             plot.line(variable[key], tc, label=label, **style)
+            plot_slides.line(variable[key], tc, **style_slides)
 
         plot.xspacing = 1.5 if key == 'omegaE' else 1.0
         plot.corner   = 1   if key == 'muStar' else 4
@@ -91,6 +105,20 @@ while True:
             external=True)
 
         plot.clear()
+
+        if key == 'muStar':
+            plot_slides.xticks = [0.0, 0.1, 0.2, 0.3]
+        elif key == 'omegaE':
+            plot_slides.xticks = [0.01, 0.02, 0.03]
+        elif extra:
+            plot_slides.xticks = [1.0, 4.0, 7.0, 10.0]
+        else:
+            plot_slides.xticks = None
+
+        plot_slides.save('../results/benchmark-' + key.lower()
+            + extra + '-slides.sl', external=True)
+
+        plot_slides.clear()
 
     if extra:
         break

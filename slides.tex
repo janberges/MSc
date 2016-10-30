@@ -95,27 +95,27 @@
 
 \date{\small \today}
 
-\includeonlyframes{scalars}
+\includeonlyframes{benchmarks}
 
 \begin{document}
-	\begin{frame}
-		\titlepage
-	\end{frame}
+    \begin{frame}
+        \titlepage
+    \end{frame}
 
-	\begin{frame}{Contents}
-		\tableofcontents
-	\end{frame}
+    \begin{frame}{Contents}
+        \tableofcontents
+    \end{frame}
 
-	\section{Motivation}
+    \section{Motivation}
 
-	\begin{frame}{Motivation}
-	\end{frame}
+    \begin{frame}{Motivation}
+    \end{frame}
 
     \section{Many-body physics}
 
     \subsection[El.-ph. interaction]{Electron-phonon interaction}
 
-	\begin{frame}[label=interaction]{Electron-phonon interaction}
+    \begin{frame}[label=interaction]{Electron-phonon interaction}
         \begin{figure}
             \small
             \input{diagrams/hartree.tex}
@@ -124,14 +124,14 @@
             \input{diagrams/porthole.tex}
             \caption{Electron renormalization processes with one phonon}
         \end{figure}
-	\end{frame}
+    \end{frame}
 
     \subsection{\name{Hedin}'s equations}
 
     \setbeamertemplate{footline}[info]{%
         L. \name{Hedin}, Phys. Rev. \textbf{139}, A796 (1965)}
 
-	\begin{frame}[label=Hedin]{\name{Hedin}'s equations}
+    \begin{frame}[label=Hedin]{\name{Hedin}'s equations}
         \begin{gather*}
             \input{diagrams/electron.tex} \\
             \only<1>{\input{diagrams/self-energy.tex}}%
@@ -142,13 +142,13 @@
             \only<2>{\input{diagrams/vertex-gw.tex}%
             \mathllap{\text{(GW\,/\,\name{Migdal})}}}
         \end{gather*}
-	\end{frame}
+    \end{frame}
 
     \subsection[Superconductivity?]{What about superconductivity?}
 
     \setbeamertemplate{footline}[info]{}
 
-	\begin{frame}[label=superconductivity]{What about superconductivity?}
+    \begin{frame}[label=superconductivity]{What about superconductivity?}
         \begin{itemize}
             \item \name{Dyson} equation
             %
@@ -268,7 +268,7 @@
                     }
             \end{itemize}
         \end{itemize}
-	\end{frame}
+    \end{frame}
 
     \section{\name{Eliashberg} theory}
 
@@ -997,10 +997,45 @@
             }
     \end{frame}
 
+    \subsection[$T \sub c$ benchmarks]{Critical-temperature benchmarks}
+
+    \setbeamertemplate{footline}[info]{$%
+        \omega \sub E = 20 \, \unit{meV} \sep \lambda = 1 \sep \mu^* = 0.15 \sep
+        \omega_N = 15 \, \omega \sub E \sep n = 0.5$}
+
+    \begin{frame}[label=benchmarks]{Critical-temperature benchmarks}
+        \small \centering \vspace{-1mm}
+        \input{results/benchmark-omegae-slides.sl}%
+        \input{results/benchmark-mustar-slides.sl}\\[-5mm]
+        \input{results/benchmark-lamda-slides.sl}%
+        \uncover<2>{\input{results/benchmark-lamda-more-slides.sl}}%
+        \uncover<1>{%
+            \begin{tikzpicture}[remember picture, overlay]
+                \node [infobox, xshift=15mm, yshift=-2cm]
+                    at (current page.center) {
+                    \begin{tikzpicture}[x=0.2cm, y=\baselineskip]
+                        \node [right] at (2, 0) {\name{McMillan Einstein}};
+                        \draw [very thick, loosely dotted, line cap=round]
+                            plot coordinates { (0, 0) (2, 0) };
+                        \node [right] at (2, 1) {\name{McMillan} niobium};
+                        \draw [thick]
+                            plot coordinates { (0, 1) (2, 1) };
+                        \node [right] at (2, 2) {\name{Eliashberg} local};
+                        \draw [thick, orange]
+                            plot coordinates { (0, 2) (2, 2) };
+                        \node [right] at (2, 3) {\name{Eliashberg} CDOS};
+                        \draw [thick, cyan]
+                            plot coordinates { (0, 3) (2, 3) };
+                    \end{tikzpicture}
+                    };
+            \end{tikzpicture}
+            }
+    \end{frame}
+
     \setbeamertemplate{footline}[info]{}
 
-	\section{Conclusion}
+    \section{Conclusion}
 
-	\begin{frame}{Conclusion}
-	\end{frame}
+    \begin{frame}{Conclusion}
+    \end{frame}
 \end{document}
