@@ -54,6 +54,9 @@ plot = storylines.Plot(4.666, 4.166, right=0.5, ymin=0.0, xmin=-4.5, xmax=4.5)
 plot.xlabel = r'$\epsilon / t$'
 plot.ylabel = r'$n(\epsilon) / t^{-1}$'
 
+plot.xstep = 2.0
+plot.ystep = 0.2
+
 plot.line(epsilon, dos, yref=0,
     fill='orange!30', color='gray', line_join='round')
 
