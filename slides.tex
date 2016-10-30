@@ -27,6 +27,8 @@
     \vspace{1mm}%
     }
 
+\def\sep{\hspace{3pt}|\hspace{3pt}}
+
 \setbeamertemplate{footline}[info]{}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{navigation symbols}{}
@@ -93,7 +95,7 @@
 
 \date{\small \today}
 
-\includeonlyframes{Coulomb}
+%\includeonlyframes{Coulomb}
 
 \begin{document}
 	\begin{frame}
@@ -731,19 +733,19 @@
             \uncover<2,7>{
                 \node [infobox, align=center] at (current page.center) {
                     \only<2>{\usebox\convergence\\
-                        \information{%
-                            $\omega \sub E = 20 \, \unit{meV}$,
-                            $\lambda = 1$,
-                            $\mu \sub C = 0.16$,
-                            $n = 0.5$
-                            }%
+                        \information{$%
+                            \omega \sub E = 20 \, \unit{meV} \sep
+                            \lambda = 1 \sep
+                            \mu \sub C = 0.16 \sep
+                            n = 0.5
+                            $}%
                         }%
                     \only<7>{\usebox\convergenceCDOS\\
-                        \information{%
-                            $\omega \sub E = 20 \, \unit{meV}$,
-                            $\lambda = 1$,
-                            $\mu^* = 0.1$
-                            }%
+                        \information{$
+                            \omega \sub E = 20 \, \unit{meV} \sep
+                            \lambda = 1 \sep
+                            \mu^* = 0.1
+                            $}%
                         }%
                     };
                 }
@@ -831,9 +833,9 @@
 
     \subsection{Self-energy}
 
-    \setbeamertemplate{footline}[info]{%
-        $\omega \sub E = 20 \, \unit{meV}$, $\lambda = 1$, $\mu^* = 0.1$,
-        $\omega_N = 15 \, \omega \sub E$, $n = 0.5$}
+    \setbeamertemplate{footline}[info]{$%
+        \omega \sub E = 20 \, \unit{meV} \sep \lambda = 1 \sep \mu^* = 0.1 \sep
+        \omega_N = 15 \, \omega \sub E \sep n = 0.5$}
 
     \begin{frame}[label=self-energy]{Self-energy \hspace{22mm} \clap{
             \color{black} \normalsize
@@ -897,9 +899,9 @@
         \end{figure}
     \end{frame}
 
-    \setbeamertemplate{footline}[info]{%
-        $\omega \sub E = 20 \, \unit{meV}$, $\lambda = 1$, $\mu^* = 0.1$,
-        $\omega_N = 15 \, \omega \sub E$}
+    \setbeamertemplate{footline}[info]{$%
+        \omega \sub E = 20 \, \unit{meV} \sep \lambda = 1 \sep \mu^* = 0.1 \sep
+        \omega_N = 15 \, \omega \sub E$}
 
     \begin{frame}[label=energy]{Energy dependence}
         \begin{figure}
@@ -963,8 +965,9 @@
             %
             \begin{itemize}
                 \setlength{\itemindent}{15mm}
-                \item[originally:] phonon DOS of niobium
-                \item[in this work:]<4-> \name{Einstein} spectrum
+                \item  [originally:] phonon density of states of niobium
+                \item[additionally:]<4-> \name{Einstein} spectrum
+                    with $\omega \sub E = 20 \, \unit{meV}$
             \end{itemize}
         \end{enumerate}
         %
