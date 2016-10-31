@@ -10,6 +10,10 @@
 \input{preamble/settings}
 \input{preamble/definitions}
 
+\usepackage{pifont}
+\def\cmark{\ding{51}}
+\def\xmark{\ding{55}}
+
 \usetikzlibrary{shadows.blur}
 
 \tikzset{remembered/.style={
@@ -101,13 +105,35 @@
         \titlepage
     \end{frame}
 
-    \begin{frame}{Contents}
-        \tableofcontents
-    \end{frame}
-
     \section{Motivation}
 
-    \begin{frame}{Motivation}
+    \begin{frame}[label=motivation]{Motivation}
+        \begin{itemize}
+            \item \name{McMillan}'s formula (1968) gives critical temperature of
+                  superconductors as function of three scalar parameters:
+            %
+            \begin{equation*}
+                \av \omega, \ \lambda, \ \mu^* \quad \mapsto \quad T \sub c
+            \end{equation*}
+            %
+            \item Approximation to \name{Eliashberg} theory (1960)
+        \end{itemize}
+
+        \bigskip
+
+        \begin{center}
+            \color{titleblue} \bf \large
+            Where does it fail?
+        \end{center}
+
+        \begin{itemize}
+            \item Exceptional densities of states?
+            \item Multi-band or anisotropic interaction?
+            %
+            \begin{itemize}
+                \item[$\rightarrow$] Effective scalar coupling strengths
+            \end{itemize}
+        \end{itemize}
     \end{frame}
 
     \section{Many-body physics}
@@ -1115,7 +1141,7 @@
         %
         \uncover<2-3>{
             \begin{tikzpicture}[remember picture, overlay]
-                \node [infobox, align=center] at (current page.center){
+                \node [infobox, align=center] at (current page.center) {
                     \only<2>{%
                         \color{titleblue}{\bm$Z = 1$}\\[-\baselineskip]
                         \usebox\TcA\\
@@ -1145,6 +1171,35 @@
 
     \section{Conclusion}
 
-    \begin{frame}{Conclusion}
+    \begin{frame}[label=conclusion]
+        \begin{center}
+            \color{titleblue} \bf \Large
+            Conclusion
+        \end{center}
+
+        \begin{itemize}
+            \item[\cmark] Local/CDOS \name{Eliashberg} theory and
+                          \name{McMillan}'s formula principally consistent
+            \medskip
+            \item[\xmark] Underestimated $T \sub c$ for large $\lambda$
+            \item[\xmark] Overestimated coupling at \name{van Hove}
+                          singularities and edges
+            \item[\xmark] Beyond CDOS, $\mu^*$ has to be handles with care
+            \medskip
+            \item         Approximate mapping to effective scalar coupling
+        \end{itemize}
+
+        \medskip
+
+        \begin{center}
+            \color{titleblue} \bf \Large
+            Outlook
+        \end{center}
+
+        \begin{itemize}
+            \item Application to real materials (e.g. MoS\textsubscript2)
+            \item Consideration of $\vec k$-dependency and frequency-dependent
+                  \name{Coulomb} interaction
+        \end{itemize}
     \end{frame}
 \end{document}
