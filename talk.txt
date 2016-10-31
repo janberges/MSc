@@ -1,0 +1,426 @@
+(1) Title slide (40 s)
+
+Hello. Thank you for attending the presentation of my master's thesis
+
+    On the scope of McMillan's formula.
+
+My talk is organized as follows [sidebar]:
+
+[1]   After giving a short motivation,
+
+[3a]  I will derive the equations which make up the Eliashberg theory of
+      superconductivity, as well as their most common approximations,
+
+[2]   from the fundamental interaction of electrons and phonons.
+
+[3b]  On this basis, I will introduce McMillan's approximate Tc formula.
+
+[4,5] In the second part, I will mainly present some numerical results,
+      both for the case of a single and multiple electronic bands.
+
+[6]   Finally, I will conclude with the most important findings and mention
+      possible subjects of further investigations.
+
+(2) Motivation (50 s)
+
+McMillan's formula has been introduced in 1968 and gives critical temperatures
+of superconductors as a function of three scalar parameters:
+
+    - an average phonon frequency,
+    - the electron-phonon coupling strength, and
+    - the so-called Coulomb pseudo-potential,
+
+which will be defined on the following slides.
+
+It constitutes an approximation to the more general Eliashberg theory of
+superconductivity, established only eight years earlier.
+
+The question is now:
+
+   Where does McMillan's formula possibly fail?
+
+taking the Eliashberg theory as the benchmark for validation.
+
+Hereby, special attention is paid to
+
+   - exceptional densities of states at the Fermi level, and
+   - multi-band or anisotropic interactions.
+
+Since McMillan's formula expects scalar parameters,
+the latter question is equivalent to the search for effective scalar couplings,
+which yield the same critical temperatures as their multi-band counterparts.
+
+(3) Electron phonon interaction (55 s)
+
+Conventional superconductivity results from an effective attraction between
+electrons which is mediated by phonons.
+
+In BCS theory this is modeled by an instantaneous electron-electron interaction.
+
+The Eliashberg theory also takes the retardation into account.
+
+Therefore, the starting point is the electron-phonon interaction.
+
+These four Feynman diagrams depict all processes involving one phonon,
+which contribute to the renormalization of an electron.
+
+Solid and wavy lines represent non-interacting or 'free' electrons and phonons,
+'k' and 'q' denote their momenta and 'tau' is a time parameter.
+All quantum numbers and time parameters are summed or integrated over.
+
+[top left]  This process is instantaneous and only affects the single-particle
+            energies.
+
+[below]     These two diagrams are disconnected.
+            Such are cancelled by the partition function of the system.
+
+[top right] Now one is left with this exchange diagram.
+
+To predict the real behavior of an interacting electron,
+all possible processes have to be taken into account.
+
+(4) Hedin's equations (50 s)
+
+This is done by solving these integral equations, known as Hedin's equations.
+
+They are strongly coupled and could be to be iterated till self-consistency.
+In practice one has to apply certain approximations.
+
+    - Double lines represent renormalized electrons and phonons.
+
+    - The self-energy 'Sigma' occurring in the electronic Dyson equation
+      contains all diagrams which may not be split removing one free electron.
+
+    - The polarization 'Pi' is the corresponding self-energy for the phononic
+      Dyson equation.
+
+    - The vertex 'Gamma' contains everything which can mediate a phonon-induced
+      electron transition.
+
+According to Migdal's theorem, vertex corrections can be neglected in the
+electron-phonon system.
+
+This yields the so-called GW approximation.
+The name stems from the symbols 'G' and 'W' for the Green functions which
+represent the double electron and interaction lines.
+
+(5) What about superconductivity? (60 s)
+
+Absorbing the Hartree diagram into the single-particle energies one is left with
+this Dyson equation.
+
+Formally, the involved quantities are electronic and bosonic Green functions,
+which are defined as time-ordered expectations values of ladder operators in the
+free or interacting system.
+
+They describe the behavior of test particles which are put into the interacting
+system at one time, and removed at another.
+
+However, the present formalism is not sufficient to describe superconductivity.
+
+[>] An anomalous Gor'kov Green function is needed which gives the correlation of
+    an electron and its time-reversed counterpart, which may form a Cooper pair.
+
+    In the normal state is vanishes, not so in the superconducting state.
+    Hence, is is a suitable order parameter.
+
+[>] Considering all processes which conserve the direction of the arrows,
+    the Dyson equation has to be modified and supplemented by another one.
+
+    At the very right, the direction of the arrows is swapped.
+
+[>] For these quantities two more Dyson equations have to be taken into account.
+
+(6) Nambu formalism (60 s)
+
+As found by Nambu in 1960, the four Dyson equations can be compactly formulated
+as a matrix equation, if the involved matrices are defined like this.
+
+The self-energy matrix is usually decomposed into a linear combination of unit
+and Pauli matrices.
+
+On the imaginary axis, it takes this form, where 'omega_n' are Matsubara
+frequencies.
+
+[>] 'Z' is an energy renormalization function,
+[>] 'phi' the order parameter, and
+[>] 'chi' an energy shift.
+
+[>] The free Green function matrix is known in advance.
+    It depends on the single particle energies.
+
+[>] Taking the renormalization through the self-energy into account,
+    it changes like this.
+
+[>] The Feynman rules yield an analytic expression for the self-energy in terms
+    of the Green functions.
+
+    - 'D' represents the phonon Green function,
+    - 'g' is the matrix element of the electron phonon coupling, and
+    - 'N' is the number of unit cells.
+
+[>] Now, the Eliashberg equations follow directly from a coefficient comparison.
+
+(7 - 11) Eliashberg equations (2.75 min)
+
+(7) Eliashberg equations 1: Anisotropic equations (50 s)
+
+The Eliashberg theory consists of three coupled equations for
+
+    - the renormalization function,
+    - the order parameter, and
+    - the energy shift
+
+The right-hand sides features summations over both momenta and frequencies,
+as well as a common denominator.
+
+[>] Analogous to the electron-phonon coupling,
+    one can introduce the repulsive Coulomb interaction between electrons.
+
+    For the normal state, it is assumed to be already contained in the
+    dispersion relation.
+
+    For the superconducting state, an additional contribution is considered
+    within a static screening approximation.
+
+[>] Usually, the interaction is rewritten in terms of coupling strengths
+    proportional to the density of states at the Fermi level of the free system.
+
+    The uppercase 'N' denotes the full density of states,
+    the lowercase 'n' denotes the density of states per unit cell.
+
+[>] As a first, rather rough approximation, the interaction is assumed to be
+    local. Then the wave-number indices can be dropped.
+
+(8) Eliashberg equations 2: Local approximation (10 s)
+
+[>] The summation over 'q' can now be replaced by an energy integral,
+    weighted with the density of states.
+
+This is one formulation of the Eliashberg equation to be used later.
+
+(9) Eliashberg equations 3: CDOS approximation (50 s)
+
+[>] A second approximation consists of the rather unphysical assumption that the
+    density of states is constant over the whole range of integration.
+
+[>] This may be acceptable, because only the density of states near the Fermi
+    level contributes significantly.
+
+    - The gray curve is the density of states of a square tight-binding lattice,
+      which only serves as an example.
+    - The red curve is an exemplary integrand in the Eliashberg equations.
+    - The yellow curve is the corresponding integrand in the CDOS approximation.
+
+[>] Now, the density of states only enters through the definition of the
+    coupling strengths.
+
+[>] The integrals over Lorentz-like curves can thus be performed analytically.
+
+    The center of mass of a symmetric Lorenz curve vanishes and so does 'chi'.
+
+[>] The remaining equations can be rewritten with the energy gap which opens up
+    in the superconducting state and is nothing but 'phi' divided by 'Z'.
+
+This is another formulation of the Eliashberg equations to be used later.
+
+(10) Eliashberg equations 4: Linearized equations (30 s)
+
+[>] At the critical temperature, the order parameter is negligible relative to
+    the frequency in the denominator.
+
+This yield the linearized form of the equations used to determine Tc.
+
+'Z' does no longer depend on 'Delta' and may be calculated in advance.
+
+For 'Delta' one is left with a simple eigenvalue equation.
+
+The critical temperature is defined as the highest temperature at which the
+greatest eigenvalue of the kernel crosses unity.
+
+(11) Eliashberg equations 5: Multi-band equations (25 s)
+
+[>] In a last step the equations are generalized again, namely with respect to
+    multiple electronic bands or Fermi-pocket resolved anisotropy.
+
+    At the former positions of the wave numbers one simply introduces the
+    indices 'i' and 'j'.
+
+For example, these equations may be used if the Fermi surface can be grouped
+into regions for which effective inter- and intra-region coupling strengths can
+be defined.
+
+(12) McMillan's formula (90 s)
+
+The starting point for the derivation of McMillan's formula are the linearized
+Eliashberg equations within the approximation of a constant density of states,
+analytically continued to the real axis.
+
+To obtain an approximate analytic expression for the critical temperature,
+a trail frequency-dependence for the energy gap is used,
+namely a step function which takes different values at low and high frequencies.
+
+Enforcing self-consistency at zero and infinite frequency yields this formula.
+
+    - '<omega>' is an average phonon frequency,
+    - the parameter 'lambda' is nothing but the intercept of the
+      frequency-dependent quantity, and
+    - the Coulomb pseudo-potential is a reduced variant of the quantity
+      occurring in the Eliashberg equations.
+      'E_F' is the Fermi energy and 'omega_0' the maximum phonon frequency.
+
+[>] The formula is now relaxed by introducing three fit parameters 'A', 'B' and
+    'C', which are determined via linear regression of Eliashberg results.
+
+[>] Originally, McMillan used the phonon density of states of niobium for his
+    calculations.
+
+[>] Throughout this work, however, an Einstein spectrum is used to which the
+    formula may be likewise adapted.
+
+[>] The linear regression is performed in two steps:
+
+    First, 'ln(A)' and 'B' are determined as intercept and slope.
+
+[>] Secondly, 'C' is determined as the slope of a line with intercept unity.
+
+    McMillan's original data points and lines of best fit are printed in blue,
+    the corresponding quantities for an Einstein spectrum in red.
+
+    By McMillan's formula, all data points should lie on straight lines.
+
+(13) Rescaling the Coulomb interaction (80 s)
+
+In order to solve the imaginary-axis Eliashberg equations on a computer,
+it is necessary to truncate the summation over Matsubara frequencies.
+
+Let 'N' index the corresponding cutoff frequency.
+
+For the phonon part this is unproblematic, 'lambda' decays rapidly with
+increasing frequency.
+
+The Coulomb interaction, however, must be rescaled to obtain consistent results.
+
+[>] This figure shows the convergence of the critical temperature with the
+    cutoff frequency both with and without rescaling.
+    The density of states of a square-lattice at quarter-filling is assumed.
+
+    With rescaling, the convergence is much faster.
+
+[>] For the special case of a rectangular density of states the formula for the
+    rescaled Coulomb pseudo-potential reduces to this expression.
+
+    It may be rewritten using the Coulomb pseudo-potential from McMillan's
+    formula.
+
+[>] This expression does not depend on the electronic bandwidth, which may also
+    go towards infinity.
+
+    This is nothing but the CDOS approximation for which a rescaling formula can
+    be obtained which relates the pseudo-potentials for two different cutoffs.
+
+    Consequently, the natural cutoff of the CDOS equations is at a frequency
+    similar to the virtual electronic bandwidth.
+
+[>] The corresponding convergence plot reveals that the critical temperature
+    does not converge without rescaling.
+
+(14) Square lattice (30 s)
+
+As mentioned before, the density of states of a square tight-binding lattice is
+used as a recurring example.
+
+On this slide you can see the unit cell, Hamilton operator, dispersion relation
+and density of states of the lattice.
+
+'t' is the nearest-neighbor hopping parameter, 'R' and 't' are lattice and
+translation vectors.
+
+The density of states features a logarithmic van Hove singularity and decays
+spontaneously at the edges.
+
+(15) Self-energy (90 s)
+
+In the following, exemplary solutions of the Eliashberg equations are presented
+component-wise.
+
+The above panel displays the frequency-dependent order parameter for different
+temperatures.
+
+It is bell-shaped, centered around the origin and decays towards a negative
+constant determined by the strength of the Coulomb interaction.
+
+This shape is given for all temperatures, but the magnitude decreases towards
+the critical point.
+
+In the lower panel the temperature dependence is shown in more detail.
+
+    - The black curve is the gap at the first Matsubara frequency,
+    - the orange one shows the gap which is actually measured in experiments.
+
+Both curves coincide largely and resemble the corresponding BCS result.
+
+The number of iterations till self-consistency is found to be enhanced near the
+critical point.
+
+[>] If one is also interested in the behavior on the real axis,
+    it is necessary to analytically continue the results.
+
+    However, since an analytic expression is not know, it is necessary to
+    interpolate the imaginary axis results with a rational function.
+
+[>] This analytic continuation by means of Pade approximants yield this curve.
+    The self-energy is no longer real, except below the phonon frequency,
+    at which it features a peak.
+
+    The asymptotes are the same as on the real axis.
+
+Similar results may be obtained for the
+
+[>] renormalization function and
+[>] energy shift.
+
+The sign of the latter changes dependent on the slope of the density of states.
+
+(16) Critical-temperature benchmarks (30 s)
+
+Now, the critical temperatures according to local and CDOS Eliashberg theory as
+well as the original and the adjusted McMillan's formula are compared.
+
+The overall agreement is very good.
+
+The dependence of Tc on the phonon frequency is linear.
+Both 'omegaE' and 'lambda' favor superconductivity, 'mu*' opposes it.
+
+However, McMillan's equation fails for large values of 'lambda',
+which is a well-known fact.
+
+It predicts an upper bound which does not occur in Eliashberg theory.
+
+(17) Energy dependence (60 s)
+
+These figures show the influence of the shape of the density of states on the
+critical temperature, which is determined by scanning the whole energy domain by
+varying the free chemical potential with respect to which the coupling strengths
+are defined. Note that the coupling strength are held constant.
+
+[top]    In the upper panel, the density of states itself is displayed.
+
+[middle] In the middle you can see the leading value of the energy shift and
+         the self-consistent chemical potential, which partly compensate each
+         other.
+
+[bottom] In the lower panel the critical temperature is shown as a function of
+         the free chemical potential.
+
+It becomes evident that near the van Hove singularity and the band edges the
+coupling strength and thus the critical temperature is overestimated.
+
+In the vicinity of the Fermi level there are less states than promised.
+
+This is a problem inherent in the definition of the coupling strengths.
+
+(14) Multi-band order parameters
+
+Lets turn to the multi-band case. For simplicity a two-band system is considered
+within the CDOS approximation and the Coulomb pseudo-potential is set to zero.
