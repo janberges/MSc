@@ -18,11 +18,11 @@
 \tikzset{infobox/.style={shape=rectangle,
     rounded corners, draw, fill=white, opacity=0.9, blur shadow}}
 
-\def\information#1{\color{titleblue}{\footnotesize #1}}
+\def\information#1{\textcolor{titleblue}{\footnotesize #1}}
 
 \defbeamertemplate{footline}{info}[1]{%
     \hfill\smash{\information{#1}}\hfill%
-    \hspace{2cm}\llap{\color{white}{\scriptsize%
+    \hspace{2cm}\llap{\textcolor{white}{\scriptsize%
         \insertframenumber\,/\,\inserttotalframenumber\hspace*{1mm}}}%
     \vspace{1mm}%
     }
@@ -760,6 +760,58 @@
                     };
                 }
         \end{tikzpicture}
+    \end{frame}
+
+    \subsection{Order parameters}
+
+    \setbeamertemplate{footline}[info]{$%
+        \omega \sub E = 20 \, \unit{meV} \sep \lambda = 1 \sep \mu^* = 0 \sep
+        \omega_N = 15 \, \omega \sub E$}
+
+    \begin{frame}[label=order-parameters]{Order parameters}
+        \begin{figure}
+            \small
+            \only<1>{%
+                \input{results/order-parameters-animated-1to2-0.sl}%
+                \vspace{-5mm}%
+                \input{results/order-parameters-animated-2to1-0.sl}%
+                }%
+            \only<2>{%
+                \input{results/order-parameters-animated-1to2-1.sl}%
+                \vspace{-5mm}%
+                \input{results/order-parameters-animated-2to1-1.sl}%
+                }%
+            \only<3>{%
+                \input{results/order-parameters-animated-1to2-2.sl}%
+                \vspace{-5mm}%
+                \input{results/order-parameters-animated-2to1-2.sl}%
+                }%
+            \only<4>{%
+                \input{results/order-parameters-animated-1to2-3.sl}%
+                \vspace{-5mm}%
+                \input{results/order-parameters-animated-2to1-3.sl}%
+                }%
+            \only<5>{%
+                \input{results/order-parameters-animated-1to2-4.sl}%
+                \vspace{-5mm}%
+                \input{results/order-parameters-animated-2to1-4.sl}%
+                }%
+            \only<6>{%
+                \input{results/order-parameters-animated-1to2-5.sl}%
+                \vspace{-5mm}%
+                \input{results/order-parameters-animated-2to1-5.sl}%
+                }%
+            \only<7>{%
+                \input{results/order-parameters-animated-1to2-6.sl}%
+                \vspace{-5mm}%
+                \input{results/order-parameters-animated-2to1-6.sl}%
+                }%
+            \only<8>{%
+                \input{results/order-parameters-animated-1to2-7.sl}%
+                \vspace{-5mm}%
+                \input{results/order-parameters-animated-2to1-7.sl}%
+                }%
+        \end{figure}
     \end{frame}
 
     \subsection[Effective scalars]{Effective scalar coupling strengths}
