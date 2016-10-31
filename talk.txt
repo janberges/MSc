@@ -1,4 +1,6 @@
-(1) Title slide (40 s)
+On the scope of McMillan's formula [17 min, 50 s]
+
+(1) Title slide [40 s]
 
 Hello. Thank you for attending the presentation of my master's thesis
 
@@ -21,7 +23,7 @@ My talk is organized as follows [sidebar]:
 [6]   Finally, I will conclude with the most important findings and mention
       possible subjects of further investigations.
 
-(2) Motivation (50 s)
+(2) Motivation [50 s]
 
 McMillan's formula has been introduced in 1968 and gives critical temperatures
 of superconductors as a function of three scalar parameters:
@@ -50,7 +52,7 @@ Since McMillan's formula expects scalar parameters,
 the latter question is equivalent to the search for effective scalar couplings,
 which yield the same critical temperatures as their multi-band counterparts.
 
-(3) Electron phonon interaction (55 s)
+(3) Electron phonon interaction [55 s]
 
 Conventional superconductivity results from an effective attraction between
 electrons which is mediated by phonons.
@@ -79,7 +81,7 @@ All quantum numbers and time parameters are summed or integrated over.
 To predict the real behavior of an interacting electron,
 all possible processes have to be taken into account.
 
-(4) Hedin's equations (50 s)
+(4) Hedin's equations [50 s]
 
 This is done by solving these integral equations, known as Hedin's equations.
 
@@ -104,7 +106,7 @@ This yields the so-called GW approximation.
 The name stems from the symbols 'G' and 'W' for the Green functions which
 represent the double electron and interaction lines.
 
-(5) What about superconductivity? (60 s)
+(5) What about superconductivity? [60 s]
 
 Absorbing the Hartree diagram into the single-particle energies one is left with
 this Dyson equation.
@@ -131,7 +133,7 @@ However, the present formalism is not sufficient to describe superconductivity.
 
 [>] For these quantities two more Dyson equations have to be taken into account.
 
-(6) Nambu formalism (60 s)
+(6) Nambu formalism [60 s]
 
 As found by Nambu in 1960, the four Dyson equations can be compactly formulated
 as a matrix equation, if the involved matrices are defined like this.
@@ -163,7 +165,7 @@ frequencies.
 
 (7 - 11) Eliashberg equations (2.75 min)
 
-(7) Eliashberg equations 1: Anisotropic equations (50 s)
+(7) Eliashberg equations 1: Anisotropic equations [50 s]
 
 The Eliashberg theory consists of three coupled equations for
 
@@ -192,14 +194,14 @@ as well as a common denominator.
 [>] As a first, rather rough approximation, the interaction is assumed to be
     local. Then the wave-number indices can be dropped.
 
-(8) Eliashberg equations 2: Local approximation (10 s)
+(8) Eliashberg equations 2: Local approximation [10 s]
 
 [>] The summation over 'q' can now be replaced by an energy integral,
     weighted with the density of states.
 
 This is one formulation of the Eliashberg equation to be used later.
 
-(9) Eliashberg equations 3: CDOS approximation (50 s)
+(9) Eliashberg equations 3: CDOS approximation [50 s]
 
 [>] A second approximation consists of the rather unphysical assumption that the
     density of states is constant over the whole range of integration.
@@ -224,7 +226,7 @@ This is one formulation of the Eliashberg equation to be used later.
 
 This is another formulation of the Eliashberg equations to be used later.
 
-(10) Eliashberg equations 4: Linearized equations (30 s)
+(10) Eliashberg equations 4: Linearized equations [30 s]
 
 [>] At the critical temperature, the order parameter is negligible relative to
     the frequency in the denominator.
@@ -238,7 +240,7 @@ For 'Delta' one is left with a simple eigenvalue equation.
 The critical temperature is defined as the highest temperature at which the
 greatest eigenvalue of the kernel crosses unity.
 
-(11) Eliashberg equations 5: Multi-band equations (25 s)
+(11) Eliashberg equations 5: Multi-band equations [25 s]
 
 [>] In a last step the equations are generalized again, namely with respect to
     multiple electronic bands or Fermi-pocket resolved anisotropy.
@@ -250,7 +252,7 @@ For example, these equations may be used if the Fermi surface can be grouped
 into regions for which effective inter- and intra-region coupling strengths can
 be defined.
 
-(12) McMillan's formula (90 s)
+(12) McMillan's formula [90 s]
 
 The starting point for the derivation of McMillan's formula are the linearized
 Eliashberg equations within the approximation of a constant density of states,
@@ -289,7 +291,7 @@ Enforcing self-consistency at zero and infinite frequency yields this formula.
 
     By McMillan's formula, all data points should lie on straight lines.
 
-(13) Rescaling the Coulomb interaction (80 s)
+(13) Rescaling the Coulomb interaction [80 s]
 
 In order to solve the imaginary-axis Eliashberg equations on a computer,
 it is necessary to truncate the summation over Matsubara frequencies.
@@ -325,7 +327,7 @@ The Coulomb interaction, however, must be rescaled to obtain consistent results.
 [>] The corresponding convergence plot reveals that the critical temperature
     does not converge without rescaling.
 
-(14) Square lattice (30 s)
+(14) Square lattice [30 s]
 
 As mentioned before, the density of states of a square tight-binding lattice is
 used as a recurring example.
@@ -339,7 +341,7 @@ translation vectors.
 The density of states features a logarithmic van Hove singularity and decays
 spontaneously at the edges.
 
-(15) Self-energy (90 s)
+(15) Self-energy [90 s]
 
 In the following, exemplary solutions of the Eliashberg equations are presented
 component-wise.
@@ -382,7 +384,7 @@ Similar results may be obtained for the
 
 The sign of the latter changes dependent on the slope of the density of states.
 
-(16) Critical-temperature benchmarks (30 s)
+(16) Critical-temperature benchmarks [30 s]
 
 Now, the critical temperatures according to local and CDOS Eliashberg theory as
 well as the original and the adjusted McMillan's formula are compared.
@@ -397,7 +399,7 @@ which is a well-known fact.
 
 It predicts an upper bound which does not occur in Eliashberg theory.
 
-(17) Energy dependence (60 s)
+(17) Energy dependence [60 s]
 
 These figures show the influence of the shape of the density of states on the
 critical temperature, which is determined by scanning the whole energy domain by
@@ -420,7 +422,99 @@ In the vicinity of the Fermi level there are less states than promised.
 
 This is a problem inherent in the definition of the coupling strengths.
 
-(14) Multi-band order parameters
+(18) Multi-band order parameters [70 s]
 
-Lets turn to the multi-band case. For simplicity a two-band system is considered
-within the CDOS approximation and the Coulomb pseudo-potential is set to zero.
+Let's turn to the multi-band case. For simplicity a two-band system is
+considered within the CDOS approximation and without Coulomb potential.
+
+In the case of intra-band coupling alone, the two bands may be considered as
+two separate superconductors with their own critical temperatures.
+
+As soon as the inter-band coupling is switched on, the situation changes.
+
+In the upper and lower panel the influence of the first on the second band and
+vice versa is switched on. Note, that this coupling is not bidirectional.
+
+Both are limiting cases which may not be realized with real densities of states,
+but are most instructive for pointing out the dependencies.
+
+In both cases the shape of the curve belonging to the influencing band becomes
+apparent in the curve belonging to the influenced band.
+
+In the lower case the curve extends towards the end of the other curve.
+This immediately yields a common critical temperature, which remains constant.
+
+In the upper case this results in a sharp bend at the lower critical
+temperature. The upper critical temperature, which associated with the system as
+a whole, is diminished.
+
+This already suggests that a coupling matrix and any simple average of its
+elements do not yield the same critical temperature in general.
+
+(19) Effective scalar coupling strengths [100 s]
+
+To apply McMillan's equation to the multi-band case it is necessary to map the
+coupling matrices onto effective scalar coupling strengths.
+
+Hence, a scalar 'lambda' is searched for which yields the same critical
+temperature as a coupling matrix.
+
+Here, two approximate mappings are presented for vanishing 'mu*'.
+
+    (1) The first mapping would be exact if the the renormalization were unity.
+
+        In this case, the effective scalar coupling strength is simply the
+        greatest eigenvalue of the coupling matrix.
+
+        For two bands one obtains the well known expression for the largest
+        eigenvalue of a 2 x 2 matrix.
+
+    (2) The second mapping is exact if only one Matsubara frequency is taken
+        into account.
+
+        Here, the effective scalar coupling strength is the greatest eigenvalue
+        of twice the coupling matrix, where the row sums are subtracted from the
+        diagonal.
+
+        For two bands one obtains this expression.
+
+The quality of the two mappings is tested for 500 coupling matrices the elements
+of which are random samples from a uniform distribution over the interval from
+zero to one, preselected by the criterion that their maximum eigenvalue is not
+less than one half, in order to prevent very low critical temperatures which are
+accompanied by a high computational workload.
+
+[>] The critical temperatures corresponding to the approximate scalar and the
+    original matrix are plotted against each other.
+
+    The first mapping does never overestimate the critical temperature -- on the
+    contrary in most of the cases. The average absolute error is found to be
+    2.2 K.
+
+    The second mapping yields more accurate results. For the selected sample,
+    there is a coupling strength for which it becomes exact. Below and above
+    that it tends to under- and overestimate the critical temperature. The
+    average absolute error is only 0.3 K.
+
+(20) Conclusion and outlook [40 s]
+
+Now I will briefly sum up the most important findings.
+
+[good] Local and CDOS Eliashberg theory are principally consistent with
+       McMillan's formula.
+
+[bad]  For strong electron-phonon couplings the critical temperature is
+       underestimated.
+
+[bad]  The coupling strength is overestimated near van Hove singularities and
+       band edges
+
+[bad]  Beyond CDOS, 'mu*' has to be handled with care.
+
+[good] Approximate mappings from coupling matrices onto effective scalar
+       coupling strengths have been found.
+
+Future investigations could focus on the description of real materials.
+
+Therefor it may be necessary to take the full k-dependence and a
+frequency-dependent Coulomb interaction into account.
