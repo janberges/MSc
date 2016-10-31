@@ -30,7 +30,6 @@
 \def\sep{\hspace{3pt}|\hspace{3pt}}
 
 \setbeamertemplate{footline}[info]{}
-\setbeamertemplate{caption}[numbered]
 \setbeamertemplate{navigation symbols}{}
 
 \definecolor{titleblue}{rgb}{0.2, 0.2, 0.7}
@@ -116,13 +115,13 @@
     \subsection[El.-ph. interaction]{Electron-phonon interaction}
 
     \begin{frame}[label=interaction]{Electron-phonon interaction}
+        \framesubtitle{Electron renormalization processes with one phonon}
         \begin{figure}
             \small
             \input{diagrams/hartree.tex}
             \input{diagrams/fock.tex}
             \input{diagrams/glasses.tex}
             \input{diagrams/porthole.tex}
-            \caption{Electron renormalization processes with one phonon}
         \end{figure}
     \end{frame}
 
@@ -567,6 +566,21 @@
         \uncover<5>{
             \begin{tikzpicture}[remember picture, overlay]
                 \node [infobox] at (current page.center) {\usebox\CDOS};
+                \node [xshift=22mm, yshift=14mm]
+                    at (current page.center) {
+                    \begin{tikzpicture}[x=0.2cm, y=\baselineskip,
+                        rounded corners=3pt]
+                        \node [right] at (2, 1) {CDOS};
+                        \draw [fill=yellow!50]
+                            (0, 0.75) rectangle (2, 1.25);
+                        \node [right] at (2, 2) {local};
+                        \draw [fill=red!50]
+                            (0, 1.75) rectangle (2, 2.25);
+                        \node [right] at (2, 3) {DOS};
+                        \draw [fill=black!10]
+                            (0, 2.75) rectangle (2, 3.25);
+                    \end{tikzpicture}
+                    };
             \end{tikzpicture}
             }
     \end{frame}
@@ -642,7 +656,7 @@
                 \uncover<3-4>{
                     \node [infobox, xshift=-1cm, yshift=-15mm]
                         at (current page.center)
-                    { $\displaystyle \Delta(\I \omega_n)
+                    { Energy gap: $\displaystyle \Delta(\I \omega_n)
                     = \frac{\phi(\I \omega_n)}{Z(\I \omega_n)}$ };
                     }
                 \uncover<9-10>{
@@ -762,13 +776,16 @@
         \end{tikzpicture}
     \end{frame}
 
+    \section{Multi-band case}
+
     \subsection{Order parameters}
 
     \setbeamertemplate{footline}[info]{$%
         \omega \sub E = 20 \, \unit{meV} \sep \lambda = 1 \sep \mu^* = 0 \sep
         \omega_N = 15 \, \omega \sub E$}
 
-    \begin{frame}[label=order-parameters]{Order parameters}
+    \begin{frame}[label=order-parameters]{Multi-band order parameters}
+        \framesubtitle{Switching on inter-band coupling}
         \begin{figure}
             \small
             \only<1>{%
@@ -829,7 +846,7 @@
             Scalar $\lambda$ which yields the same $T \sub c$ as matrix $\vec
             \lambda = [\lambda_{i j}]$?}
 
-        Approximate analytical solutions for $\mu^* = 0$
+        Approximate analytical solutions for $\mu^* = 0$ \vspace{2mm}
         %
         \begin{enumerate}
             \item Renormalization $Z(\I \omega_n) = 1$
@@ -1026,7 +1043,7 @@
                 T \sub c = \mathrlap{
                     \alt<1>{\omega_0}{
                         \frac
-                            {\alt<4>{\omega \sub E}{\av \omega}}
+                            {\alt<-3>{\av \omega}{\omega \sub E}}
                             {\only<2> A \only<3>{1.20} \only<4->{0.94}}
                         }
                     \exp \bigg[{ -\frac
@@ -1046,10 +1063,42 @@
             \begin{itemize}
                 \setlength{\itemindent}{15mm}
                 \item  [originally:] phonon density of states of niobium
-                \item[additionally:]<4-> \name{Einstein} spectrum
+                \item[in this work:]<4-> \name{Einstein} spectrum
                     with $\omega \sub E = 20 \, \unit{meV}$
             \end{itemize}
         \end{enumerate}
+        %
+        \begingroup
+            \color{titleblue}
+            \hrulefill \vspace{-2mm}
+            %
+            \begin{equation*}
+                \begingroup
+                    \footnotesize
+                    \begin{tabular}{c}
+                        scalar electron- \\
+                        phonon coupling:
+                    \end{tabular}
+                \endgroup
+                \quad
+                \lambda = \lambda(0)
+                \qquad
+                \begingroup
+                    \footnotesize
+                    \begin{tabular}{c}
+                        \name{Coulomb} \\
+                        pseudo- \\
+                        potential:
+                    \end{tabular}
+                \endgroup
+                \quad
+                \frac 1 {\mu^*} = \frac 1 {\mu \sub C} + \ln \frac
+                    {E \sub F}
+                    {\mathclap{\smash[b]{\alt<-3>{\av \omega}{\omega \sub E}}}}
+            \end{equation*}
+        \endgroup
+        %
+        \vspace{-3mm}
         %
         \uncover<5-6>{
             \begin{tikzpicture}[remember picture, overlay]
