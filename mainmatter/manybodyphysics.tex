@@ -815,7 +815,7 @@ values as well, thus
     \begin{equation}
         D_{\vec q}(\tau) = -\av{\op T \,
         \op \upphi_{\vec q}(\tau) \,
-        \op \upphi_{\vec q}(0)} = D_{-\vec q}(-\tau) \in \mathds R.
+        \op \upphi_{\vec q}^+(0)} = D_{-\vec q}(-\tau) \in \mathds R.
     \end{equation}
 \end{subequations}
 
@@ -904,9 +904,11 @@ taken. Eventually, in second order one finds
             }_{\displaystyle \av{\text{el.}}_0}
         \underbrace{
             \av{\op T \,
+                \vphantom{c_{\vec k' + \vec q}^+}
                 \upphi_{\vec q}[\tau'] \,
                 \upphi_{\vec q'}[\tau'']}_0
-            }_{\displaystyle -D^0_{\vec q}(\tau' - \tau'')},
+            }_{\displaystyle -D^0_{\vec q}(\tau' - \tau'') \,
+                \delta_{\vec q'}^{-\vec q}},
 \end{align}
 %
 where the \name{Green} function $D^0_{\vec q}(\tau)$ of free phonons can be
