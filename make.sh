@@ -30,3 +30,7 @@ pdflatex thesis
 bibtex8 thesis
 pdflatex thesis
 pdflatex thesis
+
+pdflatex -shell-escape slides
+pdflatex slides
+pdflatex slides
