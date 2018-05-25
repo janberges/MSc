@@ -10,6 +10,7 @@ export PYTHONPATH=$ebmb:$PYTHONPATH
 
 cd manual
 pdflatex ebmb
+pdflatex ebmb
 cd ..
 
 cd ..
