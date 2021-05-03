@@ -19,7 +19,10 @@
 \usepackage{microtype, slantsc}
 
 \@ifclassloaded{beamer}{}
-    {\usepackage[font=small, labelfont=bf]{caption, subcaption}}
+    {\usepackage[font=small, labelfont=bf]{caption}}
+
+\@ifclassloaded{beamer}{}
+    {\usepackage[font=normalsize, labelfont=bf]{subcaption}}
 
 % MATH
 
