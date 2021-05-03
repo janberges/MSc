@@ -1,0 +1,14 @@
+*-blx.bib
+*.aux
+*.auxlock
+*.bbl
+*.blg
+*.dpth
+*.lof
+*.log
+*.md5
+*.out
+*.pdf
+*.pyc
+*.run.xml
+*.toc
