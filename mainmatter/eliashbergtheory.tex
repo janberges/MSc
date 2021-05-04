@@ -450,13 +450,15 @@ If the electron-phonon coupling strength $\lambda_{\vec q}(n) \equiv \lambda(n)$
 is independent of $\vec q$, the self-energy $\vec \Sigma_{\vec k}(\I \omega_n)
 \equiv \vec \Sigma(\I \omega_n)$ and its components $Z$, $\phi$ and $\chi$ are
 independent of $\vec k$, i.e. \emph{local}. This is achieved, say, by taking a
-\name{Fermi}-surface average \cite[Eqs.~3.23, 3.24]{AllenMitrovic82}
+\name{Fermi}-surface average $\av{\av{\alpha^2 F}_{\epsilon_{\vec k} = \mu}
+}_{\epsilon_{\vec k + \vec q} = \mu}$ \cite[Eqs.~3.23, 3.24]{AllenMitrovic82},
+where
 %
 \begin{equation*}
-    B(\omega) = \av{B_{\vec q}(\omega)}_{\epsilon_{\vec q} = \mu}
+    \av{f_{\vec k}}_{\epsilon_{\vec k} = \mu}
     = \frac
-        {\sum_{\vec q} \delta(\epsilon_{\vec q} - \mu) \, B_{\vec q}(\omega)}
-        {\sum_{\vec q} \delta(\epsilon_{\vec q} - \mu)}
+        {\sum_{\vec k} \delta(\epsilon_{\vec k} - \mu) \, f_{\vec k}}
+        {\sum_{\vec k} \delta(\epsilon_{\vec k} - \mu)},
 \end{equation*}
 %
 or by assuming the simplest spectral function $B(\omega) = \delta(\omega -
