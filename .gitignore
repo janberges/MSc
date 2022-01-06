@@ -3,6 +3,7 @@
 *.auxlock
 *.bbl
 *.blg
+*.dat
 *.dos
 *.dpth
 *.lof
