@@ -12,11 +12,13 @@
 *.log
 *.md5
 *.mod
+*.nav
 *.o
 *.out
 *.pdf
 *.pyc
 *.run.xml
+*.snm
 *.toc
 ebmb/critical
 ebmb/ebmb
