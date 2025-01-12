@@ -6,6 +6,8 @@
 *.dat
 *.dos
 *.dpth
+*.fdb_latexmk
+*.fls
 *.lof
 *.log
 *.md5
