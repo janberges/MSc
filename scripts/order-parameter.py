@@ -20,7 +20,7 @@ para = {
     'n': 0.5,
 
     'measurable': True,
-    }
+}
 
 print('Calculating DOS..')
 
@@ -81,10 +81,10 @@ plot.lines[2]['label'] = r'$\Delta_0 = \Re[\Delta(\Delta_0)]$'
 
 plot.lines[2]['options']['color'] = 'orange'
 
-plot.width  = 9.8
+plot.width = 9.8
 plot.height = 4.0
-plot.right  = 1.0
+plot.right = 1.0
 plot.margin = 0.0
-plot.ymax   = 3.0
+plot.ymax = 3.0
 
 plot.save('../results/order-parameter-slides.sl', external=True)

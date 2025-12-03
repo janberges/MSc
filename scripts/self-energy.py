@@ -21,7 +21,7 @@ para = {
 
     'resolution': 1000,
     'clip': 10.0,
-    }
+}
 
 print('Calculating DOS..')
 
@@ -69,7 +69,7 @@ for key, plot.ylabel in [
     ('Delta', r'$\Delta(\I \omega) / \unit{meV}$'),
     ('chi', r'$\chi(\I \omega) / \unit{meV}$'),
     ('Z', r'$Z(\I \omega)$'),
-    ]:
+]:
     plot.clear()
 
     for results in data if key == 'Delta' else [data[i] for i in 0, -1]:
@@ -83,7 +83,7 @@ for key, plot.ylabel in [
 
     plot_slides.ylabel = plot.ylabel
 
-    plot_slides.lines  = plot.lines
+    plot_slides.lines = plot.lines
     plot_slides.save('../results/self-energy-%s-im-slides.sl' % key.lower(),
         external=True)
 
@@ -91,7 +91,7 @@ for key, plot.ylabel in [
     ('Delta', r'$\Delta(\omega) / \unit{meV}$'),
     ('chi', r'$\chi(\omega) / \mathrm{meV}$'),
     ('Z', r'$Z(\omega)$'),
-    ]:
+]:
     plot.clear()
 
     for label, style in [('Im', 'dotted'), ('Re', 'solid')]:
@@ -106,7 +106,7 @@ for key, plot.ylabel in [
     plot_slides.ylabel = plot.ylabel
 
     plot_slides.ymin = -20.1 if key == 'chi' else None
-    plot_slides.ymax =   5.0 if key == 'chi' else None
+    plot_slides.ymax = 5.0 if key == 'chi' else None
 
     plot_slides.lines = plot.lines
     plot_slides.save('../results/self-energy-%s-re-slides.sl' % key.lower(),

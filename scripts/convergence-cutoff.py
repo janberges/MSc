@@ -20,7 +20,7 @@ para = {
 
     'dos': 'convergence-cutoff.dos',
     'n': 0.5,
-    }
+}
 
 print('Calculating DOS..')
 

@@ -256,7 +256,7 @@ class Plot():
                             line[x] = list(line[x])
                             line[y] = list(line[y])
 
-                            line[x] =      [xref] + line[x] + [xref]
+                            line[x] = [xref] + line[x] + [xref]
                             line[y] = line[y][:1] + line[y] + line[y][-1:]
 
                     points = list(zip(*[[scale[x] * (n - lower[x])

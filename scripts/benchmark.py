@@ -7,7 +7,7 @@ import numpy as np
 kB = 8.61733e-5
 
 def McMillan(A, B, C, omegaE, lamda, muStar, **more):
-    return omegaE / (A * kB) * np.exp(-B * (1 + lamda) \
+    return omegaE / (A * kB) * np.exp(-B * (1 + lamda)
         / (lamda - C * lamda * muStar - muStar))
 
 parameters = {
@@ -17,7 +17,7 @@ parameters = {
     'cutoff': 15,
     'rate': 0.5,
     'n': 0.5,
-    }
+}
 
 resolution = 30
 
@@ -25,19 +25,19 @@ variable = {
     'omegaE': np.linspace(0.01, 0.03, resolution),
      'lamda': np.linspace(0.50, 2.00, resolution),
     'muStar': np.linspace(0.00, 0.30, resolution),
-    }
+}
 
 constant = {
     'omegaE': 0.02,
      'lamda': 1.00,
     'muStar': 0.15,
-    }
+}
 
 formula = {
     'omegaE': r'\omega \sub E / \unit{eV}',
      'lamda': r'\lambda',
     'muStar': r'\mu^*',
-    }
+}
 
 print('Calculating DOS..')
 
@@ -56,21 +56,21 @@ styles = [
     dict(color='red'),
     dict(),
     dict(thick=True, dotted=True),
-    ]
+]
 
 styles_slides = [
     dict(thick=True, color='cyan'),
     dict(thick=True, color='orange'),
     dict(thick=True),
     dict(very_thick=True, loosely_dotted=True),
-    ]
+]
 
 labels = [
     'const. DOS',
     'square DOS',
     r'\name{McMillan}',
     r'\name{Einstein}',
-    ]
+]
 
 extra = ''
 
@@ -92,14 +92,14 @@ while True:
             Tc[2, j] = McMillan(A=1.20, B=1.04, C=0.62, **parameters)
             Tc[3, j] = McMillan(A=0.94, B=1.11, C=0.74, **parameters)
 
-        for tc, style,  style_slides,  label in zip(
+        for tc, style, style_slides, label in zip(
             Tc, styles, styles_slides, labels):
 
             plot.line(variable[key], tc, label=label, **style)
             plot_slides.line(variable[key], tc, **style_slides)
 
         plot.xspacing = 1.5 if key == 'omegaE' else 1.0
-        plot.corner   = 1   if key == 'muStar' else 4
+        plot.corner = 1 if key == 'muStar' else 4
 
         plot.save('../results/benchmark-' + key.lower() + extra + '.sl',
             external=True)
@@ -123,5 +123,5 @@ while True:
     if extra:
         break
 
-    variable = { 'lamda': np.linspace(0.50, 10.00, resolution) }
+    variable = {'lamda': np.linspace(0.50, 10.00, resolution)}
     extra = '-more'

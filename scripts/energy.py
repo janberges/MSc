@@ -19,7 +19,7 @@ para = {
     'cutoff': 15.0,
 
     'dos': 'energy.dos',
-    }
+}
 
 print('Calculating DOS..')
 
@@ -39,7 +39,7 @@ mu[0 * N:1 * N] = np.linspace(-1.0, -0.9, N, endpoint=False)
 mu[1 * N:2 * N] = np.linspace(-0.9, -0.1, N, endpoint=False)
 mu[2 * N:3 * N] = np.linspace(-0.1, +0.0, N, endpoint=False)
 
-Tc  = np.empty(3 * N)
+Tc = np.empty(3 * N)
 dmu = np.empty(3 * N)
 chi = np.empty(3 * N)
 
@@ -49,7 +49,7 @@ for i, para['mu'] in enumerate(mu):
     para['T'] = ebmb.get('critical', **para)
     data = ebmb.get(normal=True, **para)
 
-    Tc[i]  = para['T']
+    Tc[i] = para['T']
     dmu[i] = para['mu'] - data['mu']
     chi[i] = data['chi'][0]
 
@@ -85,7 +85,7 @@ plot.ylabel = r'$\textcolor{teal}{\chi(\I \omega_0) / \unit{eV}} \quad ' \
 
 for sgn in -1, +1:
     plot.line(sgn * mu, sgn * dmu, color='purple', thick=True)
-    plot.line(sgn * mu, sgn * chi, color='teal',   thick=True)
+    plot.line(sgn * mu, sgn * chi, color='teal', thick=True)
 
 plot.save('../results/energy-shift.sl', external=True)
 
@@ -101,7 +101,7 @@ plot.save('../results/energy-shift-slides.sl', external=True)
 
 # density of states:
 
-plot = storylines.Plot(width, height, right=0.5, ymin = 0, ystep=1)
+plot = storylines.Plot(width, height, right=0.5, ymin=0, ystep=1)
 
 plot.xlabel = r'$\epsilon / \unit{eV}$'
 plot.ylabel = r'$n / \unit{eV^{-1}}$'

@@ -11,7 +11,7 @@ settings = {
     'rate': 0.5,
     'file': 'tc.dat',
     'error': 0.01,
-    }
+}
 
 def lamda_eff_1(l):
     l_eff = 2 * l
@@ -26,13 +26,13 @@ def lamda_eff_2(l):
 
 size = 500
 
-Tc  = np.empty(size)
+Tc = np.empty(size)
 Tc1 = np.empty(size)
 Tc2 = np.empty(size)
 
 for n in range(size):
     while True:
-        dos   = np.random.rand(bands)
+        dos = np.random.rand(bands)
         lamda = np.random.rand(bands, bands)
 
         if n > 2:
@@ -46,14 +46,14 @@ for n in range(size):
         if lamda2 > 0.5:
             break
 
-    Tc [n] = ebmb.get('critical', lamda=lamda,  **settings)
+    Tc[n] = ebmb.get('critical', lamda=lamda, **settings)
     Tc1[n] = ebmb.get('critical', lamda=lamda1, **settings)
     Tc2[n] = ebmb.get('critical', lamda=lamda2, **settings)
 
 lim = [0, max(Tc)]
 
 scatter = dict(mark='*', only_marks=True, mark_size='1pt', omit=False)
-line    = dict(thick=True, color='gray')
+line = dict(thick=True, color='gray')
 
 plot = storylines.Plot(7, 7, right=0.5, xstep=20, ystep=20)
 

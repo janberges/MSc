@@ -30,7 +30,7 @@ para = {
     'cutoff': 200,
     'lambda': 0.70,
     'muStar': 0.00,
-    }
+}
 
 Tc = ebmb.get('critical', **para)
 
@@ -74,7 +74,7 @@ plot = storylines.Plot(
 
     lower='titleblue',
     upper='red',
-    )
+)
 
 plot.line()
 

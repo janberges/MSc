@@ -20,7 +20,7 @@ plot.line([-1.2, 1.2], [1, 1], yref=0, draw='none', fill='red!20')
 plot.line([-1.2, 1.2], [1, 1], draw='red')
 
 plot.xticks[0] = (-1.2, '$-\infty$')
-plot.xticks[2] = ( 1.2,  '$\infty$')
+plot.xticks[2] = (1.2, '$\infty$')
 
 plot.save('../results/rectangular-dos-limit.sl', external=True)
 plot.clear()

@@ -17,7 +17,7 @@ para = {
     'omegaE': 0.02,
     'lambda': 1.00,
     'muStar': 0.10,
-    }
+}
 
 log_cutoff = np.linspace(0.5, 3.0, 50)
 

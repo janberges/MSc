@@ -17,7 +17,7 @@ settings = {
     'file': 'inter.dat',
     'error': 1e-12,
     'cutoff': 25,
-    }
+}
 
 color = ['orange', 'blue', 'red']
 
@@ -27,9 +27,9 @@ scatter = dict(mark='*', only_marks=True, omit=False)
 
 plots = [
     ('inter-inter.sl', [(0.5, 0.0, 0.0), (1.0, 0.0, 0.0), (1.5, 0.0, 0.0)]),
-    ('inter-intra.sl', [(1.0, 0.0, 0.0), (1.0,  10,  10), (1.0, 100, 100)]),
+    ('inter-intra.sl', [(1.0, 0.0, 0.0), (1.0, 1e1, 1e1), (1.0, 1e2, 1e2)]),
     ('inter-askew.sl', [(1.0, 2.0, 0.0), (1.0, 1.0, 1.0), (1.0, 0.0, 2.0)]),
-    ]
+]
 
 plot = storylines.Plot(7, 7, right=0.5, xmin=0, ymin=0, xstep=1, ystep=1)
 
@@ -76,7 +76,7 @@ for filename, lamda in plots:
 
         plot.line(l12i, l21o, color=c, **scatter)
         plot.line(l12o, l21i, color=c, **scatter)
-        plot.line(l12,  l21,  color=c)
+        plot.line(l12, l21, color=c)
 
         plot.line(mark='*', color=c,
             label=math(', '.join('%g' % x for x in [l, l11, l22])))

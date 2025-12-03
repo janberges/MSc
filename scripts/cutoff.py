@@ -18,7 +18,7 @@ para = {
 
     'dos': 'cutoff.dos',
     'n': 0.5,
-    }
+}
 
 print('Calculating DOS..')
 
@@ -55,7 +55,7 @@ for key, plot.xlabel in [
     ('Delta', r'$\Delta(\I \omega) / \unit{meV}$'),
     ('chi', r'$\chi(\I \omega) / \unit{meV}$'),
     ('Z', r'$Z(\I \omega)$'),
-    ]:
+]:
 
     for results in data:
         plot.line(results[key], results['iomega'], results['cutoff'])

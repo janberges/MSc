@@ -13,7 +13,7 @@ Delta = np.empty((len(X) + 1, 2, len(T)))
 para = {
     'file': 'order-parameters-animated.dat',
     'tell': False,
-    }
+}
 
 plot = storylines.Plot(9.8, 4, ymin=0, zmin=-4, zmax=-0.5, xstep=10, ystep=2,
      zticks=[(-4, r'$-\infty$'), -3, -2, -1])
@@ -23,9 +23,9 @@ plot.ylabel = r'$\Delta(\mathrm i \omega_0) / \unit{meV}$'
 plot.zlabel = r'$\log_{10} x$'
 
 for n, (name, legend, lamda) in enumerate([
-    ('2to1', r'1 & x \\ 0 & 2', lambda x: [[1, 10 ** x], [0,       2]]),
-    ('1to2', r'1 & 0 \\ x & 2', lambda x: [[1,       0], [10 ** x, 2]]),
-    ]):
+    ('2to1', r'1 & x \\ 0 & 2', lambda x: [[1, 10 ** x], [0, 2]]),
+    ('1to2', r'1 & 0 \\ x & 2', lambda x: [[1, 0], [10 ** x, 2]]),
+]):
 
     plot.legend = (r'\footnotesize '
         r'$\vec \lambda = \begin{bmatrix} %s \end{bmatrix}$' % legend)

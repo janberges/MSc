@@ -11,8 +11,8 @@ N0 = 1.00
 wD = 0.02
 
 e, de = np.linspace(-wD, wD, 1000, retstep=True)
-T     = np.linspace(1, 110, 500)
-V     = np.linspace(1.0, 0.1, 10)
+T = np.linspace(1, 110, 500)
+V = np.linspace(1.0, 0.1, 10)
 Delta = np.ones(len(T))
 
 plot = storylines.Plot(14, 6, xmax=T[-1], xstep=10, ymin=0, ystep=5)

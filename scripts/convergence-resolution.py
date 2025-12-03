@@ -20,7 +20,7 @@ para = {
 
     'dos': 'convergence-resolution.dos',
     'n': 0.5,
-    }
+}
 
 log_resolutions = np.linspace(2, 3, 200)
 

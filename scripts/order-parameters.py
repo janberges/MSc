@@ -13,7 +13,7 @@ Delta = np.empty((len(X), 2, len(T)))
 para = {
     'file': 'order-parameters.dat',
     'tell': False,
-    }
+}
 
 plot = storylines.Plot(ymin=0, ystep=2, zstep=1)
 
@@ -22,10 +22,10 @@ plot.ylabel = r'$\Delta(\mathrm i \omega_0) / \unit{meV}$'
 plot.zlabel = r'$\log_{10} x$'
 
 for name, plot.width, plot.height, plot.xstep, lamda in (
-    ('top',  14, 7,  5, lambda x: [[1, 10 ** x], [10 ** x, 2]]),
-    ('left',  7, 6, 10, lambda x: [[1,       0], [10 ** x, 2]]),
-    ('right', 7, 6, 10, lambda x: [[1, 10 ** x], [0,       2]]),
-    ):
+    ('top', 14, 7, 5, lambda x: [[1, 10 ** x], [10 ** x, 2]]),
+    ('left', 7, 6, 10, lambda x: [[1, 0], [10 ** x, 2]]),
+    ('right', 7, 6, 10, lambda x: [[1, 10 ** x], [0, 2]]),
+):
 
     for i, x in enumerate(X):
         for j, para['T'] in enumerate(T):

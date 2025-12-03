@@ -8,7 +8,7 @@ lamda0 = 1.00 # electron-phonon coupling
 omegaE = 0.02 # Einstein frequency (eV)
 
 kB = 8.61733e-5 # Boltzmann constant (eV/K)
-T  = 1.0        # temperature (K)
+T = 1.0 # temperature (K)
 
 domega = 2 * np.pi * kB * T # Matsubara step (eV)
 
@@ -23,7 +23,7 @@ def Z(omega):
     return 1 + 1j / (2 * n) * lamda0 * (1 + 1j * nE * (
         + psi(0.5 + 1j * (nE - n)) - psi(1 + 1j * nE)
         - psi(0.5 - 1j * (nE + n)) + psi(1 - 1j * nE)
-        ))
+    ))
 
 Z = np.vectorize(Z)
 
@@ -45,7 +45,6 @@ def Pade(z, u, x):
 
     return c[0, 0] / frac
 
-
 plot = storylines.Plot(7, 5, ymin=1)
 
 plot.xlabel = r'$\omega / \omega \sub E$'
@@ -57,7 +56,6 @@ iomega = 1j * np.linspace(-3 * omegaE, 15 * omegaE, 1001)
 plot.line(iomega.imag / omegaE, Z(iomega).real, line_width='2.5pt')
 
 plot.save('../results/pade-im.sl', external=True)
-
 
 plot = storylines.Plot(7, 5, lower='red', upper='yellow', line_join='round')
 
@@ -81,6 +79,6 @@ for n in plot.zticks:
     plot.line(omega / omegaE, Z_Pade.real, n, line_width='1pt')
 
 plot.line(line_width='1pt', dotted=False, label='Re')
-plot.line(line_width='1pt', dotted=True,  label='Im')
+plot.line(line_width='1pt', dotted=True, label='Im')
 
 plot.save('../results/pade-re.sl', external=True)

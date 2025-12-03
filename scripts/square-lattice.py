@@ -18,7 +18,7 @@ plot.xticks = [
     0,
     (np.pi / 2, r'$\tfrac \pi 2$'),
     (np.pi, r'$\pi$'),
-    ]
+]
 
 plot.yticks = plot.xticks
 plot.zticks = [-4, -2, 0, 2, 4]
@@ -40,9 +40,9 @@ for epsilon in np.linspace(-4 * t, 4 * t, 11):
 
     ky = np.arccos(x)
 
-    plot.line( kx,  ky, epsilon, thick=True)
-    plot.line( kx, -ky, epsilon, thick=True)
-    plot.line(-kx,  ky, epsilon, thick=True)
+    plot.line(kx, ky, epsilon, thick=True)
+    plot.line(kx, -ky, epsilon, thick=True)
+    plot.line(-kx, ky, epsilon, thick=True)
     plot.line(-kx, -ky, epsilon, thick=True)
 
 plot.save('../results/square-lattice-dispersion.sl', external=True)

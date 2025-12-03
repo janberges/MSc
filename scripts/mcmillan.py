@@ -43,7 +43,7 @@ def linear_regression(x, y, m=None, b=None):
         # Steiner translation theorem: <(x - <x>)^2> = <x^2> - <x>^2
 
         xy = sum((x[i] - x0) * (y[i] - y0) for i in range(n))
-        xx = sum((x[i] - x0) ** 2          for i in range(n))
+        xx = sum((x[i] - x0) ** 2 for i in range(n))
 
         m = xy / xx
         b = y0 - m * x0
@@ -135,7 +135,7 @@ plot2.line(x2(lamda), y2(omega, lamda, muStar), color='blue', **scatter)
 kB = 8.61733e-5
 omega = 0.02 / kB # ~ 232.1
 
-lamda  = np.arange(0.6, 1.70, 0.20)
+lamda = np.arange(0.6, 1.70, 0.20)
 muStar = np.arange(0.0, 0.26, 0.05)
 
 Tc = np.zeros((len(lamda), len(muStar)))
@@ -175,12 +175,14 @@ y = y1(omega, Tc[:, 0])
 line = linear_regression(x, y)
 
 A = np.exp(line['b'])
-B =        line['m']
+B = line['m']
 
 dA = line['db'] * A
 dB = line['dm']
 
-plot1.line(X1, line['m'] * X1 + line['b'], color='red', label=r'\name{Einstein}')
+plot1.line(X1, line['m'] * X1 + line['b'], color='red',
+    label=r'\name{Einstein}')
+
 plot1.line(x, y, color='red', **scatter)
 
 lamda, muStar, Tc = np.array([[lamda[i], muStar[j], Tc[i, j]]
@@ -191,10 +193,12 @@ y = y2(omega, lamda, muStar, A, B)
 
 line = linear_regression(x, y, b=1.0)
 
-C  = line['m']
+C = line['m']
 dC = line['dm']
 
-plot2.line(X2, line['m'] * X2 + line['b'], color='red', label=r'\name{Einstein}')
+plot2.line(X2, line['m'] * X2 + line['b'], color='red',
+    label=r'\name{Einstein}')
+
 plot2.line(x, y, color='red', **scatter)
 
 # save figures:

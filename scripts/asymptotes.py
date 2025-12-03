@@ -13,7 +13,7 @@ settings = {
     'error': 1e-12,
     'cutoff': 15,
     'power': False,
-    }
+}
 
 color = ['blue', 'cyan', 'magenta']
 label = ['exact', 'cutoff-independent', 'non-renormalized']
@@ -70,7 +70,7 @@ for l in [0.5, 1.0, 1.5]:
     l0 = ebmb.get('critical', T=Tc, lamda=[[0, inf], [-guess, 0]],
         **settings)
 
-    plot.line(l12,     l21,     color='lightgray', **scatter)
+    plot.line(l12, l21, color='lightgray', **scatter)
     plot.line(l21[1:], l12[1:], color='lightgray', **scatter)
 
     for l0, c in zip([l0, l / 3, 0], color):
