@@ -32,10 +32,10 @@ for v in V:
             Delta[i] *= v * N0 / 2 * sum(de * np.tanh(E / (2 * kB * t)) / E)
 
             if abs(Delta0 - Delta[i]) < 1e-10:
-                print '%.3f %.3f' % (t, Delta[i])
+                print('%.3f %.3f' % (t, Delta[i]))
                 break
         else:
-            print '(not converged)'
+            print('(not converged)')
 
         if n < n0:
             break

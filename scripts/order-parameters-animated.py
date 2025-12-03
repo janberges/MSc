@@ -38,7 +38,7 @@ for n, (name, legend, lamda) in enumerate([
             Delta[i, :, j] = 1e3 * ebmb.get(lamda=lamda(x),
                 **para)['Delta'][:, 0]
 
-            print 'x = %.1f, T = %.1f K' % (x, para['T'])
+            print('x = %.1f, T = %.1f K' % (x, para['T']))
 
     plot.line(T, Delta[0, 0, :], color='blue', thick=True)
     plot.line(T, Delta[0, 1, :], color='blue', thick=True, dashed=True)

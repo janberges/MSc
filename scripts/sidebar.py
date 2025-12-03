@@ -43,7 +43,7 @@ Omega = []
 Delta = []
 
 for t in T:
-    print 'T / Tc = %.1f' % t
+    print('T / Tc = %.1f' % t)
 
     results = ebmb.get(T=t * Tc, **para)
 

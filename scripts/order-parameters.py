@@ -32,7 +32,7 @@ for name, plot.width, plot.height, plot.xstep, lamda in (
             Delta[i, :, j] = 1e3 * ebmb.get(lamda=lamda(x),
                 **para)['Delta'][:, 0]
 
-            print 'x = %.1f, T = %.1f K' % (x, para['T'])
+            print('x = %.1f, T = %.1f K' % (x, para['T']))
 
     for i, x in enumerate(X):
         plot.line(T, Delta[i, 0, :], x, thick=True)

@@ -23,22 +23,22 @@ para = {
     'clip': 10.0,
     }
 
-print 'Calculating DOS..'
+print('Calculating DOS..')
 
 ebmb.square_dos(para['dos'], resolution=501)
 
-print 'Calculating Tc..'
+print('Calculating Tc..')
 
 Tc = ebmb.get(program='critical', **para)
 
-print 'Calculating self-energies..'
+print('Calculating self-energies..')
 
 data = []
 
 for T in [0.6, 0.8, 0.9, 1.0]:
     results = ebmb.get(T=T * Tc, normal=T == 1.0, **para)
 
-    print 'T / Tc = %.1f [%d]' % (T, results['status'])
+    print('T / Tc = %.1f [%d]' % (T, results['status']))
 
     for key in 'iomega', 'omega':
         results[key] /= para['omegaE']

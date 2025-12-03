@@ -30,7 +30,7 @@ frequencies = [0.01, 0.02]
 Tc = np.empty((len(frequencies), len(resolutions)))
 
 for i, resolution in enumerate(resolutions):
-    print resolution, 'integration points'
+    print('%d integration points' % resolution)
 
     ebmb.square_dos(para['dos'], resolution=resolution)
 

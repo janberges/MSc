@@ -21,15 +21,15 @@ para = {
     'dos': 'energy.dos',
     }
 
-print 'Calculating DOS..'
+print('Calculating DOS..')
 
 epsilon, dos = ebmb.square_dos(para['dos'], resolution=5001)
 
-print 'Calculating Tc..'
+print('Calculating Tc..')
 
 Tc = ebmb.get(program='critical', **para)
 
-print 'Calculating order parameter..'
+print('Calculating order parameter..')
 
 N = 50
 
@@ -44,7 +44,7 @@ dmu = np.empty(3 * N)
 chi = np.empty(3 * N)
 
 for i, para['mu'] in enumerate(mu):
-    print 'mu = %(mu).5f eV' % para
+    print('mu = %(mu).5f eV' % para)
 
     para['T'] = ebmb.get('critical', **para)
     data = ebmb.get(normal=True, **para)

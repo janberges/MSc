@@ -39,7 +39,7 @@ formula = {
     'muStar': r'\mu^*',
     }
 
-print 'Calculating DOS..'
+print('Calculating DOS..')
 
 ebmb.square_dos('benchmark.dos', resolution=2001)
 
@@ -82,7 +82,7 @@ while True:
         parameters.update(constant)
 
         for j, parameters[key] in enumerate(variable[key]):
-            print '%s = %6.4f' % (key, parameters[key])
+            print('%s = %6.4f' % (key, parameters[key]))
 
             for i, parameters['dos'] in enumerate(['none', 'benchmark.dos']):
                 Tc[i, j] = ebmb.get('critical', **parameters)

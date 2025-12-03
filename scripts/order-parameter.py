@@ -22,15 +22,15 @@ para = {
     'measurable': True,
     }
 
-print 'Calculating DOS..'
+print('Calculating DOS..')
 
 ebmb.square_dos(para['dos'], resolution=501)
 
-print 'Calculating Tc..'
+print('Calculating Tc..')
 
 Tc = ebmb.get(program='critical', **para)
 
-print 'Calculating order parameter..'
+print('Calculating order parameter..')
 
 resolution = 801 # odd!
 Nc = resolution // 2
@@ -44,7 +44,7 @@ iteration_steps = np.empty(resolution)
 for i, t in enumerate(T):
     results = ebmb.get(T=t * Tc, normal=i == Nc, **para)
 
-    print 'T / Tc = %.5f [%d]' % (t, results['status'])
+    print('T / Tc = %.5f [%d]' % (t, results['status']))
 
     order_parameter[i] = results['Delta'][0]
     measurable__gap[i] = results['Delta0']

@@ -20,18 +20,18 @@ para = {
     'n': 0.5,
     }
 
-print 'Calculating DOS..'
+print('Calculating DOS..')
 
 ebmb.square_dos(para['dos'], resolution=501)
 
-print 'Calculating self-energies..'
+print('Calculating self-energies..')
 
 data = []
 
 for cutoff in np.linspace(1, 20, 39):
     results = ebmb.get(cutoff=cutoff, **para)
 
-    print 'cutoff / omegaE = %.1f [%d]' % (cutoff, results['status'])
+    print('cutoff / omegaE = %.1f [%d]' % (cutoff, results['status']))
 
     for key in 'Delta', 'chi':
         results[key] *= 1000

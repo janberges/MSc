@@ -27,7 +27,7 @@ rescale = [True, False]
 Tc = np.empty((len(rescale), len(cutoff)))
 
 for i, para['cutoff'] in enumerate(cutoff):
-    print 'cutoff / omegaE = %.2f' % para['cutoff']
+    print('cutoff / omegaE = %.2f' % para['cutoff'])
 
     for j, para['rescale'] in enumerate(rescale):
         Tc[j, i] = kB / para['omegaE'] * ebmb.get(program='critical', **para)

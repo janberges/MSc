@@ -205,4 +205,4 @@ plot2.save('../results/mcmillan-2.sl', external=True)
 # print results:
 
 for result in zip([A, B, C], [dA, dB, dC]):
-    print '%4.2f +/- %4.2f' % result
+    print('%4.2f +/- %4.2f' % result)
