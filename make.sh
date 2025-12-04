@@ -3,11 +3,6 @@
 cd ebmb
 make
 
-ebmb=`pwd`
-
-export PATH=$ebmb:$PATH
-export PYTHONPATH=$ebmb:$PYTHONPATH
-
 cd manual
 pdflatex ebmb
 pdflatex ebmb
@@ -16,13 +11,7 @@ cd ..
 cd ..
 
 cd scripts
-
-for script in *.py
-do
-    echo $script
-    python $script
-done
-
+./make.sh
 cd ..
 
 pdflatex -shell-escape thesis
