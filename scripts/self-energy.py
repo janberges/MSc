@@ -72,8 +72,9 @@ for key, plot.ylabel in [
 ]:
     plot.clear()
 
-    for results in data if key == 'Delta' else [data[i] for i in 0, -1]:
-        selections = [np.where(results['iomega'] <= cutoff) for cutoff in 3, 15]
+    for results in data if key == 'Delta' else [data[i] for i in [0, -1]]:
+        selections = [np.where(results['iomega'] <= cutoff)
+            for cutoff in [3, 15]]
 
         for sgn, n in zip([-1, 1], selections):
             plot.line(sgn * results['iomega'][n], results[key][n], results['T'],
@@ -97,7 +98,7 @@ for key, plot.ylabel in [
     for label, style in [('Im', 'dotted'), ('Re', 'solid')]:
         plot.line(thick=True, style=style, label=label)
 
-        for results in data if key == 'Delta' else [data[i] for i in 0, -1]:
+        for results in data if key == 'Delta' else [data[i] for i in [0, -1]]:
             plot.line(results['omega'], results['%s[%s]' % (label, key)],
                 results['T'], thick=True, style=style)
 
