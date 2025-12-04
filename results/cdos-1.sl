@@ -1,6 +1,6 @@
 \tikzsetnextfilename{cdos-1}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(6.750, 5.000);
 	\draw [draw=none, fill=gray!50] plot coordinates {
@@ -52,7 +52,7 @@
 		(3.253, 0.169) (3.414, 0.140) (3.608, 0.114) (3.848, 0.090)
 		(4.151, 0.070) (4.550, 0.052) (5.099, 0.036) (5.250, 0.033)
 		(5.250, 0.000) };
-	\draw [line join=round, color=gray] plot coordinates {
+	\draw [color=gray, line join=round] plot coordinates {
 		(0.875, 0.000) (0.875, 0.543) (1.123, 0.585) (1.337, 0.629)
 		(1.519, 0.674) (1.676, 0.720) (1.811, 0.768) (1.928, 0.817)
 		(2.030, 0.867) (2.119, 0.920) (2.196, 0.974) (2.263, 1.030)
@@ -66,7 +66,7 @@
 		(3.222, 0.866) (3.323, 0.816) (3.441, 0.767) (3.577, 0.719)
 		(3.735, 0.673) (3.918, 0.628) (4.132, 0.584) (4.375, 0.543)
 		(4.375, 0.000) };
-	\draw [line join=round, color=orange] plot coordinates {
+	\draw [color=orange, line join=round] plot coordinates {
 		(0.000, 0.000) (0.000, 0.128) (0.175, 0.155) (0.322, 0.186)
 		(0.448, 0.220) (0.557, 0.257) (0.653, 0.298) (0.738, 0.342)
 		(0.817, 0.391) (0.889, 0.445) (0.957, 0.507) (1.020, 0.574)
@@ -82,7 +82,7 @@
 		(3.253, 0.169) (3.414, 0.140) (3.608, 0.114) (3.848, 0.090)
 		(4.151, 0.070) (4.550, 0.052) (5.099, 0.036) (5.250, 0.033)
 		(5.250, 0.000) };
-	\draw [line join=round, color=cyan] plot coordinates {
+	\draw [color=cyan, line join=round] plot coordinates {
 		(0.875, 0.000) (0.875, 0.316) (0.943, 0.366) (1.006, 0.422)
 		(1.066, 0.486) (1.123, 0.559) (1.179, 0.643) (1.234, 0.739)
 		(1.288, 0.851) (1.344, 0.987) (1.404, 1.154) (1.472, 1.372)

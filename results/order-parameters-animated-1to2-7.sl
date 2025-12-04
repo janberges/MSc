@@ -1,6 +1,6 @@
 \tikzsetnextfilename{order-parameters-animated-1to2-7}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(9.800, 4.000);
 	\draw [color=red!100.0!blue, thick] plot coordinates {

@@ -1,6 +1,6 @@
 \tikzsetnextfilename{cutoff-z}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(4.666, 6.000);
 	\draw [color=teal!5.0!purple] plot coordinates {

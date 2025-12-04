@@ -1,6 +1,6 @@
 \tikzsetnextfilename{energy-dos-slides}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(9.800, 2.700);
 	\draw [color=teal, fill=teal!25] plot coordinates {

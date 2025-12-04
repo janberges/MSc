@@ -1,16 +1,16 @@
 \tikzsetnextfilename{mcmillan-1}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 7.000);
 	\draw [color=blue] plot coordinates {
 		(0.000, 0.070) (5.500, 5.256) };
-	\draw [color=blue, only marks, mark=*] plot coordinates {
+	\draw [color=blue, mark=*, only marks] plot coordinates {
 		(0.921, 0.937) (1.045, 1.047) (1.192, 1.203) (1.481, 1.469)
 		(2.115, 2.086) (3.067, 2.969) (5.124, 4.736) };
 	\draw [color=red] plot coordinates {
 		(0.000, -0.023) (5.500, 5.500) };
-	\draw [color=red, only marks, mark=*] plot coordinates {
+	\draw [color=red, mark=*, only marks] plot coordinates {
 		(1.128, 1.106) (0.952, 0.936) (0.846, 0.831) (0.776, 0.759)
 		(0.725, 0.704) (0.687, 0.661) };
 	\draw [line cap=butt]

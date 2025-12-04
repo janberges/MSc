@@ -1,9 +1,9 @@
 \tikzsetnextfilename{self-energy-delta-re-slides}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(9.800, 4.000);
-	\draw [color=red!0.0!blue, thick, style=dotted] plot coordinates {
+	\draw [color=red!0.0!blue, style=dotted, thick] plot coordinates {
 		(0.000, 1.159) (0.492, 1.158) (0.601, 1.152) (0.664, 1.143)
 		(0.703, 1.132) (0.734, 1.118) (0.765, 1.097) (0.789, 1.073)
 		(0.828, 1.024) (0.835, 1.021) (0.843, 1.030) (0.851, 1.067)
@@ -19,7 +19,7 @@
 		(3.381, 1.039) (3.646, 1.069) (4.060, 1.116) (4.357, 1.142)
 		(4.599, 1.157) (4.833, 1.163) (5.216, 1.162) (6.043, 1.157)
 		(7.800, 1.158) };
-	\draw [color=red!50.0!blue, thick, style=dotted] plot coordinates {
+	\draw [color=red!50.0!blue, style=dotted, thick] plot coordinates {
 		(0.000, 1.159) (0.453, 1.158) (0.547, 1.153) (0.601, 1.145)
 		(0.640, 1.134) (0.671, 1.119) (0.695, 1.101) (0.718, 1.074)
 		(0.734, 1.046) (0.750, 1.004) (0.765, 0.939) (0.773, 0.892)
@@ -35,7 +35,7 @@
 		(3.240, 1.054) (3.396, 1.063) (3.724, 1.093) (4.099, 1.128)
 		(4.411, 1.149) (4.685, 1.160) (4.981, 1.163) (6.114, 1.157)
 		(7.800, 1.158) };
-	\draw [color=red!75.0!blue, thick, style=dotted] plot coordinates {
+	\draw [color=red!75.0!blue, style=dotted, thick] plot coordinates {
 		(0.000, 1.159) (0.406, 1.157) (0.547, 1.151) (0.625, 1.142)
 		(0.671, 1.131) (0.711, 1.114) (0.734, 1.099) (0.757, 1.078)
 		(0.781, 1.047) (0.820, 0.974) (0.828, 0.962) (0.835, 0.956)
@@ -48,9 +48,9 @@
 		(2.803, 1.119) (2.920, 1.095) (3.022, 1.081) (3.123, 1.075)
 		(3.240, 1.076) (3.428, 1.088) (3.818, 1.119) (4.224, 1.141)
 		(4.677, 1.159) (4.942, 1.163) (5.965, 1.158) (7.800, 1.158) };
-	\draw [color=red!100.0!blue, thick, style=dotted] plot coordinates {
+	\draw [color=red!100.0!blue, style=dotted, thick] plot coordinates {
 		(0.000, 1.159) (7.800, 1.159) };
-	\draw [color=red!0.0!blue, thick, style=solid] plot coordinates {
+	\draw [color=red!0.0!blue, style=solid, thick] plot coordinates {
 		(0.000, 1.342) (0.156, 1.346) (0.297, 1.356) (0.422, 1.373)
 		(0.515, 1.392) (0.586, 1.412) (0.640, 1.434) (0.679, 1.456)
 		(0.711, 1.479) (0.734, 1.503) (0.757, 1.535) (0.773, 1.564)
@@ -68,7 +68,7 @@
 		(3.537, 1.071) (3.685, 1.091) (3.857, 1.106) (4.052, 1.116)
 		(4.279, 1.118) (4.544, 1.112) (5.036, 1.095) (5.419, 1.090)
 		(7.800, 1.095) };
-	\draw [color=red!50.0!blue, thick, style=solid] plot coordinates {
+	\draw [color=red!50.0!blue, style=solid, thick] plot coordinates {
 		(0.000, 1.305) (0.180, 1.309) (0.351, 1.320) (0.508, 1.338)
 		(0.640, 1.359) (0.734, 1.379) (0.750, 1.380) (0.757, 1.378)
 		(0.765, 1.375) (0.773, 1.367) (0.781, 1.351) (0.789, 1.318)
@@ -84,7 +84,7 @@
 		(2.873, 0.928) (3.170, 1.014) (3.318, 1.050) (3.459, 1.076)
 		(3.607, 1.097) (3.779, 1.112) (3.982, 1.122) (4.232, 1.126)
 		(4.544, 1.121) (5.098, 1.106) (5.567, 1.103) (7.800, 1.107) };
-	\draw [color=red!75.0!blue, thick, style=solid] plot coordinates {
+	\draw [color=red!75.0!blue, style=solid, thick] plot coordinates {
 		(0.000, 1.268) (0.219, 1.272) (0.406, 1.282) (0.554, 1.297)
 		(0.734, 1.323) (0.757, 1.322) (0.773, 1.319) (0.789, 1.309)
 		(0.796, 1.300) (0.804, 1.288) (0.812, 1.271) (0.828, 1.219)
@@ -99,7 +99,7 @@
 		(3.342, 1.084) (3.482, 1.103) (3.654, 1.117) (3.888, 1.127)
 		(4.247, 1.133) (4.575, 1.131) (5.138, 1.118) (5.754, 1.117)
 		(7.800, 1.120) };
-	\draw [color=red!100.0!blue, thick, style=solid] plot coordinates {
+	\draw [color=red!100.0!blue, style=solid, thick] plot coordinates {
 		(0.000, 1.159) (7.800, 1.159) };
 	\shade [bottom color=blue, top color=red]
 		(7.800, 0) rectangle (7.900, 2.500);
@@ -132,10 +132,10 @@
 	\node [align=center, below left=0cm] at (7.800, 2.500) {
 		\begin{tikzpicture}[x=0.2cm, y=\baselineskip, mark indices={2}]
 			\node [right] at (2, 0) {Re};
-			\draw [thick, style=solid]
+			\draw [style=solid, thick]
 				plot coordinates { (0, 0) (1, 0) (2, 0) };
 			\node [right] at (2, 1) {Im};
-			\draw [thick, style=dotted]
+			\draw [style=dotted, thick]
 				plot coordinates { (0, 1) (1, 1) (2, 1) };
 		\end{tikzpicture}
 		};

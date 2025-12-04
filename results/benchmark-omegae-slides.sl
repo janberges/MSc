@@ -1,6 +1,6 @@
 \tikzsetnextfilename{benchmark-omegae-slides}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(4.500, 4.500);
 	\draw [color=cyan, thick] plot coordinates {
@@ -14,7 +14,7 @@
 		(2.586, 2.586) (2.897, 2.900) (3.000, 3.000) };
 	\draw [thick] plot coordinates {
 		(0.000, 0.017) (3.000, 2.774) };
-	\draw [very thick, loosely dotted] plot coordinates {
+	\draw [loosely dotted, very thick] plot coordinates {
 		(0.000, 0.000) (3.000, 2.724) };
 	\draw [line cap=butt]
 		(0.000, 0) -- +(0, -0.070) node [below] {$0.01$}

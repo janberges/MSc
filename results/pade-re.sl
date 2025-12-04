@@ -1,9 +1,9 @@
 \tikzsetnextfilename{pade-re}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 5.000);
-	\draw [line width=2.5pt, dotted] plot coordinates {
+	\draw [dotted, line width=2.5pt] plot coordinates {
 		(0.000, 0.001) (0.965, 0.001) (0.975, 0.004) (0.980, 0.012)
 		(0.985, 0.035) (0.990, 0.104) (0.995, 0.276) (1.005, 0.871)
 		(1.010, 1.036) (1.015, 1.098) (1.020, 1.116) (1.025, 1.117)
@@ -26,7 +26,7 @@
 		(1.775, 0.994) (1.890, 0.959) (2.025, 0.927) (2.185, 0.897)
 		(2.380, 0.869) (2.620, 0.844) (2.920, 0.821) (3.305, 0.801)
 		(3.815, 0.783) (4.525, 0.768) (5.000, 0.761) };
-	\draw [color=yellow!0.0!red, line width=1pt, dotted] plot coordinates {
+	\draw [color=yellow!0.0!red, dotted, line width=1pt] plot coordinates {
 		(0.000, 0.001) (0.845, 0.002) (0.905, 0.006) (0.935, 0.013)
 		(0.955, 0.025) (0.970, 0.040) (0.985, 0.068) (0.995, 0.101)
 		(1.005, 0.153) (1.015, 0.240) (1.025, 0.394) (1.035, 0.678)
@@ -66,7 +66,7 @@
 		(3.190, 1.054) (3.375, 1.049) (3.565, 1.035) (3.755, 1.013)
 		(3.955, 0.982) (4.170, 0.941) (4.415, 0.885) (4.745, 0.799)
 		(5.000, 0.730) };
-	\draw [color=yellow!50.0!red, line width=1pt, dotted] plot coordinates {
+	\draw [color=yellow!50.0!red, dotted, line width=1pt] plot coordinates {
 		(0.000, 0.001) (0.890, 0.001) (0.925, 0.005) (0.945, 0.012)
 		(0.960, 0.024) (0.970, 0.040) (0.980, 0.068) (0.990, 0.120)
 		(1.000, 0.222) (1.010, 0.426) (1.020, 0.817) (1.035, 1.650)
@@ -97,7 +97,7 @@
 		(1.625, 1.085) (1.705, 1.051) (1.880, 0.967) (1.970, 0.931)
 		(2.060, 0.904) (2.160, 0.883) (2.280, 0.866) (2.450, 0.852)
 		(2.865, 0.832) (3.975, 0.784) (4.605, 0.764) (5.000, 0.756) };
-	\draw [color=yellow!100.0!red, line width=1pt, dotted] plot coordinates {
+	\draw [color=yellow!100.0!red, dotted, line width=1pt] plot coordinates {
 		(0.000, 0.001) (0.925, 0.001) (0.945, 0.005) (0.955, 0.011)
 		(0.965, 0.024) (0.975, 0.053) (0.985, 0.114) (0.995, 0.247)
 		(1.005, 0.508) (1.020, 1.099) (1.025, 1.243) (1.030, 1.320)
@@ -150,7 +150,7 @@
 	\node [align=center, below left=0.2cm] at (5.000, 3.500) {
 		\begin{tikzpicture}[x=0.2cm, y=\baselineskip, mark indices={2}]
 			\node [right] at (2, 0) {Im};
-			\draw [line width=1pt, dotted]
+			\draw [dotted, line width=1pt]
 				plot coordinates { (0, 0) (1, 0) (2, 0) };
 			\node [right] at (2, 1) {Re};
 			\draw [line width=1pt]

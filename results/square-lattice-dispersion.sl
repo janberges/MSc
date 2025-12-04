@@ -1,6 +1,6 @@
 \tikzsetnextfilename{square-lattice-dispersion}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(4.666, 4.166);
 	\draw [color=red!0.0!blue, thick] plot coordinates {

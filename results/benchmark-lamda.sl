@@ -1,6 +1,6 @@
 \tikzsetnextfilename{benchmark-lamda}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 7.000);
 	\draw [color=blue] plot coordinates {
@@ -27,7 +27,7 @@
 		(3.414, 3.431) (3.603, 3.583) (3.793, 3.728) (3.983, 3.868)
 		(4.172, 4.003) (4.362, 4.133) (4.552, 4.258) (4.741, 4.378)
 		(4.931, 4.494) (5.121, 4.605) (5.310, 4.713) (5.500, 4.817) };
-	\draw [thick, dotted] plot coordinates {
+	\draw [dotted, thick] plot coordinates {
 		(0.000, 0.000) (0.190, 0.118) (0.379, 0.268) (0.569, 0.445)
 		(0.759, 0.642) (0.948, 0.854) (1.138, 1.074) (1.707, 1.753)
 		(1.897, 1.978) (2.086, 2.198) (2.276, 2.414) (2.466, 2.624)
@@ -55,7 +55,7 @@
 	\node [align=center, above left=0.2cm] at (5.500, 0.000) {
 		\begin{tikzpicture}[x=0.2cm, y=\baselineskip, mark indices={2}]
 			\node [right] at (2, 0) {\name{Einstein}};
-			\draw [thick, dotted]
+			\draw [dotted, thick]
 				plot coordinates { (0, 0) (1, 0) (2, 0) };
 			\node [right] at (2, 1) {\name{McMillan}};
 			\draw []

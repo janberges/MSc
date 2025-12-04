@@ -1,13 +1,13 @@
 \tikzsetnextfilename{self-energy-delta-im}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 5.000);
-	\draw [mark size=0.8pt, color=red!0.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!0.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.795, 3.500) (0.718, 3.303) (0.641, 2.972) (0.564, 2.591)
 		(0.487, 2.218) (0.410, 1.881) (0.333, 1.589) (0.256, 1.343)
 		(0.179, 1.138) (0.103, 0.967) (0.026, 0.825) };
-	\draw [mark size=0.8pt, color=red!0.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!0.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.872, 3.500) (0.949, 3.303) (1.026, 2.972) (1.103, 2.591)
 		(1.179, 2.218) (1.256, 1.881) (1.333, 1.589) (1.410, 1.343)
 		(1.487, 1.138) (1.564, 0.967) (1.641, 0.825) (1.718, 0.708)
@@ -22,10 +22,10 @@
 		(4.256, 0.015) (4.333, 0.013) (4.410, 0.011) (4.487, 0.009)
 		(4.564, 0.007) (4.641, 0.006) (4.718, 0.004) (4.795, 0.003)
 		(4.872, 0.001) (4.949, 0.000) };
-	\draw [mark size=0.8pt, color=red!50.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!50.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.782, 2.953) (0.679, 2.697) (0.577, 2.306) (0.474, 1.907)
 		(0.372, 1.560) (0.269, 1.279) (0.167, 1.057) (0.064, 0.884) };
-	\draw [mark size=0.8pt, color=red!50.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!50.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.885, 2.953) (0.987, 2.697) (1.090, 2.306) (1.192, 1.907)
 		(1.295, 1.560) (1.397, 1.279) (1.500, 1.057) (1.603, 0.884)
 		(1.705, 0.749) (1.808, 0.643) (1.910, 0.560) (2.013, 0.494)
@@ -37,10 +37,10 @@
 		(4.167, 0.177) (4.269, 0.175) (4.372, 0.172) (4.474, 0.170)
 		(4.577, 0.168) (4.679, 0.166) (4.782, 0.165) (4.885, 0.163)
 		(4.987, 0.162) };
-	\draw [mark size=0.8pt, color=red!75.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!75.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.776, 2.417) (0.660, 2.187) (0.545, 1.850) (0.429, 1.526)
 		(0.314, 1.260) (0.199, 1.054) (0.083, 0.897) };
-	\draw [mark size=0.8pt, color=red!75.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!75.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.891, 2.417) (1.006, 2.187) (1.122, 1.850) (1.237, 1.526)
 		(1.353, 1.260) (1.468, 1.054) (1.583, 0.897) (1.699, 0.779)
 		(1.814, 0.689) (1.929, 0.620) (2.045, 0.567) (2.160, 0.525)
@@ -50,10 +50,10 @@
 		(3.660, 0.354) (3.776, 0.351) (3.891, 0.347) (4.006, 0.345)
 		(4.122, 0.342) (4.237, 0.340) (4.353, 0.338) (4.468, 0.336)
 		(4.583, 0.334) (4.699, 0.333) (4.814, 0.332) (4.929, 0.330) };
-	\draw [mark size=0.8pt, color=red!100.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!100.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.769, 0.846) (0.641, 0.846) (0.513, 0.846) (0.385, 0.846)
 		(0.256, 0.846) (0.128, 0.846) (0.000, 0.846) };
-	\draw [mark size=0.8pt, color=red!100.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!100.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.897, 0.846) (1.026, 0.846) (1.154, 0.846) (1.282, 0.846)
 		(1.410, 0.846) (1.538, 0.846) (1.667, 0.846) (1.795, 0.846)
 		(1.923, 0.846) (2.051, 0.846) (2.179, 0.846) (2.308, 0.846)

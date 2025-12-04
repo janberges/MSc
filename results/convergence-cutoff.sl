@@ -1,9 +1,9 @@
 \tikzsetnextfilename{convergence-cutoff}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 7.000);
-	\draw [color=blue, only marks, mark=*] plot coordinates {
+	\draw [color=blue, mark=*, only marks] plot coordinates {
 		(0.000, 4.458) (0.112, 4.004) (0.224, 3.677) (0.337, 3.435)
 		(0.449, 3.250) (0.561, 2.994) (0.673, 2.904) (0.786, 2.768)
 		(0.898, 2.674) (1.010, 2.604) (1.122, 2.528) (1.235, 2.490)
@@ -17,7 +17,7 @@
 		(4.490, 2.152) (4.602, 2.152) (4.714, 2.152) (4.827, 2.152)
 		(4.939, 2.152) (5.051, 2.152) (5.163, 2.152) (5.276, 2.152)
 		(5.388, 2.152) (5.500, 2.152) };
-	\draw [color=red, only marks, mark=*] plot coordinates {
+	\draw [color=red, mark=*, only marks] plot coordinates {
 		(0.000, 1.507) (0.112, 1.232) (0.224, 1.046) (0.337, 0.840)
 		(0.449, 0.789) (0.561, 0.747) (0.673, 0.745) (0.786, 0.763)
 		(0.898, 0.796) (1.010, 0.859) (1.122, 0.904) (1.235, 0.969)
@@ -51,10 +51,10 @@
 		rescale? \\
 		\begin{tikzpicture}[x=0.2cm, y=\baselineskip, mark indices={2}]
 			\node [right] at (2, 0) {no};
-			\draw [color=red, only marks, mark=*]
+			\draw [color=red, mark=*, only marks]
 				plot coordinates { (0, 0) (1, 0) (2, 0) };
 			\node [right] at (2, 1) {yes};
-			\draw [color=blue, only marks, mark=*]
+			\draw [color=blue, mark=*, only marks]
 				plot coordinates { (0, 1) (1, 1) (2, 1) };
 		\end{tikzpicture}
 		};

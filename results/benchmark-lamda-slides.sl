@@ -1,6 +1,6 @@
 \tikzsetnextfilename{benchmark-lamda-slides}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(4.500, 4.500);
 	\draw [color=cyan, thick] plot coordinates {
@@ -22,7 +22,7 @@
 		(1.655, 1.697) (1.759, 1.786) (1.862, 1.872) (1.966, 1.954)
 		(2.069, 2.034) (2.172, 2.110) (2.276, 2.184) (2.379, 2.254)
 		(2.483, 2.322) (2.586, 2.388) (2.793, 2.512) (3.000, 2.627) };
-	\draw [very thick, loosely dotted] plot coordinates {
+	\draw [loosely dotted, very thick] plot coordinates {
 		(0.000, 0.000) (0.103, 0.064) (0.207, 0.146) (0.310, 0.243)
 		(0.414, 0.350) (0.517, 0.466) (0.724, 0.709) (1.034, 1.079)
 		(1.241, 1.317) (1.345, 1.431) (1.448, 1.543) (1.552, 1.651)

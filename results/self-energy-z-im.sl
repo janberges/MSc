@@ -1,13 +1,13 @@
 \tikzsetnextfilename{self-energy-z-im}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 5.000);
-	\draw [mark size=0.8pt, color=red!0.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!0.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.795, 3.390) (0.718, 3.229) (0.641, 2.968) (0.564, 2.675)
 		(0.487, 2.391) (0.410, 2.135) (0.333, 1.911) (0.256, 1.717)
 		(0.179, 1.550) (0.103, 1.404) (0.026, 1.278) };
-	\draw [mark size=0.8pt, color=red!0.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!0.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.872, 3.390) (0.949, 3.229) (1.026, 2.968) (1.103, 2.675)
 		(1.179, 2.391) (1.256, 2.135) (1.333, 1.911) (1.410, 1.717)
 		(1.487, 1.550) (1.564, 1.404) (1.641, 1.278) (1.718, 1.167)
@@ -22,10 +22,10 @@
 		(4.256, 0.082) (4.333, 0.072) (4.410, 0.063) (4.487, 0.053)
 		(4.564, 0.044) (4.641, 0.036) (4.718, 0.028) (4.795, 0.020)
 		(4.872, 0.012) (4.949, 0.005) };
-	\draw [mark size=0.8pt, color=red!100.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!100.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.769, 3.500) (0.641, 3.048) (0.513, 2.518) (0.385, 2.072)
 		(0.256, 1.724) (0.128, 1.454) (0.000, 1.241) };
-	\draw [mark size=0.8pt, color=red!100.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!100.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(0.897, 3.500) (1.026, 3.048) (1.154, 2.518) (1.282, 2.072)
 		(1.410, 1.724) (1.538, 1.454) (1.667, 1.241) (1.795, 1.070)
 		(1.923, 0.931) (2.051, 0.815) (2.179, 0.718) (2.308, 0.634)

@@ -1,9 +1,9 @@
 \tikzsetnextfilename{asymptotes-1}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 7.000);
-	\draw [color=blue, only marks, mark=*] plot coordinates {
+	\draw [color=blue, mark=*, only marks] plot coordinates {
 		(0.825, 2.901) (0.920, 2.930) (1.016, 2.960) (1.111, 2.991)
 		(1.207, 3.023) (1.302, 3.057) (1.397, 3.091) (1.493, 3.125)
 		(1.588, 3.161) (1.684, 3.197) (1.779, 3.234) (1.874, 3.271)
@@ -43,7 +43,7 @@
 			\draw [color=cyan, thick]
 				plot coordinates { (0, 1) (1, 1) (2, 1) };
 			\node [right] at (2, 2) {exact};
-			\draw [color=blue, only marks, mark=*]
+			\draw [color=blue, mark=*, only marks]
 				plot coordinates { (0, 2) (1, 2) (2, 2) };
 		\end{tikzpicture}
 		};

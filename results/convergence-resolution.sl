@@ -1,9 +1,9 @@
 \tikzsetnextfilename{convergence-resolution}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(14.000, 7.000);
-	\draw [color=blue, only marks, mark=*] plot coordinates {
+	\draw [color=blue, mark=*, only marks] plot coordinates {
 		( 0.000, 5.500) ( 0.063, 4.794) ( 0.126, 3.133) ( 0.188, 5.217)
 		( 0.251, 3.666) ( 0.314, 5.169) ( 0.377, 4.973) ( 0.440, 1.535)
 		( 0.503, 5.202) ( 0.565, 2.626) ( 0.628, 4.887) ( 0.691, 2.859)
@@ -54,7 +54,7 @@
 		(11.809, 3.112) (11.872, 3.105) (11.935, 3.108) (11.997, 3.117)
 		(12.060, 3.102) (12.123, 3.112) (12.186, 3.103) (12.249, 3.113)
 		(12.312, 3.104) (12.374, 3.114) (12.437, 3.105) (12.500, 3.102) };
-	\draw [color=red, only marks, mark=*] plot coordinates {
+	\draw [color=red, mark=*, only marks] plot coordinates {
 		( 0.000, 3.860) ( 0.063, 2.430) ( 0.126, 3.206) ( 0.188, 3.249)
 		( 0.251, 3.380) ( 0.314, 3.741) ( 0.377, 2.927) ( 0.440, 2.861)
 		( 0.503, 3.382) ( 0.565, 3.122) ( 0.628, 3.721) ( 0.691, 2.513)
@@ -131,10 +131,10 @@
 		$\omega \sub E / \mathrm{meV}$ \\
 		\begin{tikzpicture}[x=0.2cm, y=\baselineskip, mark indices={2}]
 			\node [right] at (2, 0) {20};
-			\draw [color=red, only marks, mark=*]
+			\draw [color=red, mark=*, only marks]
 				plot coordinates { (0, 0) (1, 0) (2, 0) };
 			\node [right] at (2, 1) {10};
-			\draw [color=blue, only marks, mark=*]
+			\draw [color=blue, mark=*, only marks]
 				plot coordinates { (0, 1) (1, 1) (2, 1) };
 		\end{tikzpicture}
 		};

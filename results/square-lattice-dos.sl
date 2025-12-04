@@ -1,9 +1,9 @@
 \tikzsetnextfilename{square-lattice-dos}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(4.666, 4.166);
-	\draw [color=gray, line join=round, fill=orange!30] plot coordinates {
+	\draw [color=gray, fill=orange!30, line join=round] plot coordinates {
 		(0.176, 0.000) (0.176, 0.413) (0.402, 0.450) (0.592, 0.489)
 		(0.751, 0.528) (0.885, 0.569) (0.999, 0.612) (1.095, 0.655)
 		(1.176, 0.701) (1.247, 0.748) (1.306, 0.797) (1.356, 0.849)

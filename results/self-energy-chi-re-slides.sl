@@ -1,9 +1,9 @@
 \tikzsetnextfilename{self-energy-chi-re-slides}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(9.800, 4.000);
-	\draw [color=red!0.0!blue, thick, style=dotted] plot coordinates {
+	\draw [color=red!0.0!blue, style=dotted, thick] plot coordinates {
 		(0.000, 2.002) (0.820, 2.001) (0.890, 1.996) (0.945, 1.986)
 		(1.062, 1.953) (1.132, 1.941) (1.280, 1.922) (1.351, 1.906)
 		(1.405, 1.887) (1.460, 1.860) (1.538, 1.816) (1.577, 1.801)
@@ -11,14 +11,14 @@
 		(1.913, 1.842) (2.038, 1.846) (2.217, 1.842) (2.522, 1.826)
 		(3.131, 1.782) (3.732, 1.733) (5.145, 1.610) (6.301, 1.502)
 		(7.339, 1.398) (7.800, 1.349) };
-	\draw [color=red!100.0!blue, thick, style=dotted] plot coordinates {
+	\draw [color=red!100.0!blue, style=dotted, thick] plot coordinates {
 		(0.000, 2.002) (0.648, 2.004) (0.773, 2.002) (0.843, 1.996)
 		(0.929, 1.979) (1.046, 1.953) (1.234, 1.922) (1.312, 1.902)
 		(1.382, 1.876) (1.468, 1.841) (1.515, 1.828) (1.562, 1.823)
 		(1.624, 1.826) (1.788, 1.843) (1.921, 1.848) (2.108, 1.845)
 		(2.413, 1.830) (2.959, 1.793) (3.904, 1.718) (5.083, 1.616)
 		(6.238, 1.509) (7.292, 1.403) (7.800, 1.349) };
-	\draw [color=red!0.0!blue, thick, style=solid] plot coordinates {
+	\draw [color=red!0.0!blue, style=solid, thick] plot coordinates {
 		(0.000, 0.149) (0.273, 0.146) (0.515, 0.135) (0.687, 0.121)
 		(0.796, 0.106) (0.890, 0.086) (0.976, 0.066) (1.031, 0.061)
 		(1.171, 0.062) (1.257, 0.055) (1.421, 0.032) (1.468, 0.031)
@@ -26,7 +26,7 @@
 		(1.733, 0.138) (1.796, 0.145) (1.897, 0.145) (2.436, 0.124)
 		(3.014, 0.111) (3.592, 0.105) (4.927, 0.097) (6.395, 0.096)
 		(7.636, 0.103) (7.800, 0.105) };
-	\draw [color=red!100.0!blue, thick, style=solid] plot coordinates {
+	\draw [color=red!100.0!blue, style=solid, thick] plot coordinates {
 		(0.000, 0.149) (0.273, 0.145) (0.508, 0.135) (0.648, 0.123)
 		(0.750, 0.108) (0.906, 0.076) (0.984, 0.068) (1.171, 0.060)
 		(1.343, 0.045) (1.398, 0.046) (1.444, 0.054) (1.499, 0.071)
@@ -64,10 +64,10 @@
 	\node [align=center, below left=0cm] at (7.800, 2.500) {
 		\begin{tikzpicture}[x=0.2cm, y=\baselineskip, mark indices={2}]
 			\node [right] at (2, 0) {Re};
-			\draw [thick, style=solid]
+			\draw [style=solid, thick]
 				plot coordinates { (0, 0) (1, 0) (2, 0) };
 			\node [right] at (2, 1) {Im};
-			\draw [thick, style=dotted]
+			\draw [style=dotted, thick]
 				plot coordinates { (0, 1) (1, 1) (2, 1) };
 		\end{tikzpicture}
 		};

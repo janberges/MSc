@@ -1,6 +1,6 @@
 \tikzsetnextfilename{order-parameter}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(14.000, 7.000);
 	\draw [draw=none, fill=blue!25] plot coordinates {
@@ -124,7 +124,7 @@
 			\draw [color=blue, thick]
 				plot coordinates { (0, 1) (1, 1) (2, 1) };
 			\node [right] at (2, 2) {iter. (a.u.)};
-			\draw [color=blue!25, line width=6pt, line cap=butt]
+			\draw [color=blue!25, line cap=butt, line width=6pt]
 				plot coordinates { (0, 2) (1, 2) (2, 2) };
 		\end{tikzpicture}
 		};

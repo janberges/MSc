@@ -1,23 +1,23 @@
 \tikzsetnextfilename{intra-intra}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 7.000);
-	\draw [color=orange, only marks, mark=*] plot coordinates {
+	\draw [color=orange, mark=*, only marks] plot coordinates {
 		(0.000, 1.672) (0.183, 1.543) (0.367, 1.404) (0.550, 1.254)
 		(0.733, 1.092) (0.917, 0.917) };
-	\draw [color=orange, only marks, mark=*] plot coordinates {
+	\draw [color=orange, mark=*, only marks] plot coordinates {
 		(1.672, 0.000) (1.543, 0.183) (1.404, 0.367) (1.254, 0.550)
 		(1.092, 0.733) (0.917, 0.917) };
 	\draw [color=orange] plot coordinates {
 		(0.000, 1.672) (0.184, 1.542) (0.363, 1.407) (0.537, 1.266)
 		(0.699, 1.124) (0.855, 0.977) (1.006, 0.825) (1.152, 0.668)
 		(1.291, 0.506) (1.431, 0.332) (1.565, 0.152) (1.672, 0.000) };
-	\draw [color=blue, only marks, mark=*] plot coordinates {
+	\draw [color=blue, mark=*, only marks] plot coordinates {
 		(0.000, 3.178) (0.183, 3.077) (0.367, 2.970) (0.550, 2.856)
 		(0.733, 2.736) (0.917, 2.609) (1.100, 2.474) (1.283, 2.329)
 		(1.467, 2.175) (1.650, 2.010) (1.833, 1.833) };
-	\draw [color=blue, only marks, mark=*] plot coordinates {
+	\draw [color=blue, mark=*, only marks] plot coordinates {
 		(3.178, 0.000) (3.077, 0.183) (2.970, 0.367) (2.856, 0.550)
 		(2.736, 0.733) (2.609, 0.917) (2.474, 1.100) (2.329, 1.283)
 		(2.175, 1.467) (2.010, 1.650) (1.833, 1.833) };
@@ -27,12 +27,12 @@
 		(1.605, 2.052) (1.775, 1.891) (1.934, 1.730) (2.094, 1.559)
 		(2.243, 1.388) (2.392, 1.206) (2.540, 1.011) (2.679, 0.818)
 		(2.817, 0.612) (2.944, 0.409) (3.072, 0.192) (3.178, 0.000) };
-	\draw [color=red, only marks, mark=*] plot coordinates {
+	\draw [color=red, mark=*, only marks] plot coordinates {
 		(0.000, 4.616) (0.183, 4.530) (0.367, 4.440) (0.550, 4.346)
 		(0.733, 4.247) (0.917, 4.144) (1.100, 4.035) (1.283, 3.921)
 		(1.467, 3.801) (1.650, 3.675) (1.833, 3.542) (2.017, 3.401)
 		(2.200, 3.252) (2.383, 3.095) (2.567, 2.928) (2.750, 2.750) };
-	\draw [color=red, only marks, mark=*] plot coordinates {
+	\draw [color=red, mark=*, only marks] plot coordinates {
 		(4.616, 0.000) (4.530, 0.183) (4.440, 0.367) (4.346, 0.550)
 		(4.247, 0.733) (4.144, 0.917) (4.035, 1.100) (3.921, 1.283)
 		(3.801, 1.467) (3.675, 1.650) (3.542, 1.833) (3.401, 2.017)

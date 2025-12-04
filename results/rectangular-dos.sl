@@ -1,6 +1,6 @@
 \tikzsetnextfilename{rectangular-dos}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-0.500, -0.500) rectangle +(3.000, 2.000);
 	\draw [color=red, fill=red!20] plot coordinates {

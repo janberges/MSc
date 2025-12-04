@@ -1,6 +1,6 @@
 \tikzsetnextfilename{benchmark-omegae}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 7.000);
 	\draw [color=blue] plot coordinates {
@@ -17,7 +17,7 @@
 		(4.931, 4.933) (5.121, 5.123) (5.310, 5.317) (5.500, 5.500) };
 	\draw [] plot coordinates {
 		(0.000, 0.031) (5.500, 5.085) };
-	\draw [thick, dotted] plot coordinates {
+	\draw [dotted, thick] plot coordinates {
 		(0.000, 0.000) (5.500, 4.994) };
 	\draw [line cap=butt]
 		(0.000, 0) -- +(0, -0.070) node [below] {$0.01$}
@@ -40,7 +40,7 @@
 	\node [align=center, above left=0.2cm] at (5.500, 0.000) {
 		\begin{tikzpicture}[x=0.2cm, y=\baselineskip, mark indices={2}]
 			\node [right] at (2, 0) {\name{Einstein}};
-			\draw [thick, dotted]
+			\draw [dotted, thick]
 				plot coordinates { (0, 0) (1, 0) (2, 0) };
 			\node [right] at (2, 1) {\name{McMillan}};
 			\draw []

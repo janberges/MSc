@@ -1,11 +1,11 @@
 \tikzsetnextfilename{tc-2}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 7.000);
 	\draw [color=gray, thick] plot coordinates {
 		(0.000, 0.000) (5.500, 3.387) };
-	\draw [mark size=1pt, color=magenta, only marks, mark=*] plot coordinates {
+	\draw [color=magenta, mark=*, mark size=1pt, only marks] plot coordinates {
 		(2.691, 1.874) (2.518, 1.802) (1.919, 1.413) (3.950, 2.451)
 		(2.048, 1.283) (3.112, 2.005) (1.192, 0.852) (1.719, 1.213)
 		(1.154, 1.126) (1.147, 0.708) (3.032, 1.929) (2.232, 1.384)

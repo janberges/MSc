@@ -1,6 +1,6 @@
 \tikzsetnextfilename{benchmark-mustar-slides}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(4.500, 4.500);
 	\draw [color=cyan, thick] plot coordinates {
@@ -20,7 +20,7 @@
 		(1.448, 1.263) (1.655, 1.081) (1.862, 0.907) (2.069, 0.740)
 		(2.276, 0.583) (2.379, 0.508) (2.483, 0.436) (2.586, 0.367)
 		(2.690, 0.300) (2.793, 0.238) (2.897, 0.178) (3.000, 0.122) };
-	\draw [very thick, loosely dotted] plot coordinates {
+	\draw [loosely dotted, very thick] plot coordinates {
 		(0.000, 2.968) (0.414, 2.453) (0.724, 2.076) (0.931, 1.832)
 		(1.138, 1.594) (1.345, 1.365) (1.552, 1.144) (1.655, 1.038)
 		(1.759, 0.935) (1.862, 0.835) (1.966, 0.739) (2.069, 0.646)

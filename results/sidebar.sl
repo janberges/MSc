@@ -1,6 +1,6 @@
 \tikzsetnextfilename{sidebar}
 %
-\begin{tikzpicture}[mark size=0.05cm, xscale=-1, yscale=-1, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm, xscale=-1, yscale=-1]
 	\draw [use as bounding box, draw=none]
 		(0.000, 0.000) rectangle +(4.100, 9.600);
 	\draw [draw=none, fill=titleblue!25] plot coordinates {
@@ -39,7 +39,7 @@
 		(2.334, 2.020) (2.297, 2.289) (2.264, 2.597) (2.234, 2.943)
 		(2.208, 3.347) (2.183, 3.848) (2.162, 4.463) (2.145, 5.252)
 		(2.130, 6.329) (2.117, 7.907) (2.110, 9.600) (0.000, 9.600) };
-	\draw [mark size=0.5pt, color=red!0.0!titleblue, only marks, mark=*] plot coordinates {
+	\draw [color=red!0.0!titleblue, mark=*, mark size=0.5pt, only marks] plot coordinates {
 		(3.985, 0.130) (3.874, 0.391) (3.690, 0.652) (3.480, 0.913)
 		(3.277, 1.174) (3.096, 1.435) (2.942, 1.696) (2.813, 1.957)
 		(2.706, 2.218) (2.618, 2.478) (2.546, 2.739) (2.485, 3.000)
@@ -50,7 +50,7 @@
 		(2.167, 7.435) (2.162, 7.696) (2.158, 7.957) (2.154, 8.218)
 		(2.151, 8.479) (2.147, 8.740) (2.144, 9.001) (2.142, 9.261)
 		(2.139, 9.522) };
-	\draw [mark size=0.5pt, color=red!54.1!titleblue, only marks, mark=*] plot coordinates {
+	\draw [color=red!54.1!titleblue, mark=*, mark size=0.5pt, only marks] plot coordinates {
 		(3.592, 0.174) (3.449, 0.522) (3.234, 0.870) (3.019, 1.217)
 		(2.835, 1.565) (2.688, 1.913) (2.573, 2.261) (2.485, 2.609)
 		(2.416, 2.957) (2.363, 3.305) (2.320, 3.652) (2.287, 4.000)
@@ -58,7 +58,7 @@
 		(2.192, 5.740) (2.181, 6.087) (2.172, 6.435) (2.165, 6.783)
 		(2.158, 7.131) (2.152, 7.479) (2.147, 7.827) (2.143, 8.174)
 		(2.139, 8.522) (2.136, 8.870) (2.133, 9.218) (2.130, 9.566) };
-	\draw [mark size=0.5pt, color=red!81.1!titleblue, only marks, mark=*] plot coordinates {
+	\draw [color=red!81.1!titleblue, mark=*, mark size=0.5pt, only marks] plot coordinates {
 		(3.210, 0.196) (3.083, 0.587) (2.899, 0.978) (2.726, 1.370)
 		(2.586, 1.761) (2.479, 2.152) (2.400, 2.544) (2.339, 2.935)
 		(2.294, 3.326) (2.259, 3.718) (2.232, 4.109) (2.211, 4.500)
@@ -66,7 +66,7 @@
 		(2.153, 6.457) (2.147, 6.848) (2.141, 7.240) (2.137, 7.631)
 		(2.133, 8.022) (2.129, 8.414) (2.126, 8.805) (2.124, 9.196)
 		(2.121, 9.588) };
-	\draw [mark size=0.5pt, color=red!100.0!titleblue, only marks, mark=*] plot coordinates {
+	\draw [color=red!100.0!titleblue, mark=*, mark size=0.5pt, only marks] plot coordinates {
 		(2.727, 0.211) (2.647, 0.633) (2.534, 1.054) (2.432, 1.476)
 		(2.352, 1.898) (2.294, 2.320) (2.251, 2.741) (2.219, 3.163)
 		(2.195, 3.585) (2.177, 4.007) (2.163, 4.429) (2.153, 4.850)

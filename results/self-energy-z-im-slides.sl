@@ -1,13 +1,13 @@
 \tikzsetnextfilename{self-energy-z-im-slides}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(9.800, 4.000);
-	\draw [mark size=0.8pt, color=red!0.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!0.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(1.240, 2.421) (1.120, 2.306) (1.000, 2.120) (0.880, 1.911)
 		(0.760, 1.708) (0.640, 1.525) (0.520, 1.365) (0.400, 1.227)
 		(0.280, 1.107) (0.160, 1.003) (0.040, 0.913) };
-	\draw [mark size=0.8pt, color=red!0.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!0.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(1.360, 2.421) (1.480, 2.306) (1.600, 2.120) (1.720, 1.911)
 		(1.840, 1.708) (1.960, 1.525) (2.080, 1.365) (2.200, 1.227)
 		(2.320, 1.107) (2.440, 1.003) (2.560, 0.913) (2.680, 0.834)
@@ -22,10 +22,10 @@
 		(6.640, 0.059) (6.760, 0.052) (6.880, 0.045) (7.000, 0.038)
 		(7.120, 0.032) (7.240, 0.026) (7.360, 0.020) (7.480, 0.014)
 		(7.600, 0.009) (7.720, 0.003) };
-	\draw [mark size=0.8pt, color=red!100.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!100.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(1.200, 2.500) (1.000, 2.177) (0.800, 1.798) (0.600, 1.480)
 		(0.400, 1.232) (0.200, 1.039) (0.000, 0.887) };
-	\draw [mark size=0.8pt, color=red!100.0!blue, only marks, mark=*] plot coordinates {
+	\draw [color=red!100.0!blue, mark=*, mark size=0.8pt, only marks] plot coordinates {
 		(1.400, 2.500) (1.600, 2.177) (1.800, 1.798) (2.000, 1.480)
 		(2.200, 1.232) (2.400, 1.039) (2.600, 0.887) (2.800, 0.765)
 		(3.000, 0.665) (3.200, 0.582) (3.400, 0.513) (3.600, 0.453)

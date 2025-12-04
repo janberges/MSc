@@ -1,6 +1,6 @@
 \tikzsetnextfilename{benchmark-mustar}
 %
-\begin{tikzpicture}[mark size=0.05cm, line join=round, line cap=round]
+\begin{tikzpicture}[line cap=round, line join=round, mark size=0.05cm]
 	\draw [use as bounding box, draw=none]
 		(-1.000, -1.000) rectangle +(7.000, 7.000);
 	\draw [color=blue] plot coordinates {
@@ -25,7 +25,7 @@
 		(3.983, 1.210) (4.172, 1.068) (4.362, 0.931) (4.552, 0.799)
 		(4.741, 0.672) (4.931, 0.551) (5.121, 0.436) (5.310, 0.327)
 		(5.500, 0.224) };
-	\draw [thick, dotted] plot coordinates {
+	\draw [dotted, thick] plot coordinates {
 		(0.000, 5.442) (0.569, 4.731) (0.948, 4.265) (1.328, 3.807)
 		(1.707, 3.359) (1.897, 3.139) (2.086, 2.923) (2.276, 2.710)
 		(2.466, 2.502) (2.655, 2.298) (2.845, 2.098) (3.034, 1.904)
@@ -55,7 +55,7 @@
 	\node [align=center, below left=0.2cm] at (5.500, 5.500) {
 		\begin{tikzpicture}[x=0.2cm, y=\baselineskip, mark indices={2}]
 			\node [right] at (2, 0) {\name{Einstein}};
-			\draw [thick, dotted]
+			\draw [dotted, thick]
 				plot coordinates { (0, 0) (1, 0) (2, 0) };
 			\node [right] at (2, 1) {\name{McMillan}};
 			\draw []
