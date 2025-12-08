@@ -15,7 +15,6 @@ para = {
     'file': 'benchmark.dat',
     'error': 0.01,
     'cutoff': 15,
-    'rate': 0.5,
     'n': 0.5,
     'T': -10.0,
 }
