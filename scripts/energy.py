@@ -21,6 +21,8 @@ para = {
     'dos': 'energy.dos',
 }
 
+para['muC'] = para['muStar'] / (1 + para['muStar'] * np.log(para['omegaE']))
+
 print('Calculating DOS..')
 
 epsilon, dos = ebmb.square_dos(para['dos'], resolution=5001)

@@ -20,6 +20,8 @@ para = {
     'n': 0.5,
 }
 
+para['muC'] = para['muStar'] / (1 + para['muStar'] * np.log(para['omegaE']))
+
 print('Calculating DOS..')
 
 ebmb.square_dos(para['dos'], resolution=501)

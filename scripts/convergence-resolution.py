@@ -35,6 +35,9 @@ for i, resolution in enumerate(resolutions):
     ebmb.square_dos(para['dos'], resolution=resolution)
 
     for j, para['omegaE'] in enumerate(frequencies):
+        para['muC'] = para['muStar'] \
+            / (1 + para['muStar'] * np.log(para['omegaE']))
+
         Tc[j, i] = kB / para['omegaE'] * ebmb.get(program='critical', **para)
 
 plot = storylines.Plot(14, 7, right=0.5, xstep=0.1, ystep=0.02)

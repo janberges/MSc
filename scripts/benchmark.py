@@ -85,6 +85,11 @@ while True:
             print('%s = %6.4f' % (key, parameters[key]))
 
             for i, parameters['dos'] in enumerate(['none', 'benchmark.dos']):
+                parameters['muC'] = parameters['muStar']
+
+                if parameters['dos'] != 'none':
+                    parameters['muC'] /= 1 + parameters['muStar'] * np.log(parameters['omegaE'])
+
                 Tc[i, j] = ebmb.get('critical', **parameters)
 
                 parameters['T'] = Tc[i, j]
