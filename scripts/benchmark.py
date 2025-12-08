@@ -17,6 +17,7 @@ para = {
     'cutoff': 15,
     'rate': 0.5,
     'n': 0.5,
+    'T': -10.0,
 }
 
 resolution = 30
@@ -92,7 +93,7 @@ while True:
 
                 Tc[i, j] = ebmb.get('critical', **para)
 
-                para['T'] = Tc[i, j]
+                para['T'] = -Tc[i, j]
 
             Tc[2, j] = McMillan(A=1.20, B=1.04, C=0.62, **para)
             Tc[3, j] = McMillan(A=0.94, B=1.11, C=0.74, **para)
