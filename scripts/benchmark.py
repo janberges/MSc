@@ -10,7 +10,7 @@ def McMillan(A, B, C, omegaE, lamda, muStar, **more):
     return omegaE / (A * kB) * np.exp(-B * (1 + lamda)
         / (lamda - C * lamda * muStar - muStar))
 
-parameters = {
+para = {
     'tell': False,
     'file': 'benchmark.dat',
     'error': 0.01,
@@ -79,23 +79,23 @@ while True:
         plot.xlabel = r'$%s$' % formula[key]
         plot_slides.xlabel = plot.xlabel
 
-        parameters.update(constant)
+        para.update(constant)
 
-        for j, parameters[key] in enumerate(variable[key]):
-            print('%s = %6.4f' % (key, parameters[key]))
+        for j, para[key] in enumerate(variable[key]):
+            print('%s = %6.4f' % (key, para[key]))
 
-            for i, parameters['dos'] in enumerate(['none', 'benchmark.dos']):
-                parameters['muC'] = parameters['muStar']
+            for i, para['dos'] in enumerate(['none', 'benchmark.dos']):
+                para['muC'] = para['muStar']
 
-                if parameters['dos'] != 'none':
-                    parameters['muC'] /= 1 + parameters['muStar'] * np.log(parameters['omegaE'])
+                if para['dos'] != 'none':
+                    para['muC'] /= 1 + para['muStar'] * np.log(para['omegaE'])
 
-                Tc[i, j] = ebmb.get('critical', **parameters)
+                Tc[i, j] = ebmb.get('critical', **para)
 
-                parameters['T'] = Tc[i, j]
+                para['T'] = Tc[i, j]
 
-            Tc[2, j] = McMillan(A=1.20, B=1.04, C=0.62, **parameters)
-            Tc[3, j] = McMillan(A=0.94, B=1.11, C=0.74, **parameters)
+            Tc[2, j] = McMillan(A=1.20, B=1.04, C=0.62, **para)
+            Tc[3, j] = McMillan(A=0.94, B=1.11, C=0.74, **para)
 
         for tc, style, style_slides, label in zip(
             Tc, styles, styles_slides, labels):
